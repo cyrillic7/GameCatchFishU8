@@ -13,6 +13,7 @@
 
 AlertWidget::AlertWidget()
 {
+
 	m_alertDelegate = NULL;
 	mTitleText = "";
 	mBTwoButtons = false;
