@@ -29,7 +29,6 @@ public:
 private:
     // 背景图
     Sprite* m_backgroundSprite;
-    
     // 前面那个圈
     Sprite* m_forgroundSprite;
     CCProgressTimer* m_progressTimer;

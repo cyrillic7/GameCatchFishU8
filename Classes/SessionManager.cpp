@@ -740,9 +740,11 @@ void SessionManager::sortMatchRooms()
 				MatchInfoModel* curMode = (MatchInfoModel*)mMatchRooms->getObjectAtIndex(j);
 				if (curMode->getSerialModel()->getSortId() < minMode->getSerialModel()->getSortId())
 				{
+				
 					//交换两个接点的位置
-					MatchInfoModel* tempMode = minMode;
-					mMatchRooms->swap(i,j);
+					mMatchRooms->swap(i, j);
+					//记录当前最少的一项
+					minMode = curMode;
 				}
 			}
 		}

@@ -12,6 +12,7 @@
 #include "cocos-ext.h"
 #include "ui/CocosGUI.h"
 #include "Model/ChargeModel.h"
+#include "Common/AlertWidget.h"
 
 using namespace cocos2d::ui;
 USING_NS_CC;
@@ -23,7 +24,7 @@ enum tabType
 	tab_max
 };
 
-class GameHallChargeWidget :public TNWidget
+class GameHallChargeWidget :public TNWidget,public AlertDelegate
 {
 public:
 	GameHallChargeWidget();
@@ -35,6 +36,7 @@ public:
 	void onEnter();
 	void onExit();
 
+	virtual void okCallback();
 	virtual void loadUI();
 protected:
 	void showLoading();
@@ -66,6 +68,7 @@ private:
 	__Array*   mDataArray;
 	std::string mCurOrderNumber;
 	ChargeModel* mCurModel;
+	bool        mbIngotExchange;
 };
 
 #endif //

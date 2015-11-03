@@ -11,6 +11,8 @@
 #define  LabelContentTag   1207
 #define  BtnColseTag		1211
 
+#define  BtnLableTag       4901
+
 AlertWidget::AlertWidget()
 {
 
@@ -82,11 +84,11 @@ void AlertWidget::loadUI()
 
 	ImageView* titleBg = static_cast<ImageView*>(popbg->getChildByTag(ImageTitleBagTag));
 
-	m_tilteLabel = static_cast<Text*>(titleBg->getChildByTag(LabelTitleTag));
+	/*m_tilteLabel = static_cast<Text*>(titleBg->getChildByTag(LabelTitleTag));
 	if (mTitleText !="")
 	{
-		m_tilteLabel->setText(mTitleText);
-	}
+	m_tilteLabel->setText(mTitleText);
+	}*/
 
 	m_contentLabel = static_cast<Text*>(popbg->getChildByTag(LabelContentTag));
 	if (mContentText !="")
@@ -105,6 +107,11 @@ void AlertWidget::loadUI()
 
 	Button* btnClose = static_cast<Button*>(popbg->getChildByTag(BtnColseTag));
 	btnClose->addTouchEventListener(CC_CALLBACK_2(AlertWidget::onOk, this));
+	if (mTitleText != "")
+	{	
+		Text* labelButton = static_cast<Text*>(btnClose->getChildByTag(BtnLableTag));
+		labelButton->setText(mTitleText);
+	}
 
 	if (mBTwoButtons)
 	{

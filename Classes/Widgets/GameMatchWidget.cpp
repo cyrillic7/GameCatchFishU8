@@ -124,7 +124,7 @@ bool GameMatchItem::init(bool isRoot ,MatchInfoModel* info,int matchtype)
 		Text* matchTimeText = Text::create();
 		matchTimeText->setFontSize(25);
 		SYSTEMTIME curtime = info->getMatchTime();
-		std::string time_str = __String::createWithFormat("%d-%d",curtime.wMonth,curtime.wDay)->getCString();
+		std::string time_str = __String::createWithFormat("%02d-%02d",curtime.wMonth,curtime.wDay)->getCString();
 		if (strcmp(time_str.c_str(),SessionManager::shareInstance()->getMatchTime().c_str()) == 0 )//今天
 		{
 			__String* content= __String::createWithFormat("%s %02d:%02d",CommonFunction::GBKToUTF8("今天").c_str(),curtime.wHour,curtime.wMinute);
@@ -132,7 +132,7 @@ bool GameMatchItem::init(bool isRoot ,MatchInfoModel* info,int matchtype)
 		}
 		else
 		{
-			__String* content= __String::createWithFormat("%d-%d %02d:%02d",curtime.wMonth,curtime.wDay,curtime.wHour,curtime.wMinute);
+			__String* content= __String::createWithFormat("%02d-%02d %02d:%02d",curtime.wMonth,curtime.wDay,curtime.wHour,curtime.wMinute);
 			matchTimeText->setText(content->getCString());
 		}
 		matchTimeText->setPosition(Vec2(465,getSize().height/2));

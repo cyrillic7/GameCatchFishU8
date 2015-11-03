@@ -9,7 +9,6 @@
 #include "GameHallChargeItem.h"
 #include "GameHallVipPower.h"
 #include "Common/ModalViewManager.h"
-#include "Common/AlertWidget.h"
 #include "Model/ChargeModel.h"
 
 #define  TabGoldTag 570
@@ -46,6 +45,7 @@ GameHallChargeWidget::GameHallChargeWidget()
 	mDataArray->retain();
 
 	mCurModel = nullptr;
+	mbIngotExchange = false;
 }
 
 GameHallChargeWidget::~GameHallChargeWidget()
@@ -344,6 +344,7 @@ void GameHallChargeWidget::refreshData(int type)
 void GameHallChargeWidget::receiveExchangeIngoRspMsg(EventCustom* evt)
 {
 	removeLoading();
+	mbIngotExchange = false;
 	CMD_GP_ExchangeIngotSuccess* ret = (CMD_GP_ExchangeIngotSuccess*)evt->getUserData();
 	// 更新元宝值，银行金币值
 	mUserScore->setString(numberToString(ret->lInsure));
@@ -358,9 +359,21 @@ void GameHallChargeWidget::receiveOperateFailureMsg(EventCustom* evt)
 {
 	removeLoading();
 	CMD_GP_OperateFailure* ret = (CMD_GP_OperateFailure*)evt->getUserData();
-	ModalViewManager::sharedInstance()->showWidget(AlertWidget::create(nullptr,"",CommonFunction::GBKToUTF8(ret->szDescribeString)));
+	if (mbIngotExchange)
+	{
+		ModalViewManager::sharedInstance()->showWidget(AlertWidget::create(this,CommonFunction::GBKToUTF8("前往冲值"), CommonFunction::GBKToUTF8(ret->szDescribeString)));
+	}
+	else
+	{
+		ModalViewManager::sharedInstance()->showWidget(AlertWidget::create(nullptr, "", CommonFunction::GBKToUTF8(ret->szDescribeString)));
+	}
+		
 }
 
+void GameHallChargeWidget::okCallback()
+{
+	onClickIngot(mTabIngot, ui::Widget::TouchEventType::ENDED);
+}
 
 void GameHallChargeWidget::refreshTreasure(EventCustom* evt)
 {
@@ -376,6 +389,7 @@ void GameHallChargeWidget::refreshTreasure(EventCustom* evt)
 void GameHallChargeWidget::receiveIngotCoverScoreMsg(EventCustom* evt)
 {
 	showLoading();
+	mbIngotExchange = true;
 	ChargeModel* model = (ChargeModel*)evt->getUserData();
 	GameServiceClientManager::sharedInstance()->getCurrentServiceClient()->sendExchangeIngotRequest(model->getPrice());
 }
