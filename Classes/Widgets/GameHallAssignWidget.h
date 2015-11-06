@@ -14,16 +14,18 @@
 #include "cocos-ext.h"
 #include "ui/CocosGUI.h"
 #include "MsgDefine/CMD_LogonServer.h"
+#include "Common/AlertWidget.h"
 
 using namespace cocos2d::ui;
 USING_NS_CC;
 
-class GameHallAssginWidget : public TNWidget
+class GameHallAssginWidget : public TNWidget,public AlertDelegate
 {
 public:
 	GameHallAssginWidget();
 	~GameHallAssginWidget();
 	virtual bool init();
+	virtual void okCallback();
 	void onEnter();
 	void onExit();
 	std::string getWidgetJsonName();

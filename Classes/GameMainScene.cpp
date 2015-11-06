@@ -22,6 +22,7 @@
 #include "Widgets/GameHallFirstCharge.h"
 #include "Widgets/GameHallBagWidget.h"
 #include "widgets/GameHallMoreGameWidget.h"
+#include "Widgets/GameGiftCovertWidget.h"
 #include "GameSmallScene.h"
 #include "GameMatchScene.h"
 #include "SoundManager.h"
@@ -50,7 +51,7 @@ using namespace cocostudio;
 #define  ID_SCENE_ACTIVITY  2
 #define  ID_SCENE_TASK		3
 #define  ID_SCENE_BANK		4
-#define  ID_SCENE_ASSIGN	5
+#define  ID_SCENE_GIFTCOVERT	5
 #define  ID_SCENE_PAIMAI    6
 #define  ID_SCENE_SHARE     7
 
@@ -583,7 +584,7 @@ void MainScene::initMenuBar()
 	menuLayer->RegisterMenuHandler(this,CC_CALLBACK_2(MainScene::menuCallback, this));
 	
 
-	menuLayer->AppendItem("icon_assign.png","font_assign.png",CCMenuLayer::vertype, ID_SCENE_ASSIGN);
+	menuLayer->AppendItem("icon_exchange.png","font_exchange.png",CCMenuLayer::vertype, ID_SCENE_GIFTCOVERT);
 	menuLayer->AppendItem("icon_tast.png","font_task.png",CCMenuLayer::vertype, ID_SCENE_TASK);
 	menuLayer->AppendItem("icon_activity.png","font_activity.png",CCMenuLayer::vertype, ID_SCENE_ACTIVITY);
 	
@@ -638,8 +639,9 @@ void MainScene::menuCallback(Ref*pSender,ui::Widget::TouchEventType eventType)
 				CommonFunction::callJni(ulr->getCString(),WEB_ACTIVITY);
 			}
 			break;
-		case ID_SCENE_ASSIGN:
-			ModalViewManager::sharedInstance()->showWidget(GameHallAssginWidget::create());
+		case ID_SCENE_GIFTCOVERT:
+			//ModalViewManager::sharedInstance()->showWidget(GameHallAssginWidget::create());
+			ModalViewManager::sharedInstance()->showWidget(GameGiftCovertWidget::create());
 			break;
 		case ID_SCENE_BANK:
 			if (SessionManager::shareInstance()->isResetBankPwd())

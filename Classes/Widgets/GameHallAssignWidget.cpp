@@ -4,7 +4,6 @@
 #include "Message.h"
 #include "GameServiceClientManager.h"
 #include "CommonFunction.h"
-#include "Common/AlertWidget.h"
 #include "Common/ModalViewManager.h"
 #include "GameHallAssignItem.h"
 #include "Model/LoginUserModel.h"
@@ -100,8 +99,8 @@ void GameHallAssginWidget::loadUI()
 
 	ImageView* popBg = static_cast<ImageView*>(m_mainWidget->getChildByTag(ImagePopTag));
 
-	Button* btn_close = static_cast<Button*>(popBg->getChildByTag(BtnCloseTag));
-	btn_close->addTouchEventListener(CC_CALLBACK_2(GameHallAssginWidget::onBack, this));
+	//Button* btn_close = static_cast<Button*>(popBg->getChildByTag(BtnCloseTag));
+	//btn_close->addTouchEventListener(CC_CALLBACK_2(GameHallAssginWidget::onBack, this));
 
 	Button* btn_assign = static_cast<Button*>(popBg->getChildByTag(BtnAssignTag));
 	btn_assign->addTouchEventListener(CC_CALLBACK_2(GameHallAssginWidget::onAssign, this));
@@ -274,7 +273,7 @@ void GameHallAssginWidget::receiveAssinRsp(EventCustom* evt)
 	}
 	else
 	{
-		ModalViewManager::sharedInstance()->showWidget(AlertWidget::create(nullptr,"",CommonFunction::GBKToUTF8(signLog->szDescribeString)));
+		ModalViewManager::sharedInstance()->showWidget(AlertWidget::create(this,"",CommonFunction::GBKToUTF8(signLog->szDescribeString)));
 	}
 
 	//换手机登录已签到帐号也得处理
@@ -370,4 +369,9 @@ void GameHallAssginWidget::onAssign(Ref* pSender,ui::Widget::TouchEventType type
 		GameServiceClientManager::sharedInstance()->getCurrentServiceClient()->sendAssignMsg();
 		showLoading();
 	}
+}
+
+void GameHallAssginWidget::okCallback()
+{
+	removeFromParent();
 }
