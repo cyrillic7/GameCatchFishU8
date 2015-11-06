@@ -42,6 +42,7 @@ private:
 	std::string getImageNameByTag(int tag);
 	void dealScoreEffect(SCORE value);
 	void removeScoreEffect(Node* node);
+	void returnBack(Node* pSender);
 protected:
 	ImageView* mAssignPath;
 	ImageView* mPathBag;

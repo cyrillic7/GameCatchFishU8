@@ -330,9 +330,15 @@ void GameHallAssginWidget::removeScoreEffect(Node* node)
 	if (getChildByTag(EffectNodeTag))
 	{
 		FadeOut* fo = FadeOut::create(1.0f);
-		RemoveSelf* rs   = RemoveSelf::create();
-		getChildByTag(EffectNodeTag)->runAction(Sequence::createWithTwoActions(fo,rs));
+		//RemoveSelf* rs   = RemoveSelf::create();
+		CallFuncN* call = CallFuncN::create(this, callfuncN_selector(GameHallAssginWidget::returnBack));
+		getChildByTag(EffectNodeTag)->runAction(Sequence::createWithTwoActions(fo, call));
 	}
+}
+
+void GameHallAssginWidget::returnBack(Node* pSender)
+{
+	removeFromParent();
 }
 
 void GameHallAssginWidget::showLoading()
