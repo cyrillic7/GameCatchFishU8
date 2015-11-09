@@ -181,6 +181,8 @@ public:
 	void sendTreasureRequest();
 	//提取拍卖所得请求
 	void sendConvertAutionScoreRequest();
+	//发送礼包兑换请求
+	void sendGiftConvertRequest(const char* covertCode);
 	//bag 相关
 	void sendKnapSackRequest();
 	//vippower 相关

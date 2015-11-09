@@ -166,7 +166,8 @@
 
 //下载相关
 #define  downLoadReponseMsg "downLoadReponseMsg"//下载返回
-
+//礼包兑换
+#define  giftConvertRspMsg  "giftConvertRspMsg"
 //redpoint
 #define  unReadMessageMsg "unReadMessageMsg"
 #define  unGetTaskAwardMsg "unGetTaskAwardMsg"

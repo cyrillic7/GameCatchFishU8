@@ -45,6 +45,7 @@ void GameGiftCovertWidget::onEnter()
 
 	_eventDispatcher->addEventListenerWithSceneGraphPriority(EventListenerCustom::create(operateSuccessMsg, CC_CALLBACK_1(GameGiftCovertWidget::receiveOperateSuccessMsg, this)), this);
 	_eventDispatcher->addEventListenerWithSceneGraphPriority(EventListenerCustom::create(operateFailureMsg, CC_CALLBACK_1(GameGiftCovertWidget::receiveOperateFailureMsg, this)), this);
+	_eventDispatcher->addEventListenerWithSceneGraphPriority(EventListenerCustom::create(giftConvertRspMsg, CC_CALLBACK_1(GameGiftCovertWidget::receivegiftConvertRspMsg, this)), this);
 }
 
 bool GameGiftCovertWidget::init()
@@ -111,6 +112,21 @@ void GameGiftCovertWidget::receiveOperateFailureMsg(EventCustom* evt)
 	ModalViewManager::sharedInstance()->showWidget(AlertWidget::create(nullptr,"",CommonFunction::GBKToUTF8(failureInfo->szDescribeString)));
 }
 
+void GameGiftCovertWidget::receivegiftConvertRspMsg(EventCustom* evt)
+{
+	removeLoading();
+	CMD_GP_GiftChangeRet* ret = (CMD_GP_GiftChangeRet*)evt->getUserData();
+	if (ret->dwRet == 0)
+	{
+		ModalViewManager::sharedInstance()->showWidget(AlertWidget::create(this, "", CommonFunction::GBKToUTF8(ret->szDescribeString)));
+	}
+	else
+	{
+		ModalViewManager::sharedInstance()->showWidget(AlertWidget::create(nullptr, "", CommonFunction::GBKToUTF8(ret->szDescribeString)));
+	}
+	
+}
+
 void GameGiftCovertWidget::onBack(Ref* pSender, ui::Widget::TouchEventType type)
 {
 	if (type == ui::Widget::TouchEventType::ENDED)
@@ -129,6 +145,7 @@ void GameGiftCovertWidget::onOk(Ref* pSender, ui::Widget::TouchEventType type)
 			ModalViewManager::sharedInstance()->showWidget(AlertWidget::create(nullptr,"",CommonFunction::GBKToUTF8("¶Ò»»Âë²»ÄÜÎª¿Õ!")));
 			return;
 		}
+		GameServiceClientManager::sharedInstance()->getCurrentServiceClient()->sendGiftConvertRequest(mPwdEdit->getText());
 		showLoading();
 	}
 }

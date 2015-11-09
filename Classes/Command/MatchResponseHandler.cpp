@@ -71,7 +71,7 @@ void MatchResponseHandler::OnSocketSubMatchInfo(void* data, WORD data_size)
 	{
 		MatchInfoModel* info = nullptr;
 		bool isNewMatch = false;
-		log("MatchInfo->MatchSerial.dwMatchInfoID = %lld",MatchInfo->MatchSerial.dwMatchInfoID);
+		//log("MatchInfo->MatchSerial.dwMatchInfoID = %lld",MatchInfo->MatchSerial.dwMatchInfoID);
 		info = SessionManager::shareInstance()->getMatchInfoByID(MatchInfo->MatchSerial.dwMatchInfoID);
 		if (!info)
 		{

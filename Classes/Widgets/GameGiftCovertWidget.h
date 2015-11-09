@@ -36,6 +36,7 @@ public:
 private:
 	void receiveOperateSuccessMsg(EventCustom* evt);
 	void receiveOperateFailureMsg(EventCustom* evt);
+	void receivegiftConvertRspMsg(EventCustom* evt);
 	void onBack(Ref* pSender,ui::Widget::TouchEventType type);
 	void onOk(Ref* pSender,ui::Widget::TouchEventType type);
 protected:

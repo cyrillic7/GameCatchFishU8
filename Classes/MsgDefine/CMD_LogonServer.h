@@ -80,8 +80,10 @@
 //重设银行密码---获取验证码
 #define SUB_GP_SET_INSUREPASS_GET_CAPTCHA			128					//获取验证码
 #define SUB_GP_SET_INSUREPASS_SEND_CAPTCHA			129					//发送验证码
-#define SUB_GP_RECHARGE_ORDER		131													//充值订单
-#define SUB_GP_VIPSHOP														132				   //vip馆
+#define SUB_GP_RECHARGE_ORDER		131									//充值订单
+#define SUB_GP_VIPSHOP				132									//vip馆
+#define SUB_GP_GIFT_CHANGE			133									//礼物码兑换
+
 
 #define SUB_GP_CHECK_ACCOUNT		140									//核对账号
 #define SUB_GP_GET_CAPTCHA_BY_ID	141									//根据ID获取验证码
@@ -2061,6 +2063,28 @@ struct MatchUserDB
 	TCHAR                            szName[128];
 };
 
+//礼品码兑换
+struct CMD_GP_GiftChange
+{
+	CMD_GP_GiftChange()
+	{
+		memset(this, 0, sizeof(CMD_GP_GiftChange));
+	}
+	TCHAR							szAccounts[LEN_ACCOUNTS];			//帐号
+	TCHAR							szGiftChangeOrder[32];				//礼品码
+	DWORD							dwOpTerminal;						//操作终端（1：pc, 2：手机牛牛 3：手机捕鱼）
+};
+
+//礼品码兑换返回
+struct CMD_GP_GiftChangeRet
+{
+	CMD_GP_GiftChangeRet()
+	{
+		memset(this, 0, sizeof(CMD_GP_GiftChangeRet));
+	}
+	DWORD   dwRet;														//0：成功，1：失败
+	TCHAR	szDescribeString[128];										//描述消息
+};
 #pragma pack()
 
 #endif

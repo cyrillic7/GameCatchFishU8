@@ -508,7 +508,12 @@ bool GameServiceClient::OnTCPSocketRead(WORD wSocketID, TCP_Command Command, VOI
 				else if(Command.wSubCmdID == SUB_GP_GET_CAPTCHA)//获取验证码返回
 				{
 					Director::sharedDirector()->getEventDispatcher()->dispatchCustomEvent(getCaptchaRspMsg,pData);
+				}else if (Command.wSubCmdID == SUB_GP_GIFT_CHANGE)
+				{
+					Director::sharedDirector()->getEventDispatcher()->dispatchCustomEvent(giftConvertRspMsg, pData);
 				}
+				//登录点是短连接，要主动断开 add by tjl 2015 -11 -09
+				closeSoket();
 			}
 			break;
 		case MDM_MB_LOGON ://登录返回
@@ -615,7 +620,8 @@ bool GameServiceClient::OnTCPSocketRead(WORD wSocketID, TCP_Command Command, VOI
 			}
 			break;
 		}
-
+		//登录点是短连接，要主动断开 add by tjl 2015 -11 -09
+		//closeSoket();
 	}
 	else if(wSocketID == GAMEROOM_SORKET_INDEX)
 	{
@@ -811,7 +817,7 @@ bool GameServiceClient::OnTCPSocketRead(WORD wSocketID, TCP_Command Command, VOI
 	}
 	else if(wSocketID == TASK_SORKET_INDEX)
 	{
-		log("TASK_SORKET_INDEX  mainCmdID %d ,subCmdID = %d",Command.wMainCmdID,Command.wSubCmdID);
+		//log("TASK_SORKET_INDEX  mainCmdID %d ,subCmdID = %d",Command.wMainCmdID,Command.wSubCmdID);
 		switch (Command.wMainCmdID)
 		{
 		case MDM_GL_C_DATA:
@@ -2182,6 +2188,25 @@ void GameServiceClient::sendRechargeOrder(int ingot,const char* orderInfo, bool 
 	strcpy(recharge.szRechargeOrder, orderInfo);
 
 	m_GameSocket.SendMsg(MDM_GP_USER_SERVICE, SUB_GP_RECHARGE_ORDER, &recharge, sizeof(recharge));
+}
+
+void GameServiceClient::sendGiftConvertRequest(const char* covertCode)
+{
+	if (!m_GameSocket.IsConnected())
+	{
+		m_GameSocket.Connect(serverAddress, serverPort);
+	}
+	LoginUserModel* loginModel = SessionManager::shareInstance()->getLoginModel();
+
+	CMD_GP_GiftChange gift;
+	gift.dwOpTerminal = dwOptermianlValue;
+	if (loginModel->getAccountType() == accountMachineID)
+		strcpy(gift.szAccounts, loginModel->getQucikAccount().c_str());
+	else
+		strcpy(gift.szAccounts, loginModel->getAccount().c_str());
+
+	strcpy(gift.szGiftChangeOrder, covertCode);
+	m_GameSocket.SendMsg(MDM_GP_USER_SERVICE, SUB_GP_GIFT_CHANGE, &gift, sizeof(gift));
 }
 
 void GameServiceClient::closeSoket()
