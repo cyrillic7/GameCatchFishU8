@@ -32,6 +32,7 @@ proj.wp8-xaml/
 /proj.android/ant.properties
 /proj.android/build.xml
 /cocos2d
+/SDK_Project
 /res
 /*.rar
 /proj.win8.1-universal
