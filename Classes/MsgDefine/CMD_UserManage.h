@@ -2,7 +2,7 @@
 #define CMD_USERMANAGE_HEAD_FILE
 
 #include "GameGlobalSetting.h"
-#include "../GolbalDefine/Define.h"
+#include "GolbalDefine/Define.h"
 
 #pragma pack(1)
 
