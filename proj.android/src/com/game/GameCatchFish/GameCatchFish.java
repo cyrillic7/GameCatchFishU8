@@ -45,7 +45,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.json.JSONTokener;
 
-import com.alipay.sdk.app.PayTask;
+//import com.alipay.sdk.app.PayTask;
 import com.game.GameCatchFish.R;
 import com.tx.wx.wxapi.SendToWXActivity;
 
@@ -86,10 +86,10 @@ import android.graphics.Bitmap;
 public class GameCatchFish extends Cocos2dxActivity {
 	public static GameCatchFish app;
 	public String updateUrl;
-	WebView m_webView;//WebView¿Ø¼þ
-    FrameLayout m_webLayout;//FrameLayout²¼¾Ö
-    LinearLayout m_topLayout;//LinearLayout²¼¾Ö
-    Button m_backButton;//¹Ø±Õ°´Å¥
+	WebView m_webView;//WebViewï¿½Ø¼ï¿½
+    FrameLayout m_webLayout;//FrameLayoutï¿½ï¿½ï¿½ï¿½
+    LinearLayout m_topLayout;//LinearLayoutï¿½ï¿½ï¿½ï¿½
+    Button m_backButton;//ï¿½Ø±Õ°ï¿½Å¥
     int    m_webType;
     
     private static native void JniQQLogin(int value,final String account,final String pwd);
@@ -99,11 +99,11 @@ public class GameCatchFish extends Cocos2dxActivity {
 		super.onCreate(savedInstanceState);	
 		getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON); 
 		app=this;
-		//³õÊ¼»¯Ò»¸ö¿Õ²¼¾Ö
+		//ï¿½ï¿½Ê¼ï¿½ï¿½Ò»ï¿½ï¿½ï¿½Õ²ï¿½ï¿½ï¿½
 		DisplayMetrics metric = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(metric);
-        int width = metric.widthPixels;  // ÆÁÄ»¿í¶È£¨ÏñËØ£©
-        int height = metric.heightPixels;  // ÆÁÄ»¸ß¶È£¨ÏñËØ£©
+        int width = metric.widthPixels;  // ï¿½ï¿½Ä»ï¿½ï¿½È£ï¿½ï¿½ï¿½ï¿½Ø£ï¿½
+        int height = metric.heightPixels;  // ï¿½ï¿½Ä»ï¿½ß¶È£ï¿½ï¿½ï¿½ï¿½Ø£ï¿½
         
 	    m_webLayout = new FrameLayout(this);
         FrameLayout.LayoutParams lytp = new FrameLayout.LayoutParams(width,height);
@@ -155,7 +155,7 @@ public class GameCatchFish extends Cocos2dxActivity {
 	                || subType == TelephonyManager.NETWORK_TYPE_EVDO_A || subType == TelephonyManager.NETWORK_TYPE_EVDO_0 
 	                || subType == TelephonyManager.NETWORK_TYPE_EVDO_B) { 
 	            type = "3g"; 
-	        } else if (subType == TelephonyManager.NETWORK_TYPE_LTE) {// LTEÊÇ3gµ½4gµÄ¹ý¶É£¬ÊÇ3.9GµÄÈ«Çò±ê×¼ 
+	        } else if (subType == TelephonyManager.NETWORK_TYPE_LTE) {// LTEï¿½ï¿½3gï¿½ï¿½4gï¿½Ä¹ï¿½É£ï¿½ï¿½ï¿½3.9Gï¿½ï¿½È«ï¿½ï¿½ï¿½×¼ 
 	            type = "4g"; 
 	        } 
 	    } 
@@ -177,11 +177,11 @@ public class GameCatchFish extends Cocos2dxActivity {
 	public void showWxShare(int flag)
 	{
 		SendToWXActivity pSendActivity=new SendToWXActivity();
-		pSendActivity.sendShareTest("ÔÙ²»²¶ÓãÎÒÃÇ¾ÍÀÏÁË£¡          ÄúµÄÎ¢ÐÅºÃÓÑÑûÇëÄúÍæ¡° ´ïÈË²¶Óã¡±£¬Á¢¼´Ç°ÍùÏÂÔØÓÎÏ·Ö§Ô®ºÃÓÑ£¡~",flag);
+		pSendActivity.sendShareTest("ï¿½Ù²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç¾ï¿½ï¿½ï¿½ï¿½Ë£ï¿½          ï¿½ï¿½ï¿½Î¢ï¿½Åºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½æ¡° ï¿½ï¿½ï¿½Ë²ï¿½ï¿½ã¡±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï·Ö§Ô®ï¿½ï¿½ï¿½Ñ£ï¿½~",flag);
 
 	}
 	/*
-	 * »ñÈ¡¶©µ¥ÐÅÏ¢
+	 * ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
 	 * 
 	 */
 	public static String getCurTradeNo()
@@ -236,7 +236,7 @@ public class GameCatchFish extends Cocos2dxActivity {
 		} 
 		catch(Exception err) 
 		{ 
-			System.err.println("ELS - Chart : ÎÄ¼þ¼Ð´´½¨·¢ÉúÒì³£"); 
+			System.err.println("ELS - Chart : ï¿½Ä¼ï¿½ï¿½Ð´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ì³£"); 
 			err.printStackTrace();
 		} 
 	}
@@ -250,12 +250,12 @@ public class GameCatchFish extends Cocos2dxActivity {
 	private ProgressDialog gressDialog;
 	
 	public void openWebview(final String url,final int webType) {
-    	this.runOnUiThread(new Runnable() {//ÔÚÖ÷Ïß³ÌÀïÌí¼Ó±ðµÄ¿Ø¼þ
+    	this.runOnUiThread(new Runnable() {//ï¿½ï¿½ï¿½ï¿½ï¿½ß³ï¿½ï¿½ï¿½ï¿½ï¿½Ó±ï¿½Ä¿Ø¼ï¿½
             public void run() {   
             	  LayoutInflater flater = LayoutInflater.from(app);
         	      View view = flater.inflate(R.layout.webview_layout, null);
         	      m_webLayout.addView(view);
-        	      //ÆÁ±Î°´¼ü²»ÏÂÂ©
+        	      //ï¿½ï¿½ï¿½Î°ï¿½ï¿½ï¿½ï¿½ï¿½Â©
         	      view.setOnClickListener(new OnClickListener() {
   					@Override
   					public void onClick(View v) {
@@ -263,27 +263,27 @@ public class GameCatchFish extends Cocos2dxActivity {
   				});
         	     
         	    m_webType  = webType;
-                //³õÊ¼»¯webView
+                //ï¿½ï¿½Ê¼ï¿½ï¿½webView
                 //m_webView = new WebView(game);
         	    m_webView=(WebView)view.findViewById(R.id.webViewQQLogin);
-        	    m_webView.setHorizontalScrollBarEnabled(false);//Ë®Æ½²»ÏÔÊ¾
-				m_webView.setVerticalScrollBarEnabled(false); //´¹Ö±²»ÏÔÊ¾ 
-                //ÉèÖÃwebViewÄÜ¹»Ö´ÐÐjavascript½Å±¾
+        	    m_webView.setHorizontalScrollBarEnabled(false);//Ë®Æ½ï¿½ï¿½ï¿½ï¿½Ê¾
+				m_webView.setVerticalScrollBarEnabled(false); //ï¿½ï¿½Ö±ï¿½ï¿½ï¿½ï¿½Ê¾ 
+                //ï¿½ï¿½ï¿½ï¿½webViewï¿½Ü¹ï¿½Ö´ï¿½ï¿½javascriptï¿½Å±ï¿½
                 m_webView.getSettings().setJavaScriptEnabled(true);            
-                //ÉèÖÃ¿ÉÒÔÖ§³ÖËõ·Å
-                m_webView.getSettings().setSupportZoom(true);//ÉèÖÃ³öÏÖËõ·Å¹¤¾ß
+                //ï¿½ï¿½ï¿½Ã¿ï¿½ï¿½ï¿½Ö§ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+                m_webView.getSettings().setSupportZoom(true);//ï¿½ï¿½ï¿½Ã³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å¹ï¿½ï¿½ï¿½
                 m_webView.getSettings().setBuiltInZoomControls(true);
-                //ÔØÈëURL
+                //ï¿½ï¿½ï¿½ï¿½URL
                 m_webView.loadUrl(url);
-                //Ê¹Ò³Ãæ»ñµÃ½¹µã
+                //Ê¹Ò³ï¿½ï¿½ï¿½Ã½ï¿½ï¿½ï¿½
                 m_webView.requestFocus();
-                //Èç¹ûÒ³ÃæÖÐÁ´½Ó£¬Èç¹ûÏ£Íûµã»÷Á´½Ó¼ÌÐøÔÚµ±Ç°browserÖÐÏìÓ¦
+                //ï¿½ï¿½ï¿½Ò³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó£ï¿½ï¿½ï¿½ï¿½Ï£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó¼ï¿½ï¿½ï¿½ï¿½Úµï¿½Ç°browserï¿½ï¿½ï¿½ï¿½Ó¦
                 m_webView.setWebViewClient(new WebViewClient(){       
                     public boolean shouldOverrideUrlLoading(WebView view, String url) {   
                         if(url.indexOf("tel:")<0){
                         	Log.v("url", url);
                         	 view.loadUrl(url); 
-                        	//url²ÎÊý¼üÖµ¶Ô
+                        	//urlï¿½ï¿½ï¿½ï¿½ï¿½Öµï¿½ï¿½
                             String strRequestKeyAndValues="";        
                             Map<String, String> mapRequest =CRequest.URLRequest(url);
                             for(String strRequestKey: mapRequest.keySet()) {
@@ -310,7 +310,7 @@ public class GameCatchFish extends Cocos2dxActivity {
 							Bitmap favicon) {
 						// TODO Auto-generated method stub
 						super.onPageStarted(view, url, favicon);
-			            gressDialog = ProgressDialog.show(m_webView.getContext(), "¼ÓÔØÖÐ...", "", true);
+			            gressDialog = ProgressDialog.show(m_webView.getContext(), "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½...", "", true);
 			            gressDialog.setCanceledOnTouchOutside(true);
 					}
 
@@ -326,15 +326,15 @@ public class GameCatchFish extends Cocos2dxActivity {
 }
                 });
                 /*
-                //±³¾°Í¼
+                //ï¿½ï¿½ï¿½ï¿½Í¼
                 m_imageView = new ImageView(game);
                 m_imageView.setImageResource(R.drawable.icon);
                 m_imageView.setScaleType(ImageView.ScaleType.FIT_XY);
-                //³õÊ¼»¯ÏßÐÔ²¼¾Ö ÀïÃæ¼Ó°´Å¥ºÍwebView
+                //ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½Ô²ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ó°ï¿½Å¥ï¿½ï¿½webView
                 m_topLayout = new LinearLayout(game);      
                 m_topLayout.setOrientation(LinearLayout.VERTICAL);*/
                 m_topLayout=(LinearLayout)view.findViewById(R.id.LinearLayoutLogin);
-                //³õÊ¼»¯·µ»Ø°´Å¥
+                //ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½Ø°ï¿½Å¥
                 //m_backButton = new Button(game);
                 m_backButton=(Button)view.findViewById(R.id.buttonBack);
                // m_backButton.setBackgroundResource(R.drawable.icon);
@@ -362,12 +362,12 @@ public class GameCatchFish extends Cocos2dxActivity {
                     }
                 });
                 /*
-                //°Ñimage¼Óµ½Ö÷²¼¾ÖÀï 
+                //ï¿½ï¿½imageï¿½Óµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
                 m_webLayout.addView(m_imageView);
-                //°ÑwebView¼ÓÈëµ½ÏßÐÔ²¼¾Ö
+                //ï¿½ï¿½webViewï¿½ï¿½ï¿½ëµ½ï¿½ï¿½ï¿½Ô²ï¿½ï¿½ï¿½
                 m_topLayout.addView(m_backButton);
                 m_topLayout.addView(m_webView);                
-                //ÔÙ°ÑÏßÐÔ²¼¾Ö¼ÓÈëµ½Ö÷²¼¾Ö
+                //ï¿½Ù°ï¿½ï¿½ï¿½ï¿½Ô²ï¿½ï¿½Ö¼ï¿½ï¿½ëµ½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
                 m_webLayout.addView(m_topLayout);*/
             }
         });
@@ -388,11 +388,11 @@ public class GameCatchFish extends Cocos2dxActivity {
         m_backButton.destroyDrawingCache();
     }
  
- 	//ÉÌ»§PID
+ 	//ï¿½Ì»ï¿½PID
 	public static final String PARTNER = "2088111930234071";
-	// ÉÌ»§ÊÕ¿îÕËºÅ
+	// ï¿½Ì»ï¿½ï¿½Õ¿ï¿½ï¿½Ëºï¿½
 	public static final String SELLER = "hzxiangwan@163.com";
-	// ÉÌ»§Ë½Ô¿£¬pkcs8¸ñÊ½
+	// ï¿½Ì»ï¿½Ë½Ô¿ï¿½ï¿½pkcs8ï¿½ï¿½Ê½
 	public static final String RSA_PRIVATE = "MIICdwIBADANBgkqhkiG9w0BAQEFAASCAmEwggJdAgEAAoGBAN64/lUSkVgd/cVh"
 			+ "opVPrTquh+K0MvOt9k1boX3yBKmeB95ZV7y/GfiSAs9swuxZn7rkZN9WELqoB1P5"
 			+ "lk/djECqWRmLBFOIetGqVZ3aqrVjVfHE3uYW3PgxCBXukMVzdX/7uzWHtyvsScFf"
@@ -407,7 +407,7 @@ public class GameCatchFish extends Cocos2dxActivity {
 			+ "KznzXdmR2dERwjtkDOG4zTJkCKhwn6oncun8ticJtV9UFGg3uAd+VzUCQAk/iafj"
 			+ "GsJS5drAHvvBYeFQR5ooG/CqMz2K4MHnHGh/pAWCLnNQgO6FgNl7yjkjuMgbRBsk"
 			+ "yMwdN/3atqT0RsQ=";
-	// Ö§¸¶±¦¹«Ô¿
+	// Ö§ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô¿
 	public static final String RSA_PUBLIC =
 	// "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCnxj/9qwVfgoUh/y2W89L6BkRAFljhNhgPdyPuBV64bfQNN1PjbCzkIM6qRdKBoLPXmKKMiFYnkd6rAoprih3/PrQEB/VsW8OoM8fxn67UDYuyBTqA23MML9q1+ilIZwBC2AQ2UBVOrFXfFl75p6/B5KsiNG9zpgmLCUYuLkxpLQIDAQAB"
 
@@ -426,25 +426,25 @@ public class GameCatchFish extends Cocos2dxActivity {
 			case SDK_PAY_FLAG: {
 				PayResult payResult = new PayResult((String) msg.obj);
 
-				// Ö§¸¶±¦·µ»Ø´Ë´ÎÖ§¸¶½á¹û¼°¼ÓÇ©£¬½¨Òé¶ÔÖ§¸¶±¦Ç©ÃûÐÅÏ¢ÄÃÇ©Ô¼Ê±Ö§¸¶±¦Ìá¹©µÄ¹«Ô¿×öÑéÇ©
+				// Ö§ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ø´Ë´ï¿½Ö§ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç©ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö§ï¿½ï¿½ï¿½ï¿½Ç©ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½Ç©Ô¼Ê±Ö§ï¿½ï¿½ï¿½ï¿½ï¿½á¹©ï¿½Ä¹ï¿½Ô¿ï¿½ï¿½ï¿½ï¿½Ç©
 				String resultInfo = payResult.getResult();
 
 				String resultStatus = payResult.getResultStatus();
 
-				// ÅÐ¶ÏresultStatus Îª¡°9000¡±Ôò´ú±íÖ§¸¶³É¹¦£¬¾ßÌå×´Ì¬Âë´ú±íº¬Òå¿É²Î¿¼½Ó¿ÚÎÄµµ
+				// ï¿½Ð¶ï¿½resultStatus Îªï¿½ï¿½9000ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö§ï¿½ï¿½ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×´Ì¬ï¿½ï¿½ï¿½?ï¿½ï¿½É²Î¿ï¿½ï¿½Ó¿ï¿½ï¿½Äµï¿½
 				if (TextUtils.equals(resultStatus, "9000")) {
-					Toast.makeText(GameCatchFish.this, "Ö§¸¶³É¹¦",
+					Toast.makeText(GameCatchFish.this, "Ö§ï¿½ï¿½ï¿½É¹ï¿½",
 							Toast.LENGTH_SHORT).show();
 				} else {
-					// ÅÐ¶ÏresultStatus Îª·Ç¡°9000¡±Ôò´ú±í¿ÉÄÜÖ§¸¶Ê§°Ü
-					// ¡°8000¡±´ú±íÖ§¸¶½á¹ûÒòÎªÖ§¸¶ÇþµÀÔ­Òò»òÕßÏµÍ³Ô­Òò»¹ÔÚµÈ´ýÖ§¸¶½á¹ûÈ·ÈÏ£¬×îÖÕ½»Ò×ÊÇ·ñ³É¹¦ÒÔ·þÎñ¶ËÒì²½Í¨ÖªÎª×¼£¨Ð¡¸ÅÂÊ×´Ì¬£©
+					// ï¿½Ð¶ï¿½resultStatus Îªï¿½Ç¡ï¿½9000ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö§ï¿½ï¿½Ê§ï¿½ï¿½
+					// ï¿½ï¿½8000ï¿½ï¿½ï¿½ï¿½ï¿½Ö§ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÎªÖ§ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô­ï¿½ï¿½ï¿½ï¿½ï¿½ÏµÍ³Ô­ï¿½ï¿½ï¿½ÚµÈ´ï¿½Ö§ï¿½ï¿½ï¿½ï¿½ï¿½È·ï¿½Ï£ï¿½ï¿½ï¿½ï¿½Õ½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½É¹ï¿½ï¿½Ô·ï¿½ï¿½ï¿½ï¿½ï¿½ì²½Í¨ÖªÎª×¼ï¿½ï¿½Ð¡ï¿½ï¿½ï¿½ï¿½×´Ì¬ï¿½ï¿½
 					if (TextUtils.equals(resultStatus, "8000")) {
-						Toast.makeText(GameCatchFish.this, "Ö§¸¶½á¹ûÈ·ÈÏÖÐ",
+						Toast.makeText(GameCatchFish.this, "Ö§ï¿½ï¿½ï¿½ï¿½ï¿½È·ï¿½ï¿½ï¿½ï¿½",
 								Toast.LENGTH_SHORT).show();
 
 					} else {
-						// ÆäËûÖµ¾Í¿ÉÒÔÅÐ¶ÏÎªÖ§¸¶Ê§°Ü£¬°üÀ¨ÓÃ»§Ö÷¶¯È¡ÏûÖ§¸¶£¬»òÕßÏµÍ³·µ»ØµÄ´íÎó
-						Toast.makeText(GameCatchFish.this, "Ö§¸¶Ê§°Ü",
+						// ï¿½ï¿½ï¿½ï¿½Öµï¿½Í¿ï¿½ï¿½ï¿½ï¿½Ð¶ï¿½ÎªÖ§ï¿½ï¿½Ê§ï¿½Ü£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½È¡ï¿½ï¿½Ö§ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÏµÍ³ï¿½ï¿½ï¿½ØµÄ´ï¿½ï¿½ï¿½
+						Toast.makeText(GameCatchFish.this, "Ö§ï¿½ï¿½Ê§ï¿½ï¿½",
 								Toast.LENGTH_SHORT).show();
 
 					}
@@ -452,7 +452,7 @@ public class GameCatchFish extends Cocos2dxActivity {
 				break;
 			}
 			case SDK_CHECK_FLAG: {
-				Toast.makeText(GameCatchFish.this, "¼ì²é½á¹ûÎª£º" + msg.obj,
+				Toast.makeText(GameCatchFish.this, "ï¿½ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½" + msg.obj,
 						Toast.LENGTH_SHORT).show();
 				break;
 			}
@@ -463,7 +463,7 @@ public class GameCatchFish extends Cocos2dxActivity {
 	};
 
 	/**
-	 * call alipay sdk pay. µ÷ÓÃSDKÖ§¸¶
+	 * call alipay sdk pay. ï¿½ï¿½ï¿½ï¿½SDKÖ§ï¿½ï¿½
 	 * 
 	 */
 	public void pay(final String data) {
@@ -490,18 +490,18 @@ public class GameCatchFish extends Cocos2dxActivity {
 			e1.printStackTrace();
 		}
 			
-		// ¶©µ¥
+		// ï¿½ï¿½ï¿½ï¿½
 		String orderInfo = getOrderInfo(name, desc, price,tradeNo);
-		// ¶Ô¶©µ¥×öRSA Ç©Ãû
+		// ï¿½Ô¶ï¿½ï¿½ï¿½ï¿½ï¿½RSA Ç©ï¿½ï¿½
 		String sign = sign(orderInfo);
 		try {
-			// ½öÐè¶Ôsign ×öURL±àÂë
+			// ï¿½ï¿½ï¿½ï¿½ï¿½sign ï¿½ï¿½URLï¿½ï¿½ï¿½ï¿½
 			sign = URLEncoder.encode(sign, "UTF-8");
 		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();
 		}
 
-		// ÍêÕûµÄ·ûºÏÖ§¸¶±¦²ÎÊý¹æ·¶µÄ¶©µ¥ÐÅÏ¢
+		// ï¿½ï¿½ï¿½ï¿½Ä·ï¿½ï¿½Ö§ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½æ·¶ï¿½Ä¶ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
 		final String payInfo = orderInfo + "&sign=\"" + sign + "\"&"
 				+ getSignType();
 
@@ -509,9 +509,9 @@ public class GameCatchFish extends Cocos2dxActivity {
 
 			@Override
 			public void run() {
-				// ¹¹ÔìPayTask ¶ÔÏó
+				// ï¿½ï¿½ï¿½ï¿½PayTask ï¿½ï¿½ï¿½ï¿½
 				PayTask alipay = new PayTask(app);
-				// µ÷ÓÃÖ§¸¶½Ó¿Ú£¬»ñÈ¡Ö§¸¶½á¹û
+				// ï¿½ï¿½ï¿½ï¿½Ö§ï¿½ï¿½ï¿½Ó¿Ú£ï¿½ï¿½ï¿½È¡Ö§ï¿½ï¿½ï¿½ï¿½ï¿½
 				String result = alipay.pay(payInfo);
 
 				Message msg = new Message();
@@ -521,68 +521,68 @@ public class GameCatchFish extends Cocos2dxActivity {
 			}
 		};
 
-		// ±ØÐëÒì²½µ÷ÓÃ
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ì²½ï¿½ï¿½ï¿½ï¿½
 		Thread payThread = new Thread(payRunnable);
 		payThread.start();
 	}
 
 	/**
-	 * create the order info. ´´½¨¶©µ¥ÐÅÏ¢
+	 * create the order info. ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
 	 * 
 	 */
 	public String getOrderInfo(String subject, String body, String price,final String tradeNo) {
-		// Ç©Ô¼ºÏ×÷ÕßÉí·ÝID
+		// Ç©Ô¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ID
 		String orderInfo = "partner=" + "\"" + PARTNER + "\"";
-		// Ç©Ô¼Âô¼ÒÖ§¸¶±¦ÕËºÅ
+		// Ç©Ô¼ï¿½ï¿½ï¿½ï¿½Ö§ï¿½ï¿½ï¿½ï¿½ï¿½Ëºï¿½
 		orderInfo += "&seller_id=" + "\"" + SELLER + "\"";
-		// ÉÌ»§ÍøÕ¾Î¨Ò»¶©µ¥ºÅ
+		// ï¿½Ì»ï¿½ï¿½ï¿½Õ¾Î¨Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		orderInfo += "&out_trade_no=" + "\"" + tradeNo + "\"";
-		// ÉÌÆ·Ãû³Æ
+		// ï¿½ï¿½Æ·ï¿½ï¿½ï¿½
 		orderInfo += "&subject=" + "\"" + subject + "\"";
-		// ÉÌÆ·ÏêÇé
+		// ï¿½ï¿½Æ·ï¿½ï¿½ï¿½ï¿½
 		orderInfo += "&body=" + "\"" + body + "\"";
-		// ÉÌÆ·½ð¶î
+		// ï¿½ï¿½Æ·ï¿½ï¿½ï¿½
 		orderInfo += "&total_fee=" + "\"" + price + "\"";
-		// ·þÎñÆ÷Òì²½Í¨ÖªÒ³ÃæÂ·¾¶
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ì²½Í¨ÖªÒ³ï¿½ï¿½Â·ï¿½ï¿½
 		// orderInfo += "&notify_url=" + "\"" +
 		// "http://pay.999qp.com/alipay/notify_url.aspx"
 		orderInfo += "&notify_url=" + "\""
 				+ "http://pay.qicainiu.com/alipay/notify_url.aspx" + "\"";
-		// ·þÎñ½Ó¿ÚÃû³Æ£¬ ¹Ì¶¨Öµ
+		// ï¿½ï¿½ï¿½ï¿½Ó¿ï¿½ï¿½ï¿½Æ£ï¿½ ï¿½Ì¶ï¿½Öµ
 		orderInfo += "&service=\"mobile.securitypay.pay\"";
-		// Ö§¸¶ÀàÐÍ£¬ ¹Ì¶¨Öµ
+		// Ö§ï¿½ï¿½ï¿½ï¿½ï¿½Í£ï¿½ ï¿½Ì¶ï¿½Öµ
 		orderInfo += "&payment_type=\"1\"";
-		// ²ÎÊý±àÂë£¬ ¹Ì¶¨Öµ
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ë£¬ ï¿½Ì¶ï¿½Öµ
 		orderInfo += "&_input_charset=\"utf-8\"";
-		// ÉèÖÃÎ´¸¶¿î½»Ò×µÄ³¬Ê±Ê±¼ä
-		// Ä¬ÈÏ30·ÖÖÓ£¬Ò»µ©³¬Ê±£¬¸Ã±Ê½»Ò×¾Í»á×Ô¶¯±»¹Ø±Õ¡£
-		// È¡Öµ·¶Î§£º1m¡«15d¡£
-		// m-·ÖÖÓ£¬h-Ð¡Ê±£¬d-Ìì£¬1c-µ±Ìì£¨ÎÞÂÛ½»Ò×ºÎÊ±´´½¨£¬¶¼ÔÚ0µã¹Ø±Õ£©¡£
-		// ¸Ã²ÎÊýÊýÖµ²»½ÓÊÜÐ¡Êýµã£¬Èç1.5h£¬¿É×ª»»Îª90m¡£
+		// ï¿½ï¿½ï¿½ï¿½Î´ï¿½ï¿½ï¿½î½»ï¿½×µÄ³ï¿½Ê±Ê±ï¿½ï¿½
+		// Ä¬ï¿½ï¿½30ï¿½ï¿½ï¿½Ó£ï¿½Ò»ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½Ã±Ê½ï¿½ï¿½×¾Í»ï¿½ï¿½Ô¶ï¿½ï¿½ï¿½ï¿½Ø±Õ¡ï¿½
+		// È¡Öµï¿½ï¿½Î§ï¿½ï¿½1mï¿½ï¿½15dï¿½ï¿½
+		// m-ï¿½ï¿½ï¿½Ó£ï¿½h-Ð¡Ê±ï¿½ï¿½d-ï¿½ì£¬1c-ï¿½ï¿½ï¿½ì£¨ï¿½ï¿½ï¿½Û½ï¿½ï¿½×ºï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½0ï¿½ï¿½Ø±Õ£ï¿½ï¿½ï¿½
+		// ï¿½Ã²ï¿½ï¿½ï¿½ï¿½ï¿½Öµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¡ï¿½ï¿½ã£¬ï¿½ï¿½1.5hï¿½ï¿½ï¿½ï¿½×ªï¿½ï¿½Îª90mï¿½ï¿½
 		orderInfo += "&it_b_pay=\"30m\"";
-		// extern_tokenÎª¾­¹ý¿ìµÇÊÚÈ¨»ñÈ¡µ½µÄalipay_open_id,´øÉÏ´Ë²ÎÊýÓÃ»§½«Ê¹ÓÃÊÚÈ¨µÄÕË»§½øÐÐÖ§¸¶
+		// extern_tokenÎªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¨ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½alipay_open_id,ï¿½ï¿½ï¿½Ï´Ë²ï¿½ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½Ê¹ï¿½ï¿½ï¿½ï¿½È¨ï¿½ï¿½ï¿½Ë»ï¿½ï¿½ï¿½ï¿½ï¿½Ö§ï¿½ï¿½
 		// orderInfo += "&extern_token=" + "\"" + extern_token + "\"";
-		// Ö§¸¶±¦´¦ÀíÍêÇëÇóºó£¬µ±Ç°Ò³ÃæÌø×ªµ½ÉÌ»§Ö¸¶¨Ò³ÃæµÄÂ·¾¶£¬¿É¿Õ
+		// Ö§ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ó£¬µï¿½Ç°Ò³ï¿½ï¿½ï¿½ï¿½×ªï¿½ï¿½ï¿½Ì»ï¿½Ö¸ï¿½ï¿½Ò³ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ï¿½É¿ï¿½
 		// orderInfo +=
 		// "&return_url=\"http://pay.999qp.com/alipay/return_url.aspx\"";
 		orderInfo += "&return_url=\"http://pay.qicainiu.com/alipay/return_url.aspx\"";
-		// µ÷ÓÃÒøÐÐ¿¨Ö§¸¶£¬ÐèÅäÖÃ´Ë²ÎÊý£¬²ÎÓëÇ©Ãû£¬ ¹Ì¶¨Öµ £¨ÐèÒªÇ©Ô¼¡¶ÎÞÏßÒøÐÐ¿¨¿ì½ÝÖ§¸¶¡·²ÅÄÜÊ¹ÓÃ£©
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¿ï¿½Ö§ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã´Ë²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç©ï¿½ï¿½ ï¿½Ì¶ï¿½Öµ ï¿½ï¿½ï¿½ï¿½ÒªÇ©Ô¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¿ï¿½ï¿½ï¿½ï¿½Ö§ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¹ï¿½Ã£ï¿½
 		// orderInfo += "&paymethod=\"expressGateway\"";
 		return orderInfo;
 	}
 
 	/**
-	 * sign the order info. ¶Ô¶©µ¥ÐÅÏ¢½øÐÐÇ©Ãû
+	 * sign the order info. ï¿½Ô¶ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½Ç©ï¿½ï¿½
 	 * 
 	 * @param content
-	 *            ´ýÇ©Ãû¶©µ¥ÐÅÏ¢
+	 *            ï¿½ï¿½Ç©ï¿½ï¿½ï¿½ï¿½Ï¢
 	 */
 	public String sign(String content) {
 		return SignUtils.sign(content, RSA_PRIVATE);
 	}
 
 	/**
-	 * get the sign type we use. »ñÈ¡Ç©Ãû·½Ê½
+	 * get the sign type we use. ï¿½ï¿½È¡Ç©ï¿½ï¿½Ê½
 	 * 
 	 */
 	public String getSignType() {
@@ -590,7 +590,7 @@ public class GameCatchFish extends Cocos2dxActivity {
 	}
 
 	/**
-	 * get the out_trade_no for an order. Éú³ÉÉÌ»§¶©µ¥ºÅ£¬¸ÃÖµÔÚÉÌ»§¶ËÓ¦±£³ÖÎ¨Ò»£¨¿É×Ô¶¨Òå¸ñÊ½¹æ·¶£©
+	 * get the out_trade_no for an order. ï¿½ï¿½ï¿½ï¿½Ì»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å£ï¿½ï¿½ï¿½Öµï¿½ï¿½ï¿½Ì»ï¿½ï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½Î¨Ò»ï¿½ï¿½ï¿½ï¿½ï¿½Ô¶ï¿½ï¿½ï¿½ï¿½Ê½ï¿½æ·¶ï¿½ï¿½
 	 * 
 	 */
 	public String getOutTradeNo() {
@@ -618,7 +618,7 @@ public class GameCatchFish extends Cocos2dxActivity {
 	 */
 	public  String GetOrderIDByPrefix(String prefix)
     {
-        //¹¹Ôì¶©µ¥ºÅ (ÐÎÈç:20101201102322159111111)
+        //ï¿½ï¿½ï¿½ì¶©ï¿½ï¿½ï¿½ï¿½ (ï¿½ï¿½ï¿½ï¿½:20101201102322159111111)
         int orderIDLength = 32;
         int randomLength = 6;
         StringBuffer tradeNoBuffer = new StringBuffer();
@@ -677,38 +677,38 @@ public class GameCatchFish extends Cocos2dxActivity {
         return str;
     }
 	
-	//¸ü¶àÓÎÏ·ÏÂÔØ´¦Àí
+	//ï¿½ï¿½ï¿½ï¿½ï¿½Ï·ï¿½ï¿½ï¿½Ø´ï¿½ï¿½ï¿½
 	public static void moreGamePro(String packageName,String activity,String url)
 	{
 		app.avilibleMoreGames(packageName,activity,url);
 	}
 	
 	private void avilibleMoreGames(String packageName,String activity,String url) {
-		// ÒÑ°²×°£¬´ò¿ª³ÌÐò£¬Ðè´«Èë²ÎÊý°üÃû
+		// ï¿½Ñ°ï¿½×°ï¿½ï¿½ï¿½ò¿ª³ï¿½ï¿½ï¿½ï¿½è´«ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		if (isAvilible(this, packageName)) {
 			Intent i = new Intent();
 			ComponentName cn = new ComponentName(packageName,
 					packageName+"."+activity);
 			i.setComponent(cn);
 			startActivityForResult(i, RESULT_OK);
-		} // Î´°²×°£¬Ìø×ªÖÁmarketÏÂÔØ¸Ã³ÌÐò
-		else {//È¥ÏÂÔØ
+		} // Î´ï¿½ï¿½×°ï¿½ï¿½ï¿½ï¿½×ªï¿½ï¿½marketï¿½ï¿½ï¿½Ø¸Ã³ï¿½ï¿½ï¿½
+		else {//È¥ï¿½ï¿½ï¿½ï¿½
 			updateGame(url);
 		}
 	}
 	
 	private boolean isAvilible(Context context, String packageName) {
-		final PackageManager packageManager = context.getPackageManager();// »ñÈ¡packagemanager
-		List<PackageInfo> pinfo = packageManager.getInstalledPackages(0);// »ñÈ¡ËùÓÐÒÑ°²×°³ÌÐòµÄ°üÐÅÏ¢
-		List<String> pName = new ArrayList<String>();// ÓÃÓÚ´æ´¢ËùÓÐÒÑ°²×°³ÌÐòµÄ°üÃû
-		// ´ÓpinfoÖÐ½«°üÃû×ÖÖðÒ»È¡³ö£¬Ñ¹ÈëpName listÖÐ
+		final PackageManager packageManager = context.getPackageManager();// ï¿½ï¿½È¡packagemanager
+		List<PackageInfo> pinfo = packageManager.getInstalledPackages(0);// ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½Ñ°ï¿½×°ï¿½ï¿½ï¿½ï¿½Ä°ï¿½ï¿½ï¿½Ï¢
+		List<String> pName = new ArrayList<String>();// ï¿½ï¿½ï¿½Ú´æ´¢ï¿½ï¿½ï¿½ï¿½ï¿½Ñ°ï¿½×°ï¿½ï¿½ï¿½ï¿½Ä°ï¿½ï¿½ï¿½
+		// ï¿½ï¿½pinfoï¿½Ð½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»È¡ï¿½ï¿½ï¿½ï¿½Ñ¹ï¿½ï¿½pName listï¿½ï¿½
 		if (pinfo != null) {
 			for (int i = 0; i < pinfo.size(); i++) {
 				String pn = pinfo.get(i).packageName;
 				pName.add(pn);
 			}
 		}
-		return pName.contains(packageName);// ÅÐ¶ÏpNameÖÐÊÇ·ñÓÐÄ¿±ê³ÌÐòµÄ°üÃû£¬ÓÐTRUE£¬Ã»ÓÐFALSE
+		return pName.contains(packageName);// ï¿½Ð¶ï¿½pNameï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Ä°ï¿½ï¿½ï¿½ï¿½ï¿½TRUEï¿½ï¿½Ã»ï¿½ï¿½FALSE
 	}
 
 
