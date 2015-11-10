@@ -698,9 +698,9 @@ void GameScene::onBack(Ref* pSender,ui::Widget::TouchEventType type)
 		//干掉游戏SORKET 直接退出
 		m_serviceClient->sendStandUp();
 		
-		//DelayTime* delay = DelayTime::create(5.0f);
-		//CallFuncN* callBack =CallFuncN::create(this,callfuncN_selector(GameScene::standupOverTime));
-		//runAction(Sequence::createWithTwoActions(delay,callBack));
+		DelayTime* delay = DelayTime::create(5.0f);
+		CallFuncN* callBack =CallFuncN::create(this,callfuncN_selector(GameScene::standupOverTime));
+		runAction(Sequence::createWithTwoActions(delay,callBack));
 		//exitGameRoom();	
 	}
 }

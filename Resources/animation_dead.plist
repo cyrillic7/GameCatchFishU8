@@ -9,7 +9,7 @@
         <key>name</key>  
         <string>woniuyu</string> 
         <key>fps</key>  
-        <integer>8.0</integer>  
+        <integer>8</integer>  
         <key>frames</key>  
         <integer>5</integer>  
         <key>isWalk</key>  
@@ -28,7 +28,7 @@
         <key>name</key>  
         <string>lvcaoyu</string> 
         <key>fps</key>  
-        <integer>8.0</integer>  
+        <integer>8</integer>  
         <key>frames</key>  
         <integer>3</integer>  
         <key>isWalk</key>  
@@ -47,7 +47,7 @@
         <key>name</key>  
         <string>huangcaoyu</string> 
         <key>fps</key>  
-        <integer>10.0</integer>  
+        <integer>10</integer>  
         <key>frames</key>  
         <integer>3</integer>  
         <key>isWalk</key>  
@@ -66,7 +66,7 @@
         <key>name</key>  
         <string>dayanyu</string> 
         <key>fps</key>  
-        <integer>12.0</integer>  
+        <integer>12</integer>  
         <key>frames</key>  
         <integer>10</integer>  
         <key>isWalk</key>  
@@ -85,7 +85,7 @@
         <key>name</key>  
         <string>huangbianyu</string> 
         <key>fps</key>  
-        <integer>12.0</integer>  
+        <integer>12</integer>  
         <key>frames</key>  
         <integer>3</integer>  
         <key>isWalk</key>  
@@ -104,7 +104,7 @@
         <key>name</key>  
         <string>xiaochouyu</string> 
         <key>fps</key>  
-        <integer>9.0</integer>  
+        <integer>9</integer>  
         <key>frames</key>  
         <integer>6</integer>  
         <key>isWalk</key>  
@@ -123,7 +123,7 @@
         <key>name</key>  
         <string>xiaociyu</string> 
         <key>fps</key>  
-        <integer>12.0</integer>  
+        <integer>12</integer>  
         <key>frames</key>  
         <integer>3</integer>  
         <key>isWalk</key>  
@@ -142,7 +142,7 @@
         <key>name</key>  
         <string>lanyu</string> 
         <key>fps</key>  
-        <integer>9.0</integer>  
+        <integer>9</integer>  
         <key>frames</key>  
         <integer>5</integer>  
         <key>isWalk</key>  
@@ -161,7 +161,7 @@
         <key>name</key>  
         <string>denglongyu</string> 
         <key>fps</key>  
-        <integer>16.0</integer>  
+        <integer>16</integer>  
         <key>frames</key>  
         <integer>4</integer>  
         <key>isWalk</key>  
@@ -180,7 +180,7 @@
         <key>name</key>  
         <string>haigui</string> 
         <key>fps</key>  
-        <integer>25.0</integer>  
+        <integer>25</integer>  
         <key>frames</key>  
         <integer>7</integer>  
         <key>isWalk</key>  
@@ -199,7 +199,7 @@
         <key>name</key>  
         <string>huabanyu</string> 
         <key>fps</key>  
-        <integer>16.0</integer>  
+        <integer>16</integer>  
         <key>frames</key>  
         <integer>4</integer>  
         <key>isWalk</key>  
@@ -218,7 +218,7 @@
         <key>name</key>  
         <string>hudieyu</string> 
         <key>fps</key>  
-        <integer>16.0</integer>  
+        <integer>16</integer>  
         <key>frames</key>  
         <integer>4</integer>  
         <key>isWalk</key>  
@@ -237,7 +237,7 @@
         <key>name</key>  
         <string>kongqueyu</string> 
         <key>fps</key>  
-        <integer>12.0</integer>  
+        <integer>12</integer>  
         <key>frames</key>  
         <integer>4</integer>  
         <key>isWalk</key>  
@@ -256,7 +256,7 @@
         <key>name</key>  
         <string>jianyu</string> 
         <key>fps</key>  
-        <integer>16.0</integer>  
+        <integer>16</integer>  
         <key>frames</key>  
         <integer>3</integer>  
         <key>isWalk</key>  
@@ -275,7 +275,7 @@
         <key>name</key>  
         <string>bianfuyu</string> 
         <key>fps</key>  
-        <integer>12.0</integer>  
+        <integer>12</integer>  
         <key>frames</key>  
         <integer>6</integer>  
         <key>isWalk</key>  
@@ -294,7 +294,7 @@
         <key>name</key>  
         <string>yinsha</string> 
         <key>fps</key>  
-        <integer>18.0</integer>  
+        <integer>18</integer>  
         <key>frames</key>  
         <integer>6</integer>  
         <key>isWalk</key>  
@@ -313,7 +313,7 @@
         <key>name</key>  
         <string>jinsha</string> 
         <key>fps</key>  
-        <integer>16.0</integer>  
+        <integer>16</integer>  
         <key>frames</key>  
         <integer>5</integer>  
         <key>isWalk</key>  
@@ -332,7 +332,7 @@
         <key>name</key>  
         <string>bawangjing</string> 
         <key>fps</key>  
-        <integer>8.0</integer>  
+        <integer>8</integer>  
         <key>frames</key>  
         <integer>3</integer>  
         <key>isWalk</key>  
@@ -351,7 +351,7 @@
         <key>name</key>  
         <string>jinchan</string> 
         <key>fps</key>  
-        <integer>15.0</integer>  
+        <integer>15</integer>  
         <key>frames</key>  
         <integer>10</integer>  
         <key>isWalk</key>  
@@ -370,7 +370,7 @@
         <key>name</key>  
         <string>meirenyu</string> 
         <key>fps</key>  
-        <integer>13.0</integer>  
+        <integer>13</integer>  
         <key>frames</key>  
         <integer>19</integer>  
         <key>isWalk</key>  
@@ -389,7 +389,7 @@
         <key>name</key>  
         <string>xiaoqinglong</string> 
         <key>fps</key>  
-        <integer>8.0</integer>  
+        <integer>8</integer>  
         <key>frames</key>  
         <integer>4</integer>  
         <key>isWalk</key>  
@@ -408,7 +408,7 @@
         <key>name</key>  
         <string>xiaoyinlong</string> 
         <key>fps</key>  
-        <integer>8.0</integer>  
+        <integer>8</integer>  
         <key>frames</key>  
         <integer>4</integer>  
         <key>isWalk</key>  
@@ -427,7 +427,7 @@
         <key>name</key>  
         <string>xiaojinlong</string> 
         <key>fps</key>  
-        <integer>8.0</integer>  
+        <integer>8</integer>  
         <key>frames</key>  
         <integer>4</integer>  
         <key>isWalk</key>  
@@ -446,7 +446,7 @@
         <key>name</key>  
         <string>swk</string> 
         <key>fps</key>  
-        <integer>6.7</integer>  
+        <real>6.7</real>  
         <key>frames</key>  
         <integer>12</integer>  
         <key>isWalk</key>  
@@ -465,7 +465,7 @@
         <key>name</key>  
         <string>ywdd</string> 
         <key>fps</key>  
-        <integer>9.0</integer>  
+        <integer>9</integer>  
         <key>frames</key>  
         <integer>9</integer>  
         <key>isWalk</key>  
