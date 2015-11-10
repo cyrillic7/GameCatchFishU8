@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>  
@@ -9,7 +9,7 @@
         <key>name</key>  
         <string>fish1</string> 
         <key>fps</key>  
-        <integer>5.0</integer>  
+        <integer>5</integer>  
         <key>frames</key>  
         <integer>5</integer>  
         <key>isWalk</key>  
@@ -28,7 +28,7 @@
         <key>name</key>  
         <string>fish2</string> 
         <key>fps</key>  
-        <integer>3.0</integer>  
+        <integer>3</integer>  
         <key>frames</key>  
         <integer>3</integer>  
         <key>isWalk</key>  
@@ -47,7 +47,7 @@
         <key>name</key>  
         <string>fish3</string> 
         <key>fps</key>  
-        <integer>3.0</integer>  
+        <integer>3</integer>  
         <key>frames</key>  
         <integer>3</integer>  
         <key>isWalk</key>  
@@ -66,7 +66,7 @@
         <key>name</key>  
         <string>fish4</string> 
         <key>fps</key>  
-        <integer>10.0</integer>  
+        <integer>10</integer>  
         <key>frames</key>  
         <integer>10</integer>  
         <key>isWalk</key>  
@@ -85,7 +85,7 @@
         <key>name</key>  
         <string>fish5</string> 
         <key>fps</key>  
-        <integer>3.0</integer>  
+        <integer>3</integer>  
         <key>frames</key>  
         <integer>3</integer>  
         <key>isWalk</key>  
@@ -104,7 +104,7 @@
         <key>name</key>  
         <string>fish6</string> 
         <key>fps</key>  
-        <integer>6.0</integer>  
+        <integer>6</integer>  
         <key>frames</key>  
         <integer>6</integer>  
         <key>isWalk</key>  
@@ -123,7 +123,7 @@
         <key>name</key>  
         <string>fish7</string> 
         <key>fps</key>  
-        <integer>3.0</integer>  
+        <integer>3</integer>  
         <key>frames</key>  
         <integer>3</integer>  
         <key>isWalk</key>  
@@ -142,7 +142,7 @@
         <key>name</key>  
         <string>fish8</string> 
         <key>fps</key>  
-        <integer>6.0</integer>  
+        <integer>6</integer>  
         <key>frames</key>  
         <integer>6</integer>  
         <key>isWalk</key>  
@@ -161,7 +161,7 @@
         <key>name</key>  
         <string>fish9</string> 
         <key>fps</key>  
-        <integer>4.0</integer>  
+        <integer>4</integer>  
         <key>frames</key>  
         <integer>4</integer>  
         <key>isWalk</key>  
@@ -180,7 +180,7 @@
         <key>name</key>  
         <string>fish10</string> 
         <key>fps</key>  
-        <integer>7.0</integer>  
+        <integer>7</integer>  
         <key>frames</key>  
         <integer>7</integer>  
         <key>isWalk</key>  
@@ -199,7 +199,7 @@
         <key>name</key>  
         <string>fish11</string> 
         <key>fps</key>  
-        <integer>4.0</integer>  
+        <integer>4</integer>  
         <key>frames</key>  
         <integer>4</integer>  
         <key>isWalk</key>  
@@ -218,7 +218,7 @@
         <key>name</key>  
         <string>fish12</string> 
         <key>fps</key>  
-        <integer>4.0</integer>  
+        <integer>4</integer>  
         <key>frames</key>  
         <integer>4</integer>  
         <key>isWalk</key>  
@@ -237,7 +237,7 @@
         <key>name</key>  
         <string>fish13</string> 
         <key>fps</key>  
-        <integer>4.0</integer>  
+        <integer>4</integer>  
         <key>frames</key>  
         <integer>4</integer>  
         <key>isWalk</key>  
@@ -256,7 +256,7 @@
         <key>name</key>  
         <string>fish14</string> 
         <key>fps</key>  
-        <integer>3.0</integer>  
+        <integer>3</integer>  
         <key>frames</key>  
         <integer>3</integer>  
         <key>isWalk</key>  
@@ -275,7 +275,7 @@
         <key>name</key>  
         <string>fish15</string> 
         <key>fps</key>  
-        <integer>6.0</integer>  
+        <integer>6</integer>  
         <key>frames</key>  
         <integer>6</integer>  
         <key>isWalk</key>  
@@ -294,7 +294,7 @@
         <key>name</key>  
         <string>fish16</string> 
         <key>fps</key>  
-        <integer>6.0</integer>  
+        <integer>6</integer>  
         <key>frames</key>  
         <integer>6</integer>  
         <key>isWalk</key>  
@@ -313,7 +313,7 @@
         <key>name</key>  
         <string>fish17</string> 
         <key>fps</key>  
-        <integer>4.0</integer>  
+        <integer>4</integer>  
         <key>frames</key>  
         <integer>4</integer>  
         <key>isWalk</key>  
@@ -332,7 +332,7 @@
         <key>name</key>  
         <string>fish18</string> 
         <key>fps</key>  
-        <integer>4.0</integer>  
+        <integer>4</integer>  
         <key>frames</key>  
         <integer>4</integer>  
         <key>isWalk</key>  
@@ -351,7 +351,7 @@
         <key>name</key>  
         <string>fish21</string> 
         <key>fps</key>  
-        <integer>3.0</integer>  
+        <integer>3</integer>  
         <key>frames</key>  
         <integer>3</integer>  
         <key>isWalk</key>  
