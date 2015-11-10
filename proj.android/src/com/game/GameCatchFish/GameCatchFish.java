@@ -45,7 +45,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.json.JSONTokener;
 
-//import com.alipay.sdk.app.PayTask;
+import com.alipay.sdk.app.PayTask;
 import com.game.GameCatchFish.R;
 import com.tx.wx.wxapi.SendToWXActivity;
 
