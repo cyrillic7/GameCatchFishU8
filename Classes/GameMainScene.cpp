@@ -583,10 +583,9 @@ void MainScene::initMenuBar()
 	
 	menuLayer->RegisterMenuHandler(this,CC_CALLBACK_2(MainScene::menuCallback, this));
 	
-
-	menuLayer->AppendItem("icon_exchange.png","font_exchange.png",CCMenuLayer::vertype, ID_SCENE_GIFTCOVERT);
 	menuLayer->AppendItem("icon_tast.png","font_task.png",CCMenuLayer::vertype, ID_SCENE_TASK);
 	menuLayer->AppendItem("icon_activity.png","font_activity.png",CCMenuLayer::vertype, ID_SCENE_ACTIVITY);
+	menuLayer->AppendItem("icon_exchange.png", "font_exchange.png", CCMenuLayer::vertype, ID_SCENE_GIFTCOVERT);
 	
 	menuLayer->AppendItem("icon_shop.png","font_shop.png",CCMenuLayer::hortype, ID_SCENE_SHOP);
 	menuLayer->AppendItem("icon_paimai.png","font_paimai.png",CCMenuLayer::hortype, ID_SCENE_PAIMAI);
