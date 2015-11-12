@@ -361,7 +361,7 @@ void GameHallShopWidget::refreashList(__Array* pArray,int type)
 {
 	mToolList->removeAllItems();
 
-	const int listNum = pArray->count();
+	int listNum = pArray->count();
 	int count =0;
 	Sprite* temp = Sprite::createWithSpriteFrameName("shop_item_bg.png");
 

@@ -515,7 +515,8 @@ bool GameServiceClient::OnTCPSocketRead(WORD wSocketID, TCP_Command Command, VOI
 				//登录点是短连接，要主动断开 add by tjl 2015 -11 -09
 				if (Command.wSubCmdID != SUB_GP_USE_KNAPSACKLOG && Command.wSubCmdID != SUB_GP_SELL_AUCTION &&
 					Command.wSubCmdID != SUB_GP_BUY_AUCTION && Command.wSubCmdID != SUB_GP_CANCEL_AUCTION &&
-					Command.wSubCmdID != SUB_GP_AUCTION_RECORD && Command.wSubCmdID != SUB_GP_AUCTION)
+					Command.wSubCmdID != SUB_GP_AUCTION_RECORD && Command.wSubCmdID != SUB_GP_AUCTION &&
+					Command.wSubCmdID != SUB_GP_GIFT  && Command.wSubCmdID != SUB_GP_BUYGIFT)
 				{
 					log("Command.wSubCmdID =%d", Command.wSubCmdID);
 					closeSoket();
