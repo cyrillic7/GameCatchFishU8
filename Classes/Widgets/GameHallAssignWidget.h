@@ -49,6 +49,7 @@ protected:
 	int        mAssignDay;//当前所签到天数
 	CMD_GP_GetSignInTaskInfo mSignInfo;
 	__Array*  mItemArray;
+	bool      mbCanAssign;
 };
 
 

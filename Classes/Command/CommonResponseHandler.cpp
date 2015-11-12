@@ -29,9 +29,16 @@ void CommonResponseHandler::OnReceiveGameSceneMsg(void* data, WORD data_size)//Ó
 		CCLOG("GameScene data is error");
 		return;
 	}
+	CCLOG("int =%d", sizeof(int));
+	CCLOG("bool =%d", sizeof(bool));
+	CCLOG("float =%d", sizeof(float));
+	CCLOG("unsigned int =%d", sizeof(unsigned int));
+	CCLOG("SCORE =%d", sizeof(SCORE));
+
 	int nFishCount = nSubLen/(3*sizeof(float));
 	CMD_S_GameStatus* pOrgGamestatus = static_cast<CMD_S_GameStatus*>(data);
 	CMD_S_GameStatus gamestatus;
+	CCLOG("gamestatus %d", sizeof(gamestatus.game_config));
 	memset(&gamestatus, 0, sizeof(CMD_S_GameStatus));
 	memcpy(&gamestatus, data, data_size);
 	memcpy(gamestatus.game_config.fish_bounding_radius, pOrgGamestatus->game_config.fish_speed+nFishCount, nSubLen/3);

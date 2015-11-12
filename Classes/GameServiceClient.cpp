@@ -513,7 +513,13 @@ bool GameServiceClient::OnTCPSocketRead(WORD wSocketID, TCP_Command Command, VOI
 					Director::sharedDirector()->getEventDispatcher()->dispatchCustomEvent(giftConvertRspMsg, pData);
 				}
 				//登录点是短连接，要主动断开 add by tjl 2015 -11 -09
-				closeSoket();
+				if (Command.wSubCmdID != SUB_GP_USE_KNAPSACKLOG && Command.wSubCmdID != SUB_GP_SELL_AUCTION &&
+					Command.wSubCmdID != SUB_GP_BUY_AUCTION && Command.wSubCmdID != SUB_GP_CANCEL_AUCTION &&
+					Command.wSubCmdID != SUB_GP_AUCTION_RECORD && Command.wSubCmdID != SUB_GP_AUCTION)
+				{
+					log("Command.wSubCmdID =%d", Command.wSubCmdID);
+					closeSoket();
+				}
 			}
 			break;
 		case MDM_MB_LOGON ://登录返回

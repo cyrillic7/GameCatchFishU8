@@ -91,6 +91,8 @@ public:
 
 	static std::string covertTimeSpanStr(LONGLONG span);
 
+	static std::string replace_all(std::string& str, const   std::string&  old_value, const   std::string& new_value);
+
 	static std::string getUUIDInIOS();
 	static std::string getUUIDInWin32();
 	static std::string getUUIDInAndroid();

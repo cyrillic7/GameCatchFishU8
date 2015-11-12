@@ -480,6 +480,7 @@ std::string CommonFunction::getUUID()
 #endif
 
 #if (defined(WIN32) && defined(_WINDOWS))
+	return "adfadgavvdafgasdgasdg13131316";
 	uuid = getUUIDInWin32();
 #endif
 
@@ -806,3 +807,16 @@ std::string CommonFunction::covertTimeSpanStr(LONGLONG span)
 	 std::string result(buffer);
 	 return result;
 }
+
+std::string CommonFunction::replace_all(std::string& str, const std::string& old_value, const std::string& new_value)
+{
+	while (true)   {
+		std::string::size_type   pos(0);
+		if ((pos = str.find(old_value)) != std::string::npos)
+			str.replace(pos, old_value.length(), new_value);
+		else   break;
+	}
+	return   str;
+
+}
+

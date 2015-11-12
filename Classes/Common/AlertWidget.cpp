@@ -93,13 +93,13 @@ void AlertWidget::loadUI()
 	m_contentLabel = static_cast<Text*>(popbg->getChildByTag(LabelContentTag));
 	if (mContentText !="")
 	{
-		m_contentLabel->setText(mContentText);
+		m_contentLabel->setText(CommonFunction::replace_all(mContentText,"<br/>",""));
 	}
 	if (m_contentLabel->getContentSize().width >= popbg->getContentSize().width)
 	{
 		m_contentLabel->setVisible(false);
 
-		LabelTTF* labelContent = LabelTTF::create(mContentText,"Arail Regular",29,Size(popbg->getContentSize().width - 50,100),TextHAlignment::LEFT);
+		LabelTTF* labelContent = LabelTTF::create(CommonFunction::replace_all(mContentText, "<br/>", ""), "Arail Regular", 29, Size(popbg->getContentSize().width - 50, 100), TextHAlignment::LEFT);
 		labelContent->setColor(m_contentLabel->getColor());
 		labelContent->setPosition(m_contentLabel->getPosition());
 		popbg->addChild(labelContent);

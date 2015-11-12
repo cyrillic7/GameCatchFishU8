@@ -39,6 +39,7 @@
 GameHallAssginWidget::GameHallAssginWidget()
 {
 	mAssignDay = 0;
+	mbCanAssign = true;
 	mAssignPath = nullptr;
 	mPathBag  =nullptr;
 	memset(&mSignInfo,0,sizeof(CMD_GP_GetSignInTaskInfo));
@@ -286,6 +287,7 @@ void GameHallAssginWidget::receiveAssinRsp(EventCustom* evt)
 
 void GameHallAssginWidget::dealScoreEffect(SCORE value)
 {
+	mbCanAssign = false;
 	Node* effectNode = Node::create();
 	effectNode->setPosition(Vec2(kScreenWidth/2,kScreenHeight/2));
 	addChild(effectNode,0,EffectNodeTag);
@@ -372,8 +374,12 @@ void GameHallAssginWidget::onAssign(Ref* pSender,ui::Widget::TouchEventType type
 {
 	if (type == ui::Widget::TouchEventType::ENDED)
 	{
-		GameServiceClientManager::sharedInstance()->getCurrentServiceClient()->sendAssignMsg();
-		showLoading();
+		if (mbCanAssign)
+		{
+			GameServiceClientManager::sharedInstance()->getCurrentServiceClient()->sendAssignMsg();
+			showLoading();
+		}
+		
 	}
 }
 
