@@ -20,9 +20,8 @@
 #define  dwOptermianlValue 3
 
 //test server
-//#define serverAddress "121.40.31.203"
-
-#define  serverAddress  "121.41.77.64"
+//#define serverAddress "121.40.31.203" 
+//#define  serverAddress  "121.41.77.64"
 #define  serverPort    8100
 
 #define  ChargeByInterlbank   2 //ÍøÒø
@@ -122,6 +121,7 @@ void GameServiceClient::parseGift(void* pData,WORD wDataSize, ShopItemType type)
 	WORD gift_cnt = wDataSize / sizeof(CMD_GP_Gift);
 	__Array* giftArray = __Array::createWithCapacity(gift_cnt);
 	
+	int len = sizeof(gifts->price);
 	for (int i= 0 ; i < gift_cnt;i++)
 	{
 		GiftModel* pGift = GiftModel::create();
@@ -1024,9 +1024,9 @@ void GameServiceClient::onLogin(const char* accout,const char* pwd)
 
 	if (!m_GameSocket.IsConnected())
 	{
-		m_GameSocket.Connect(serverAddress,serverPort);
+		m_GameSocket.Connect(SessionManager::shareInstance()->getLoginAddr().c_str(),serverPort);
 	}
-
+	
 	
 	CMD_MB_LogonAccounts logonAccounts;
 	memset(&logonAccounts,0,sizeof(CMD_MB_LogonAccounts));
@@ -1069,7 +1069,7 @@ void GameServiceClient::sendQucikLogin(const char* uuid)
 {
 	if (!m_GameSocket.IsConnected())
 	{
-		m_GameSocket.Connect(serverAddress,serverPort);
+		m_GameSocket.Connect(SessionManager::shareInstance()->getLoginAddr().c_str(),serverPort);
 	}
 
 	CMD_MB_Quick_Logon qucikLogon;
@@ -1093,7 +1093,7 @@ void GameServiceClient::onRegister(char* account,char* nick,char* pwd)
 {
 	if (!m_GameSocket.IsConnected())
 	{
-		m_GameSocket.Connect(serverAddress,serverPort);
+		m_GameSocket.Connect(SessionManager::shareInstance()->getLoginAddr().c_str(),serverPort);
 	}
 
 	CMD_MB_RegisterAccounts registerAccounts;
@@ -1280,7 +1280,7 @@ void GameServiceClient::SendRequestShop(int type)
 
 	if (!m_GameSocket.IsConnected())
 	{
-		m_GameSocket.Connect(serverAddress,serverPort);
+		m_GameSocket.Connect(SessionManager::shareInstance()->getLoginAddr().c_str(),serverPort);
 	}
 
 	CMD_GP_GetGift getGift;
@@ -1304,7 +1304,7 @@ void  GameServiceClient::sendBuyGiftRequest(int proType, int proNum,int proId)//
 
 	if (!m_GameSocket.IsConnected())
 	{
-		m_GameSocket.Connect(serverAddress,serverPort);
+		m_GameSocket.Connect(SessionManager::shareInstance()->getLoginAddr().c_str(),serverPort);
 	}
 
 	 CMD_GP_BuyGift buyGift;
@@ -1337,7 +1337,7 @@ void  GameServiceClient::sendUserKnapsackRequset(int id,int num,const char* szNo
 {
 	if (!m_GameSocket.IsConnected())
 	{
-		m_GameSocket.Connect(serverAddress,serverPort);
+		m_GameSocket.Connect(SessionManager::shareInstance()->getLoginAddr().c_str(),serverPort);
 	}
 
 	CMD_GP_UseKnapsack userKnap;
@@ -1373,7 +1373,7 @@ void GameServiceClient::SendAuctionRequset(int subCmd,int pageIndex,int pageCoun
 {
 	if (!m_GameSocket.IsConnected())
 	{
-		m_GameSocket.Connect(serverAddress,serverPort);
+		m_GameSocket.Connect(SessionManager::shareInstance()->getLoginAddr().c_str(),serverPort);
 	}
 
 	CMD_GP_GetAuctionRecord qAuction;
@@ -1393,7 +1393,7 @@ void GameServiceClient::sendKnapSackRequest()
 
 	if (!m_GameSocket.IsConnected())
 	{
-		m_GameSocket.Connect(serverAddress,serverPort);
+		m_GameSocket.Connect(SessionManager::shareInstance()->getLoginAddr().c_str(),serverPort);
 	}
 
 	CMD_GP_UserID gpUserID;
@@ -1415,7 +1415,7 @@ void GameServiceClient::SendAuctionListRequset()
 
 	if (!m_GameSocket.IsConnected())
 	{
-		m_GameSocket.Connect(serverAddress,serverPort);
+		m_GameSocket.Connect(SessionManager::shareInstance()->getLoginAddr().c_str(),serverPort);
 	}
 
 	CMD_GP_UserID gpUserID;
@@ -1438,7 +1438,7 @@ void GameServiceClient::sendSellAuctionRequest(__Dictionary*info)
 
 	if (!m_GameSocket.IsConnected())
 	{
-		m_GameSocket.Connect(serverAddress,serverPort);
+		m_GameSocket.Connect(SessionManager::shareInstance()->getLoginAddr().c_str(),serverPort);
 	}
 
 	CMD_GP_Sell_Auction sellAuction;
@@ -1473,7 +1473,7 @@ void GameServiceClient::sendBuyAuctionRequest(__Dictionary*info)
 
 	if (!m_GameSocket.IsConnected())
 	{
-		m_GameSocket.Connect(serverAddress,serverPort);
+		m_GameSocket.Connect(SessionManager::shareInstance()->getLoginAddr().c_str(),serverPort);
 	}
 
 	CMD_GP_Buy_Auction buyAuction;
@@ -1506,7 +1506,7 @@ void GameServiceClient::sendCancelAuctionRequest(__Dictionary* info)
 {
 	if (!m_GameSocket.IsConnected())
 	{
-		m_GameSocket.Connect(serverAddress,serverPort);
+		m_GameSocket.Connect(SessionManager::shareInstance()->getLoginAddr().c_str(),serverPort);
 	}
 
 	CMD_GP_Cancel_Auction cancelAuction;
@@ -1534,7 +1534,7 @@ void GameServiceClient::sendQueryAuctionRequest(int pageIndex,int pageCount,char
 {
 	if (!m_GameSocket.IsConnected())
 	{
-		m_GameSocket.Connect(serverAddress,serverPort);
+		m_GameSocket.Connect(SessionManager::shareInstance()->getLoginAddr().c_str(),serverPort);
 	}
 
 	CMD_GP_Query_Auction qAuction;
@@ -1549,7 +1549,7 @@ void GameServiceClient::sendVipPowerRequest()
 {
 	if (!m_GameSocket.IsConnected())
 	{
-		m_GameSocket.Connect(serverAddress,serverPort);
+		m_GameSocket.Connect(SessionManager::shareInstance()->getLoginAddr().c_str(),serverPort);
 	}
 
 	CMD_GP_VipUserID vipPower ;
@@ -1562,7 +1562,7 @@ void GameServiceClient::sendVipAwardRequest(int awardType)
 {
 	if (!m_GameSocket.IsConnected())
 	{
-		m_GameSocket.Connect(serverAddress,serverPort);
+		m_GameSocket.Connect(SessionManager::shareInstance()->getLoginAddr().c_str(),serverPort);
 	}
 
 	CMD_GP_VipAward award;
@@ -1716,7 +1716,7 @@ void GameServiceClient::sendUserSaveScoreRequest(SCORE score)
 {
 	if (!m_GameSocket.IsConnected())
 	{
-		m_GameSocket.Connect(serverAddress,serverPort);
+		m_GameSocket.Connect(SessionManager::shareInstance()->getLoginAddr().c_str(),serverPort);
 	}
 
 	CMD_GP_UserSaveScore saveScore;
@@ -1737,7 +1737,7 @@ void GameServiceClient::sendUserTakeScoreRequest(SCORE score)
 {
 	if (!m_GameSocket.IsConnected())
 	{
-		m_GameSocket.Connect(serverAddress,serverPort);
+		m_GameSocket.Connect(SessionManager::shareInstance()->getLoginAddr().c_str(),serverPort);
 	}
 
 	CMD_GP_UserTakeScore takeScore;
@@ -1762,7 +1762,7 @@ void GameServiceClient::sendModifyInsurePass(const char* pwd)
 {
 	if (!m_GameSocket.IsConnected())
 	{
-		m_GameSocket.Connect(serverAddress,serverPort);
+		m_GameSocket.Connect(SessionManager::shareInstance()->getLoginAddr().c_str(),serverPort);
 	}
 
 	CMD_GP_ModifyInsurePass modifyPass;
@@ -1783,7 +1783,7 @@ void GameServiceClient::sendModifyPassword(const char* oldPwd,const char *newPwd
 
 	if (!m_GameSocket.IsConnected())
 	{
-		m_GameSocket.Connect(serverAddress,serverPort);
+		m_GameSocket.Connect(SessionManager::shareInstance()->getLoginAddr().c_str(),serverPort);
 	}
 
 	if (type == 0)
@@ -1819,7 +1819,7 @@ void GameServiceClient::sendVerifyInsurePass(const char* pwd)
 {
 	if (!m_GameSocket.IsConnected())
 	{
-		m_GameSocket.Connect(serverAddress,serverPort);
+		m_GameSocket.Connect(SessionManager::shareInstance()->getLoginAddr().c_str(),serverPort);
 	}
 	CMD_GP_VerifyInsurePass verifyPass;
 	verifyPass.dwUserID = SessionManager::shareInstance()->getUserId();
@@ -1843,7 +1843,7 @@ void GameServiceClient::sendGetAssignList()
 {
 	if (!m_GameSocket.IsConnected())
 	{
-		m_GameSocket.Connect(serverAddress,serverPort);
+		m_GameSocket.Connect(SessionManager::shareInstance()->getLoginAddr().c_str(),serverPort);
 	}
 
 	CMD_GP_GetSignInTask assign ;
@@ -1859,7 +1859,7 @@ void GameServiceClient::sendAssignMsg()
 {
 	if (!m_GameSocket.IsConnected())
 	{
-		m_GameSocket.Connect(serverAddress,serverPort);
+		m_GameSocket.Connect(SessionManager::shareInstance()->getLoginAddr().c_str(),serverPort);
 	}
 	CMD_GP_SignIn signIn;
 	signIn.dwUserID = SessionManager::shareInstance()->getUserId();
@@ -1879,7 +1879,7 @@ void GameServiceClient::sendTreasureRequest()
 {
 	if (!m_GameSocket.IsConnected())
 	{
-		m_GameSocket.Connect(serverAddress,serverPort);
+		m_GameSocket.Connect(SessionManager::shareInstance()->getLoginAddr().c_str(),serverPort);
 	}
 	CMD_GP_UserID user;
 
@@ -1900,7 +1900,7 @@ void GameServiceClient::sendConvertAutionScoreRequest()
 {
 	if (!m_GameSocket.IsConnected())
 	{
-		m_GameSocket.Connect(serverAddress,serverPort);
+		m_GameSocket.Connect(SessionManager::shareInstance()->getLoginAddr().c_str(),serverPort);
 	}
 	CMD_GP_UserID user;
 
@@ -1920,7 +1920,7 @@ void GameServiceClient::sendGetVerifyCode(const char* phone)
 {
 	if (!m_GameSocket.IsConnected())
 	{
-		m_GameSocket.Connect(serverAddress,serverPort);
+		m_GameSocket.Connect(SessionManager::shareInstance()->getLoginAddr().c_str(),serverPort);
 	}
 
 	CMD_GP_Get_Captcha getCaptcha;
@@ -1949,7 +1949,7 @@ void GameServiceClient::sendBindPhoneRequest(int code )
 {
 	if (!m_GameSocket.IsConnected())
 	{
-		m_GameSocket.Connect(serverAddress,serverPort);
+		m_GameSocket.Connect(SessionManager::shareInstance()->getLoginAddr().c_str(),serverPort);
 	}
 	CMD_GP_Send_Captcha sendCaptcha;
 	sendCaptcha.dwUserID = SessionManager::shareInstance()->getUserId();
@@ -1961,7 +1961,7 @@ void GameServiceClient::sendEnsureAccoutRequest(const char* accout)
 {
 	if (!m_GameSocket.IsConnected())
 	{
-		m_GameSocket.Connect(serverAddress,serverPort);
+		m_GameSocket.Connect(SessionManager::shareInstance()->getLoginAddr().c_str(),serverPort);
 	}
 
 	
@@ -1977,7 +1977,7 @@ void GameServiceClient::sendGetVerifyCodeByUid()
 {
 	if (!m_GameSocket.IsConnected())
 	{
-		m_GameSocket.Connect(serverAddress,serverPort);
+		m_GameSocket.Connect(SessionManager::shareInstance()->getLoginAddr().c_str(),serverPort);
 	}
 
 	CMD_GP_GetCaptchaByUserID getCaptcha;
@@ -1991,7 +1991,7 @@ void GameServiceClient::sendSetPassRequest(int verifyCode ,const char* newPwd)
 {
 	if (!m_GameSocket.IsConnected())
 	{
-		m_GameSocket.Connect(serverAddress,serverPort);
+		m_GameSocket.Connect(SessionManager::shareInstance()->getLoginAddr().c_str(),serverPort);
 	}
 
 	CMD_GP_SetPass setPass;
@@ -2011,7 +2011,7 @@ void GameServiceClient::sendInsureVerifyRequest()
 {
 	if (!m_GameSocket.IsConnected())
 	{
-		m_GameSocket.Connect(serverAddress,serverPort);
+		m_GameSocket.Connect(SessionManager::shareInstance()->getLoginAddr().c_str(),serverPort);
 	}
 
 	CMD_GP_SetInsurePassGetCaptcha getInsureCaptcha;
@@ -2039,7 +2039,7 @@ void GameServiceClient::sendSetInsuerPass(int verifyCode,const char* newInsurePw
 {
 	if (!m_GameSocket.IsConnected())
 	{
-		m_GameSocket.Connect(serverAddress,serverPort);
+		m_GameSocket.Connect(SessionManager::shareInstance()->getLoginAddr().c_str(),serverPort);
 	}
 
 	CMD_GP_SetPass setPass;
@@ -2059,7 +2059,7 @@ void GameServiceClient::sendExchangeIngotRequest(int ingot)
 {
 	if (!m_GameSocket.IsConnected())
 	{
-		m_GameSocket.Connect(serverAddress,serverPort);
+		m_GameSocket.Connect(SessionManager::shareInstance()->getLoginAddr().c_str(),serverPort);
 	}
 
 	CMD_GP_UserExchangeIngot exchangeIngot;
@@ -2085,7 +2085,7 @@ void GameServiceClient::sendModifyIndividual(bool isMan /* = false */)
 
 	if (!m_GameSocket.IsConnected())
 	{
-		m_GameSocket.Connect(serverAddress,serverPort);
+		m_GameSocket.Connect(SessionManager::shareInstance()->getLoginAddr().c_str(),serverPort);
 	}
 
 	CMD_GP_ModifyIndividual modifyInfo;
@@ -2105,7 +2105,7 @@ void GameServiceClient::sendModifyFaceId(int id)
 {
 	if (!m_GameSocket.IsConnected())
 	{
-		m_GameSocket.Connect(serverAddress,serverPort);
+		m_GameSocket.Connect(SessionManager::shareInstance()->getLoginAddr().c_str(),serverPort);
 	}
 
      CMD_GP_SystemFaceInfo faceInfo;
@@ -2131,7 +2131,7 @@ void GameServiceClient::sendMoreGameRequest()
 {
 	if (!m_GameSocket.IsConnected())
 	{
-		m_GameSocket.Connect(serverAddress,serverPort);
+		m_GameSocket.Connect(SessionManager::shareInstance()->getLoginAddr().c_str(),serverPort);
 	}
 	CMD_GP_GetMoreGame moreGame;
 	moreGame.dwOpTerminal = dwOptermianlValue;
@@ -2144,7 +2144,7 @@ void GameServiceClient::sendFeedBackRequest(const char* content,const char* pQQ)
 {
 	if (!m_GameSocket.IsConnected())
 	{
-		m_GameSocket.Connect(serverAddress,serverPort);
+		m_GameSocket.Connect(SessionManager::shareInstance()->getLoginAddr().c_str(),serverPort);
 	}
 	CMD_GP_Feedback info;
 	LoginUserModel* loginModel = SessionManager::shareInstance()->getLoginModel();
@@ -2161,7 +2161,7 @@ void GameServiceClient::sendDownLoadUrlRequest(int gameKind)
 {
 	if (!m_GameSocket.IsConnected())
 	{
-		m_GameSocket.Connect(serverAddress,serverPort);
+		m_GameSocket.Connect(SessionManager::shareInstance()->getLoginAddr().c_str(),serverPort);
 	}
 	CMD_GP_GetDownloadResUrl downloadRes;
 	downloadRes.dwKindID = gameKind;
@@ -2174,7 +2174,7 @@ void GameServiceClient::sendRechargeOrder(int ingot,const char* orderInfo, bool 
 {
 	if (!m_GameSocket.IsConnected())
 	{
-		m_GameSocket.Connect(serverAddress,serverPort);
+		m_GameSocket.Connect(SessionManager::shareInstance()->getLoginAddr().c_str(),serverPort);
 	}
 	LoginUserModel* loginModel = SessionManager::shareInstance()->getLoginModel();
 
@@ -2201,7 +2201,7 @@ void GameServiceClient::sendGiftConvertRequest(const char* covertCode)
 {
 	if (!m_GameSocket.IsConnected())
 	{
-		m_GameSocket.Connect(serverAddress, serverPort);
+		m_GameSocket.Connect(SessionManager::shareInstance()->getLoginAddr().c_str(), serverPort);
 	}
 	LoginUserModel* loginModel = SessionManager::shareInstance()->getLoginModel();
 

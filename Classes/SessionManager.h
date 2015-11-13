@@ -23,6 +23,8 @@
 #define  BUYUTIMEMATCH       7 
 #define  BUYUBIGAWARDMATCH 8
 
+#define GAME_IP						"login1.qicainiu.net"						//正式服务器
+
 class SessionManager : public Ref
 {
 public:
@@ -172,6 +174,8 @@ public:
 
 	void setMatchStart(int value) {bMatch_Start = value;}
 	int    getMatchStart() {return bMatch_Start;}
+
+	std::string getLoginAddr();
 private:
 	__Array* mRoomLevels;//所有房间信息列表
 	__Array* mAllUsers; //所有用户列表
@@ -222,6 +226,7 @@ private:
 	std::string match_server;
 	int              match_port;
 	bool            bMatch_Start;
+	std::string login_server;
 };
 
 

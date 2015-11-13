@@ -83,6 +83,8 @@ SessionManager::SessionManager()
 	match_server = "";
 	match_port = 0;
 	bMatch_Start = 0;
+
+	login_server = "";
 }
 
 SessionManager::~SessionManager()
@@ -754,4 +756,17 @@ void SessionManager::sortMatchRooms()
 void SessionManager::setGameKind(int value)
 {
 	mGameKindIndex = value;
+}
+
+std::string SessionManager::getLoginAddr()
+{
+	if (login_server == "")
+	{
+		struct hostent* hostInfo = gethostbyname(GAME_IP);
+		if (hostInfo)
+		{
+			login_server  = inet_ntoa(*(struct in_addr *)*hostInfo->h_addr_list);
+		}
+	}
+	return login_server;
 }
