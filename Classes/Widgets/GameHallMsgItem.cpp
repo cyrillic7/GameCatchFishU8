@@ -43,13 +43,15 @@ bool GameHallMsgItem::init(__Dictionary* infodic,int width)
 	setContentSize(Size(width,ITEM_HEIGHT));
 	setTouchEnabled(true);
 
+	
+
 	SpriteFrame* frame = SpriteFrameCache::sharedSpriteFrameCache()->spriteFrameByName("message_bg.png");
 	ui::Scale9Sprite* itembg = ui::Scale9Sprite::createWithSpriteFrame(frame);
 	itembg->setContentSize(Size(width,ITEM_HEIGHT - 10));
 	itembg->setPosition(Vec2(width/2,ITEM_HEIGHT/2));
 	addChild(itembg);
 
-	//__String* content = __String::create("字花样百出甘划框框一基本原理 基本原理 基本原理巧夺天工玩世不恭大型要基本原理基本原理 在一革夺爱爱爱君子坦荡荡么多");
+	//__String* content = __String::create("喜讯来啦：比赛话费天天送，每天乐开花了吧！更大重磅的消息来了，我们推出了电脑版【七彩牛游戏中心】有多种不同游戏，有比赛：二人斗地主比赛，千变双扣比赛，捕鱼比赛；有牛牛：百人牛牛，二人牛牛，通比牛牛}");
 	__String* content = (__String*)infodic->objectForKey("msgContent");
 	LabelTTF* temp = LabelTTF::create();
 	temp->setFontSize(20);
@@ -65,7 +67,7 @@ bool GameHallMsgItem::init(__Dictionary* infodic,int width)
 	}
 	else
 	{
-		LabelTTF* labelContent = LabelTTF::create(CommonFunction::GBKToUTF8(content->getCString()),"Arail Regular",20,Size(width - 50,ITEM_HEIGHT - 10),TextHAlignment::LEFT);
+		LabelTTF* labelContent = LabelTTF::create(CommonFunction::GBKToUTF8(content->getCString()),"Arail Regular",20,Size(width - 50,ITEM_HEIGHT/2),TextHAlignment::LEFT);
 		labelContent->setColor(ccc3(96,33,0));
 		labelContent->setAnchorPoint(Vec2(0.5,0.5));
 		labelContent->setPosition(Vec2(width/2,itembg->getContentSize().height/2 - 5));
