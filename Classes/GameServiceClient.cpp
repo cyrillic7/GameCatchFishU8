@@ -176,6 +176,8 @@ bool GameServiceClient::OnTCPSocketRead(WORD wSocketID, TCP_Command Command, VOI
 			break;
 		case MDM_GP_USER_SERVICE://用户命令
 			{
+				closeSoket();
+
 				if(Command.wSubCmdID == SUB_GP_GIFT )//礼包
 				{
 					parseGift(pData,wDataSize,ShopTypeGift);
@@ -518,8 +520,8 @@ bool GameServiceClient::OnTCPSocketRead(WORD wSocketID, TCP_Command Command, VOI
 					Command.wSubCmdID != SUB_GP_AUCTION_RECORD && Command.wSubCmdID != SUB_GP_AUCTION &&
 					Command.wSubCmdID != SUB_GP_GIFT  && Command.wSubCmdID != SUB_GP_BUYGIFT)
 				{
-					log("Command.wSubCmdID =%d", Command.wSubCmdID);
-					closeSoket();
+					//log("Command.wSubCmdID =%d", Command.wSubCmdID);
+					//closeSoket();
 				}
 			}
 			break;
@@ -973,7 +975,7 @@ void GameServiceClient::update(float dt)
 		
 		m_GameSocket.Flush();
 		
-		while (true)
+		while (m_GameSocket.IsConnected())
 		{
 			char buffer[_MAX_MSGSIZE] = { 0 };
 			int nSize = sizeof(buffer);
@@ -1697,7 +1699,11 @@ void GameServiceClient::sendTryAaginRequest()
 //获取银行信息
 void GameServiceClient::sendQueryBankRequest()
 {
-	
+	if (!m_GameSocket.IsConnected())
+	{
+		m_GameSocket.Connect(SessionManager::shareInstance()->getLoginAddr().c_str(), serverPort);
+	}
+
 	CMD_GP_QueryInsureInfo insure;
 	insure.dwUserID = SessionManager::shareInstance()->getUserId();
 	
