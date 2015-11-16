@@ -75,6 +75,7 @@ private:
 	void onShowAccountList(Ref *pSender, ui::Widget::TouchEventType eventType);
 
 	void LoginSuccessRsp(EventCustom* evt);
+	void removeSelf(EventCustom* evt);
 	void LoginFaildRsp(EventCustom* evt);
 	bool checkData(loginDataType type);
 

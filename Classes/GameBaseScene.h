@@ -86,6 +86,7 @@ public:
 	 void loginMatchRoomFailureRsp(EventCustom* evt);
 	 //
 	 void ReceiveRemoveGameSoketMsg(EventCustom* evt);
+	 //
 protected:
 	// 异步加载资源
 	virtual void loadResourceNeed();

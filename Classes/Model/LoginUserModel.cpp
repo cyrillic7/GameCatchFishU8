@@ -13,6 +13,7 @@ LoginUserModel::LoginUserModel()
 	, m_qucikAccount("")
 	, m_qucikPwd("")
 	, m_firstLogin(false)
+	, m_loginUrlIndex(0)
 {
     m_password = "";
 }
@@ -26,6 +27,8 @@ bool LoginUserModel::init() {
 }
 
 void LoginUserModel::flush() {
+
+	CCUserDefault::sharedUserDefault()->setIntegerForKey(cur_loing_url_index_key, m_loginUrlIndex);
 
 	if (m_accountType == accountType::accountQQ)
 	{
@@ -54,6 +57,7 @@ void LoginUserModel::flush() {
 	{
 		CCUserDefault::sharedUserDefault()->setStringForKey(qucik_login_pwd_saving_key, m_qucikPwd);
 	}
+	
 #endif
 }
 
@@ -67,6 +71,7 @@ void LoginUserModel::loadDataFromDisk() {
 	m_qucikAccount =  CCUserDefault::sharedUserDefault()->getStringForKey(qucik_login_account_saving_key);
 	m_qucikPwd  =   CCUserDefault::sharedUserDefault()->getStringForKey(qucik_login_pwd_saving_key);
 	m_firstLogin  =   CCUserDefault::sharedUserDefault()->getBoolForKey(login_user_firstLogin_saving_key);
+	m_loginUrlIndex = CCUserDefault::sharedUserDefault()->getIntegerForKey(cur_loing_url_index_key);
 }
 
 LoginUserModel *LoginUserModel::create() {

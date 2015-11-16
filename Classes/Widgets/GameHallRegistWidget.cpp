@@ -8,6 +8,7 @@
 #include "MsgDefine/CMD_LogonServer.h"
 #include "SessionManager.h"
 #include "CommonFunction.h"
+#include "Message.h"
 
 #define  popBgTag 18
 #define  BtnCloseTag 42
@@ -48,7 +49,7 @@ void GameHallRegisterWidget::onEnter()
 	TNWidget::onEnter();
 	//_eventDispatcher->addEventListenerWithSceneGraphPriority(EventListenerCustom::create(LoginSuccessMsg, CC_CALLBACK_1(GameHallRegisterWidget::LoginSuccessRsp, this)), this);
 	//_eventDispatcher->addEventListenerWithSceneGraphPriority(EventListenerCustom::create(LoginFaildMsg, CC_CALLBACK_1(GameHallRegisterWidget::LoginFaildRsp, this)), this);
-
+	_eventDispatcher->addEventListenerWithSceneGraphPriority(EventListenerCustom::create(closeLoginDialogMsg, CC_CALLBACK_1(GameHallRegisterWidget::removeSelf, this)), this);
 }
 
 void GameHallRegisterWidget::onExit()
@@ -133,13 +134,20 @@ void GameHallRegisterWidget::onRegister(Ref *pSender, ui::Widget::TouchEventType
 			dic->setObject(__String::create(mAccountEdit->getText()),"account");
 			dic->setObject(__String::create(mNickEdit->getText()),"nick");
 			dic->setObject(__String::create(mPwdEdit->getText()),"password");
-			
+			showLoading();
 			Director::sharedDirector()->getEventDispatcher()->dispatchCustomEvent(accountRegisterMsg,dic);
-			removeFromParent();
+
+			//removeFromParent();
 			//GameServiceClientManager::sharedInstance()->getCurrentServiceClient()->onRegister((char*)mAccountEdit->getText(),(char*)(CommonFunction::UTF8TOGBK((mNickEdit->getText()))),(char*)mPwdEdit->getText());
 			//showLoading();
 		}
 	}
+}
+
+void GameHallRegisterWidget::removeSelf(EventCustom* evt)
+{
+	removeLoading();
+	removeFromParent();
 }
 
 void GameHallRegisterWidget::onBack(Ref *pSender, ui::Widget::TouchEventType eventType)

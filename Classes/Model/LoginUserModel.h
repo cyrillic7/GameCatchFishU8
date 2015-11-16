@@ -20,6 +20,7 @@ USING_NS_CC;
 
 #define qucik_login_account_saving_key  "qucik_login_account_saving_key"
 #define  qucik_login_pwd_saving_key        "qucik_login_pwd_saving_key"
+#define  cur_loing_url_index_key          "cur_loing_url_index_key" //当前登录点索引KEY
 
 #define  login_user_firstLogin_saving_key        "login_user_firstLogin_saving_key"
 enum  accountType
@@ -102,6 +103,9 @@ public:
 	 CC_SYNTHESIZE(std::string, m_qucikPwd, QucikPwd);
 
 	 CC_SYNTHESIZE(bool, m_firstLogin, FirstLogin);
+
+	 //
+	 CC_SYNTHESIZE(int, m_loginUrlIndex, LoginUrlIndex);
 private:
     std::string     m_userId;
     bool            m_isTemp;

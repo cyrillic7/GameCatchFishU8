@@ -85,6 +85,8 @@ void LoginScene::onEnter()
 	_eventDispatcher->addEventListenerWithSceneGraphPriority(EventListenerCustom::create(UpdateMsg,CC_CALLBACK_1(LoginScene::goToUpdate,this)),this);
 	_eventDispatcher->addEventListenerWithSceneGraphPriority(EventListenerCustom::create(CancelUpdateMsg,CC_CALLBACK_1(LoginScene::CancelUpdate,this)),this);
 
+	//_eventDispatcher->addEventListenerWithSceneGraphPriority(EventListenerCustom::create(netWorkValidMsg, CC_CALLBACK_1(LoginScene::netWorkIsValid, this)), this);
+
 	TextureCache::sharedTextureCache()->addImage("login_bg.png");
 
 	std::string imageName = "";
@@ -191,8 +193,17 @@ void LoginScene::sendfastLogin(EventCustom* evt)
 	std::string uuid = CommonFunction::getUUID();
 	std::string Bit32UUid = Crypto::MD5String((void*)uuid.c_str(), strlen(uuid.c_str()));
 	Bit32UUid = "mobile" + pystring::slice(Bit32UUid,0,26);
-	m_serviceClient->sendQucikLogin(Bit32UUid.c_str());
-	showLoading();
+	if (!m_serviceClient->Connect(SessionManager::shareInstance()->getLoginAddr().c_str(), 8100))
+	{
+		ModalViewManager::sharedInstance()->showWidget(AlertWidget::create(nullptr, "", CommonFunction::GBKToUTF8("连接失败，请查看您的网络!")));
+	}
+	else
+	{
+		showLoading();
+		m_serviceClient->sendQucikLogin(Bit32UUid.c_str());
+	}
+	
+	
 	/*LoginUserModel* loginModel = SessionManager::shareInstance()->getLoginModel();
 	if (loginModel->getAccount().length() <=0 || loginModel->getPassword().length() <=0)
 	{
@@ -210,8 +221,17 @@ void LoginScene::onFastLogin(EventCustom* evt)
 	LoginUserModel*  model = SessionManager::shareInstance()->getLoginModel();
 	//mbFastLogin = true;
 	GameServiceClient* c = GameServiceClientManager::sharedInstance()->serviceClientForName(m_gameName.c_str());
-	c->onLogin(model->getQucikAccount().c_str(),model->getQucikPwd().c_str());
-	showLoading();
+	
+	if (!c->Connect(SessionManager::shareInstance()->getLoginAddr().c_str(), 8100))
+	{
+		ModalViewManager::sharedInstance()->showWidget(AlertWidget::create(nullptr, "", CommonFunction::GBKToUTF8("连接失败，请查看您的网络!")));
+	}
+	else
+	{
+		c->onLogin(model->getQucikAccount().c_str(), model->getQucikPwd().c_str());
+		showLoading();
+	}
+	
 }
 
 void LoginScene::FastLoginRsp(EventCustom* evt)
@@ -247,16 +267,18 @@ void LoginScene::QQLogin(EventCustom* evt)
 void LoginScene::logonGameByQQ(float dt)
 {
 	GameServiceClient* c = GameServiceClientManager::sharedInstance()->serviceClientForName(m_gameName.c_str());
-	c->onLogin(m_Account.c_str(),m_Password.c_str());
 	showLoading();
+	c->onLogin(m_Account.c_str(),m_Password.c_str());
+	
 }
 
 void LoginScene::AccountLogin(EventCustom* evt)
 {
 	GameServiceClient* c = GameServiceClientManager::sharedInstance()->serviceClientForName(m_gameName.c_str());
 	LoginUserModel *userModel = SessionManager::shareInstance()->getLoginModel();
+	//showLoading();
 	c->onLogin(userModel->getAccount().c_str(),userModel->getPassword().c_str());
-	showLoading();
+	
 }
 
 void LoginScene::AccountRegister(EventCustom* evt)
@@ -274,8 +296,9 @@ void LoginScene::AccountRegister(EventCustom* evt)
 		mRegisterInfo->retain();
 	}
 	mBRegister = true;
+	//showLoading();
 	c->onRegister((char*)pAccount->getCString(),(char*)(CommonFunction::UTF8TOGBK((pNick->getCString()))).c_str(),(char*)pPwd->getCString());
-	showLoading();
+	
 }
 
 
@@ -322,6 +345,8 @@ void LoginScene::LoginSuccessRsp(EventCustom* evt)
 				accounts->addObject(__String::createWithFormat("%s&%s",userModel->getAccount().c_str(),userModel->getPassword().c_str()));
 				SessionManager::shareInstance()->writeAccountFile();
 			}
+
+			Director::sharedDirector()->getEventDispatcher()->dispatchCustomEvent(closeLoginDialogMsg);
 		}
 		SessionManager::shareInstance()->flush();
 	}
@@ -343,6 +368,12 @@ void LoginScene::LoginFaildRsp(EventCustom* evt)
 	removeLoading();
 	CMD_MB_LogonFailure* errerLog = (CMD_MB_LogonFailure*)evt->getUserData();
 	ModalViewManager::sharedInstance()->showWidget(AlertWidget::create(nullptr,"",CommonFunction::GBKToUTF8(errerLog->szDescribeString)));
+}
+
+void LoginScene::netWorkIsValid(EventCustom* evt)
+{
+	removeLoading();
+	ModalViewManager::sharedInstance()->showWidget(AlertWidget::create(nullptr, "", CommonFunction::GBKToUTF8("连接失败，请查看您的网络!")));
 }
 
 

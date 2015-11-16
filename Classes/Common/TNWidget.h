@@ -46,10 +46,12 @@ public:
     virtual bool fixWidth();
 
     //加载指示
-    void showLoading(bool canTouch = false);
-    void hideLoading();
+    void showLoading();
+	void removeLoading();
     ImageView* m_loadingWidget;
     Layout* m_loadingLayout;
+
+	void netWorkIsValid(EventCustom* evt);
 protected:
     //是不是初始化
     bool        m_isInit;

@@ -207,4 +207,6 @@
 #define  EnterMatchRoomMsg			 "EnterMatchRoomMsg"
 
 #define  MatchPlayCountIsMaxMsg     "MatchPlayCountIsMaxMsg"
+
+#define  closeLoginDialogMsg "closeLoginDialogMsg"
 #endif    

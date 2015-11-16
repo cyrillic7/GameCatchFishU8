@@ -232,10 +232,10 @@ void GameHallPaimaiWidget::onEnter()
 	refreshData(typePaiMaiInfo,false);
 
 	//请求上架物品列表
-//	refreshData(typeAuctionList,false);
+	refreshData(typeAuctionList,false);
 
 	//获取用户财富信息
-//	GameServiceClientManager::sharedInstance()->getCurrentServiceClient()->sendTreasureRequest();
+	GameServiceClientManager::sharedInstance()->getCurrentServiceClient()->sendTreasureRequest();
 }
 
 void GameHallPaimaiWidget::onExit()
@@ -366,10 +366,6 @@ void GameHallPaimaiWidget::refreshAuctionList(EventCustom* evt)
 		}
 	}
 	mPageIndex = 1;
-
-
-	//请求上架物品列表
-	refreshData(typeAuctionList, false);
 }
 
 void GameHallPaimaiWidget::refreshMyAuctionList(EventCustom* evt)
@@ -416,9 +412,6 @@ void GameHallPaimaiWidget::refreshAuctionItemList(EventCustom* evt)
 		}
 		mAuctionItemList->pushBackCustomItem(pSell);
 	}
-
-	//获取用户财富信息
-	GameServiceClientManager::sharedInstance()->getCurrentServiceClient()->sendTreasureRequest();
 }
 
 void GameHallPaimaiWidget::refreshSellData(__Dictionary* data)

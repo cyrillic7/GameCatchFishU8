@@ -371,24 +371,24 @@ void GameHallBagWidget::useBagItem(EventCustom* event)
 }
 
 
-void GameHallBagWidget::showLoading()
-{
-	if (!getChildByTag(COMMON_LOADING_TAG))
-	{
-		CommonLoadingWidget* loading = CommonLoadingWidget::create(Size(TNVisibleRect::getVisibleRect().size.width, TNVisibleRect::getVisibleRect().size.height));
-		loading->setAnchorPoint(Vec2(0.5,0.5));
-		loading->setPosition(TNVisibleRect::center());
-		addChild(loading, 5);
-	}
-}
-
-void GameHallBagWidget::removeLoading()
-{
-	if (getChildByTag(COMMON_LOADING_TAG))
-	{
-		removeChildByTag(COMMON_LOADING_TAG, true);
-	}
-}
+//void GameHallBagWidget::showLoading()
+//{
+//	if (!getChildByTag(COMMON_LOADING_TAG))
+//	{
+//		CommonLoadingWidget* loading = CommonLoadingWidget::create(Size(TNVisibleRect::getVisibleRect().size.width, TNVisibleRect::getVisibleRect().size.height));
+//		loading->setAnchorPoint(Vec2(0.5,0.5));
+//		loading->setPosition(TNVisibleRect::center());
+//		addChild(loading, 5);
+//	}
+//}
+//
+//void GameHallBagWidget::removeLoading()
+//{
+//	if (getChildByTag(COMMON_LOADING_TAG))
+//	{
+//		removeChildByTag(COMMON_LOADING_TAG, true);
+//	}
+//}
 
 void GameHallBagWidget::sendUserKnascapRequset(EventCustom* evt)
 {

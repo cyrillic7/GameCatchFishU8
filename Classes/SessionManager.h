@@ -176,6 +176,8 @@ public:
 	int    getMatchStart() {return bMatch_Start;}
 
 	std::string getLoginAddr();
+	void        setLoginAddrNull() { login_server = ""; }
+	__Array*   getLoginUrls() { return mLoginUrls; }
 private:
 	__Array* mRoomLevels;//所有房间信息列表
 	__Array* mAllUsers; //所有用户列表
@@ -227,6 +229,7 @@ private:
 	int              match_port;
 	bool            bMatch_Start;
 	std::string login_server;
+	__Array* mLoginUrls;
 };
 
 

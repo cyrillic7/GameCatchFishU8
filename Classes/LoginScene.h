@@ -18,7 +18,7 @@ public:
 	virtual void onExit();
 	void loadUI();
 	void logonGameByQQ(float dt);
-
+	void netWorkIsValid(EventCustom* evt);
 	virtual __Array * getResourceNeedLoad();
 protected:
 	void LoginSuccessRsp(EventCustom* evt);

@@ -38,6 +38,7 @@ private:
 	void removeLoading();
 	void LoginSuccessRsp(EventCustom* evt);
 	void LoginFaildRsp(EventCustom* evt);
+	void removeSelf(EventCustom* evt);
 protected:
 	TextField* mFieldAccount;
 	TextField* mFieldNick;

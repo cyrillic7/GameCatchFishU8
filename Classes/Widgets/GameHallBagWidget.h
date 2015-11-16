@@ -35,8 +35,6 @@ public:
 
 	virtual void loadUI();
 protected:
-	void showLoading();
-	void removeLoading();
 	void refreshBagList(EventCustom* event);
 	void receiveKnapsackLog(EventCustom* event);
 	void useBagItem(EventCustom* event);

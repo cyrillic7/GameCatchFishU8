@@ -66,7 +66,6 @@ void GameBaseScene::onEnter() {
 
 	_eventDispatcher->addEventListenerWithSceneGraphPriority(EventListenerCustom::create(RemoveGameSoketMsg, CC_CALLBACK_1(GameBaseScene::ReceiveRemoveGameSoketMsg, this)), this);
 	
-
 	//ModalViewManager::sharedInstance()->removeAllWidgets(true);
 
     //_eventDispatcher->addEventListenerWithSceneGraphPriority(EventListenerCustom::create(LoginGameSucceedMessage, CC_CALLBACK_1(GameBaseScene::receiveLoginSucceedMessage, this)), this);
@@ -425,3 +424,5 @@ void GameBaseScene::ReceiveRemoveGameSoketMsg(EventCustom* evt)
 {
 	GameServiceClientManager::sharedInstance()->removeServiceClient(XwZoneDntg);
 }
+
+

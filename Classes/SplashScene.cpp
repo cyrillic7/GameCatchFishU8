@@ -158,6 +158,27 @@ void SplashScene::checkUpdate(const char* buf){
 		urlIphone = root["url_iphone"].GetString();
 	}
 
+	//登录点数组
+	if (root.HasMember("url_logon_list"))
+	{
+		__Array* pUrlArray = SessionManager::shareInstance()->getLoginUrls();
+		rapidjson::Value& logonArray = root["url_logon_list"];
+		if (logonArray.IsArray())
+		{
+			for (int i = 0; i < logonArray.Capacity(); i++)
+			{
+				rapidjson::Value& urlItem = logonArray[i];
+				if (urlItem.HasMember("logonAddr"))
+				{
+					log("urlItem %s", urlItem["logonAddr"].GetString());
+					pUrlArray->addObject(__String::create(urlItem["logonAddr"].GetString()));
+				}
+				
+			}
+		}
+	}
+	
+
 	std::vector< std::string > VcurVersion;
 	std::vector< std::string > VserviceVersion;
 	pystring::split(sCurVersion,VcurVersion,".");

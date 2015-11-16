@@ -139,7 +139,7 @@ void GameHallLoginWidget::onEnter()
 	//_eventDispatcher->addEventListenerWithSceneGraphPriority(EventListenerCustom::create(LoginSuccessMsg, CC_CALLBACK_1(GameHallLoginWidget::LoginSuccessRsp, this)), this);
 	//_eventDispatcher->addEventListenerWithSceneGraphPriority(EventListenerCustom::create(LoginFaildMsg, CC_CALLBACK_1(GameHallLoginWidget::LoginFaildRsp, this)), this);
 
-
+	_eventDispatcher->addEventListenerWithSceneGraphPriority(EventListenerCustom::create(closeLoginDialogMsg, CC_CALLBACK_1(GameHallLoginWidget::removeSelf, this)), this);
 }
 
 void GameHallLoginWidget::onExit()
@@ -305,11 +305,9 @@ void GameHallLoginWidget::onLogin(Ref *pSender, ui::Widget::TouchEventType event
 			user->setPassword(mPwdEdit->getText());
 			user->setAccountType(accountType::accountNormal);
 			
+			showLoading();
 			Director::sharedDirector()->getEventDispatcher()->dispatchCustomEvent(accountLoginMsg);
-			removeFromParent();
-			//GameServiceClientManager::sharedInstance()->getCurrentServiceClient()->onLogin(mAccountEdit->getText(),mPwdEdit->getText());
-			//showLoading();
-			
+			//removeFromParent();	
 		}
 		
 	
@@ -354,6 +352,11 @@ void GameHallLoginWidget::removeLoading()
 	}
 }
 
+void GameHallLoginWidget::removeSelf(EventCustom* evt)
+{
+	removeLoading();
+	removeFromParent();
+}
 void GameHallLoginWidget::LoginSuccessRsp(EventCustom* evt)
 {
 	removeLoading();

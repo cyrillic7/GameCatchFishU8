@@ -23,7 +23,7 @@ TNWidget::~TNWidget() {
 
 void TNWidget::onEnter() {
     Widget::onEnter();
-
+	_eventDispatcher->addEventListenerWithSceneGraphPriority(EventListenerCustom::create(netWorkValidMsg, CC_CALLBACK_1(TNWidget::netWorkIsValid, this)), this);
     if (m_isInit) {
         m_isInit = false;
         loadUI();
@@ -31,7 +31,9 @@ void TNWidget::onEnter() {
 }
 
 void TNWidget::onExit() {
+	_eventDispatcher->removeEventListenersForTarget(this);
     Widget::onExit();
+
 }
 
 std::string TNWidget::getWidgetJsonName() {
@@ -93,47 +95,26 @@ bool TNWidget::fixWidth() {
     return false;
 }
 
-void TNWidget::showLoading(bool canTouch) {
-    // 模态背景框，不能触摸
-    if (NULL == m_loadingLayout) {
-        m_loadingLayout = Layout::create();
-        m_loadingLayout->retain();
-        m_loadingLayout->setAnchorPoint(ccp(0.5, 0.5));
-        m_loadingLayout->setBackGroundColorType(LAYOUT_COLOR_SOLID);
-        m_loadingLayout->setBackGroundColor(Color3B::BLACK);
-        m_loadingLayout->setBackGroundColorOpacity(125);
-    }
-    if (NULL == m_loadingLayout->getParent()) {
-        addChild(m_loadingLayout);
-    }
-    m_loadingLayout->setTouchEnabled(true);
-    m_loadingLayout->setVisible(true);
-
-    // loading 指示器
-    if (NULL == m_loadingWidget) {
-        m_loadingWidget = ImageView::create();
-		m_loadingWidget->loadTexture("Common/Common_loading_icon.png", UI_TEX_TYPE_LOCAL);
-		m_loadingWidget->getVirtualRenderer()->runAction(CCRepeatForever::create(CCRotateBy::create(0.2f, 30)));
-		
-        m_loadingWidget->setAnchorPoint(ccp(0.5, 0.5));
-        if (NULL != m_mainWidget) {
-            m_loadingWidget->setPosition(m_mainWidget->getSize() / 2);
-        } else {
-            m_loadingWidget->setPosition(TNVisibleRect::center());
-        }
-        addChild(m_loadingWidget);
-    }
-    m_loadingWidget->setVisible(true);
+void TNWidget::showLoading()
+{
+	if (!getChildByTag(COMMON_LOADING_TAG))
+	{
+		CommonLoadingWidget* loading = CommonLoadingWidget::create(Size(TNVisibleRect::getVisibleRect().size.width, TNVisibleRect::getVisibleRect().size.height));
+		loading->setAnchorPoint(Vec2(0.5, 0.5));
+		loading->setPosition(TNVisibleRect::center());
+		addChild(loading, 5);
+	}
 }
 
-void TNWidget::hideLoading() {
-    if (NULL != m_loadingLayout) {
-        m_loadingLayout->setVisible(false);
-        m_loadingLayout->removeFromParent();
-        setTouchEnabled(false);
-    }
-
-    if (NULL != m_loadingWidget) {
-        m_loadingWidget->setVisible(false);
-    }
+void TNWidget::removeLoading()
+{
+	if (getChildByTag(COMMON_LOADING_TAG))
+	{
+		removeChildByTag(COMMON_LOADING_TAG, true);
+	}
+}
+void TNWidget::netWorkIsValid(EventCustom* evt)
+{
+	removeLoading();
+	ModalViewManager::sharedInstance()->showWidget(AlertWidget::create(nullptr, "", "连接失败，请查看您的网络!"));
 }

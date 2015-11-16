@@ -68,6 +68,10 @@ SessionManager::SessionManager()
 	mMatchRooms = __Array::create();
 	mMatchRooms->retain();
 
+	//µÇÂ¼µãÊı×é
+	mLoginUrls = __Array::create();
+	mLoginUrls->retain();
+
 	mRedStatus = 0;
 	mLoginScoreStatus = 0;
 	mLastDealBombTick = 0;
@@ -85,12 +89,14 @@ SessionManager::SessionManager()
 	bMatch_Start = 0;
 
 	login_server = "";
+
 }
 
 SessionManager::~SessionManager()
 {
 	CC_SAFE_RELEASE_NULL(mRoomLevels);
 	CC_SAFE_RELEASE_NULL(mAllUsers);
+	CC_SAFE_RELEASE_NULL(mLoginUrls);
 	CC_SAFE_RELEASE_NULL(m_userLoginModel);
 	CC_SAFE_RELEASE_NULL(m_user);
 	CC_SAFE_RELEASE_NULL(mMsgArray);
@@ -760,13 +766,27 @@ void SessionManager::setGameKind(int value)
 
 std::string SessionManager::getLoginAddr()
 {
-	if (login_server == "")
+	int index = m_userLoginModel->getLoginUrlIndex();
+	if (mLoginUrls->count() == 0)
 	{
 		struct hostent* hostInfo = gethostbyname(GAME_IP);
 		if (hostInfo)
 		{
-			login_server  = inet_ntoa(*(struct in_addr *)*hostInfo->h_addr_list);
+			login_server = inet_ntoa(*(struct in_addr *)*hostInfo->h_addr_list);
 		}
+		return login_server;
 	}
+	
+	 if (login_server == "")
+	 {
+		 __String* loginStr = (__String*)mLoginUrls->getObjectAtIndex(index);
+		 struct hostent* hostInfo = gethostbyname(loginStr->getCString());
+		 if (hostInfo)
+		 {
+			 login_server = inet_ntoa(*(struct in_addr *)*hostInfo->h_addr_list);
+		 }
+	 }
+	
+	
 	return login_server;
 }

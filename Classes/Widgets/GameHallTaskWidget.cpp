@@ -337,10 +337,7 @@ GameHallTaskWidget::~GameHallTaskWidget()
 void GameHallTaskWidget::onEnter()
 {
 	GameServiceClient* c = GameServiceClientManager::sharedInstance()->serviceClientForName(taskClient);
-	if(!c->isConnect())
-	{
-		mBGetFail = true;
-	}
+
 	TNWidget::onEnter();
 	//绑定相关事件
 	_eventDispatcher->addEventListenerWithSceneGraphPriority(EventListenerCustom::create(getTaskListMsg, CC_CALLBACK_1(GameHallTaskWidget::refreshData, this)), this);

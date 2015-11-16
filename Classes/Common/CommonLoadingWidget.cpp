@@ -5,7 +5,7 @@
 #include "Message.h"
 
 CommonLoadingWidget::CommonLoadingWidget() {
-	_eventDispatcher->addEventListenerWithSceneGraphPriority(EventListenerCustom::create(netWorkValidMsg, CC_CALLBACK_1(CommonLoadingWidget::netWorkIsValid, this)), this);
+	//_eventDispatcher->addEventListenerWithSceneGraphPriority(EventListenerCustom::create(netWorkValidMsg, CC_CALLBACK_1(CommonLoadingWidget::netWorkIsValid, this)), this);
 }
 
 CommonLoadingWidget::~CommonLoadingWidget() {
