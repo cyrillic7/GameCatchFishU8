@@ -36,8 +36,7 @@ void MatchResponseHandler::OnSocketSubMatchGame(void* data, WORD data_size)
 	{
 		if (strcmp("捕鱼比赛",pMatchKind->szGameName) == 0 ||strcmp("大闹天宫",pMatchKind->szGameName) == 0)
 		{
-			//SessionManager::shareInstance()->setGameMatchKind(pMatchKind->dwKindID);
-			SessionManager::shareInstance()->setGameMatchKind(470);
+			SessionManager::shareInstance()->setGameMatchKind(pMatchKind->dwKindID);
 			break;
 		}
 		pMatchKind++;
