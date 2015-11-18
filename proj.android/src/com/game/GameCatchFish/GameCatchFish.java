@@ -86,10 +86,10 @@ import android.graphics.Bitmap;
 public class GameCatchFish extends Cocos2dxActivity {
 	public static GameCatchFish app;
 	public String updateUrl;
-	WebView m_webView;//WebView锟截硷拷
-    FrameLayout m_webLayout;//FrameLayout锟斤拷锟斤拷
-    LinearLayout m_topLayout;//LinearLayout锟斤拷锟斤拷
-    Button m_backButton;//锟截闭帮拷钮
+	WebView m_webView;//WebView控件
+    FrameLayout m_webLayout;//FrameLayout布局
+    LinearLayout m_topLayout;//LinearLayout布局
+    Button m_backButton;//关闭按钮
     int    m_webType;
     
     private static native void JniQQLogin(int value,final String account,final String pwd);
@@ -99,11 +99,11 @@ public class GameCatchFish extends Cocos2dxActivity {
 		super.onCreate(savedInstanceState);	
 		getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON); 
 		app=this;
-		//锟斤拷始锟斤拷一锟斤拷锟秸诧拷锟斤拷
+		//初始化一个空布局
 		DisplayMetrics metric = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(metric);
-        int width = metric.widthPixels;  // 锟斤拷幕锟斤拷龋锟斤拷锟斤拷兀锟�
-        int height = metric.heightPixels;  // 锟斤拷幕锟竭度ｏ拷锟斤拷锟截ｏ拷
+        int width = metric.widthPixels;  // 屏幕宽度（像素）
+        int height = metric.heightPixels;  // 屏幕高度（像素）
         
 	    m_webLayout = new FrameLayout(this);
         FrameLayout.LayoutParams lytp = new FrameLayout.LayoutParams(width,height);
@@ -155,7 +155,7 @@ public class GameCatchFish extends Cocos2dxActivity {
 	                || subType == TelephonyManager.NETWORK_TYPE_EVDO_A || subType == TelephonyManager.NETWORK_TYPE_EVDO_0 
 	                || subType == TelephonyManager.NETWORK_TYPE_EVDO_B) { 
 	            type = "3g"; 
-	        } else if (subType == TelephonyManager.NETWORK_TYPE_LTE) {// LTE锟斤拷3g锟斤拷4g锟侥癸拷桑锟斤拷锟�3.9G锟斤拷全锟斤拷锟阶� 
+	        } else if (subType == TelephonyManager.NETWORK_TYPE_LTE) {// LTE是3g到4g的过渡，是3.9G的全球标准 
 	            type = "4g"; 
 	        } 
 	    } 
@@ -177,11 +177,11 @@ public class GameCatchFish extends Cocos2dxActivity {
 	public void showWxShare(int flag)
 	{
 		SendToWXActivity pSendActivity=new SendToWXActivity();
-		pSendActivity.sendShareTest("锟劫诧拷锟斤拷锟斤拷锟斤拷锟角撅拷锟斤拷锟剿ｏ拷          锟斤拷锟轿拷藕锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷妗� 锟斤拷锟剿诧拷锟姐”锟斤拷锟斤拷锟斤拷前锟斤拷锟斤拷锟斤拷锟斤拷戏支援锟斤拷锟窖ｏ拷~",flag);
+		pSendActivity.sendShareTest("再不捕鱼我们就老了！          您的微信好友邀请您玩“ 达人捕鱼”，立即前往下载游戏支援好友！~",flag);
 
 	}
 	/*
-	 * 锟斤拷取锟斤拷锟斤拷锟斤拷息
+	 * 获取订单信息
 	 * 
 	 */
 	public static String getCurTradeNo()
@@ -236,7 +236,7 @@ public class GameCatchFish extends Cocos2dxActivity {
 		} 
 		catch(Exception err) 
 		{ 
-			System.err.println("ELS - Chart : 锟侥硷拷锟叫达拷锟斤拷锟斤拷锟斤拷锟届常"); 
+			System.err.println("ELS - Chart : 文件夹创建发生异常"); 
 			err.printStackTrace();
 		} 
 	}
@@ -250,12 +250,12 @@ public class GameCatchFish extends Cocos2dxActivity {
 	private ProgressDialog gressDialog;
 	
 	public void openWebview(final String url,final int webType) {
-    	this.runOnUiThread(new Runnable() {//锟斤拷锟斤拷锟竭筹拷锟斤拷锟斤拷颖锟侥控硷拷
+    	this.runOnUiThread(new Runnable() {//在主线程里添加别的控件
             public void run() {   
             	  LayoutInflater flater = LayoutInflater.from(app);
         	      View view = flater.inflate(R.layout.webview_layout, null);
         	      m_webLayout.addView(view);
-        	      //锟斤拷锟轿帮拷锟斤拷锟斤拷漏
+        	      //屏蔽按键不下漏
         	      view.setOnClickListener(new OnClickListener() {
   					@Override
   					public void onClick(View v) {
@@ -263,27 +263,27 @@ public class GameCatchFish extends Cocos2dxActivity {
   				});
         	     
         	    m_webType  = webType;
-                //锟斤拷始锟斤拷webView
+                //初始化webView
                 //m_webView = new WebView(game);
         	    m_webView=(WebView)view.findViewById(R.id.webViewQQLogin);
-        	    m_webView.setHorizontalScrollBarEnabled(false);//水平锟斤拷锟斤拷示
-				m_webView.setVerticalScrollBarEnabled(false); //锟斤拷直锟斤拷锟斤拷示 
-                //锟斤拷锟斤拷webView锟杰癸拷执锟斤拷javascript锟脚憋拷
+        	    m_webView.setHorizontalScrollBarEnabled(false);//水平不显示
+				m_webView.setVerticalScrollBarEnabled(false); //垂直不显示 
+                //设置webView能够执行javascript脚本
                 m_webView.getSettings().setJavaScriptEnabled(true);            
-                //锟斤拷锟矫匡拷锟斤拷支锟斤拷锟斤拷锟斤拷
-                m_webView.getSettings().setSupportZoom(true);//锟斤拷锟矫筹拷锟斤拷锟斤拷锟脚癸拷锟斤拷
+                //设置可以支持缩放
+                m_webView.getSettings().setSupportZoom(true);//设置出现缩放工具
                 m_webView.getSettings().setBuiltInZoomControls(true);
-                //锟斤拷锟斤拷URL
+                //载入URL
                 m_webView.loadUrl(url);
-                //使页锟斤拷锟矫斤拷锟斤拷
+                //使页面获得焦点
                 m_webView.requestFocus();
-                //锟斤拷锟揭筹拷锟斤拷锟斤拷锟斤拷樱锟斤拷锟斤拷希锟斤拷锟斤拷锟斤拷锟接硷拷锟斤拷锟节碉拷前browser锟斤拷锟斤拷应
+                //如果页面中链接，如果希望点击链接继续在当前browser中响应
                 m_webView.setWebViewClient(new WebViewClient(){       
                     public boolean shouldOverrideUrlLoading(WebView view, String url) {   
                         if(url.indexOf("tel:")<0){
                         	Log.v("url", url);
                         	 view.loadUrl(url); 
-                        	//url锟斤拷锟斤拷锟街碉拷锟�
+                        	//url参数键值对
                             String strRequestKeyAndValues="";        
                             Map<String, String> mapRequest =CRequest.URLRequest(url);
                             for(String strRequestKey: mapRequest.keySet()) {
@@ -310,7 +310,7 @@ public class GameCatchFish extends Cocos2dxActivity {
 							Bitmap favicon) {
 						// TODO Auto-generated method stub
 						super.onPageStarted(view, url, favicon);
-			            gressDialog = ProgressDialog.show(m_webView.getContext(), "正在加载中...", "", true);
+			            gressDialog = ProgressDialog.show(m_webView.getContext(), "加载中...", "", true);
 			            gressDialog.setCanceledOnTouchOutside(true);
 					}
 
@@ -326,15 +326,15 @@ public class GameCatchFish extends Cocos2dxActivity {
 }
                 });
                 /*
-                //锟斤拷锟斤拷图
+                //背景图
                 m_imageView = new ImageView(game);
                 m_imageView.setImageResource(R.drawable.icon);
                 m_imageView.setScaleType(ImageView.ScaleType.FIT_XY);
-                //锟斤拷始锟斤拷锟斤拷锟皆诧拷锟斤拷 锟斤拷锟斤拷影锟脚ワ拷锟絯ebView
+                //初始化线性布局 里面加按钮和webView
                 m_topLayout = new LinearLayout(game);      
                 m_topLayout.setOrientation(LinearLayout.VERTICAL);*/
                 m_topLayout=(LinearLayout)view.findViewById(R.id.LinearLayoutLogin);
-                //锟斤拷始锟斤拷锟斤拷锟截帮拷钮
+                //初始化返回按钮
                 //m_backButton = new Button(game);
                 m_backButton=(Button)view.findViewById(R.id.buttonBack);
                // m_backButton.setBackgroundResource(R.drawable.icon);
@@ -362,12 +362,12 @@ public class GameCatchFish extends Cocos2dxActivity {
                     }
                 });
                 /*
-                //锟斤拷image锟接碉拷锟斤拷锟斤拷锟斤拷锟斤拷 
+                //把image加到主布局里 
                 m_webLayout.addView(m_imageView);
-                //锟斤拷webView锟斤拷锟诫到锟斤拷锟皆诧拷锟斤拷
+                //把webView加入到线性布局
                 m_topLayout.addView(m_backButton);
                 m_topLayout.addView(m_webView);                
-                //锟劫帮拷锟斤拷锟皆诧拷锟街硷拷锟诫到锟斤拷锟斤拷锟斤拷
+                //再把线性布局加入到主布局
                 m_webLayout.addView(m_topLayout);*/
             }
         });
@@ -388,11 +388,11 @@ public class GameCatchFish extends Cocos2dxActivity {
         m_backButton.destroyDrawingCache();
     }
  
- 	//锟教伙拷PID
+ 	//商户PID
 	public static final String PARTNER = "2088111930234071";
-	// 锟教伙拷锟秸匡拷锟剿猴拷
+	// 商户收款账号
 	public static final String SELLER = "hzxiangwan@163.com";
-	// 锟教伙拷私钥锟斤拷pkcs8锟斤拷式
+	// 商户私钥，pkcs8格式
 	public static final String RSA_PRIVATE = "MIICdwIBADANBgkqhkiG9w0BAQEFAASCAmEwggJdAgEAAoGBAN64/lUSkVgd/cVh"
 			+ "opVPrTquh+K0MvOt9k1boX3yBKmeB95ZV7y/GfiSAs9swuxZn7rkZN9WELqoB1P5"
 			+ "lk/djECqWRmLBFOIetGqVZ3aqrVjVfHE3uYW3PgxCBXukMVzdX/7uzWHtyvsScFf"
@@ -407,7 +407,7 @@ public class GameCatchFish extends Cocos2dxActivity {
 			+ "KznzXdmR2dERwjtkDOG4zTJkCKhwn6oncun8ticJtV9UFGg3uAd+VzUCQAk/iafj"
 			+ "GsJS5drAHvvBYeFQR5ooG/CqMz2K4MHnHGh/pAWCLnNQgO6FgNl7yjkjuMgbRBsk"
 			+ "yMwdN/3atqT0RsQ=";
-	// 支锟斤拷锟斤拷锟斤拷钥
+	// 支付宝公钥
 	public static final String RSA_PUBLIC =
 	// "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCnxj/9qwVfgoUh/y2W89L6BkRAFljhNhgPdyPuBV64bfQNN1PjbCzkIM6qRdKBoLPXmKKMiFYnkd6rAoprih3/PrQEB/VsW8OoM8fxn67UDYuyBTqA23MML9q1+ilIZwBC2AQ2UBVOrFXfFl75p6/B5KsiNG9zpgmLCUYuLkxpLQIDAQAB"
 
@@ -426,25 +426,25 @@ public class GameCatchFish extends Cocos2dxActivity {
 			case SDK_PAY_FLAG: {
 				PayResult payResult = new PayResult((String) msg.obj);
 
-				// 支锟斤拷锟斤拷锟斤拷锟截此达拷支锟斤拷锟斤拷锟斤拷签锟斤拷锟斤拷锟斤拷锟街э拷锟斤拷锟角╋拷锟斤拷锟较拷锟角┰际敝э拷锟斤拷锟斤拷峁╋拷墓锟皆匡拷锟斤拷锟角�
+				// 支付宝返回此次支付结果及加签，建议对支付宝签名信息拿签约时支付宝提供的公钥做验签
 				String resultInfo = payResult.getResult();
 
 				String resultStatus = payResult.getResultStatus();
 
-				// 锟叫讹拷resultStatus 为锟斤拷9000锟斤拷锟斤拷锟斤拷支锟斤拷锟缴癸拷锟斤拷锟斤拷锟斤拷状态锟斤拷锟�?锟斤拷刹慰锟斤拷涌锟斤拷牡锟�
+				// 判断resultStatus 为“9000”则代表支付成功，具体状态码代表含义可参考接口文档
 				if (TextUtils.equals(resultStatus, "9000")) {
-					Toast.makeText(GameCatchFish.this, "支锟斤拷锟缴癸拷",
+					Toast.makeText(GameCatchFish.this, "支付成功",
 							Toast.LENGTH_SHORT).show();
 				} else {
-					// 锟叫讹拷resultStatus 为锟角★拷9000锟斤拷锟斤拷锟斤拷锟斤拷锟街э拷锟绞э拷锟�
-					// 锟斤拷8000锟斤拷锟斤拷锟街э拷锟斤拷锟斤拷锟斤拷为支锟斤拷锟斤拷锟斤拷原锟斤拷锟斤拷锟较低吃拷锟斤拷诘却锟街э拷锟斤拷锟斤拷确锟较ｏ拷锟斤拷锟秸斤拷锟斤拷锟角凤拷晒锟斤拷苑锟斤拷锟斤拷锟届步通知为准锟斤拷小锟斤拷锟斤拷状态锟斤拷
+					// 判断resultStatus 为非“9000”则代表可能支付失败
+					// “8000”代表支付结果因为支付渠道原因或者系统原因还在等待支付结果确认，最终交易是否成功以服务端异步通知为准（小概率状态）
 					if (TextUtils.equals(resultStatus, "8000")) {
-						Toast.makeText(GameCatchFish.this, "支锟斤拷锟斤拷锟饺凤拷锟斤拷锟�",
+						Toast.makeText(GameCatchFish.this, "支付结果确认中",
 								Toast.LENGTH_SHORT).show();
 
 					} else {
-						// 锟斤拷锟斤拷值锟酵匡拷锟斤拷锟叫讹拷为支锟斤拷失锟杰ｏ拷锟斤拷锟斤拷锟矫伙拷锟斤拷锟斤拷取锟斤拷支锟斤拷锟斤拷锟斤拷锟斤拷系统锟斤拷锟截的达拷锟斤拷
-						Toast.makeText(GameCatchFish.this, "支锟斤拷失锟斤拷",
+						// 其他值就可以判断为支付失败，包括用户主动取消支付，或者系统返回的错误
+						Toast.makeText(GameCatchFish.this, "支付失败",
 								Toast.LENGTH_SHORT).show();
 
 					}
@@ -452,7 +452,7 @@ public class GameCatchFish extends Cocos2dxActivity {
 				break;
 			}
 			case SDK_CHECK_FLAG: {
-				Toast.makeText(GameCatchFish.this, "锟斤拷锟斤拷锟轿拷锟�" + msg.obj,
+				Toast.makeText(GameCatchFish.this, "检查结果为：" + msg.obj,
 						Toast.LENGTH_SHORT).show();
 				break;
 			}
@@ -463,7 +463,7 @@ public class GameCatchFish extends Cocos2dxActivity {
 	};
 
 	/**
-	 * call alipay sdk pay. 锟斤拷锟斤拷SDK支锟斤拷
+	 * call alipay sdk pay. 调用SDK支付
 	 * 
 	 */
 	public void pay(final String data) {
@@ -490,18 +490,18 @@ public class GameCatchFish extends Cocos2dxActivity {
 			e1.printStackTrace();
 		}
 			
-		// 锟斤拷锟斤拷
+		// 订单
 		String orderInfo = getOrderInfo(name, desc, price,tradeNo);
-		// 锟皆讹拷锟斤拷锟斤拷RSA 签锟斤拷
+		// 对订单做RSA 签名
 		String sign = sign(orderInfo);
 		try {
-			// 锟斤拷锟斤拷锟絪ign 锟斤拷URL锟斤拷锟斤拷
+			// 仅需对sign 做URL编码
 			sign = URLEncoder.encode(sign, "UTF-8");
 		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();
 		}
 
-		// 锟斤拷锟斤拷姆锟斤拷支锟斤拷锟斤拷锟斤拷锟斤拷娣讹拷亩锟斤拷锟斤拷锟较�
+		// 完整的符合支付宝参数规范的订单信息
 		final String payInfo = orderInfo + "&sign=\"" + sign + "\"&"
 				+ getSignType();
 
@@ -509,9 +509,9 @@ public class GameCatchFish extends Cocos2dxActivity {
 
 			@Override
 			public void run() {
-				// 锟斤拷锟斤拷PayTask 锟斤拷锟斤拷
+				// 构造PayTask 对象
 				PayTask alipay = new PayTask(app);
-				// 锟斤拷锟斤拷支锟斤拷锟接口ｏ拷锟斤拷取支锟斤拷锟斤拷锟�
+				// 调用支付接口，获取支付结果
 				String result = alipay.pay(payInfo);
 
 				Message msg = new Message();
@@ -521,68 +521,68 @@ public class GameCatchFish extends Cocos2dxActivity {
 			}
 		};
 
-		// 锟斤拷锟斤拷锟届步锟斤拷锟斤拷
+		// 必须异步调用
 		Thread payThread = new Thread(payRunnable);
 		payThread.start();
 	}
 
 	/**
-	 * create the order info. 锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷息
+	 * create the order info. 创建订单信息
 	 * 
 	 */
 	public String getOrderInfo(String subject, String body, String price,final String tradeNo) {
-		// 签约锟斤拷锟斤拷锟斤拷锟斤拷锟絀D
+		// 签约合作者身份ID
 		String orderInfo = "partner=" + "\"" + PARTNER + "\"";
-		// 签约锟斤拷锟斤拷支锟斤拷锟斤拷锟剿猴拷
+		// 签约卖家支付宝账号
 		orderInfo += "&seller_id=" + "\"" + SELLER + "\"";
-		// 锟教伙拷锟斤拷站唯一锟斤拷锟斤拷锟斤拷
+		// 商户网站唯一订单号
 		orderInfo += "&out_trade_no=" + "\"" + tradeNo + "\"";
-		// 锟斤拷品锟斤拷锟�
+		// 商品名称
 		orderInfo += "&subject=" + "\"" + subject + "\"";
-		// 锟斤拷品锟斤拷锟斤拷
+		// 商品详情
 		orderInfo += "&body=" + "\"" + body + "\"";
-		// 锟斤拷品锟斤拷锟�
+		// 商品金额
 		orderInfo += "&total_fee=" + "\"" + price + "\"";
-		// 锟斤拷锟斤拷锟斤拷锟届步通知页锟斤拷路锟斤拷
+		// 服务器异步通知页面路径
 		// orderInfo += "&notify_url=" + "\"" +
 		// "http://pay.999qp.com/alipay/notify_url.aspx"
 		orderInfo += "&notify_url=" + "\""
 				+ "http://pay.qicainiu.com/alipay/notify_url.aspx" + "\"";
-		// 锟斤拷锟斤拷涌锟斤拷锟狡ｏ拷 锟教讹拷值
+		// 服务接口名称， 固定值
 		orderInfo += "&service=\"mobile.securitypay.pay\"";
-		// 支锟斤拷锟斤拷锟酵ｏ拷 锟教讹拷值
+		// 支付类型， 固定值
 		orderInfo += "&payment_type=\"1\"";
-		// 锟斤拷锟斤拷锟斤拷耄� 锟教讹拷值
+		// 参数编码， 固定值
 		orderInfo += "&_input_charset=\"utf-8\"";
-		// 锟斤拷锟斤拷未锟斤拷锟筋交锟阶的筹拷时时锟斤拷
-		// 默锟斤拷30锟斤拷锟接ｏ拷一锟斤拷锟斤拷时锟斤拷锟矫笔斤拷锟阶就伙拷锟皆讹拷锟斤拷锟截闭★拷
-		// 取值锟斤拷围锟斤拷1m锟斤拷15d锟斤拷
-		// m-锟斤拷锟接ｏ拷h-小时锟斤拷d-锟届，1c-锟斤拷锟届（锟斤拷锟桔斤拷锟阶猴拷时锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷0锟斤拷乇眨锟斤拷锟�
-		// 锟矫诧拷锟斤拷锟斤拷值锟斤拷锟斤拷锟斤拷小锟斤拷悖拷锟�1.5h锟斤拷锟斤拷转锟斤拷为90m锟斤拷
+		// 设置未付款交易的超时时间
+		// 默认30分钟，一旦超时，该笔交易就会自动被关闭。
+		// 取值范围：1m～15d。
+		// m-分钟，h-小时，d-天，1c-当天（无论交易何时创建，都在0点关闭）。
+		// 该参数数值不接受小数点，如1.5h，可转换为90m。
 		orderInfo += "&it_b_pay=\"30m\"";
-		// extern_token为锟斤拷锟斤拷锟斤拷锟斤拷权锟斤拷取锟斤拷锟斤拷alipay_open_id,锟斤拷锟较此诧拷锟斤拷锟矫伙拷锟斤拷使锟斤拷锟斤拷权锟斤拷锟剿伙拷锟斤拷锟斤拷支锟斤拷
+		// extern_token为经过快登授权获取到的alipay_open_id,带上此参数用户将使用授权的账户进行支付
 		// orderInfo += "&extern_token=" + "\"" + extern_token + "\"";
-		// 支锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷螅锟角耙筹拷锟斤拷锟阶拷锟斤拷袒锟街革拷锟揭筹拷锟斤拷路锟斤拷锟斤拷锟缴匡拷
+		// 支付宝处理完请求后，当前页面跳转到商户指定页面的路径，可空
 		// orderInfo +=
 		// "&return_url=\"http://pay.999qp.com/alipay/return_url.aspx\"";
 		orderInfo += "&return_url=\"http://pay.qicainiu.com/alipay/return_url.aspx\"";
-		// 锟斤拷锟斤拷锟斤拷锟叫匡拷支锟斤拷锟斤拷锟斤拷锟斤拷锟矫此诧拷锟斤拷锟斤拷锟角╋拷锟� 锟教讹拷值 锟斤拷锟斤拷要签约锟斤拷锟斤拷锟斤拷锟斤拷锟叫匡拷锟斤拷锟街э拷锟斤拷锟斤拷锟斤拷锟绞癸拷茫锟�
+		// 调用银行卡支付，需配置此参数，参与签名， 固定值 （需要签约《无线银行卡快捷支付》才能使用）
 		// orderInfo += "&paymethod=\"expressGateway\"";
 		return orderInfo;
 	}
 
 	/**
-	 * sign the order info. 锟皆讹拷锟斤拷锟斤拷息锟斤拷锟斤拷签锟斤拷
+	 * sign the order info. 对订单信息进行签名
 	 * 
 	 * @param content
-	 *            锟斤拷签锟斤拷锟斤拷息
+	 *            待签名订单信息
 	 */
 	public String sign(String content) {
 		return SignUtils.sign(content, RSA_PRIVATE);
 	}
 
 	/**
-	 * get the sign type we use. 锟斤拷取签锟斤拷式
+	 * get the sign type we use. 获取签名方式
 	 * 
 	 */
 	public String getSignType() {
@@ -590,7 +590,7 @@ public class GameCatchFish extends Cocos2dxActivity {
 	}
 
 	/**
-	 * get the out_trade_no for an order. 锟斤拷锟斤拷袒锟斤拷锟斤拷锟斤拷牛锟斤拷锟街碉拷锟斤拷袒锟斤拷锟接︼拷锟斤拷锟轿ㄒ伙拷锟斤拷锟斤拷远锟斤拷锟斤拷式锟芥范锟斤拷
+	 * get the out_trade_no for an order. 生成商户订单号，该值在商户端应保持唯一（可自定义格式规范）
 	 * 
 	 */
 	public String getOutTradeNo() {
@@ -618,7 +618,7 @@ public class GameCatchFish extends Cocos2dxActivity {
 	 */
 	public  String GetOrderIDByPrefix(String prefix)
     {
-        //锟斤拷锟届订锟斤拷锟斤拷 (锟斤拷锟斤拷:20101201102322159111111)
+        //构造订单号 (形如:20101201102322159111111)
         int orderIDLength = 32;
         int randomLength = 6;
         StringBuffer tradeNoBuffer = new StringBuffer();
@@ -677,38 +677,38 @@ public class GameCatchFish extends Cocos2dxActivity {
         return str;
     }
 	
-	//锟斤拷锟斤拷锟较凤拷锟斤拷卮锟斤拷锟�
+	//更多游戏下载处理
 	public static void moreGamePro(String packageName,String activity,String url)
 	{
 		app.avilibleMoreGames(packageName,activity,url);
 	}
 	
 	private void avilibleMoreGames(String packageName,String activity,String url) {
-		// 锟窖帮拷装锟斤拷锟津开筹拷锟斤拷锟借传锟斤拷锟斤拷锟斤拷锟斤拷
+		// 已安装，打开程序，需传入参数包名
 		if (isAvilible(this, packageName)) {
 			Intent i = new Intent();
 			ComponentName cn = new ComponentName(packageName,
 					packageName+"."+activity);
 			i.setComponent(cn);
 			startActivityForResult(i, RESULT_OK);
-		} // 未锟斤拷装锟斤拷锟斤拷转锟斤拷market锟斤拷锟截该筹拷锟斤拷
-		else {//去锟斤拷锟斤拷
+		} // 未安装，跳转至market下载该程序
+		else {//去下载
 			updateGame(url);
 		}
 	}
 	
 	private boolean isAvilible(Context context, String packageName) {
-		final PackageManager packageManager = context.getPackageManager();// 锟斤拷取packagemanager
-		List<PackageInfo> pinfo = packageManager.getInstalledPackages(0);// 锟斤拷取锟斤拷锟斤拷锟窖帮拷装锟斤拷锟斤拷陌锟斤拷锟较�
-		List<String> pName = new ArrayList<String>();// 锟斤拷锟节存储锟斤拷锟斤拷锟窖帮拷装锟斤拷锟斤拷陌锟斤拷锟�
-		// 锟斤拷pinfo锟叫斤拷锟斤拷锟斤拷锟斤拷锟斤拷一取锟斤拷锟斤拷压锟斤拷pName list锟斤拷
+		final PackageManager packageManager = context.getPackageManager();// 获取packagemanager
+		List<PackageInfo> pinfo = packageManager.getInstalledPackages(0);// 获取所有已安装程序的包信息
+		List<String> pName = new ArrayList<String>();// 用于存储所有已安装程序的包名
+		// 从pinfo中将包名字逐一取出，压入pName list中
 		if (pinfo != null) {
 			for (int i = 0; i < pinfo.size(); i++) {
 				String pn = pinfo.get(i).packageName;
 				pName.add(pn);
 			}
 		}
-		return pName.contains(packageName);// 锟叫讹拷pName锟斤拷锟角凤拷锟斤拷目锟斤拷锟斤拷锟侥帮拷锟斤拷锟斤拷TRUE锟斤拷没锟斤拷FALSE
+		return pName.contains(packageName);// 判断pName中是否有目标程序的包名，有TRUE，没有FALSE
 	}
 
 
