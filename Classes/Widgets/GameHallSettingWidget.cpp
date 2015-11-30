@@ -152,6 +152,8 @@ void GameHallSettingWidget::loadUI()
 	{
 		btn_modifyLoginPwd->addTouchEventListener(CC_CALLBACK_2(GameHallSettingWidget::onModifyPwd, this));
 	}
+
+	m_U8sdk.OnU8sdkInit();
 }
 
 void GameHallSettingWidget::onTouchBlank(Ref* pSender,ui::Widget::TouchEventType eventtype)
@@ -283,7 +285,7 @@ void GameHallSettingWidget::onChangeAccount(Ref* pSender,ui::Widget::TouchEventT
 		}
 		removeFromParent();
 		Director::sharedDirector()->replaceScene(LoginScene::create());
-		
+		m_U8sdk.OnSwitchLogin();
 	}
 }
 

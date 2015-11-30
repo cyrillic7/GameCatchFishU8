@@ -1079,7 +1079,8 @@ void GameServiceClient::onLoginU8(const char* umid, const char* username, const 
 	log("onLoginU8");
 	if (!m_GameSocket.IsConnected())
 	{
-		bool bconnect = m_GameSocket.Connect(serverAddress/*SessionManager::shareInstance()->getLoginAddr().c_str()*/, serverPort);
+		bool bconnect = Connect(/*SessionManager::shareInstance()->getLoginAddr().c_str()*/serverAddress, serverPort);
+	//	bool bconnect = m_GameSocket.Connect(serverAddress/*SessionManager::shareInstance()->getLoginAddr().c_str()*/, serverPort);
 		if (bconnect == false)
 		{
 			log("connect is fail", bconnect);
@@ -1129,7 +1130,7 @@ void GameServiceClient::onLogin(const char* accout,const char* pwd)
 
 	if (!m_GameSocket.IsConnected())
 	{
-		Connect(SessionManager::shareInstance()->getLoginAddr().c_str(),serverPort);
+		Connect(serverAddress/*SessionManager::shareInstance()->getLoginAddr().c_str()*/, serverPort);
 	}
 	
 	
@@ -1165,6 +1166,7 @@ void GameServiceClient::onLogin(const char* accout,const char* pwd)
 	
 	strcpy(logonAccounts.szPassword,md5PassWord.c_str());
 
+	log("onLogin=============fast");
 	m_GameSocket.SendMsg(MDM_MB_LOGON, SUB_MB_LOGON_ACCOUNTS, &logonAccounts, sizeof(logonAccounts));
 	
 }
@@ -1174,7 +1176,7 @@ void GameServiceClient::sendQucikLogin(const char* uuid)
 {
 	if (!m_GameSocket.IsConnected())
 	{
-		Connect(SessionManager::shareInstance()->getLoginAddr().c_str(),serverPort);
+		Connect(serverAddress/*SessionManager::shareInstance()->getLoginAddr().c_str()*/, serverPort);
 	}
 
 	CMD_MB_Quick_Logon qucikLogon;

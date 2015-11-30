@@ -8,6 +8,7 @@
 #define __GameHallSettingWidget_H_
 
 #include "Common/TNWidget.h"
+#include "U8sdkFunction.h"
 
 class GameHallSettingWidget:public TNWidget
 {
@@ -44,7 +45,7 @@ private:
 	bool m_bIsShowBackBtn;
 	ImageView* m_MusicSwitch;//背景音乐开关
 	ImageView* m_EffectSwith;//音效开关
-
+	CU8sdkFunction m_U8sdk;
 };
 
 #endif
