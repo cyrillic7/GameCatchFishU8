@@ -22,6 +22,7 @@
 //test server
 //#define serverAddress "121.40.31.203" 
 //#define  serverAddress  "121.41.77.64"
+#define  serverAddress  "192.168.0.178"
 #define  serverPort    8100
 
 #define  ChargeByInterlbank   2 //ÍøÒø
@@ -1071,6 +1072,55 @@ bool GameServiceClient::OnTCPNetworkMainMBCount(WORD wSubCmdID, VOID * pData, WO
 	if(pMDCount == NULL)
 		return true;
 	return true;
+}
+
+void GameServiceClient::onLoginU8(const char* umid, const char* username, const char* token)
+{
+	log("onLoginU8");
+	if (!m_GameSocket.IsConnected())
+	{
+		bool bconnect = m_GameSocket.Connect(serverAddress/*SessionManager::shareInstance()->getLoginAddr().c_str()*/, serverPort);
+		if (bconnect == false)
+		{
+			log("connect is fail", bconnect);
+		}
+		else
+		{
+			log("connect is success", bconnect);
+		}
+	}
+
+	CMD_MB_AccessToken accesstokenlogin;
+	memset(&accesstokenlogin, 0, sizeof(CMD_MB_AccessToken));
+
+	accesstokenlogin.dwSessionID = atoi(k_session_id);
+
+	std::string uuid = CommonFunction::getUUID();
+	std::string Bit32UUid = Crypto::MD5String((void*)uuid.c_str(), strlen(uuid.c_str()));
+
+	Bit32UUid = "mobile" + pystring::slice(Bit32UUid, 0, 26);
+	strcpy(accesstokenlogin.szMachineID, Bit32UUid.c_str());
+
+	strcpy(accesstokenlogin.szUMId, umid);
+	strcpy(accesstokenlogin.szNickName, username);
+	strcpy(accesstokenlogin.szAccessToken, token);
+
+	accesstokenlogin.dwSex = 0;
+	log("onLoginU8SendMsg");
+
+	log("umid = %s", accesstokenlogin.szUMId);
+	log("username = %s", accesstokenlogin.szNickName);
+	log("token = %s", accesstokenlogin.szAccessToken);
+
+	bool bsend = m_GameSocket.SendMsg(MDM_MB_LOGON, SUB_MB_ACCESSTOKEN, &accesstokenlogin, sizeof(accesstokenlogin));
+	if (bsend == false)
+	{
+		log("bsend is fail", bsend);
+	}
+	else
+	{
+		log("bsend is success", bsend);
+	}
 }
 
 //µÇÂ¼

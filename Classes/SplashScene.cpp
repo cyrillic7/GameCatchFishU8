@@ -32,6 +32,8 @@ bool SplashScene::init()
 		return false;
 	}
 
+	m_U8sdk.OnU8sdkInit();
+
 	return true;
 }
 
@@ -57,7 +59,6 @@ void SplashScene::onEnter()
 	}
 
 	Director::getInstance()->getScheduler()->schedule(schedule_selector(SplashScene::update), this,1.0f, false);
-
 }
 
 void SplashScene::HttpRequestComplete(HttpClient* client , HttpResponse* response) 
@@ -234,6 +235,13 @@ void SplashScene::loadUI()
 	armature->getAnimation()->setFrameEventCallFunc(this, frameEvent_selector(SplashScene::onAnimationEventFrame));
 	armature->getAnimation()->play("Animation1");
 	this->addChild(armature);*/
+
+	//auto size = Director::getInstance()->getVisibleSize();
+	////背景
+	//auto bgSprite = Sprite::create("login_bg.jpg");
+	//bgSprite->setPosition(Vec2(size.width / 2, size.height / 2));
+	//bgSprite->setScale(1.2f);
+	//this->addChild(bgSprite);
 }
 
 
@@ -252,6 +260,7 @@ void SplashScene::onAnimationEventOver(Armature *pArmature, MovementEventType mo
 				else
 				{
 					Director::sharedDirector()->replaceScene(LoginScene::create(mUpdateInfo));
+					m_U8sdk.OnU8sdkLogin();
 				}
 			}
 		}
@@ -265,8 +274,10 @@ void SplashScene::update(float dt)
 {
 	if (isCheckFinsh)
 	{
+		log("update");
 		Director::sharedDirector()->pushScene(LoginScene::create(mUpdateInfo));
 		isCheckFinsh =false;
+		m_U8sdk.OnU8sdkLogin();
 	}
 }
 
@@ -276,6 +287,4 @@ void SplashScene::onAnimationEventFrame(Bone *bone, const std::string& evt, int 
 
 	}
 }
-
-
 

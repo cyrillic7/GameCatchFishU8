@@ -78,6 +78,7 @@ void LoginScene::onEnter()
 	_eventDispatcher->addEventListenerWithSceneGraphPriority(EventListenerCustom::create(qucikLoginByAccount, CC_CALLBACK_1(LoginScene::onFastLogin, this)), this);
 
 	_eventDispatcher->addEventListenerWithSceneGraphPriority(EventListenerCustom::create(qqLoginMsg, CC_CALLBACK_1(LoginScene::QQLogin, this)), this);
+	_eventDispatcher->addEventListenerWithSceneGraphPriority(EventListenerCustom::create(u8LoginMsg, CC_CALLBACK_1(LoginScene::U8Login, this)), this);
 	_eventDispatcher->addEventListenerWithSceneGraphPriority(EventListenerCustom::create(accountLoginMsg, CC_CALLBACK_1(LoginScene::AccountLogin, this)), this);
 	_eventDispatcher->addEventListenerWithSceneGraphPriority(EventListenerCustom::create(QucikLoginRspMsg,CC_CALLBACK_1(LoginScene::FastLoginRsp,this)),this);
 	_eventDispatcher->addEventListenerWithSceneGraphPriority(EventListenerCustom::create(accountRegisterMsg,CC_CALLBACK_1(LoginScene::AccountRegister,this)),this);
@@ -164,6 +165,7 @@ void LoginScene::onExit()
 void LoginScene::loadUI()
 {
 	auto layer = LoginLayer::create();
+	layer->setVisible(false);
 	this->addChild(layer);
 }
 
@@ -252,6 +254,19 @@ void LoginScene::FastLoginRsp(EventCustom* evt)
 		removeLoading();
 		ModalViewManager::sharedInstance()->showWidget(AlertWidget::create(nullptr,"",CommonFunction::GBKToUTF8(accountInfo->szDescribeString)));
 	}
+}
+
+void LoginScene::U8Login(EventCustom* evt)
+{
+	log("U8Login");
+	__Dictionary* info = (__Dictionary*)evt->getUserData();
+	std::string umid = ((__String*)info->objectForKey("umid"))->getCString();
+	std::string username = ((__String*)info->objectForKey("username"))->getCString();
+	std::string token = ((__String*)info->objectForKey("token"))->getCString();
+
+	GameServiceClient* c = GameServiceClientManager::sharedInstance()->serviceClientForName(m_gameName.c_str());
+	c->onLoginU8(umid.c_str(), username.c_str(), token.c_str());
+
 }
 
 void LoginScene::QQLogin(EventCustom* evt)

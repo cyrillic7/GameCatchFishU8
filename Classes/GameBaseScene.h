@@ -26,7 +26,7 @@
 #include "Common/AlertWidget.h"
 #include "MsgDefine/CMD_LogonServer.h"
 
-class GameBaseScene : public Scene,public ResourceLoaderDelegate,public AlertDelegate
+class GameBaseScene : public Scene, public ResourceLoaderDelegate, public AlertDelegate
 {
 public:
 	GameBaseScene();

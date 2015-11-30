@@ -12,6 +12,7 @@
 
 #include "network/HttpRequest.h"
 #include "network/HttpClient.h"
+#include "U8sdkFunction.h"
 
 USING_NS_CC;
 USING_NS_CC_EXT;
@@ -35,7 +36,7 @@ struct updateInfo
 
 
 
-class SplashScene : public GameBaseScene {
+class SplashScene : public GameBaseScene{
 public:
 	SplashScene();
 	~SplashScene();
@@ -55,6 +56,7 @@ protected:
 	updateInfo uInfo;
 	bool isCheckFinsh;
 	__Dictionary* mUpdateInfo;
+	CU8sdkFunction m_U8sdk;
 };
 
 #endif

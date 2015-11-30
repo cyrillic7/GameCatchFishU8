@@ -2,8 +2,8 @@ package com.tx.wx.wxapi;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 
-import com.game.GameCatchFish.GameCatchFish;
-import com.game.GameCatchFish.R;
+import com.tencent.tmgp.GameCatchFish;
+import com.tencent.tmgp.R;
 import com.tencent.mm.sdk.modelmsg.SendMessageToWX;
 import com.tencent.mm.sdk.modelmsg.WXMediaMessage;
 import com.tencent.mm.sdk.modelmsg.WXWebpageObject;

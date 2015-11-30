@@ -24,6 +24,10 @@ FILE_LIST += $(wildcard $(LOCAL_PATH)/../../Classes/Command/*.cpp)
 FILE_LIST += $(wildcard $(LOCAL_PATH)/../../Classes/MsgDefine/*.cpp) 
 FILE_LIST += $(wildcard $(LOCAL_PATH)/../../Classes/Common/*.cpp) 
 FILE_LIST += $(wildcard $(LOCAL_PATH)/../../Classes/GolbalDefine/*.cpp) 
+FILE_LIST += $(wildcard $(LOCAL_PATH)/../../Classes/jansson/*.c)
+FILE_LIST += $(wildcard $(LOCAL_PATH)/../../Classes/NDKHelper/*.cpp)
+FILE_LIST += $(wildcard $(LOCAL_PATH)/../../Classes/u8sdk/*.cpp)
+
 LOCAL_SRC_FILES := hellocpp/main.cpp
 LOCAL_SRC_FILES += $(FILE_LIST:$(LOCAL_PATH)/%=%) 
 

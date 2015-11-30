@@ -379,10 +379,12 @@ bool CGameSocket::recvFromSock(void)
 bool CGameSocket::Flush(void)		//? 如果 OUTBUF > SENDBUF 则需要多次SEND（）
 {
 	if (m_sockClient == INVALID_SOCKET) {
+		log("Flush false == INVALID_SOCKET");
 		return false;
 	}
 
 	if(m_nOutbufLen <= 0) {
+		log("Flush false == m_nOutbufLen <= 0");
 		return true;
 	}
 	
@@ -398,10 +400,12 @@ bool CGameSocket::Flush(void)		//? 如果 OUTBUF > SENDBUF 则需要多次SEND（）
 		m_nOutbufLen -= outsize;
 
 		if (m_nOutbufLen < 0) {
+			log("Flush false == m_nOutbufLen < 0");
 			return false;
 		}
 	} else {
 		if (hasError()) {
+			log("Flush false == hasError()");
 			Destroy();
 			return false;
 		}

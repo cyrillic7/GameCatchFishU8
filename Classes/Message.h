@@ -136,6 +136,7 @@
 #define  updateVipLevelMsg "updateVipLevelMsg"
 //QQ登录
 #define  qqLoginMsg  "qqLoginMsg"
+#define  u8LoginMsg  "u8LoginMsg"
 #define  accountLoginMsg "accountLoginMsg"
 #define  accountRegisterMsg "accountRegisterMsg"
 #define  qucikLoginByAccount "qucikLoginByAccount"//已经保存过快速的帐号和密码后直接登录

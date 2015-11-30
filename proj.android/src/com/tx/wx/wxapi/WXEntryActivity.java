@@ -4,8 +4,8 @@ import android.app.Activity;
 import android.content.Intent;
 import android.widget.Toast;
 
-import com.game.GameCatchFish.GameCatchFish;
-import com.game.GameCatchFish.R;
+import com.tencent.tmgp.GameCatchFish;
+import com.tencent.tmgp.R;
 
 import com.tencent.mm.sdk.constants.ConstantsAPI;
 import com.tencent.mm.sdk.modelbase.BaseReq;
@@ -67,7 +67,7 @@ public class WXEntryActivity extends Activity implements IWXAPIEventHandler{
 		WXMediaMessage wxMsg = showReq.message;		
 		WXAppExtendObject obj = (WXAppExtendObject) wxMsg.mediaObject;
 		
-		StringBuffer msg = new StringBuffer(); // 组织�?个待显示的消息内�?
+		StringBuffer msg = new StringBuffer(); // 组织�?个待显示的消息内�?
 		msg.append("description: ");
 		msg.append(wxMsg.description);
 		msg.append("\n");

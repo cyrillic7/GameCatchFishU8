@@ -26,6 +26,7 @@ protected:
 	void sendfastLogin(EventCustom* evt);
 	void onFastLogin(EventCustom* evt);
 	void QQLogin(EventCustom* evt);
+	void U8Login(EventCustom* evt);
 	void AccountLogin(EventCustom* evt);
 	void FastLoginRsp(EventCustom* evt);
 	void AccountRegister(EventCustom* evt);

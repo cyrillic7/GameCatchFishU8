@@ -168,6 +168,17 @@ struct CMD_GP_LogonAccounts
 	BYTE							cbValidateFlags;			        //校验标识
 };
 
+//第三方登录
+struct CMD_MB_AccessToken
+{
+	DWORD							dwSessionID;						//推广ID
+	TCHAR							szUMId[LEN_ACCOUNTS * 2];				//用户唯一标示
+	DWORD							dwSex;								//性别
+	TCHAR							szNickName[LEN_NICKNAME];			//用户昵称
+	TCHAR							szMachineID[LEN_MACHINE_ID];		//机器标识
+	TCHAR							szAccessToken[256];					//Token
+};
+
 //注册帐号
 struct CMD_GP_RegisterAccounts
 {
@@ -635,6 +646,8 @@ struct CMD_GP_S_SearchCorrespond
 #define SUB_MB_LOGON_ACCOUNTS		2									//帐号登录
 #define SUB_MB_REGISTER_ACCOUNTS	3									//注册帐号
 #define SUB_MB_QUICK_LOGIN			4									       //快速登录(游客身份)
+#define SUB_MB_ACCESSTOKEN			5									//第三方登录
+
 //登录结果
 #define SUB_MB_LOGON_SUCCESS		100									//登录成功
 #define SUB_MB_LOGON_FAILURE		101									//登录失败
