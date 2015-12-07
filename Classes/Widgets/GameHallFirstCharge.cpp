@@ -10,6 +10,7 @@
 #include "GameHallVipPower.h"
 #include "Common/ModalViewManager.h"
 #include "Common/AlertWidget.h"
+#include "U8sdkFunction.h"
 
 #define  ImagePopbgTag 18
 #define  BtnCloseTag   42 
@@ -197,6 +198,10 @@ void GameHallFirstChargeWidget::receiveRechargeOrderRspMsg(EventCustom* evt)
 	if (orderLog->dwRet == 0)	{
 		__String *sAction = __String::createWithFormat("{\"name\":\"ingot\",\"desc\":\"first recharge\",\"price\":\"%d\",\"tradeNo\":\"%s\"}", 10,mCurOrderNumber.c_str());
 		CommonFunction::callPay(sAction->getCString());
+		__String *desc = __String::createWithFormat("first recharge");
+		//__String *price = __String::createWithFormat("%d", (int)mCurModel->getPrice());
+		__String *tradeNo = __String::createWithFormat("%d", mCurOrderNumber.c_str());
+		CU8sdkFunction::GetInstance().OnU8sdkPay("ingot", desc->getCString(), 10, tradeNo->getCString());
 	}
 	else if (orderLog->dwRet == 10)//ряЁДж╣╧Щ
 	{

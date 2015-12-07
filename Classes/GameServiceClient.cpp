@@ -15,14 +15,14 @@
 #include "crypto/CCCrypto.h"
 #include "Common/pystring.h"
 #include "Common/StatisticsConfig.h"
-
+#include "U8sdkFunction.h"
 
 #define  dwOptermianlValue 3
 
 //test server
 //#define serverAddress "121.40.31.203" 
 //#define  serverAddress  "121.41.77.64"
-#define  serverAddress  "192.168.0.178"
+//#define  serverAddress  "192.168.0.178"
 #define  serverPort    8100
 
 #define  ChargeByInterlbank   2 //ÍøÒø
@@ -1079,7 +1079,7 @@ void GameServiceClient::onLoginU8(const char* umid, const char* username, const 
 	log("onLoginU8");
 	if (!m_GameSocket.IsConnected())
 	{
-		bool bconnect = Connect(/*SessionManager::shareInstance()->getLoginAddr().c_str()*/serverAddress, serverPort);
+		bool bconnect = Connect(SessionManager::shareInstance()->getLoginAddr().c_str(), serverPort);
 	//	bool bconnect = m_GameSocket.Connect(serverAddress/*SessionManager::shareInstance()->getLoginAddr().c_str()*/, serverPort);
 		if (bconnect == false)
 		{
@@ -1094,7 +1094,7 @@ void GameServiceClient::onLoginU8(const char* umid, const char* username, const 
 	CMD_MB_AccessToken accesstokenlogin;
 	memset(&accesstokenlogin, 0, sizeof(CMD_MB_AccessToken));
 
-	accesstokenlogin.dwSessionID = atoi(k_session_id);
+	accesstokenlogin.dwSessionID = atoi(CU8sdkFunction::GetInstance().channelID.c_str());
 
 	std::string uuid = CommonFunction::getUUID();
 	std::string Bit32UUid = Crypto::MD5String((void*)uuid.c_str(), strlen(uuid.c_str()));
@@ -1109,6 +1109,7 @@ void GameServiceClient::onLoginU8(const char* umid, const char* username, const 
 	accesstokenlogin.dwSex = 0;
 	log("onLoginU8SendMsg");
 
+	log("sissionid = %s", CU8sdkFunction::GetInstance().channelID.c_str());
 	log("umid = %s", accesstokenlogin.szUMId);
 	log("username = %s", accesstokenlogin.szNickName);
 	log("token = %s", accesstokenlogin.szAccessToken);
@@ -1130,7 +1131,7 @@ void GameServiceClient::onLogin(const char* accout,const char* pwd)
 
 	if (!m_GameSocket.IsConnected())
 	{
-		Connect(serverAddress/*SessionManager::shareInstance()->getLoginAddr().c_str()*/, serverPort);
+		Connect(SessionManager::shareInstance()->getLoginAddr().c_str(), serverPort);
 	}
 	
 	
@@ -1176,15 +1177,16 @@ void GameServiceClient::sendQucikLogin(const char* uuid)
 {
 	if (!m_GameSocket.IsConnected())
 	{
-		Connect(serverAddress/*SessionManager::shareInstance()->getLoginAddr().c_str()*/, serverPort);
+		Connect(SessionManager::shareInstance()->getLoginAddr().c_str(), serverPort);
 	}
 
+	std::string sissionid = CU8sdkFunction::GetInstance().channelID;
 	CMD_MB_Quick_Logon qucikLogon;
 	qucikLogon.dwOpTerminal = dwOptermianlValue;
-	qucikLogon.dwSessionID  = atoi(k_session_id);
+	qucikLogon.dwSessionID = atoi(sissionid.c_str());
 
 	std::string code = "server";
-	code.append(k_session_id);
+	code.append(sissionid.c_str());
 	code.append(k_session_verion);
 	code.append("lmyspread");
 

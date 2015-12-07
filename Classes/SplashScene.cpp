@@ -32,7 +32,7 @@ bool SplashScene::init()
 		return false;
 	}
 
-	m_U8sdk.OnU8sdkInit();
+	CU8sdkFunction::GetInstance().OnU8sdkInit();
 
 	return true;
 }
@@ -260,7 +260,7 @@ void SplashScene::onAnimationEventOver(Armature *pArmature, MovementEventType mo
 				else
 				{
 					Director::sharedDirector()->replaceScene(LoginScene::create(mUpdateInfo));
-					m_U8sdk.OnU8sdkLogin();
+					CU8sdkFunction::GetInstance().OnU8sdkLogin();
 				}
 			}
 		}
@@ -277,7 +277,8 @@ void SplashScene::update(float dt)
 		log("update");
 		Director::sharedDirector()->pushScene(LoginScene::create(mUpdateInfo));
 		isCheckFinsh =false;
-		m_U8sdk.OnU8sdkLogin();
+		//m_U8sdk.OnU8sdkLogin();
+		CU8sdkFunction::GetInstance().OnU8sdkLogin();
 	}
 }
 

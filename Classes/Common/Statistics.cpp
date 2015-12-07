@@ -5,6 +5,7 @@
 #include "Common/pystring.h"
 #include "Model/OnlineUserModel.h"
 #include "SessionManager.h"
+#include "U8sdkFunction.h"
 
 static Statistics* __instance = nullptr;
 
@@ -37,6 +38,7 @@ void Statistics::sendStatisticsData(int type){
 	setStatisticsType((StatisticsType)type);
 
 	//安装统计
+	std::string sessionid = CU8sdkFunction::GetInstance().channelID;
 	HttpRequest *request = new HttpRequest();
 	std::string url = k_url;
 	request->setRequestType(HttpRequest::Type::POST);
@@ -51,10 +53,10 @@ void Statistics::sendStatisticsData(int type){
 		url += "GameInstall";
 
 		postData = "sessionID=";
-		postData.append(k_session_id);
+		postData.append(sessionid);
 		postData.append("&code=");
 		std::string code = "server";
-		code.append(k_session_id);
+		code.append(sessionid);
 		code.append(k_session_verion);
 		code.append("lmyspread");
 
@@ -77,10 +79,10 @@ void Statistics::sendStatisticsData(int type){
 		postData = "gameID=";
 		postData.append(__String::createWithFormat("%ld", SessionManager::shareInstance()->getUser()->getGameId())->getCString());
 		postData.append("&sessionID=");
-		postData.append(k_session_id);
+		postData.append(sessionid);
 		postData.append("&code=");
 		std::string code = "server";
-		code.append(k_session_id);
+		code.append(sessionid);
 		code.append(k_session_verion);
 		code.append("lmyspread");
 
@@ -103,10 +105,10 @@ void Statistics::sendStatisticsData(int type){
 		postData = "gameID=";
 		postData.append(__String::createWithFormat("%ld", SessionManager::shareInstance()->getUser()->getGameId())->getCString());
 		postData.append("&sessionID=");
-		postData.append(k_session_id);
+		postData.append(sessionid);
 		postData.append("&code=");
 		std::string code = "server";
-		code.append(k_session_id);
+		code.append(sessionid);
 		code.append(k_session_verion);
 		code.append("lmyspread");
 

@@ -81,9 +81,9 @@ bool LoginLayer::init()
 	btn_FastLogin->addChild(fastLoginText);
 	btn_QQLogin->addChild(QQLoginText);
 
-	//btn_AccountLogin->setVisible(false);
-	//btn_FastLogin->setVisible(false);
-	//btn_QQLogin->setVisible(false);
+	btn_AccountLogin->setVisible(false);
+	btn_FastLogin->setVisible(false);
+	btn_QQLogin->setVisible(false);
 
 	return true;
 }

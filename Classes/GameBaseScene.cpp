@@ -12,6 +12,7 @@
 #include "GameScene.h"
 #include "Common/pystring.h"
 #include "SessionManager.h"
+#include "U8sdkFunction.h"
 
 // game base scene 的子类需要加载UI的时候，接受该消息
 #define GameBaseSceneNeedLoadUI "GameBaseSceneNeedLoadUI"
@@ -86,7 +87,6 @@ void GameBaseScene::onEnter() {
 	auto listener = EventListenerKeyboard::create();
 	listener->onKeyReleased = CC_CALLBACK_2(GameBaseScene::onKeyReleased, this);
 	_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, this);
-	
 
 }
 

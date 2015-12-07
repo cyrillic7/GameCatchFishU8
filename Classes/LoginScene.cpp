@@ -165,7 +165,7 @@ void LoginScene::onExit()
 void LoginScene::loadUI()
 {
 	auto layer = LoginLayer::create();
-	layer->setVisible(false);
+	//layer->setVisible(false);
 	this->addChild(layer);
 }
 

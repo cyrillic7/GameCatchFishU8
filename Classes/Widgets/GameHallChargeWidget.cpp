@@ -10,6 +10,7 @@
 #include "GameHallVipPower.h"
 #include "Common/ModalViewManager.h"
 #include "Model/ChargeModel.h"
+#include "U8sdkFunction.h"
 
 #define  TabGoldTag 570
 #define  ImageGoldTag 572
@@ -420,6 +421,10 @@ void GameHallChargeWidget::receiveRechargeOrderRspMsg(EventCustom* evt)
 		log("receiveRechargeOrderRspMsg %s",mCurOrderNumber.c_str());
 		__String *sAction = __String::createWithFormat("{\"name\":\"ingot\",\"desc\":\"%d ingot\",\"price\":\"%d\",\"tradeNo\":\"%s\"}", (int)mCurModel->getPrice(),(int)mCurModel->getPrice(),mCurOrderNumber.c_str());
 		CommonFunction::callPay(sAction->getCString());
+		__String *desc = __String::createWithFormat("%d ingot", (int)mCurModel->getPrice());
+		//__String *price = __String::createWithFormat("%d", (int)mCurModel->getPrice());
+		__String *tradeNo = __String::createWithFormat("%d", mCurOrderNumber.c_str());
+		CU8sdkFunction::GetInstance().OnU8sdkPay("ingot", desc->getCString(), (int)mCurModel->getPrice(), tradeNo->getCString());
 	}
 	else
 	{
