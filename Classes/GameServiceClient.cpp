@@ -212,7 +212,9 @@ bool GameServiceClient::OnTCPSocketRead(WORD wSocketID, TCP_Command Command, VOI
 									
 				if (Command.wSubCmdID != SUB_GP_AUCTION_RECORD && Command.wSubCmdID != SUB_GP_MYAUCTION_RECORD &&Command.wSubCmdID != SUB_GP_AUCTION_HISTORY_RECORD)
 				{
-					if (Command.wSubCmdID != SUB_GP_AUCTION && Command.wSubCmdID != SUB_GP_BUY_AUCTION && Command.wSubCmdID != SUB_GP_CANCEL_AUCTION && Command.wSubCmdID != 413)
+					if (Command.wSubCmdID != SUB_GP_AUCTION && Command.wSubCmdID != SUB_GP_BUY_AUCTION 
+						&& Command.wSubCmdID != SUB_GP_CANCEL_AUCTION && Command.wSubCmdID != 413 &&
+						Command.wSubCmdID != SUB_GP_GIFT)
 						closeSoket();
 				}
 				

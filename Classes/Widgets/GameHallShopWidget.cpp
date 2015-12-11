@@ -129,6 +129,8 @@ void GameHallShopWidget::onEnter()
 	_eventDispatcher->addEventListenerWithSceneGraphPriority(EventListenerCustom::create(toUserGiftMsg,CC_CALLBACK_1(GameHallShopWidget::sendUserGiftRequset, this)), this);
 	//请求礼包列表
 	refreshData(1);
+	//获取用户财富信息
+	GameServiceClientManager::sharedInstance()->getCurrentServiceClient()->sendTreasureRequest();
 }
 
 void GameHallShopWidget::showLoading()
@@ -170,9 +172,6 @@ void GameHallShopWidget::refreshGiftList(EventCustom* event)
 	
 	//刷新列表
 	refreashList(dataArray,type);	
-
-	//获取用户财富信息
-	GameServiceClientManager::sharedInstance()->getCurrentServiceClient()->sendTreasureRequest();
 }
 
 void GameHallShopWidget::refreshTreasure(EventCustom* evt)
