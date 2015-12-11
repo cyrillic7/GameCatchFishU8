@@ -28,6 +28,7 @@ private:
 	void onClickAccountLogin(Ref* pRef,ui::Widget::TouchEventType type);
 	void onClickFastLogin(Ref* pRef,ui::Widget::TouchEventType type);
 	void onClickQQLogin(Ref* pRef,ui::Widget::TouchEventType type);
+	void onClickWXLogin(Ref*pRef, ui::Widget::TouchEventType type);
 	void playScaleAnimation(bool less, Ref* pSender);
 };
 

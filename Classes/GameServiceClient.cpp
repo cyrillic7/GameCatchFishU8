@@ -1119,6 +1119,30 @@ void GameServiceClient::onLogin(const char* accout,const char* pwd)
 	
 }
 
+//Î¢ÐÅµÇÂ¼
+void GameServiceClient::onWxLogin(const char* token)
+{
+	if (!m_GameSocket.IsConnected())
+	{
+		Connect(SessionManager::shareInstance()->getLoginAddr().c_str(), serverPort);
+	}
+
+	CMD_MB_AccessToken logonToken;
+	logonToken.dwSessionID = 111112;
+	strcpy(logonToken.szUMId, "");
+	logonToken.dwSex = 0;
+	strcpy(logonToken.szNickName, "");
+
+	std::string uuid = CommonFunction::getUUID();
+	std::string Bit32UUid = Crypto::MD5String((void*)uuid.c_str(), strlen(uuid.c_str()));
+
+	Bit32UUid = "mobile" + pystring::slice(Bit32UUid, 0, 26);
+	strcpy(logonToken.szMachineID, Bit32UUid.c_str());
+
+	strcpy(logonToken.szAccessToken, token);
+	m_GameSocket.SendMsg(MDM_MB_LOGON, SUB_MB_ACCESSTOKEN, &logonToken, sizeof(logonToken));
+}
+
 //¿ìËÙµÇÂ¼
 void GameServiceClient::sendQucikLogin(const char* uuid)
 {

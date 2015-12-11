@@ -43,11 +43,13 @@ bool LoginLayer::init()
 
 	//三个菜单按钮
 	//账户登录
-
+	int interVal = 33;
 	Button* btn_AccountLogin = Button::create();
 	btn_AccountLogin->loadTextureNormal("button_bg_yellow.png",ui::Widget::TextureResType::LOCAL);
 	btn_AccountLogin->loadTexturePressed("button_bg_yellow.png",ui::Widget::TextureResType::LOCAL);
-	btn_AccountLogin->setPosition(Vec2(size.width / 6 + 25, btn_AccountLogin->getContentSize().height / 3 * 2));
+	btn_AccountLogin->setScale(0.8f);
+	btn_AccountLogin->setPosition(Vec2(interVal+btn_AccountLogin->getContentSize().width/2 , btn_AccountLogin->getContentSize().height / 3 * 2));
+	
 	addChild(btn_AccountLogin);
 	btn_AccountLogin->addTouchEventListener(CC_CALLBACK_2(LoginLayer::onClickAccountLogin, this));
 
@@ -59,7 +61,8 @@ bool LoginLayer::init()
 	Button* btn_FastLogin = Button::create();
 	btn_FastLogin->loadTextureNormal("button_bg_blue.png",ui::Widget::TextureResType::LOCAL);
 	btn_FastLogin->loadTexturePressed("button_bg_blue.png",ui::Widget::TextureResType::LOCAL);
-	btn_FastLogin->setPosition(Vec2(size.width / 2, menuItemHeight / 3 * 2));
+	btn_FastLogin->setPosition(Vec2(btn_AccountLogin->getPositionX() +interVal + btn_AccountLogin->getContentSize().width, menuItemHeight / 3 * 2));
+	btn_FastLogin->setScale(0.8f);
 	addChild(btn_FastLogin);
 	btn_FastLogin->addTouchEventListener(CC_CALLBACK_2(LoginLayer::onClickFastLogin, this));
 
@@ -70,17 +73,31 @@ bool LoginLayer::init()
 	Button* btn_QQLogin = Button::create();
 	btn_QQLogin->loadTextureNormal("button_bg_yellow.png",ui::Widget::TextureResType::LOCAL);
 	btn_QQLogin->loadTexturePressed("button_bg_yellow.png",ui::Widget::TextureResType::LOCAL);
-	btn_QQLogin->setPosition(Vec2(size.width / 6 * 5 - 25, menuItemHeight / 3 * 2));
+	btn_QQLogin->setPosition(Vec2(btn_FastLogin->getPositionX() + interVal + btn_AccountLogin->getContentSize().width, menuItemHeight / 3 * 2));
+	btn_QQLogin->setScale(0.8f);
 	addChild(btn_QQLogin);
 	btn_QQLogin->addTouchEventListener(CC_CALLBACK_2(LoginLayer::onClickQQLogin, this));
 
 	auto QQLoginText = LoginButtonLogo::create(LoginButtonLogo::LOGIN_BUTTON_TYPE_QQ);
 	QQLoginText->setPosition(Vec2(btn_QQLogin->getContentSize().width/2, menuItemHeight / 2));
 
+	//wx登录
+	Button* btn_wxLogin = Button::create();
+	btn_wxLogin->loadTextureNormal("button_bg_yellow.png", ui::Widget::TextureResType::LOCAL);
+	btn_wxLogin->loadTexturePressed("button_bg_yellow.png", ui::Widget::TextureResType::LOCAL);
+	btn_wxLogin->setPosition(Vec2(btn_QQLogin->getPositionX() + interVal + btn_AccountLogin->getContentSize().width, menuItemHeight / 3 * 2));
+	btn_wxLogin->setScale(0.8f);
+	addChild(btn_wxLogin);
+	btn_wxLogin->addTouchEventListener(CC_CALLBACK_2(LoginLayer::onClickWXLogin, this));
+
+	auto wxLoginText = LoginButtonLogo::create(LoginButtonLogo::LOGIN_BUTTON_TYPE_WX);
+	wxLoginText->setPosition(Vec2(btn_wxLogin->getContentSize().width / 2, menuItemHeight / 2));
+
+
 	btn_AccountLogin->addChild(accountLoginText);
 	btn_FastLogin->addChild(fastLoginText);
 	btn_QQLogin->addChild(QQLoginText);
-
+	btn_wxLogin->addChild(wxLoginText);
 	return true;
 }
 
@@ -175,8 +192,24 @@ void LoginLayer::onClickQQLogin(Ref* pRef,ui::Widget::TouchEventType type)
 	}
 }
 
+void LoginLayer::onClickWXLogin(Ref* pRef, ui::Widget::TouchEventType type)
+{
+	if (type == ui::Widget::TouchEventType::BEGAN)
+	{
+		playScaleAnimation(true, pRef);
+	}
+	else
+	{
+		playScaleAnimation(false, pRef);
+	}
+	if (type == ui::Widget::TouchEventType::ENDED)
+	{
+		CommonFunction::callWxLogin();
+	}
+}
+
 void LoginLayer::playScaleAnimation(bool less, Ref* pSender) {
-	float scale = less ? 0.9f : 1.0f;
+	float scale = less ? 0.7f : 0.8f;
 	CCScaleTo *scaleTo = CCScaleTo::create(0.2f, scale);
 	Node* pNode = (Node*)pSender;
 	pNode->runAction(scaleTo);

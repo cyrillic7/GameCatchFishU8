@@ -384,6 +384,19 @@ void CommonFunction::callWx(int flag)
 #endif
 }
 
+void CommonFunction::callWxLogin()
+{
+#if CC_PLATFORM_ANDROID == CC_TARGET_PLATFORM
+	JniMethodInfo minfo;//定义Jni函数信息结构体
+	//getStaticMethodInfo 次函数返回一个bool值表示是否找到此函数
+	bool isHave = JniHelper::getStaticMethodInfo(minfo, JNI_PACKAGE, "WXLogin", "()V");
+	if (isHave)
+	{
+		minfo.env->CallStaticVoidMethod(minfo.classID, minfo.methodID);
+	}
+#endif
+}
+
 
 
 void CommonFunction::callPay(const char* orderNo)
@@ -449,7 +462,6 @@ void  CommonFunction::moreGamePro(const char* packageName,const char* startAcivi
 {
 
 #if CC_PLATFORM_ANDROID == CC_TARGET_PLATFORM
-	log("moreGamePro");
 	JniMethodInfo minfo;//定义Jni函数信息结构体
 	bool isHave = JniHelper::getStaticMethodInfo(minfo,JNI_PACKAGE,"moreGamePro","(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V");
 	if (!isHave) {
@@ -463,7 +475,6 @@ void  CommonFunction::moreGamePro(const char* packageName,const char* startAcivi
 		//调用此函数
 		minfo.env->CallStaticVoidMethod(minfo.classID, minfo.methodID,gameName,activityName,downUrl);
 	}
-	log("jni-java excute finish");
 #endif
 }
 
@@ -480,7 +491,7 @@ std::string CommonFunction::getUUID()
 #endif
 
 #if (defined(WIN32) && defined(_WINDOWS))
-	return "adfadgavvdafgasdgasdg13131316";
+	return "adfadgavvdafgasdgasdg23131316";
 	uuid = getUUIDInWin32();
 #endif
 
@@ -661,9 +672,21 @@ extern "C"
 		log("Java_com_xw_GameCatchFish_AppActivity_JniCallPay ");
 	}
 
+	void Java_com_game_GameCatchFish_GameCatchFish_JniWXLogin(JNIEnv*  env, jobject obj,jstring token)
+	{
+		log("Java_com_xw_GameCatchFish_AppActivity_JniWXLogin ");
+		CommonFunction::wxLogin(env->GetStringUTFChars(token, NULL));
+	}
 }
 #endif
 
+void CommonFunction::wxLogin(const char* token)
+{
+	log("token = %s", token);
+	__Dictionary*  dic = __Dictionary::create();
+	dic->setObject(__String::create(token), "token");
+	Director::sharedDirector()->getEventDispatcher()->dispatchCustomEvent(wxLoginMsg, dic);
+}
 
 void CommonFunction::loginQQ(const char* account, const char* pwd)
 {

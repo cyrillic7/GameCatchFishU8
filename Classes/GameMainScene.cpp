@@ -276,6 +276,7 @@ void MainScene::loadUI()
 	//更多游戏按钮
 	Button* btnMoregame = static_cast<Button*>(bg->getChildByTag(BTN_MOREGAME_TAG));
 	btnMoregame->addTouchEventListener(CC_CALLBACK_2(MainScene::onClickMoreGame, this));
+
 	//背包
 	Button * btnBag = static_cast<Button*>(bg->getChildByTag(BTN_BAG_TAG));
 	btnBag->addTouchEventListener(CC_CALLBACK_2(MainScene::onclickBag, this));

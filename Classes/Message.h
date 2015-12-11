@@ -141,6 +141,8 @@
 #define  qucikLoginByAccount "qucikLoginByAccount"//已经保存过快速的帐号和密码后直接登录
 #define  loginAtOtherPlace "loginAtOtherPlace"//异地登录
 
+//第三方登录
+#define  wxLoginMsg "wxLoginMsg"
 //连接成功相关
 #define  connectHallSuccessMsg        "connectHallSuccessMsg" //连接登录服务器返回
 #define  connectGameServerSuccessMsg  "connectGameServerSuccessMsg"//连接游戏服务器返回

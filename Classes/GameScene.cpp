@@ -2365,7 +2365,7 @@ void GameScene::preLoadSoundRes()
 {
 #if (CC_TARGET_PLATFORM != CC_PLATFORM_WIN32)
 	int i  =0;
-	if(mGameKind == GameKindDntg)
+	if(SessionManager::shareInstance()->getGameKind() == GameKindDntg)
 	{
 		for ( i = 0 ; i <MusicCount;i++)
 		{
@@ -2373,13 +2373,13 @@ void GameScene::preLoadSoundRes()
 		}
 
 	}
-	else if(mGameKind == GameKindLkpy  )
+	else if(SessionManager::shareInstance()->getGameKind() == GameKindLkpy  )
 	{
 		for ( i = 0 ; i <MusicLkCount;i++)
 		{
 			SoundManager::preloadEffect(__String::createWithFormat("GameResources/audios_lk/%s.mp3",GameMusicForLk[i])->getCString());
 		}
-	}else if (mGameKind == GameKindJcpy)
+	}else if (SessionManager::shareInstance()->getGameKind() == GameKindJcpy)
 	{
 		for ( i = 0 ; i <MusicLkCount;i++)
 		{

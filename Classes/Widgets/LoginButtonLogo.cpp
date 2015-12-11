@@ -1,11 +1,11 @@
 
 #include "LoginButtonLogo.h"
+#include "CommonFunction.h"
 
 
 static const char ACCOUNT_LOGIN_TEXT[] = { 0xE5, 0xB8, 0x90, 0xE5, 0x8F, 0xB7, 0xE7, 0x99, 0xBB, 0xE5, 0xBD, 0x95, 0x00 };	//ÕÊºÅµÇÂ¼
 static const char FAST_LOGIN_TEXT[] = { 0xE5, 0xBF, 0xAB, 0xE9, 0x80, 0x9F, 0xE7, 0x99, 0xBB, 0xE5, 0xBD, 0x95, 0x00 };		//¿ìËÙµÇÂ¼
 static const char QQ_LOGIN_TEXT[] = { 0x51, 0x51, 0xE7, 0x99, 0xBB, 0xE5, 0xBD, 0x95, 0x00 };								//QQµÇÂ¼
-
 
 #define LOGO_TEXT_SIZE		30
 
@@ -47,6 +47,10 @@ bool LoginButtonLogo::init(LoginButtonType type)
 	case LOGIN_BUTTON_TYPE_QQ:
 		icon = Sprite::create("icon_qq.png");
 		label = Label::createWithSystemFont(String::create(QQ_LOGIN_TEXT)->getCString(), "", LOGO_TEXT_SIZE);
+		break;
+	case LOGIN_BUTTON_TYPE_WX:
+		icon = Sprite::create("icon_wx.png");
+		label = Label::createWithSystemFont(CommonFunction::GBKToUTF8("Î¢ÐÅµÇÂ¼"), "", LOGO_TEXT_SIZE);
 		break;
 	}
 

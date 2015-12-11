@@ -12,7 +12,8 @@ public:
 	typedef enum {
 		LOGIN_BUTTON_TYPE_ACCOUNT,
 		LOGIN_BUTTON_TYPE_FAST,
-		LOGIN_BUTTON_TYPE_QQ
+		LOGIN_BUTTON_TYPE_QQ,
+		LOGIN_BUTTON_TYPE_WX
 	} LoginButtonType;
 
 public:

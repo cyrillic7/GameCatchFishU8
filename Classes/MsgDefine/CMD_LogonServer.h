@@ -2085,6 +2085,21 @@ struct CMD_GP_GiftChangeRet
 	DWORD   dwRet;														//0：成功，1：失败
 	TCHAR	szDescribeString[128];										//描述消息
 };
+
+#define SUB_MB_ACCESSTOKEN			5									//第三方登录
+
+//第三方登录
+struct CMD_MB_AccessToken
+{
+	DWORD							dwSessionID;						//推广ID
+	TCHAR							szUMId[LEN_ACCOUNTS * 2];			//用户唯一标示
+	DWORD							dwSex;								//性别
+	TCHAR							szNickName[LEN_NICKNAME];			//用户昵称
+	TCHAR							szMachineID[LEN_MACHINE_ID];		//机器标识
+	TCHAR							szAccessToken[256];					//Token
+};
+
+
 #pragma pack()
 
 #endif

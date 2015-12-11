@@ -47,6 +47,9 @@ import org.json.JSONTokener;
 
 import com.alipay.sdk.app.PayTask;
 import com.game.GameCatchFish.R;
+import com.tencent.mm.sdk.modelmsg.SendAuth;
+import com.tencent.mm.sdk.openapi.IWXAPI;
+import com.tencent.mm.sdk.openapi.WXAPIFactory;
 import com.tx.wx.wxapi.SendToWXActivity;
 
 import android.app.ProgressDialog;
@@ -62,6 +65,7 @@ import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.provider.SyncStateContract.Constants;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
@@ -78,7 +82,6 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
-
 import android.graphics.Bitmap;
 
 
@@ -94,6 +97,7 @@ public class GameCatchFish extends Cocos2dxActivity {
     
     private static native void JniQQLogin(int value,final String account,final String pwd);
 	private static native void JniCallPay();
+	public static native void JniWXLogin(final String token);
 	
 	protected void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);	
@@ -133,6 +137,16 @@ public class GameCatchFish extends Cocos2dxActivity {
 	public static String getCurNetWorkType()
 	{
 		return app.getNetWorkType();
+	}
+	
+	public static void WXLogin()
+	{
+		 SendAuth.Req req = new SendAuth.Req();
+		    req.scope = "snsapi_userinfo";
+		    req.state = "wechat_sdk_demo_test";
+		    
+		    IWXAPI api= WXAPIFactory.createWXAPI(app, com.tx.wx.wxapi.Constants.APP_ID);
+		    api.sendReq(req);
 	}
 	
 	public String getNetWorkType()
