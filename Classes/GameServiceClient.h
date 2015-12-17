@@ -34,6 +34,7 @@ struct SendData
 #define GAMEROOM_SORKET_INDEX 2//游戏SORKET  索引
 #define TASK_SORKET_INDEX     3 //任务SORKET 索引
 
+#define MAX_HORN_MSG_COUNT 10
 #define  taskClient "taskClient" 
 
 USING_NS_CC;
@@ -263,6 +264,12 @@ public:
 	void sendQucikLogin(const char* uuid);
 	//充值下定单
 	void sendRechargeOrder(int ingot,const char* orderInfo, bool isFirstRecharge = false);
+	//解析登录附加数据
+	void parseLoginExpandData(void * pDataBuffer, unsigned short wDataSize);
+	//发送喇叭请求
+	void sendhornRequset(const char* content);
+	//发送转盘请求
+	void sendLuckSpinRequest();
 protected:
 	bool OnTCPSocketRead(WORD wSocketID, TCP_Command Command, VOID * pData, WORD wDataSize);
 	bool OnTCPNetworkMainMBLogon(WORD wSubCmdID, VOID * pData, WORD wDataSize, DWORD dwSocketID);

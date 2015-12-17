@@ -766,7 +766,7 @@ void SessionManager::setGameKind(int value)
 
 std::string SessionManager::getLoginAddr()
 {
-	//return "192.168.0.158";
+	//return "192.168.0.179";
 	int index = m_userLoginModel->getLoginUrlIndex();
 	if (mLoginUrls->count() == 0)
 	{
@@ -790,4 +790,9 @@ std::string SessionManager::getLoginAddr()
 	
 	
 	return login_server;
+}
+
+void SessionManager::clearHornMsg()
+{
+	listHornMsg.clear();
 }

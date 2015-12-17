@@ -873,6 +873,50 @@ struct GP_CheckInGetSocre
 	TCHAR							szDescribeString[128];				//描述消息
 };
 
+#define SUB_GL_C_LABA	 				118								//喇叭
+#define SUB_GL_C_LABA_LOG	 			119								//喇叭返回 
+
+//喇叭  大喇叭：dwKindID=0，dwServerID=0 ；小喇叭：dwKindID != 0，dwServerID != 0
+struct CMD_GL_Laba
+{
+	CMD_GL_Laba()
+	{
+		memset(this, 0, sizeof(CMD_GL_Laba));
+	}
+	DWORD							dwUserID;
+	TCHAR							szNickName[LEN_NICKNAME];
+	DWORD							dwKindID;
+	DWORD							dwServerID;
+	DWORD							dwPropNum;						//喇叭个数(pc方便统计，手机不使用)
+	TCHAR							szLabaText[256];				//喇叭消息
+};
+//喇叭返回
+struct CMD_GL_LabaLog
+{
+	CMD_GL_LabaLog()
+	{
+		memset(this, 0, sizeof(CMD_GL_LabaLog));
+	}
+	LONG							lResultCode;						//操作代码
+	DWORD							dwPropNum;							//喇叭个数
+	TCHAR							szDescribeString[128];				//成功消息
+};
+
+
+#define SUB_GP_DIAL					144									//转盘
+
+//转盘返回
+struct CMD_GP_DialLog
+{
+	CMD_GP_DialLog()
+	{
+		memset(this, 0, sizeof(CMD_GP_DialLog));
+	}
+	DWORD	dwRet;														//0：成功，1：失败
+	DWORD   dwIndex;													//选中
+	DWORD	dwDialCount;												//还剩下几个
+	TCHAR	szDescribeString[128];										//描述消息
+};
 //////////////////////////////////////////////////////////////////////////////////
 //游戏命令
 

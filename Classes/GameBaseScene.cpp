@@ -246,6 +246,7 @@ void GameBaseScene::onloginAtOtherPlace(EventCustom* evt)
 		ModalViewManager::sharedInstance()->showWidget(pWidget);
 		SessionManager::shareInstance()->clearMsgArray();
 		SessionManager::shareInstance()->clearMatchRooms();
+		SessionManager::shareInstance()->clearHornMsg();
 		bNeedRelogin = true;
 	}
 

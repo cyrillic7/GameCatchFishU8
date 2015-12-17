@@ -178,6 +178,9 @@ public:
 	std::string getLoginAddr();
 	void        setLoginAddrNull() { login_server = ""; }
 	__Array*   getLoginUrls() { return mLoginUrls; }
+	void       clearHornMsg();
+	//喇叭消息
+	std::list<std::string> listHornMsg;
 private:
 	__Array* mRoomLevels;//所有房间信息列表
 	__Array* mAllUsers; //所有用户列表
@@ -230,6 +233,7 @@ private:
 	bool            bMatch_Start;
 	std::string login_server;
 	__Array* mLoginUrls;
+
 };
 
 

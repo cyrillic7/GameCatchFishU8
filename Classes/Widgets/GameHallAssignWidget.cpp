@@ -340,6 +340,8 @@ void GameHallAssginWidget::removeScoreEffect(Node* node)
 
 void GameHallAssginWidget::returnBack(Node* pSender)
 {
+	//通知显示转盘
+	Director::sharedDirector()->getEventDispatcher()->dispatchCustomEvent(showLuckSpinMsg);
 	removeFromParent();
 }
 
@@ -385,5 +387,6 @@ void GameHallAssginWidget::onAssign(Ref* pSender,ui::Widget::TouchEventType type
 
 void GameHallAssginWidget::okCallback()
 {
+	Director::sharedDirector()->getEventDispatcher()->dispatchCustomEvent(showLuckSpinMsg);
 	removeFromParent();
 }

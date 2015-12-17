@@ -95,7 +95,7 @@ public class GameCatchFish extends Cocos2dxActivity {
     Button m_backButton;//关闭按钮
     int    m_webType;
     
-    private static native void JniQQLogin(int value,final String account,final String pwd);
+	private static native void JniQQLogin(int value,final String account,final String pwd);
 	private static native void JniCallPay();
 	public static native void JniWXLogin(final String token);
 	

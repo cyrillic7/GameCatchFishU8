@@ -80,6 +80,10 @@ public:
 	//是否进行过首次充值
 	bool  isFirstCharge() {return mBFirstCharge;};
 	void  setFirstCharge(bool value) {mBFirstCharge = value;}
+	//幸运转牌数
+	CC_SYNTHESIZE(int, m_luckSpinNum, LuckSpinNum);
+	//喇叭数
+	CC_SYNTHESIZE(int, m_loudSpeakerNum, LoudSpeakerNum);
 private:
     int				m_userId;
 	int             m_gameId;

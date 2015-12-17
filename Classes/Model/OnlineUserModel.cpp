@@ -18,7 +18,9 @@ OnlineUserModel::OnlineUserModel()
 	, m_userInsure(0)
 	, m_phone("")
 	, m_passPortID("")
-	,mBFirstCharge(false)
+	, mBFirstCharge(false)
+	, m_loudSpeakerNum(0)
+	, m_luckSpinNum(0)
 {
   
 }

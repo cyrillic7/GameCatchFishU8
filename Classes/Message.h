@@ -211,4 +211,11 @@
 #define  MatchPlayCountIsMaxMsg     "MatchPlayCountIsMaxMsg"
 
 #define  closeLoginDialogMsg "closeLoginDialogMsg"
+
+#define  updateLastHornMsg "updateLastHornMsg" //刷新最近的一次喇叭内容
+#define  sendHornRspMsg    "sendHornRspMsg"   //发送喇叭返回消息
+#define  showHornNoticeMsg  "showHornNoticeMsg"//通知显示跑马灯UI
+#define  luckSpinRspMsg     "luckSpinRspMsg"  //转盘返回界面
+#define  showLuckSpinMsg    "showLuckSpinMsg" //通知显示转盘
+#define  showVipPowerMsg	"showVipPowerMsg" //通知显示VIP界面
 #endif    

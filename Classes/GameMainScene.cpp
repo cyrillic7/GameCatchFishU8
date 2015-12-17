@@ -23,10 +23,13 @@
 #include "Widgets/GameHallBagWidget.h"
 #include "widgets/GameHallMoreGameWidget.h"
 #include "Widgets/GameGiftCovertWidget.h"
+#include "Widgets/GameHallLoudspeakerWidget.h"
+#include "Widgets/GameHallLuckSpinWidget.h"
 #include "GameSmallScene.h"
 #include "GameMatchScene.h"
 #include "SoundManager.h"
 #include "Common/pystring.h"
+#include "MsgDefine/CMD_GameServer.h"
 
 #include "cocostudio/CCArmatureDataManager.h"
 #include "cocostudio/CCArmatureAnimation.h"
@@ -69,6 +72,11 @@ using namespace cocostudio;
 
 #define BtnFishMatchTag 13803
 
+#define ImageLabaTag 14323
+#define LabelLabaBgTag 14324
+#define LabelLabaTag 14325
+
+
 const Position jumpFishPos[10] = {
 	{ 430.f,kScreenHeight -203.5f }, { 555, kScreenHeight - 234.5f }, { 923.5f, kScreenHeight - 231.5f},
 	{ kScreenWidth - 280, 243.5f },{kScreenWidth-187.5f,kScreenHeight-555.f},{1268.f,kScreenHeight - 624.5f},
@@ -82,7 +90,10 @@ MainScene::MainScene()
 	mIsLogin = false;
 	mScore = nullptr;
 	mFishVip =nullptr;
-
+	mLastHornText = nullptr;
+	mHornBg = nullptr;
+	mHornNum = nullptr;
+	mCurHornStr = "";
 }
 
 MainScene::~MainScene()
@@ -105,8 +116,16 @@ void MainScene::onEnter()
 	_eventDispatcher->addEventListenerWithSceneGraphPriority(EventListenerCustom::create(hasFirstRechargeMsg, CC_CALLBACK_1(MainScene::hideFirstChargeMsg, this)), this);
 
 	_eventDispatcher->addEventListenerWithSceneGraphPriority(EventListenerCustom::create(updateVipLevelMsg, CC_CALLBACK_1(MainScene::updateVipLevel, this)), this);
+
+	_eventDispatcher->addEventListenerWithSceneGraphPriority(EventListenerCustom::create(updateLastHornMsg, CC_CALLBACK_1(MainScene::receiveUpdateHornMsg, this)), this);
+	_eventDispatcher->addEventListenerWithSceneGraphPriority(EventListenerCustom::create(sendHornRspMsg, CC_CALLBACK_1(MainScene::receiveSendhornRspMsg, this)), this);
+	_eventDispatcher->addEventListenerWithSceneGraphPriority(EventListenerCustom::create(showHornNoticeMsg, CC_CALLBACK_1(MainScene::receiveShowHornMsg, this)), this);
+	_eventDispatcher->addEventListenerWithSceneGraphPriority(EventListenerCustom::create(showLuckSpinMsg, CC_CALLBACK_1(MainScene::receiveShowLuckSpinMsg, this)), this);
+	_eventDispatcher->addEventListenerWithSceneGraphPriority(EventListenerCustom::create(showVipPowerMsg, CC_CALLBACK_1(MainScene::receiveShowVipPowerMsg, this)), this);
 	//起定时器
 	Director::getInstance()->getScheduler()->schedule(schedule_selector(MainScene::update), this,1.0f/60, false);
+
+	resetClipLabelData();
 }
 
 
@@ -330,6 +349,13 @@ void MainScene::loadUI()
 	RotateTo* fish_rb2 = RotateTo::create(0.2f,-0.9f);
 	mFishVip->runAction(RepeatForever::create(Sequence::createWithTwoActions(fish_rb,fish_rb2)));
 
+	//喇叭
+	mHornBg = static_cast<ImageView*>(bg->getChildByTag(ImageLabaTag));
+	mHornBg->addTouchEventListener(CC_CALLBACK_2(MainScene::onClickHorn, this));
+	ImageView* labelBg = static_cast<ImageView*>(mHornBg->getChildByTag(LabelLabaBgTag));
+	mHornNum = static_cast<Text*>(labelBg->getChildByTag(LabelLabaTag));
+	mHornNum->setString(numberToString(pUser->getLoudSpeakerNum()));
+	showClipLabel(bg);
 	dealVipEffect();
 	//初始化菜单栏
 	initMenuBar();
@@ -338,6 +364,85 @@ void MainScene::loadUI()
 
 	
 	scheduleUpdate();
+}
+
+void MainScene::showClipLabel(Node* parent)
+{
+	mLastHornText = Text::create();
+	mLastHornText->setFontSize(30);
+	mLastHornText->setColor(ccc3(255, 255, 255));//裁剪内容
+	mLastHornText->setText(" ");
+	ClippingNode* clip = ClippingNode::create();
+	//  以下模型是drawnode遮罩
+	int width = mHornBg->getContentSize().width - 120;
+	int height = mHornBg->getContentSize().height;
+	DrawNode* front = DrawNode::create();
+	Color4F yellow = { 1, 1, 0, 1 };
+	Vec2 rect[4] = { Vec2(0, 0), Vec2(width, 0), Vec2(width, height), Vec2(0, height) };
+	front->drawPolygon(rect, 4, yellow, 0, yellow); //绘制四边形
+	front->setPosition(Vec2(0, 0));
+	clip->setStencil(front); //一定要有，设置裁剪模板
+
+	mLastHornText->setAnchorPoint(Vec2(0, 0));
+	clip->addChild(mLastHornText, 0, 999);
+
+	clip->setInverted(false);    //设置裁剪区域可见还是非裁剪区域可见  这里为裁剪区域可见
+	clip->setAlphaThreshold(0);
+	int fontHeight = mLastHornText->getContentSize().height / 2;
+	//clip->setPosition(mHornBg->getPositionX() - mHornBg->getContentSize().width / 2 + 80, mHornBg->getPositionY()- fontHeight);
+	clip->setPosition(80, mHornBg->getContentSize().height/2 - fontHeight);
+	//parent->addChild(clip);
+	mHornBg->addChild(clip);
+}
+
+//设置跑马灯内容
+void MainScene::resetClipLabelData()
+{
+	if (mLastHornText)
+	{
+		if (SessionManager::shareInstance()->listHornMsg.size() > 0)
+		{
+			mLastHornText->setString(SessionManager::shareInstance()->listHornMsg.rbegin()->c_str());
+		}
+		else
+		{
+			mLastHornText->setText("");
+		}
+		mLastHornText->stopAllActions();
+		mLastHornText->setPositionX(0);
+
+		float speed = 70.0f;
+		MoveTo* to2 = MoveTo::create(mLastHornText->getContentSize().width / speed, ccp(-mLastHornText->getContentSize().width - 10, 0));
+		CallFuncN *call = CallFuncN::create(this, callfuncN_selector(MainScene::onMoveFinsh));
+		mLastHornText->runAction(Sequence::create(DelayTime::create(3), to2, DelayTime::create(3), call, NULL));
+
+	}
+	
+}
+//移动完成
+void MainScene::onMoveFinsh(Node* pSender){
+	resetClipLabelData();
+}
+
+void MainScene::receiveUpdateHornMsg(EventCustom* evt)
+{
+	resetClipLabelData();
+}
+
+void MainScene::receiveSendhornRspMsg(EventCustom* evt)
+{
+	OnlineUserModel* pUser = SessionManager::shareInstance()->getUser();
+	CMD_GL_LabaLog* hornMsg = static_cast<CMD_GL_LabaLog*>(evt->getUserData());
+	if (hornMsg->lResultCode == 0)
+	{
+		pUser->setLoudSpeakerNum(hornMsg->dwPropNum);
+		mHornNum->setText(numberToString(hornMsg->dwPropNum));
+	}
+	else
+	{
+		ModalViewManager::sharedInstance()->showWidget(AlertWidget::create(nullptr, "", CommonFunction::GBKToUTF8(hornMsg->szDescribeString)));
+	}
+
 }
 
 void MainScene::dealVipEffect()
@@ -534,7 +639,6 @@ void MainScene::onGotoVip(Ref *pSender, ui::Widget::TouchEventType eventType)
 
 	if (eventType == ui::Widget::TouchEventType::ENDED)
 	{
-		//ModalViewManager::sharedInstance()->showWidget(GameHallVipPowerWidget::create());
 		ModalViewManager::sharedInstance()->showWidget(GameHallVipPowerWidget::create());
 	}
 }
@@ -611,6 +715,22 @@ void MainScene::onClickMatch(Ref*pSender, ui::Widget::TouchEventType eventType)
 		Director::sharedDirector()->replaceScene(GameMatchScene::create());
 	}
 }
+
+void MainScene::onClickHorn(Ref*pSender, ui::Widget::TouchEventType eventType)
+{
+	if (eventType == ui::Widget::TouchEventType::ENDED)
+	{
+		mHornBg->setVisible(false);
+		GameHallLoudSpeakerWidget* pWidget = GameHallLoudSpeakerWidget::create();
+		ModalViewManager::sharedInstance()->showWidget(pWidget);
+	}
+}
+
+void MainScene::receiveShowHornMsg(EventCustom* evt)
+{
+	mHornBg->setVisible(true);
+}
+
 
 void MainScene::menuCallback(Ref*pSender,ui::Widget::TouchEventType eventType)
 {
@@ -830,8 +950,28 @@ void MainScene::refreshUserDataForAuction(EventCustom* evt)
 
 void MainScene::checkAssign()
 {
-	if(SessionManager::shareInstance()->isShowAssign())
+	if (SessionManager::shareInstance()->isShowAssign())
+	{
 		ModalViewManager::sharedInstance()->showWidget(GameHallAssginWidget::create());
+	}
+	else
+	{
+		receiveShowLuckSpinMsg(NULL);
+	}
+}
+
+void MainScene::receiveShowLuckSpinMsg(EventCustom* evt)
+{
+	OnlineUserModel* pUser = SessionManager::shareInstance()->getUser();
+	if (pUser->getLuckSpinNum() > 0)
+	{
+		ModalViewManager::sharedInstance()->showWidget(GameHallLuckSpinWidget::create());
+	}
+}
+
+void MainScene::receiveShowVipPowerMsg(EventCustom* evt)
+{
+	ModalViewManager::sharedInstance()->showWidget(GameHallVipPowerWidget::create());
 }
 
 //刷新所有区域的红点

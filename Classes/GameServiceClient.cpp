@@ -141,6 +141,7 @@ bool GameServiceClient::OnEventTCPSocketShut(unsigned char cbShutReason)
 		//重连以前清缓存
 		SessionManager::shareInstance()->clearMsgArray();
 		SessionManager::shareInstance()->clearMatchRooms();
+		SessionManager::shareInstance()->clearHornMsg();
 		Director::getInstance()->getEventDispatcher()->dispatchCustomEvent(TaskSorketCloseMsg);
 		//断开重连
 		loginTaskServer();
@@ -554,15 +555,10 @@ bool GameServiceClient::OnTCPSocketRead(WORD wSocketID, TCP_Command Command, VOI
 				{
 					Director::sharedDirector()->getEventDispatcher()->dispatchCustomEvent(giftConvertRspMsg, pData);
 				}
-				//登录点是短连接，要主动断开 add by tjl 2015 -11 -09
-				if (Command.wSubCmdID != SUB_GP_USE_KNAPSACKLOG && Command.wSubCmdID != SUB_GP_SELL_AUCTION &&
-					Command.wSubCmdID != SUB_GP_BUY_AUCTION && Command.wSubCmdID != SUB_GP_CANCEL_AUCTION &&
-					Command.wSubCmdID != SUB_GP_AUCTION_RECORD && Command.wSubCmdID != SUB_GP_AUCTION &&
-					Command.wSubCmdID != SUB_GP_GIFT  && Command.wSubCmdID != SUB_GP_BUYGIFT)
+				else if (Command.wSubCmdID == SUB_GP_DIAL)//转盘返回
 				{
-					//log("Command.wSubCmdID =%d", Command.wSubCmdID);
-					//closeSoket();
-				}
+					Director::sharedDirector()->getEventDispatcher()->dispatchCustomEvent(luckSpinRspMsg, pData);
+				}	
 			}
 			break;
 		case MDM_MB_LOGON ://登录返回
@@ -589,7 +585,8 @@ bool GameServiceClient::OnTCPSocketRead(WORD wSocketID, TCP_Command Command, VOI
 					pUser->setGameId(userInfo->dwGameID);
 					pUser->setFirstCharge(userInfo->dwFirstOnLineOrder);
 					//pUser->setUserJiangJuan(userInfo->lIngotScore);
-
+					//解析喇叭数和转盘数
+					parseLoginExpandData(pData, wDataSize);
 					Director::sharedDirector()->getEventDispatcher()->dispatchCustomEvent(LoginSuccessMsg);
 					SessionManager::shareInstance()->setNewTaskTag(userInfo->dwTaskCount>0);
 					//SessionManager::shareInstance()->setNewMsgTag(userInfo->dwUnReadCount>0);
@@ -890,6 +887,25 @@ bool GameServiceClient::OnTCPSocketRead(WORD wSocketID, TCP_Command Command, VOI
 						Director::sharedDirector()->getEventDispatcher()->dispatchCustomEvent(MatchPlayCountIsMaxMsg);
 					}
 				}
+				//收到喇叭消息
+				else if (Command.wSubCmdID == SUB_GL_C_LABA)
+				{
+					CMD_GL_Laba * pHorn = (CMD_GL_Laba *)(pData);
+					std::string msg = CommonFunction::GBKToUTF8(pHorn->szNickName);
+					msg += ":";
+					msg += CommonFunction::GBKToUTF8(pHorn->szLabaText);
+					SessionManager::shareInstance()->listHornMsg.push_back(msg);
+					if (SessionManager::shareInstance()->listHornMsg.size() > MAX_HORN_MSG_COUNT)
+					{
+						SessionManager::shareInstance()->listHornMsg.pop_front();
+					}
+					Director::sharedDirector()->getEventDispatcher()->dispatchCustomEvent(updateLastHornMsg);
+				}
+				//收到喇叭返回
+				else if (Command.wSubCmdID == SUB_GL_C_LABA_LOG)
+				{
+					Director::sharedDirector()->getEventDispatcher()->dispatchCustomEvent(sendHornRspMsg, pData);
+				}
 				else if(Command.wSubCmdID == SUB_GL_C_TASK_LOAD)//任务列表返回
 				{
 					if(wDataSize % sizeof(CMD_GL_TaskInfo) != 0 )
@@ -984,10 +1000,6 @@ bool GameServiceClient::OnTCPSocketRead(WORD wSocketID, TCP_Command Command, VOI
 					}
 				}else //大厅比赛相关消息处理
 				{
-					if (Command.wSubCmdID == SUB_GL_C_MATCH_DELETE)
-					{
-						int i = 99;
-					}
 					for (int i=0;i<m_responseHandlers->count();i++)
 					{
 						BaseResponseHandler* handler = (BaseResponseHandler*)m_responseHandlers->getObjectAtIndex(i);
@@ -1002,6 +1014,47 @@ bool GameServiceClient::OnTCPSocketRead(WORD wSocketID, TCP_Command Command, VOI
 	}
 	return true;
 }
+
+void GameServiceClient::parseLoginExpandData(void * pDataBuffer, unsigned short wDataSize)
+{
+	int wPacketSize = 0;
+	BYTE cbDataBuffer[SOCKET_TCP_PACKET + sizeof(TCP_Head)];
+	CopyMemory(cbDataBuffer, pDataBuffer, wDataSize);
+	wPacketSize += sizeof(CMD_MB_LogonSuccess);
+	OnlineUserModel* pUser = SessionManager::shareInstance()->getUser();
+	while (true)
+	{
+		void * pDataBuffer1 = cbDataBuffer + wPacketSize;
+		tagDataDescribe *DataDescribe = (tagDataDescribe*)pDataBuffer1;
+		wPacketSize += sizeof(tagDataDescribe);
+		switch (DataDescribe->wDataDescribe)
+		{
+			case DTP_GP_GET_LABA_COUNT://喇叭个数
+			{
+				DTP_GP_GetLabaCount  pHornNum;
+				CopyMemory(&pHornNum, cbDataBuffer + wPacketSize, DataDescribe->wDataSize);
+				pUser->setLoudSpeakerNum(pHornNum.dwLabaCount);
+			}
+			break;
+			case DTP_GP_GET_DIAL_COUNT://转盘个数
+			{
+				DTP_GP_DialCount  pDialNum;
+			    CopyMemory(&pDialNum, cbDataBuffer + wPacketSize, DataDescribe->wDataSize);
+				pUser->setLuckSpinNum(pDialNum.dwDialCount);
+			}
+			break;
+		default:
+			break;
+		}
+		wPacketSize += DataDescribe->wDataSize;
+		if (wPacketSize >= wDataSize)
+		{
+			break;
+		}
+	}
+}
+
+
 void GameServiceClient::update(float dt)  
 {  
 	retain();
@@ -2299,6 +2352,37 @@ void GameServiceClient::sendGiftConvertRequest(const char* covertCode)
 
 	strcpy(gift.szGiftChangeOrder, covertCode);
 	m_GameSocket.SendMsg(MDM_GP_USER_SERVICE, SUB_GP_GIFT_CHANGE, &gift, sizeof(gift));
+}
+
+void GameServiceClient::sendhornRequset(const char* content)
+{
+	CMD_GL_Laba HornMsg;
+	OnlineUserModel *onlineModel = SessionManager::shareInstance()->getUser();
+	HornMsg.dwUserID = SessionManager::shareInstance()->getUserId();
+	strcpy(HornMsg.szNickName, onlineModel->getNickname().c_str());
+	HornMsg.dwKindID = 0;
+	HornMsg.dwServerID = 0;
+	HornMsg.dwPropNum = 0;
+	strcpy(HornMsg.szLabaText, CommonFunction::UTF8TOGBK(content).c_str());
+	m_GameSocket.SendMsg(MDM_GL_C_DATA, SUB_GL_C_LABA, &HornMsg, sizeof(HornMsg));
+}
+
+//转盘请求
+void GameServiceClient::sendLuckSpinRequest()
+{
+	//连接登录服务器
+	if (!m_GameSocket.IsConnected())
+	{
+		Connect(SessionManager::shareInstance()->getLoginAddr().c_str(), serverPort);
+	}
+	CMD_GP_UserID gpUser;
+	gpUser.dwUserID = SessionManager::shareInstance()->getUserId();
+
+	LoginUserModel* loginModel = SessionManager::shareInstance()->getLoginModel();
+	std::string md5PassWord = Crypto::MD5String((void*)loginModel->getPassword().c_str(), strlen(loginModel->getPassword().c_str()));
+	strcpy(gpUser.szPassword, md5PassWord.c_str());
+
+	m_GameSocket.SendMsg(MDM_GP_USER_SERVICE, SUB_GP_DIAL, &gpUser, sizeof(gpUser));
 }
 
 void GameServiceClient::closeSoket()

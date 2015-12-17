@@ -2099,6 +2099,31 @@ struct CMD_MB_AccessToken
 	TCHAR							szAccessToken[256];					//Token
 };
 
+#define DTP_GP_GET_LABA_COUNT		8	                                //喇叭个数
+#define DTP_GP_GET_DIAL_COUNT		9									//转盘个数
+
+
+//数据描述
+struct tagDataDescribe
+{
+	WORD							wDataSize;						//数据大小
+	WORD							wDataDescribe;					//数据描述
+};
+
+//喇叭数
+struct DTP_GP_GetLabaCount
+{
+	DWORD							 dwLabaCount;			//喇叭数
+};
+//加载转盘次数
+struct DTP_GP_DialCount
+{
+	DTP_GP_DialCount()
+	{
+		//memset(this, 0, sizeof(DTP_GP_DialCount));
+	}
+	DWORD		dwDialCount;
+};
 
 #pragma pack()
 

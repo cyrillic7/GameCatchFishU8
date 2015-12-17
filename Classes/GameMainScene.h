@@ -44,7 +44,11 @@ public:
 	void updateTaskRedPoint(EventCustom* evt);
 	void hideFirstChargeMsg(EventCustom* evt);
 	void updateVipLevel(EventCustom* evt);
-
+	void receiveUpdateHornMsg(EventCustom* evt);
+	void receiveSendhornRspMsg(EventCustom* evt);
+	void receiveShowHornMsg(EventCustom* evt);
+	void receiveShowLuckSpinMsg(EventCustom* evt);
+	void receiveShowVipPowerMsg(EventCustom*evt);
 	//刷新红点
 	void updateRedPoint(EventCustom* evt);
 
@@ -69,6 +73,8 @@ public:
 	void menuCallback(Ref*pSender, ui::Widget::TouchEventType eventType);
 	//比赛按钮
 	void onClickMatch(Ref*pSender, ui::Widget::TouchEventType eventType);
+	//点击喇叭
+	void onClickHorn(Ref*pSender, ui::Widget::TouchEventType eventType);
 	void fishIntoWater(Node* pSender);
 	float fgRangeRand( float min, float max );
 
@@ -80,6 +86,10 @@ protected:
 	void dealVipEffect();
 	void vipDealOver(Node* pSender);
 	void reDealVipEffect(Node* pSender);
+	//添加跑马灯
+	void showClipLabel(Node* parent);
+	void resetClipLabelData();
+	void onMoveFinsh(Node* pSender);
 public:
 	void update(float dt);
 	Widget* mMainWidget;
@@ -96,6 +106,10 @@ private:
 
 	ui::TextAtlas* label_vip;
 	ImageView*mMsgRedPoint;
+	ImageView* mHornBg;//喇叭背景
+	Text*      mHornNum;//喇叭个数
+	Text*      mLastHornText;//最新跑马灯内容
+	std::string mCurHornStr;
 };
 
 #endif // __MAIN_SCENE_H__
