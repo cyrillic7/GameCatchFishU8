@@ -48,7 +48,7 @@ void GameHallRegisterWidget::onEnter()
 {
 	TNWidget::onEnter();
 	//_eventDispatcher->addEventListenerWithSceneGraphPriority(EventListenerCustom::create(LoginSuccessMsg, CC_CALLBACK_1(GameHallRegisterWidget::LoginSuccessRsp, this)), this);
-	//_eventDispatcher->addEventListenerWithSceneGraphPriority(EventListenerCustom::create(LoginFaildMsg, CC_CALLBACK_1(GameHallRegisterWidget::LoginFaildRsp, this)), this);
+	_eventDispatcher->addEventListenerWithSceneGraphPriority(EventListenerCustom::create(LoginFaildMsg, CC_CALLBACK_1(GameHallRegisterWidget::LoginFaildRsp, this)), this);
 	_eventDispatcher->addEventListenerWithSceneGraphPriority(EventListenerCustom::create(closeLoginDialogMsg, CC_CALLBACK_1(GameHallRegisterWidget::removeSelf, this)), this);
 }
 
@@ -136,10 +136,6 @@ void GameHallRegisterWidget::onRegister(Ref *pSender, ui::Widget::TouchEventType
 			dic->setObject(__String::create(mPwdEdit->getText()),"password");
 			showLoading();
 			Director::sharedDirector()->getEventDispatcher()->dispatchCustomEvent(accountRegisterMsg,dic);
-
-			//removeFromParent();
-			//GameServiceClientManager::sharedInstance()->getCurrentServiceClient()->onRegister((char*)mAccountEdit->getText(),(char*)(CommonFunction::UTF8TOGBK((mNickEdit->getText()))),(char*)mPwdEdit->getText());
-			//showLoading();
 		}
 	}
 }

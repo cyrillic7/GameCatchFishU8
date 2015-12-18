@@ -19,7 +19,7 @@ public:
 	MainScene();
 	~MainScene();
     // Here's a difference. Method 'init' in cocos2d-x returns bool, instead of returning 'id' in cocos2d-iphone
-    virtual bool init();
+	virtual bool init(bool isLogin);
     
 	virtual void loadUI();
 
@@ -30,7 +30,7 @@ public:
 
 	virtual void render(Renderer* renderer);
     // implement the "static create()" method manually
-    static MainScene* create();
+    static MainScene* create(bool isLogin = true);
 
 	virtual void onEnter();
 	virtual void onExit();
@@ -110,6 +110,7 @@ private:
 	Text*      mHornNum;//喇叭个数
 	Text*      mLastHornText;//最新跑马灯内容
 	std::string mCurHornStr;
+	DrawNode* mFront;
 };
 
 #endif // __MAIN_SCENE_H__

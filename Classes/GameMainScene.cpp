@@ -94,6 +94,7 @@ MainScene::MainScene()
 	mHornBg = nullptr;
 	mHornNum = nullptr;
 	mCurHornStr = "";
+	mFront = nullptr;
 }
 
 MainScene::~MainScene()
@@ -134,6 +135,10 @@ void MainScene::onExit()
 	// 清除消息接听
 	_eventDispatcher->removeEventListenersForTarget(this);
 	GameBaseScene::onExit();
+	if (mFront)
+	{
+		CC_SAFE_RELEASE_NULL(mFront);
+	}
 }
 
 char* MainScene::getWidgetJsonName()
@@ -141,12 +146,12 @@ char* MainScene::getWidgetJsonName()
 	return "mainScene";
 }
 
-MainScene* MainScene::create()
+MainScene* MainScene::create(bool isLogin)
 {
     // 'scene' is an autorelease object
     MainScene* myScene = new MainScene();
     
-	if(myScene && myScene->init())
+	if (myScene && myScene->init(isLogin))
 	{
 		myScene->autorelease();
 		return myScene;
@@ -157,7 +162,7 @@ MainScene* MainScene::create()
 }
 
 // on "init" you need to initialize your instance
-bool MainScene::init()
+bool MainScene::init(bool isLogin)
 {
     //////////////////////////////
     // 1. super init first
@@ -165,7 +170,7 @@ bool MainScene::init()
     {
         return false;
     }
-	
+	mIsLogin = isLogin;
 	loadUI();
 
 	/*Sprite* test_fish = Sprite::create();
@@ -376,22 +381,30 @@ void MainScene::showClipLabel(Node* parent)
 	//  以下模型是drawnode遮罩
 	int width = mHornBg->getContentSize().width - 120;
 	int height = mHornBg->getContentSize().height;
-	DrawNode* front = DrawNode::create();
+
+	/*mFront = DrawNode::create();
 	Color4F yellow = { 1, 1, 0, 1 };
-	Vec2 rect[4] = { Vec2(0, 0), Vec2(width, 0), Vec2(width, height), Vec2(0, height) };
-	front->drawPolygon(rect, 4, yellow, 0, yellow); //绘制四边形
-	front->setPosition(Vec2(0, 0));
-	clip->setStencil(front); //一定要有，设置裁剪模板
+	//Vec2 rect[4] = { Vec2(0, 0), Vec2(width, 0), Vec2(width, height), Vec2(0, height) };
+	Vec2 rect[4] = { Vec2(0, height), Vec2(width, height), Vec2(width, 0), Vec2(0, 0) };
+	mFront->drawPolygon(rect, 4, yellow, 0, yellow); //绘制四边形
+	//front->setAnchorPoint(Vec2(0.5, 0.5));
+	mFront->setPosition(Vec2(0, 0));
+	mFront->retain();
+	clip->setStencil(mFront);*/ //一定要有，设置裁剪模板
+
+	auto* stencil = Sprite::create();
+	stencil->setTextureRect(Rect(0, 0, width,height));
+	stencil->setPosition(Vec2(width / 2, height/2));
+	clip->setStencil(stencil);//一定要有，设置裁剪模板
 
 	mLastHornText->setAnchorPoint(Vec2(0, 0));
 	clip->addChild(mLastHornText, 0, 999);
 
 	clip->setInverted(false);    //设置裁剪区域可见还是非裁剪区域可见  这里为裁剪区域可见
-	clip->setAlphaThreshold(0);
+	clip->setAlphaThreshold(1);
 	int fontHeight = mLastHornText->getContentSize().height / 2;
-	//clip->setPosition(mHornBg->getPositionX() - mHornBg->getContentSize().width / 2 + 80, mHornBg->getPositionY()- fontHeight);
-	clip->setPosition(80, mHornBg->getContentSize().height/2 - fontHeight);
-	//parent->addChild(clip);
+	
+	clip->setPosition(80, mHornBg->getContentSize().height / 2 - fontHeight);
 	mHornBg->addChild(clip);
 }
 
@@ -720,7 +733,6 @@ void MainScene::onClickHorn(Ref*pSender, ui::Widget::TouchEventType eventType)
 {
 	if (eventType == ui::Widget::TouchEventType::ENDED)
 	{
-		mHornBg->setVisible(false);
 		GameHallLoudSpeakerWidget* pWidget = GameHallLoudSpeakerWidget::create();
 		ModalViewManager::sharedInstance()->showWidget(pWidget);
 	}
@@ -728,7 +740,7 @@ void MainScene::onClickHorn(Ref*pSender, ui::Widget::TouchEventType eventType)
 
 void MainScene::receiveShowHornMsg(EventCustom* evt)
 {
-	mHornBg->setVisible(true);
+	//mHornBg->setVisible(true);
 }
 
 
@@ -956,7 +968,8 @@ void MainScene::checkAssign()
 	}
 	else
 	{
-		receiveShowLuckSpinMsg(NULL);
+		if (mIsLogin)//每次从新登录才弹
+			receiveShowLuckSpinMsg(NULL);
 	}
 }
 

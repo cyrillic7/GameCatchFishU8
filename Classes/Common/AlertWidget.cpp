@@ -120,7 +120,7 @@ void AlertWidget::loadUI()
 		Button* btnOk = Button::create();
 		btnOk->loadTextureNormal("btn_3.png",Widget::TextureResType::PLIST);
 		btnOk->loadTexturePressed("btn_3.png",Widget::TextureResType::PLIST);
-		btnOk->setTitleText(CommonFunction::GBKToUTF8("取消"));
+		btnOk->setTitleText("取消");
 		btnOk->setTitleColor(btnClose->getTitleColor());
 		btnOk->setTitleFontSize(btnClose->getTitleFontSize());
 		btnOk->setPosition(Vec2(popbg->getContentSize().width -130,btnClose->getPositionY() ));

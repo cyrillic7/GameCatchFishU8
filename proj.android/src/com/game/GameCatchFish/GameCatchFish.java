@@ -262,6 +262,7 @@ public class GameCatchFish extends Cocos2dxActivity {
 	}
 	
 	private ProgressDialog gressDialog;
+	private boolean   mInitWeb = false;
 	
 	public void openWebview(final String url,final int webType) {
     	this.runOnUiThread(new Runnable() {//在主线程里添加别的控件
@@ -324,8 +325,12 @@ public class GameCatchFish extends Cocos2dxActivity {
 							Bitmap favicon) {
 						// TODO Auto-generated method stub
 						super.onPageStarted(view, url, favicon);
-			            gressDialog = ProgressDialog.show(m_webView.getContext(), "加载中...", "", true);
-			            gressDialog.setCanceledOnTouchOutside(true);
+						if (mInitWeb == false)
+						{
+							mInitWeb = true;
+							gressDialog = ProgressDialog.show(m_webView.getContext(), "加载中...", "", true);
+				            gressDialog.setCanceledOnTouchOutside(true);
+						}
 					}
 
 

@@ -297,7 +297,7 @@ void GameMatchScene::onClickBack(Ref* pSender,ui::Widget::TouchEventType type)
 	}
 	if (type == ui::Widget::TouchEventType::ENDED)
 	{
-		Director::sharedDirector()->replaceScene(MainScene::create());
+		Director::sharedDirector()->replaceScene(MainScene::create(false));
 	}
 }
 
