@@ -85,6 +85,7 @@ private:
 	LabelAtlas* mNexVipLable;
 	Text*      mVipDesc;
 	ImageView*  mCurVip;
+	ImageView*  mNextVip;
 	ImageView*  mCurFontVip;
 	ImageView*  mNextFontVip;
 	ProgressTimer* mVipProgress;

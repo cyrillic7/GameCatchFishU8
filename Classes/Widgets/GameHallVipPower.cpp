@@ -19,6 +19,7 @@
 
 #define  ImageCurVipTag    1496
 #define  ProgressBarTag      1497
+#define  ImageNextVipTag     1499
 #define  LableVipDesTag     1500
 #define  ImageFontVip1Tag    1501
 #define  ImageFontVip2Tag    1503
@@ -553,7 +554,10 @@ void GameHallVipPowerWidget::refreshData(EventCustom* evt)
 		LabelAtlas* nextVipLable = LabelAtlas::create("0","number_vip.png",14,19,'0');
 		nextVipLable->setPosition(Vec2(mNextFontVip->getPositionX()+ mNextFontVip->getContentSize().width/2 + 5,mNextFontVip->getPositionY()));
 		nextVipLable->setAnchorPoint(Vec2(0.5,0.5));
-		nextVipLable->setString(__String::createWithFormat("%d",info->dwVipID+1)->getCString());
+		if (info->dwVipID < 7)
+			nextVipLable->setString(__String::createWithFormat("%d",info->dwVipID+1)->getCString());
+		else
+			nextVipLable->setString(__String::createWithFormat("%d", 7)->getCString());
 		popBg->addChild(nextVipLable);
 	}
 
@@ -567,14 +571,26 @@ void GameHallVipPowerWidget::refreshData(EventCustom* evt)
 		mVipProgress->setPercentage(persent);
 	}
 
-	std::string desc;
-	std::string split_str1  = CommonFunction::GBKToUTF8("还需冲值");
-	std::string split_str2 = CommonFunction::GBKToUTF8("元宝即可成为");
-	std::string split_str3 = CommonFunction::GBKToUTF8("福利翻倍哦。");
-	desc = __String::createWithFormat("%s%d%sVIP%d,%s",split_str1.c_str(),info->dwIngot,split_str2.c_str(),info->dwVipID+1,split_str3.c_str())->getCString();
-	mVipDesc->setFontSize(20);
-	mVipDesc->setText(desc.c_str());
-	mVipDesc->setTextColor(ccc4(96,34,0,255));
+
+	std::string desc="";
+	if (info->dwVipID < 7)
+	{
+		std::string split_str1 = CommonFunction::GBKToUTF8("还需冲值");
+		std::string split_str2 = CommonFunction::GBKToUTF8("元宝即可成为");
+		std::string split_str3 = CommonFunction::GBKToUTF8("福利翻倍哦。");
+		desc = __String::createWithFormat("%s%d%sVIP%d,%s", split_str1.c_str(), info->dwIngot, split_str2.c_str(), info->dwVipID + 1, split_str3.c_str())->getCString();
+		mVipDesc->setFontSize(20);
+		mVipDesc->setText(desc.c_str());
+		mVipDesc->setTextColor(ccc4(96, 34, 0, 255));
+	}
+	else
+	{
+		desc = CommonFunction::GBKToUTF8("您已是VIP最高级");
+		mVipDesc->setFontSize(20);
+		mVipDesc->setText(desc.c_str());
+		mVipDesc->setTextColor(ccc4(96, 34, 0, 255));
+		mVipProgress->setPercentage(100); 
+	}
 
 
 	CMD_GP_VipPowerInfo* vipPowerInfo = info->VipPowerInfo;
