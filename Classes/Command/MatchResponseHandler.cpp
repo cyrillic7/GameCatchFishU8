@@ -118,6 +118,7 @@ void MatchResponseHandler::OnSocketSubMatchInfo(void* data, WORD data_size)
 		info->setSignUpTicket(MatchInfo->dwSignUpTicket);
 		info->setSpaceTime(MatchInfo->dwSpaceTime);
 		info->setServerID(MatchInfo->dwServerID);
+		info->setMatchMemberOrder(MatchInfo->dwMemberOrder);
 
 		__Dictionary* dic = __Dictionary::create();
 		dic->setObject(__Bool::create(isNewMatch),"isNewMatch");

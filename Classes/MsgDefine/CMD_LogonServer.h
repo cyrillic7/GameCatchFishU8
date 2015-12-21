@@ -1856,8 +1856,7 @@ struct CMD_GL_MatchInfo
 	DWORD			dwSpaceTime;
 	SCORE           dwSignUpScore;
 	DWORD			dwSignUpTicket;
-	//DWORD			dwCurPlayerNum;
-	//DWORD			dwAllPlayerNum;	
+	DWORD			dwMemberOrder;//vip场过滤
 	DWORD			dwCurGroupCount;									//满人时，即将开赛组人数
 	DWORD			dwSignUpPlayerNum;
 	CMD_GL_MatchAward  MatchAward[LEN_MATCHITEMAWARD];

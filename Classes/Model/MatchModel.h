@@ -84,6 +84,7 @@ public:
 	
 	CC_SYNTHESIZE(std::string, m_matchRemark,MatchRemark);
 	//
+	CC_SYNTHESIZE(int, m_matchMemberOrder, MatchMemberOrder);
 };
 
 //游戏里的MATCH INFO MODEL
