@@ -703,8 +703,9 @@ void MainScene::initMenuBar()
 	
 	menuLayer->AppendItem("icon_tast.png","font_task.png",CCMenuLayer::vertype, ID_SCENE_TASK);
 	menuLayer->AppendItem("icon_activity.png","font_activity.png",CCMenuLayer::vertype, ID_SCENE_ACTIVITY);
+#if (CC_TARGET_PLATFORM != CC_PLATFORM_IOS)
 	menuLayer->AppendItem("icon_exchange.png", "font_exchange.png", CCMenuLayer::vertype, ID_SCENE_GIFTCOVERT);
-	
+#endif	
 	menuLayer->AppendItem("icon_shop.png","font_shop.png",CCMenuLayer::hortype, ID_SCENE_SHOP);
 	menuLayer->AppendItem("icon_paimai.png","font_paimai.png",CCMenuLayer::hortype, ID_SCENE_PAIMAI);
 	menuLayer->AppendItem("icon_bank.png","font_bank2.png",CCMenuLayer::hortype, ID_SCENE_BANK);
@@ -962,6 +963,7 @@ void MainScene::refreshUserDataForAuction(EventCustom* evt)
 
 void MainScene::checkAssign()
 {
+#if (CC_TARGET_PLATFORM != CC_PLATFORM_IOS)
 	if (SessionManager::shareInstance()->isShowAssign())
 	{
 		ModalViewManager::sharedInstance()->showWidget(GameHallAssginWidget::create());
@@ -971,6 +973,12 @@ void MainScene::checkAssign()
 		if (mIsLogin)//每次从新登录才弹
 			receiveShowLuckSpinMsg(NULL);
 	}
+#else
+	if (SessionManager::shareInstance()->isShowAssign())
+	{
+		ModalViewManager::sharedInstance()->showWidget(GameHallAssginWidget::create());
+	}
+#endif
 }
 
 void MainScene::receiveShowLuckSpinMsg(EventCustom* evt)

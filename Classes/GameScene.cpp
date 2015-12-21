@@ -624,6 +624,7 @@ void GameScene::loadBg()
 	ui::Button* btn_back = ui::Button::create();
 	btn_back->loadTextureNormal("back.png",ui::Widget::TextureResType::LOCAL);
 	btn_back->loadTexturePressed("back.png",ui::Widget::TextureResType::LOCAL);
+	btn_back->setTouchSize(Size(120, 120));
 	btn_back->setPosition(Vec2(btn_back->getContentSize().width/2+ 30,kScreenHeight - btn_back->getContentSize().height/2 - 70));
 	
 	addChild(btn_back);
@@ -698,10 +699,11 @@ void GameScene::onBack(Ref* pSender,ui::Widget::TouchEventType type)
 		//干掉游戏SORKET 直接退出
 		m_serviceClient->sendStandUp();
 		
-		DelayTime* delay = DelayTime::create(5.0f);
-		CallFuncN* callBack =CallFuncN::create(this,callfuncN_selector(GameScene::standupOverTime));
-		runAction(Sequence::createWithTwoActions(delay,callBack));
-		//exitGameRoom();	
+		//DelayTime* delay = DelayTime::create(5.0f);
+		//CallFuncN* callBack =CallFuncN::create(this,callfuncN_selector(GameScene::standupOverTime));
+		//runAction(Sequence::createWithTwoActions(delay,callBack));
+		m_serviceClient->setNeedPassToResponseHandler(false);
+		exitGameRoom();	
 	}
 }
 

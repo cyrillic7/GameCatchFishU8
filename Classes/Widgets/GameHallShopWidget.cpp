@@ -68,7 +68,11 @@ bool GameHallShopWidget::init()
 
 std::string GameHallShopWidget::getWidgetJsonName()
 {
+#if (CC_TARGET_PLATFORM != CC_PLATFORM_IOS)
 	return "shopWidget";
+#else
+	return "shopWidget_ios";
+#endif
 }
 
 void GameHallShopWidget::loadUI()
@@ -85,11 +89,11 @@ void GameHallShopWidget::loadUI()
 	mTabGift->addTouchEventListener(CC_CALLBACK_2(GameHallShopWidget::onClickGift, this));
 	mTextGift = static_cast<ImageView*>(mTabGift->getChildByTag(ImageGiftTag));
 
-
+#if (CC_TARGET_PLATFORM != CC_PLATFORM_IOS)
 	mTabTool = static_cast<ImageView*>(m_mainWidget->getChildByTag(TabToolTag));
 	mTabTool->addTouchEventListener(CC_CALLBACK_2(GameHallShopWidget::onClickTool, this));
 	mTextTool = static_cast<ImageView*>(mTabTool->getChildByTag(ImageToolTag));
-
+#endif
 	mTabVip = static_cast<ImageView*>(m_mainWidget->getChildByTag(TabVipTag));
 	mTabVip->addTouchEventListener(CC_CALLBACK_2(GameHallShopWidget::onClickVip, this));
 	mTextVip = static_cast<ImageView*>(mTabVip->getChildByTag(ImageVipTag));
