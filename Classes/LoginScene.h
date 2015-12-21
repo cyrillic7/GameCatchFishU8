@@ -18,6 +18,7 @@ public:
 	virtual void onExit();
 	void loadUI();
 	void logonGameByQQ(float dt);
+	void logonGameByWx(float dt);
 	void netWorkIsValid(EventCustom* evt);
 	virtual __Array * getResourceNeedLoad();
 protected:
@@ -27,6 +28,8 @@ protected:
 	void onFastLogin(EventCustom* evt);
 	void QQLogin(EventCustom* evt);
 	void U8Login(EventCustom* evt);
+	void wxLogin(EventCustom*evt);
+
 	void AccountLogin(EventCustom* evt);
 	void FastLoginRsp(EventCustom* evt);
 	void AccountRegister(EventCustom* evt);
@@ -40,6 +43,7 @@ protected:
 protected:
 	std::string m_Account;
 	std::string m_Password;
+	std::string m_token;
 	bool  mbQQLogin;
 	bool  mbFastLogin;
 	bool  mBRegister;

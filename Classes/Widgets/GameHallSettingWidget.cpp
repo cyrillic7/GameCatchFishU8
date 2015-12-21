@@ -272,7 +272,7 @@ void GameHallSettingWidget::onChangeAccount(Ref* pSender,ui::Widget::TouchEventT
 		std::string name = GameServiceClientManager::sharedInstance()->getCurrentServiceClientName();
 		GameServiceClientManager::sharedInstance()->removeServiceClient(name.c_str());
 		SessionManager::shareInstance()->clearMsgArray();
-
+		SessionManager::shareInstance()->clearHornMsg();
 		//断开大厅SORKET
 		GameServiceClient* c = GameServiceClientManager::sharedInstance()->serviceClientForName(taskClient);
 		c->closeSoket();

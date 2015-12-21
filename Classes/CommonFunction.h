@@ -62,6 +62,7 @@ public:
 	static void callMakdir(const char* path,int luanyong);
 	static void updateGame(const char* url);
 	static void callWx(int flag);
+	static void callWxLogin();
 	static std::string getUUID ();
 	static std::string getNetWorkType();
 	static std::string getVersion();
@@ -69,7 +70,8 @@ public:
 	static void  moreGamePro(const char* packageName,const char* startAcivityName,const char* url);
 	//for qq登录
 	static void loginQQ(const char* account, const char* pwd);
-
+	//for wx登录
+	static void wxLogin(const char* token);
 	//是否含有中文
 	static bool isAllChniese(std::string string);
 

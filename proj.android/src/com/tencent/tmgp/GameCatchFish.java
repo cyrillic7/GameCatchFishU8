@@ -64,6 +64,7 @@ import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.provider.SyncStateContract.Constants;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
@@ -95,6 +96,7 @@ public class GameCatchFish extends U8CocosActivity {
     
     private static native void JniQQLogin(int value,final String account,final String pwd);
 	private static native void JniCallPay();
+	public static native void JniWXLogin(final String token);
 	
 	protected void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);	
@@ -134,6 +136,16 @@ public class GameCatchFish extends U8CocosActivity {
 	public static String getCurNetWorkType()
 	{
 		return app.getNetWorkType();
+	}
+	
+	public static void WXLogin()
+	{
+		 SendAuth.Req req = new SendAuth.Req();
+		    req.scope = "snsapi_userinfo";
+		    req.state = "wechat_sdk_demo_test";
+		    
+		    IWXAPI api= WXAPIFactory.createWXAPI(app, com.tx.wx.wxapi.Constants.APP_ID);
+		    api.sendReq(req);
 	}
 	
 	public String getNetWorkType()
@@ -249,6 +261,7 @@ public class GameCatchFish extends U8CocosActivity {
 	}
 	
 	private ProgressDialog gressDialog;
+	private boolean   mInitWeb = false;
 	
 	public void openWebview(final String url,final int webType) {
     	this.runOnUiThread(new Runnable() {//�����߳�����ӱ�Ŀؼ�
@@ -311,8 +324,12 @@ public class GameCatchFish extends U8CocosActivity {
 							Bitmap favicon) {
 						// TODO Auto-generated method stub
 						super.onPageStarted(view, url, favicon);
-			            gressDialog = ProgressDialog.show(m_webView.getContext(), "������...", "", true);
+						if (mInitWeb == false)
+						{
+							mInitWeb = true;
+							gressDialog = ProgressDialog.show(m_webView.getContext(), "加载中...", "", true);
 			            gressDialog.setCanceledOnTouchOutside(true);
+					}
 					}
 
 

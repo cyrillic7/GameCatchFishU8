@@ -22,6 +22,7 @@ LoginScene::LoginScene()
 	m_gameName = XwZoneName;
 	m_Account = "";
 	m_Password = "";
+	m_token = "";
 	mbQQLogin = false;
 	mBRegister = false;
 	mbFastLogin = false;
@@ -87,6 +88,7 @@ void LoginScene::onEnter()
 	_eventDispatcher->addEventListenerWithSceneGraphPriority(EventListenerCustom::create(CancelUpdateMsg,CC_CALLBACK_1(LoginScene::CancelUpdate,this)),this);
 
 	//_eventDispatcher->addEventListenerWithSceneGraphPriority(EventListenerCustom::create(netWorkValidMsg, CC_CALLBACK_1(LoginScene::netWorkIsValid, this)), this);
+	_eventDispatcher->addEventListenerWithSceneGraphPriority(EventListenerCustom::create(wxLoginMsg, CC_CALLBACK_1(LoginScene::wxLogin, this)), this);
 
 	TextureCache::sharedTextureCache()->addImage("login_bg.png");
 
@@ -277,6 +279,23 @@ void LoginScene::QQLogin(EventCustom* evt)
 	m_Password = ((__String*)info->objectForKey("password"))->getCString();
 	///for网页退回来死机问题
 	scheduleOnce(SEL_SCHEDULE(&LoginScene::logonGameByQQ),0.5);
+}
+
+void LoginScene::wxLogin(EventCustom* evt)
+{
+	__Dictionary* info = (__Dictionary*)evt->getUserData();
+	///for网页退回来死机问题
+	m_token = ((__String*)info->objectForKey("token"))->getCString();
+	scheduleOnce(SEL_SCHEDULE(&LoginScene::logonGameByWx), 0.5);
+}
+
+void LoginScene::logonGameByWx(float dt)
+{
+	GameServiceClient* c = GameServiceClientManager::sharedInstance()->serviceClientForName(m_gameName.c_str());
+	showLoading();
+	log("[ logonGameByWx ] => [ m_token: %s ]", m_token.c_str());
+	c->onWxLogin(m_token.c_str());
+
 }
 
 void LoginScene::logonGameByQQ(float dt)

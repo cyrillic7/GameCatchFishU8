@@ -624,6 +624,7 @@ void GameScene::loadBg()
 	ui::Button* btn_back = ui::Button::create();
 	btn_back->loadTextureNormal("back.png",ui::Widget::TextureResType::LOCAL);
 	btn_back->loadTexturePressed("back.png",ui::Widget::TextureResType::LOCAL);
+	btn_back->setTouchSize(Size(120, 120));
 	btn_back->setPosition(Vec2(btn_back->getContentSize().width/2+ 30,kScreenHeight - btn_back->getContentSize().height/2 - 70));
 	
 	addChild(btn_back);
@@ -698,10 +699,11 @@ void GameScene::onBack(Ref* pSender,ui::Widget::TouchEventType type)
 		//干掉游戏SORKET 直接退出
 		m_serviceClient->sendStandUp();
 		
-		DelayTime* delay = DelayTime::create(5.0f);
-		CallFuncN* callBack =CallFuncN::create(this,callfuncN_selector(GameScene::standupOverTime));
-		runAction(Sequence::createWithTwoActions(delay,callBack));
-		//exitGameRoom();	
+		//DelayTime* delay = DelayTime::create(5.0f);
+		//CallFuncN* callBack =CallFuncN::create(this,callfuncN_selector(GameScene::standupOverTime));
+		//runAction(Sequence::createWithTwoActions(delay,callBack));
+		m_serviceClient->setNeedPassToResponseHandler(false);
+		exitGameRoom();	
 	}
 }
 
@@ -2365,7 +2367,7 @@ void GameScene::preLoadSoundRes()
 {
 #if (CC_TARGET_PLATFORM != CC_PLATFORM_WIN32)
 	int i  =0;
-	if(mGameKind == GameKindDntg)
+	if(SessionManager::shareInstance()->getGameKind() == GameKindDntg)
 	{
 		for ( i = 0 ; i <MusicCount;i++)
 		{
@@ -2373,13 +2375,13 @@ void GameScene::preLoadSoundRes()
 		}
 
 	}
-	else if(mGameKind == GameKindLkpy  )
+	else if(SessionManager::shareInstance()->getGameKind() == GameKindLkpy  )
 	{
 		for ( i = 0 ; i <MusicLkCount;i++)
 		{
 			SoundManager::preloadEffect(__String::createWithFormat("GameResources/audios_lk/%s.mp3",GameMusicForLk[i])->getCString());
 		}
-	}else if (mGameKind == GameKindJcpy)
+	}else if (SessionManager::shareInstance()->getGameKind() == GameKindJcpy)
 	{
 		for ( i = 0 ; i <MusicLkCount;i++)
 		{

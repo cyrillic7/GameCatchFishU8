@@ -68,7 +68,11 @@ bool GameHallShopWidget::init()
 
 std::string GameHallShopWidget::getWidgetJsonName()
 {
+#if (CC_TARGET_PLATFORM != CC_PLATFORM_IOS)
 	return "shopWidget";
+#else
+	return "shopWidget_ios";
+#endif
 }
 
 void GameHallShopWidget::loadUI()
@@ -85,11 +89,11 @@ void GameHallShopWidget::loadUI()
 	mTabGift->addTouchEventListener(CC_CALLBACK_2(GameHallShopWidget::onClickGift, this));
 	mTextGift = static_cast<ImageView*>(mTabGift->getChildByTag(ImageGiftTag));
 
-
+#if (CC_TARGET_PLATFORM != CC_PLATFORM_IOS)
 	mTabTool = static_cast<ImageView*>(m_mainWidget->getChildByTag(TabToolTag));
 	mTabTool->addTouchEventListener(CC_CALLBACK_2(GameHallShopWidget::onClickTool, this));
 	mTextTool = static_cast<ImageView*>(mTabTool->getChildByTag(ImageToolTag));
-
+#endif
 	mTabVip = static_cast<ImageView*>(m_mainWidget->getChildByTag(TabVipTag));
 	mTabVip->addTouchEventListener(CC_CALLBACK_2(GameHallShopWidget::onClickVip, this));
 	mTextVip = static_cast<ImageView*>(mTabVip->getChildByTag(ImageVipTag));
@@ -129,6 +133,8 @@ void GameHallShopWidget::onEnter()
 	_eventDispatcher->addEventListenerWithSceneGraphPriority(EventListenerCustom::create(toUserGiftMsg,CC_CALLBACK_1(GameHallShopWidget::sendUserGiftRequset, this)), this);
 	//请求礼包列表
 	refreshData(1);
+	//获取用户财富信息
+	GameServiceClientManager::sharedInstance()->getCurrentServiceClient()->sendTreasureRequest();
 }
 
 void GameHallShopWidget::showLoading()
@@ -170,9 +176,6 @@ void GameHallShopWidget::refreshGiftList(EventCustom* event)
 	
 	//刷新列表
 	refreashList(dataArray,type);	
-
-	//获取用户财富信息
-	GameServiceClientManager::sharedInstance()->getCurrentServiceClient()->sendTreasureRequest();
 }
 
 void GameHallShopWidget::refreshTreasure(EventCustom* evt)

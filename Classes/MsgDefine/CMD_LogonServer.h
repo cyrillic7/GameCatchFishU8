@@ -2098,6 +2098,46 @@ struct CMD_GP_GiftChangeRet
 	DWORD   dwRet;														//0：成功，1：失败
 	TCHAR	szDescribeString[128];										//描述消息
 };
+
+#define SUB_MB_ACCESSTOKEN			5									//第三方登录
+
+//第三方登录
+struct CMD_MB_AccessToken
+{
+	DWORD							dwSessionID;						//推广ID
+	TCHAR							szUMId[LEN_ACCOUNTS * 2];			//用户唯一标示
+	DWORD							dwSex;								//性别
+	TCHAR							szNickName[LEN_NICKNAME];			//用户昵称
+	TCHAR							szMachineID[LEN_MACHINE_ID];		//机器标识
+	TCHAR							szAccessToken[256];					//Token
+};
+
+#define DTP_GP_GET_LABA_COUNT		8	                                //喇叭个数
+#define DTP_GP_GET_DIAL_COUNT		9									//转盘个数
+
+
+//数据描述
+struct tagDataDescribe
+{
+	WORD							wDataSize;						//数据大小
+	WORD							wDataDescribe;					//数据描述
+};
+
+//喇叭数
+struct DTP_GP_GetLabaCount
+{
+	DWORD							 dwLabaCount;			//喇叭数
+};
+//加载转盘次数
+struct DTP_GP_DialCount
+{
+	DTP_GP_DialCount()
+	{
+		//memset(this, 0, sizeof(DTP_GP_DialCount));
+	}
+	DWORD		dwDialCount;
+};
+
 #pragma pack()
 
 #endif

@@ -353,23 +353,30 @@ void GameHallBuyAlertWidget::loadUI()
 			//btn_toVip->addTouchEventListener(CC_CALLBACK_2(GameHallBuyAlertWidget::onGotoVip,this));
 			Text* text_discount = Text::create();
 			OnlineUserModel* pUser = SessionManager::shareInstance()->getUser();
-			int discount = KvipDiscount[pUser->getVipLevel()+1];
-			__String* content = nullptr;
-			if ( discount  % 10 == 0)
+			if (pUser->getVipLevel() == 7)
 			{
-				content = __String::createWithFormat("Vip%d%s%.0f%s",pUser->getVipLevel()+1,CommonFunction::GBKToUTF8("Ïí").c_str(),discount/10.0f,CommonFunction::GBKToUTF8("ÕÛ").c_str());
+
 			}
 			else
 			{
-				content = __String::createWithFormat("Vip%d%s%.1f%s",pUser->getVipLevel()+1,CommonFunction::GBKToUTF8("Ïí").c_str(),discount/10.0f,CommonFunction::GBKToUTF8("ÕÛ").c_str());
+				int discount = KvipDiscount[pUser->getVipLevel() + 1];
+				__String* content = nullptr;
+				if (discount % 10 == 0)
+				{
+					content = __String::createWithFormat("Vip%d%s%.0f%s", pUser->getVipLevel() + 1, CommonFunction::GBKToUTF8("Ïí").c_str(), discount / 10.0f, CommonFunction::GBKToUTF8("ÕÛ").c_str());
+				}
+				else
+				{
+					content = __String::createWithFormat("Vip%d%s%.1f%s", pUser->getVipLevel() + 1, CommonFunction::GBKToUTF8("Ïí").c_str(), discount / 10.0f, CommonFunction::GBKToUTF8("ÕÛ").c_str());
+				}
+				text_discount->setTouchEnabled(true);
+				text_discount->setText(content->getCString());
+				text_discount->setTextColor(ccc4(184, 43, 34, 255));
+				text_discount->setFontSize(25);
+				text_discount->setPosition(btn_toVip->getPosition());
+				text_discount->addTouchEventListener(CC_CALLBACK_2(GameHallBuyAlertWidget::onGotoVip, this));
+				mShopPanel->addChild(text_discount);
 			}
-			text_discount->setTouchEnabled(true);
-			text_discount->setText(content->getCString());
-			text_discount->setTextColor(ccc4(184,43,34,255));
-			text_discount->setFontSize(25);
-			text_discount->setPosition(btn_toVip->getPosition());
-			text_discount->addTouchEventListener(CC_CALLBACK_2(GameHallBuyAlertWidget::onGotoVip,this));
-			mShopPanel->addChild(text_discount);
 		}
 	}
 
