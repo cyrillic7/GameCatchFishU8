@@ -200,8 +200,8 @@ void GameHallFirstChargeWidget::receiveRechargeOrderRspMsg(EventCustom* evt)
 		CommonFunction::callPay(sAction->getCString());
 		__String *desc = __String::createWithFormat("first recharge");
 		//__String *price = __String::createWithFormat("%d", (int)mCurModel->getPrice());
-		__String *tradeNo = __String::createWithFormat("%d", mCurOrderNumber.c_str());
-		CU8sdkFunction::GetInstance().OnU8sdkPay("ingot", desc->getCString(), 10, tradeNo->getCString());
+		__String *tradeNo = __String::createWithFormat("%s", mCurOrderNumber.c_str());
+		CU8sdkFunction::GetInstance().OnU8sdkPay("ingot", desc->getCString(), 10, mCurOrderNumber.c_str());
 	}
 	else if (orderLog->dwRet == 10)//ряЁДж╣╧Щ
 	{
