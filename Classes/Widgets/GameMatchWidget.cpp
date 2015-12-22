@@ -113,14 +113,13 @@ bool GameMatchItem::init(bool isRoot ,MatchInfoModel* info,int matchtype)
 
 		//除VIP 以外
 		bool isFreeCharge = false;//免费
-		if (mData->getMatchMemberOrder() == 0)
+		
+		if (nullptr == signStr)
 		{
-			if (nullptr == signStr)
-			{
-				isFreeCharge = true;
-				signUpScoreText->setText(CommonFunction::GBKToUTF8("免费报名"));
-			}
+			isFreeCharge = true;
+			signUpScoreText->setText(CommonFunction::GBKToUTF8("免费报名"));
 		}
+		
 	
 		signUpScoreText->setPosition(Vec2(385,getSize().height/2));
 		signUpScoreText->setAnchorPoint(Vec2(0.5, 0.5));
