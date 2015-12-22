@@ -139,7 +139,9 @@ public:
 	//登录大厅
 	void onLogin(const char* accout,const char* pwd);
 	//U8登录
-	void onLoginU8(const char* umid, const char* username, const char* token);
+	void onLoginU8(const char* umid, const char* username, const char* token, const char* userid);
+	//微信登录
+	void onWxLogin(const char* token);
 	//登录真正房间
 	void loginRealRoom(RoomLevelInfo* info);
 	//登录比赛房间

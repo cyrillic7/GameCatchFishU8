@@ -1129,7 +1129,7 @@ bool GameServiceClient::OnTCPNetworkMainMBCount(WORD wSubCmdID, VOID * pData, WO
 	return true;
 }
 
-void GameServiceClient::onLoginU8(const char* umid, const char* username, const char* token)
+void GameServiceClient::onLoginU8(const char* umid, const char* username, const char* token, const char* userid)
 {
 	log("onLoginU8");
 	if (!m_GameSocket.IsConnected())
@@ -1160,6 +1160,7 @@ void GameServiceClient::onLoginU8(const char* umid, const char* username, const 
 	strcpy(accesstokenlogin.szUMId, umid);
 	strcpy(accesstokenlogin.szNickName, username);
 	strcpy(accesstokenlogin.szAccessToken, token);
+	accesstokenlogin.dwSubSessionID = atoi(userid);
 
 	accesstokenlogin.dwSex = 0;
 	log("onLoginU8SendMsg");
@@ -1168,6 +1169,7 @@ void GameServiceClient::onLoginU8(const char* umid, const char* username, const 
 	log("umid = %s", accesstokenlogin.szUMId);
 	log("username = %s", accesstokenlogin.szNickName);
 	log("token = %s", accesstokenlogin.szAccessToken);
+	log("userid = %d", accesstokenlogin.dwSubSessionID);
 
 	bool bsend = m_GameSocket.SendMsg(MDM_MB_LOGON, SUB_MB_ACCESSTOKEN, &accesstokenlogin, sizeof(accesstokenlogin));
 	if (bsend == false)

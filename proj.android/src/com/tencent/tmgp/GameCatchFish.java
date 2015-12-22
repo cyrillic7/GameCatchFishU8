@@ -137,7 +137,7 @@ public class GameCatchFish extends U8CocosActivity {
 	{
 		return app.getNetWorkType();
 	}
-	
+	/*
 	public static void WXLogin()
 	{
 		 SendAuth.Req req = new SendAuth.Req();
@@ -147,7 +147,7 @@ public class GameCatchFish extends U8CocosActivity {
 		    IWXAPI api= WXAPIFactory.createWXAPI(app, com.tx.wx.wxapi.Constants.APP_ID);
 		    api.sendReq(req);
 	}
-	
+	*/
 	public String getNetWorkType()
 	{
 		String type = ""; 

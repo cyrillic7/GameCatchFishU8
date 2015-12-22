@@ -7,7 +7,7 @@
 #pragma pack(1)
 //////////////////////////////////////////////////////////////////////////////////
 
-#define	 MAX_CHAMPION_TEXT		 64										//¹Ú¾üÏÔÊ¾
+#define	 MAX_CHAMPION_TEXT		 64										//ï¿½Ú¾ï¿½ï¿½ï¿½Ê¾
 #define  LEN_MATCHTYPE			 32
 #define  LEN_REMARK				 32
 #define  LEN_AWARD				 32
@@ -19,115 +19,115 @@
 #define  LEN_MATCHID			 30	
 #define  TCP_MAX_CONNECT		 10000
 #define  LEN_ADDR				 16
-#define  MAX_MATCHSERVERID		 200									//×î´ó·þÎñÆ÷id
-#define  MAX_ROOM_NUM			 200									//·¿¼ä×î´óÈËÊý
-#define  MAX_ROOM_NUM			 200									//·¿¼ä×î´óÈËÊý
-#define  MAX_ROOM_TYPE_NUM		 20										//Ò»ÓÎÏ·µÄÈüÊÂ
+#define  MAX_MATCHSERVERID		 200									//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½id
+#define  MAX_ROOM_NUM			 200									//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+#define  MAX_ROOM_NUM			 200									//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+#define  MAX_ROOM_TYPE_NUM		 20										//Ò»ï¿½ï¿½Ï·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
-//µÇÂ¼ÃüÁî
-#define MDM_GP_LOGON				1									//¹ã³¡µÇÂ¼
+//ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½
+#define MDM_GP_LOGON				1									//ï¿½ã³¡ï¿½ï¿½Â¼
 
-//µÇÂ¼Ä£Ê½
-#define SUB_GP_LOGON_GAMEID			1									//I D µÇÂ¼
-#define SUB_GP_LOGON_ACCOUNTS		2									//ÕÊºÅµÇÂ¼
-#define SUB_GP_REGISTER_ACCOUNTS	3									//×¢²áÕÊºÅ
-#define SUB_GP_LOGON_LOGOUT_GAMEID 	4									//ÓÃ»§ÍË³ö
-#define SUB_GP_LOBBY_IP 			5									//±ÈÈü·þÎñÆ÷ip
+//ï¿½ï¿½Â¼Ä£Ê½
+#define SUB_GP_LOGON_GAMEID			1									//I D ï¿½ï¿½Â¼
+#define SUB_GP_LOGON_ACCOUNTS		2									//ï¿½ÊºÅµï¿½Â¼
+#define SUB_GP_REGISTER_ACCOUNTS	3									//×¢ï¿½ï¿½ï¿½Êºï¿½
+#define SUB_GP_LOGON_LOGOUT_GAMEID 	4									//ï¿½Ã»ï¿½ï¿½Ë³ï¿½
+#define SUB_GP_LOBBY_IP 			5									//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ip
 
-//µÇÂ¼½á¹û
-#define SUB_GP_LOGON_SUCCESS		100									//µÇÂ¼³É¹¦
-#define SUB_GP_LOGON_FAILURE		101									//µÇÂ¼Ê§°Ü
-#define SUB_GP_LOGON_FINISH			102									//µÇÂ¼Íê³É
-#define SUB_GP_VALIDATE_MBCARD      103                                 //µÇÂ¼Ê§°Ü
+//ï¿½ï¿½Â¼ï¿½ï¿½ï¿½
+#define SUB_GP_LOGON_SUCCESS		100									//ï¿½ï¿½Â¼ï¿½É¹ï¿½
+#define SUB_GP_LOGON_FAILURE		101									//ï¿½ï¿½Â¼Ê§ï¿½ï¿½
+#define SUB_GP_LOGON_FINISH			102									//ï¿½ï¿½Â¼ï¿½ï¿½ï¿½
+#define SUB_GP_VALIDATE_MBCARD      103                                 //ï¿½ï¿½Â¼Ê§ï¿½ï¿½
 
-#define SUB_GP_GET_CAPTCHA			106									//»ñÈ¡ÑéÖ¤Âë
-#define SUB_GP_SEND_CAPTCHA			107									//·¢ËÍÑéÖ¤Âë
+#define SUB_GP_GET_CAPTCHA			106									//ï¿½ï¿½È¡ï¿½ï¿½Ö¤ï¿½ï¿½
+#define SUB_GP_SEND_CAPTCHA			107									//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¤ï¿½ï¿½
 
 
 
-//Éý¼¶ÌáÊ¾
-#define SUB_GP_UPDATE_NOTIFY		200									//Éý¼¶ÌáÊ¾
+//ï¿½ï¿½ï¿½ï¿½Ê¾
+#define SUB_GP_UPDATE_NOTIFY		200									//ï¿½ï¿½ï¿½ï¿½Ê¾
 
 //////////////////////////////////////////////////////////////////////////////////
 //
 
-#define MB_VALIDATE_FLAGS           0x01                                //Ð§ÑéÃÜ±£
-#define LOW_VER_VALIDATE_FLAGS      0x02                                //Ð§ÑéµÍ°æ±¾
+#define MB_VALIDATE_FLAGS           0x01                                //Ð§ï¿½ï¿½ï¿½Ü±ï¿½
+#define LOW_VER_VALIDATE_FLAGS      0x02                                //Ð§ï¿½ï¿½Í°æ±¾
 
 //shop 
-#define SUB_GP_GIFT 				108									//ÀñÆ·°ü
-#define SUB_GP_PROPERTY				109									//µÀ¾ß
-#define SUB_GP_BUYGIFT				110									//¹ºÂòÀñÆ·°ü,µÀ¾ß
-#define SUB_GP_KNAPSACK				111									//±³°ü
-#define SUB_GP_KNAPSACKLOG			112									//±³°ü´íÎóÌáÊ¾
-#define SUB_GP_USE_KNAPSACKLOG		113									//Ê¹ÓÃ±³°ü
+#define SUB_GP_GIFT 				108									//ï¿½ï¿½Æ·ï¿½ï¿½
+#define SUB_GP_PROPERTY				109									//ï¿½ï¿½ï¿½ï¿½
+#define SUB_GP_BUYGIFT				110									//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ·ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½
+#define SUB_GP_KNAPSACK				111									//ï¿½ï¿½ï¿½ï¿½
+#define SUB_GP_KNAPSACKLOG			112									//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾
+#define SUB_GP_USE_KNAPSACKLOG		113									//Ê¹ï¿½Ã±ï¿½ï¿½ï¿½
 
-//ÅÄÂôÐÐÏà¹Ø
-#define SUB_GP_AUCTION				114									//ÅÄÂôÆ·
-#define SUB_GP_SELL_AUCTION			115									//³öÊÛÅÄÂôÆ·
-#define SUB_GP_BUY_AUCTION			116									//¹ºÂòÅÄÂôÆ·
-#define SUB_GP_CANCEL_AUCTION		117									//³·ÏûÅÄÂôÆ·
-#define SUB_GP_AUCTION_RECORD		118									//ÅÄÂô¼ÇÂ¼
-#define SUB_GP_MYAUCTION_RECORD		119									//ÎÒµÄÅÄÂô
-#define SUB_GP_AUCTION_HISTORY_RECORD	120								//ÅÄÂôÀúÊ·¼ÇÂ¼
-#define SUB_GP_QUERY_AUCTION		121									//²éÑ¯ÅÄÂô¼ÇÂ¼
-#define SUB_GP_AUCTIONLOG			122									//»ñÈ¡ÅÄÂôÆ·
-#define SUB_GP_TREASURE_RANK		123									//²Æ¸»ÅÅÃû°ñ
-#define	SUB_GP_VIP_POWER			124									//vipÌØÈ¨
-#define	SUB_GP_VIP_AWARD			125									//vip½±Àø
-#define	SUB_GP_GET_SIGNIN_TASK		126									//»ñÈ¡Ç©µ½ÁÐ±í
-#define	SUB_GP_SIGNIN				127									//Ç©µ½
-//ÖØÉèÒøÐÐÃÜÂë---»ñÈ¡ÑéÖ¤Âë
-#define SUB_GP_SET_INSUREPASS_GET_CAPTCHA			128					//»ñÈ¡ÑéÖ¤Âë
-#define SUB_GP_SET_INSUREPASS_SEND_CAPTCHA			129					//·¢ËÍÑéÖ¤Âë
-#define SUB_GP_RECHARGE_ORDER		131									//³äÖµ¶©µ¥
-#define SUB_GP_VIPSHOP				132									//vip¹Ý
-#define SUB_GP_GIFT_CHANGE			133									//ÀñÎïÂë¶Ò»»
-
-
-#define SUB_GP_CHECK_ACCOUNT		140									//ºË¶ÔÕËºÅ
-#define SUB_GP_GET_CAPTCHA_BY_ID	141									//¸ù¾ÝID»ñÈ¡ÑéÖ¤Âë
-#define SUB_GP_SET_LOGIN_PASS		142									//ÉèÖÃÐÂµÇÂ¼ÃÜÂë
-#define SUB_GP_UN_MOOR_MACHINE		143									//½â°ðÖ÷»ú
-
-#define SUB_GP_UNREAD_MSG_COUNT			418								//Î´¶ÁµÄÐÅÏ¢
-#define SUB_GP_TASK_FINISH_COUNT		419								//Íê³ÉµÄÈÎÎñ
+//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+#define SUB_GP_AUCTION				114									//ï¿½ï¿½ï¿½ï¿½Æ·
+#define SUB_GP_SELL_AUCTION			115									//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ·
+#define SUB_GP_BUY_AUCTION			116									//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ·
+#define SUB_GP_CANCEL_AUCTION		117									//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ·
+#define SUB_GP_AUCTION_RECORD		118									//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¼
+#define SUB_GP_MYAUCTION_RECORD		119									//ï¿½Òµï¿½ï¿½ï¿½ï¿½ï¿½
+#define SUB_GP_AUCTION_HISTORY_RECORD	120								//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê·ï¿½ï¿½Â¼
+#define SUB_GP_QUERY_AUCTION		121									//ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¼
+#define SUB_GP_AUCTIONLOG			122									//ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½Æ·
+#define SUB_GP_TREASURE_RANK		123									//ï¿½Æ¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+#define	SUB_GP_VIP_POWER			124									//vipï¿½ï¿½È¨
+#define	SUB_GP_VIP_AWARD			125									//vipï¿½ï¿½ï¿½ï¿½
+#define	SUB_GP_GET_SIGNIN_TASK		126									//ï¿½ï¿½È¡Ç©ï¿½ï¿½ï¿½Ð±ï¿½
+#define	SUB_GP_SIGNIN				127									//Ç©ï¿½ï¿½
+//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½---ï¿½ï¿½È¡ï¿½ï¿½Ö¤ï¿½ï¿½
+#define SUB_GP_SET_INSUREPASS_GET_CAPTCHA			128					//ï¿½ï¿½È¡ï¿½ï¿½Ö¤ï¿½ï¿½
+#define SUB_GP_SET_INSUREPASS_SEND_CAPTCHA			129					//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¤ï¿½ï¿½
+#define SUB_GP_RECHARGE_ORDER		131									//ï¿½ï¿½Öµï¿½ï¿½ï¿½ï¿½
+#define SUB_GP_VIPSHOP				132									//vipï¿½ï¿½
+#define SUB_GP_GIFT_CHANGE			133									//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½
 
 
-//ÐÞ¸ÄÍ·Ïñ
-#define SUB_GP_USER_FACE_INFO		200									//Í·ÏñÐÅÏ¢
-#define SUB_GP_SYSTEM_FACE_INFO		201									//ÏµÍ³Í·Ïñ
-#define SUB_GP_CUSTOM_FACE_INFO		202									//×Ô¶¨Í·Ïñ
+#define SUB_GP_CHECK_ACCOUNT		140									//ï¿½Ë¶ï¿½ï¿½Ëºï¿½
+#define SUB_GP_GET_CAPTCHA_BY_ID	141									//ï¿½ï¿½ï¿½IDï¿½ï¿½È¡ï¿½ï¿½Ö¤ï¿½ï¿½
+#define SUB_GP_SET_LOGIN_PASS		142									//ï¿½ï¿½ï¿½ï¿½ï¿½Âµï¿½Â¼ï¿½ï¿½ï¿½ï¿½
+#define SUB_GP_UN_MOOR_MACHINE		143									//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
-//¸öÈË×ÊÁÏ
-#define SUB_GP_USER_INDIVIDUAL		301									//¸öÈË×ÊÁÏ
-#define	SUB_GP_QUERY_INDIVIDUAL		302									//²éÑ¯ÐÅÏ¢
-#define SUB_GP_MODIFY_INDIVIDUAL	303									//ÐÞ¸Ä×ÊÁÏ
+#define SUB_GP_UNREAD_MSG_COUNT			418								//Î´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
+#define SUB_GP_TASK_FINISH_COUNT		419								//ï¿½ï¿½Éµï¿½ï¿½ï¿½ï¿½ï¿½
 
-//ÒøÐÐ·þÎñ
-#define SUB_GP_USER_SAVE_SCORE		400									//´æ¿î²Ù×÷
-#define SUB_GP_USER_TAKE_SCORE		401									//È¡¿î²Ù×÷
-#define SUB_GP_USER_TRANSFER_SCORE	402									//×ªÕË²Ù×÷
-#define SUB_GP_USER_INSURE_INFO		403									//ÒøÐÐ×ÊÁÏ
-#define SUB_GP_QUERY_INSURE_INFO	404									//²éÑ¯ÒøÐÐ
-#define SUB_GP_USER_INSURE_SUCCESS	405									//ÒøÐÐ³É¹¦
-#define SUB_GP_USER_INSURE_FAILURE	406									//ÒøÐÐÊ§°Ü
-#define SUB_GP_QUERY_USER_INFO_REQUEST	407								//²éÑ¯ÓÃ»§
-#define SUB_GP_QUERY_USER_INFO_RESULT	408								//ÓÃ»§ÐÅÏ¢
-#define SUB_GP_GET_ALMS             409                                 //ÁìÈ¡¾È¼Ã½ð     
-#define SUB_GP_INSURE_RECORD        410                                 //ÒøÐÐ¼ÇÂ¼   
-#define SUB_GP_EXCHANGE_INGOT       411                                 //Ôª±¦¶Ò»» 
-//²Æ¸»
-#define SUB_GP_TREASURE					413                             //²Æ¸»ÏêÏ¸ 
-#define SUB_GP_CONVERSION_AUCTIONSCORE  414                             //ÅÄÂôËùµÃ¶Ò»» 
 
-#define SUB_GP_MORE_GAME			415									//¸ü¶àÓÎÏ·
-#define SUB_GP_FEEDBACK				416									//·´À¡
+//ï¿½Þ¸ï¿½Í·ï¿½ï¿½
+#define SUB_GP_USER_FACE_INFO		200									//Í·ï¿½ï¿½ï¿½ï¿½Ï¢
+#define SUB_GP_SYSTEM_FACE_INFO		201									//ÏµÍ³Í·ï¿½ï¿½
+#define SUB_GP_CUSTOM_FACE_INFO		202									//ï¿½Ô¶ï¿½Í·ï¿½ï¿½
 
-#define SUB_GP_DOWNLOAD_RESURL			417                            //ÏÂÔØ×ÊÔ´
-//²Ù×÷½á¹û
-#define SUB_GP_OPERATE_SUCCESS		900									//²Ù×÷³É¹¦
-#define SUB_GP_OPERATE_FAILURE		901									//²Ù×÷Ê§°Ü
+//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+#define SUB_GP_USER_INDIVIDUAL		301									//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+#define	SUB_GP_QUERY_INDIVIDUAL		302									//ï¿½ï¿½Ñ¯ï¿½ï¿½Ï¢
+#define SUB_GP_MODIFY_INDIVIDUAL	303									//ï¿½Þ¸ï¿½ï¿½ï¿½ï¿½ï¿½
+
+//ï¿½ï¿½ï¿½Ð·ï¿½ï¿½ï¿½
+#define SUB_GP_USER_SAVE_SCORE		400									//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+#define SUB_GP_USER_TAKE_SCORE		401									//È¡ï¿½ï¿½ï¿½ï¿½ï¿½
+#define SUB_GP_USER_TRANSFER_SCORE	402									//×ªï¿½Ë²ï¿½ï¿½ï¿½
+#define SUB_GP_USER_INSURE_INFO		403									//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+#define SUB_GP_QUERY_INSURE_INFO	404									//ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½ï¿½
+#define SUB_GP_USER_INSURE_SUCCESS	405									//ï¿½ï¿½ï¿½Ð³É¹ï¿½
+#define SUB_GP_USER_INSURE_FAILURE	406									//ï¿½ï¿½ï¿½ï¿½Ê§ï¿½ï¿½
+#define SUB_GP_QUERY_USER_INFO_REQUEST	407								//ï¿½ï¿½Ñ¯ï¿½Ã»ï¿½
+#define SUB_GP_QUERY_USER_INFO_RESULT	408								//ï¿½Ã»ï¿½ï¿½ï¿½Ï¢
+#define SUB_GP_GET_ALMS             409                                 //ï¿½ï¿½È¡ï¿½È¼Ã½ï¿½     
+#define SUB_GP_INSURE_RECORD        410                                 //ï¿½ï¿½ï¿½Ð¼ï¿½Â¼   
+#define SUB_GP_EXCHANGE_INGOT       411                                 //Ôªï¿½ï¿½ï¿½Ò»ï¿½ 
+//ï¿½Æ¸ï¿½
+#define SUB_GP_TREASURE					413                             //ï¿½Æ¸ï¿½ï¿½ï¿½Ï¸ 
+#define SUB_GP_CONVERSION_AUCTIONSCORE  414                             //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã¶Ò»ï¿½ 
+
+#define SUB_GP_MORE_GAME			415									//ï¿½ï¿½ï¿½ï¿½ï¿½Ï·
+#define SUB_GP_FEEDBACK				416									//ï¿½ï¿½ï¿½ï¿½
+
+#define SUB_GP_DOWNLOAD_RESURL			417                            //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô´
+//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+#define SUB_GP_OPERATE_SUCCESS		900									//ï¿½ï¿½ï¿½ï¿½ï¿½É¹ï¿½
+#define SUB_GP_OPERATE_FAILURE		901									//ï¿½ï¿½ï¿½ï¿½Ê§ï¿½ï¿½
 
 
 #define  GIFT_NAME_LEN		16
@@ -140,421 +140,422 @@
 #define  NOTE_LEN			64
 
 
-//I D µÇÂ¼
+//I D ï¿½ï¿½Â¼
 struct CMD_GP_LogonGameID
 {
-	//ÏµÍ³ÐÅÏ¢
-	DWORD							dwPlazaVersion;						//¹ã³¡°æ±¾
-	TCHAR							szMachineID[LEN_MACHINE_ID];		//»úÆ÷ÐòÁÐ
-	TCHAR							szPassPortID[LEN_PASS_PORT_ID];		 //Éí·ÝÖ¤ºÅ£¨Éí·ÝÖ¤°ó¶¨Ê¹ÓÃ£©
-	TCHAR							szPhoneVerifyID[LEN_PHONE_VERIFY_ID];//ÊÖ»úÑéÖ¤ºÅ£¨ÊÖ»ú°ó¶¨Ê¹ÓÃ£©
-	//µÇÂ¼ÐÅÏ¢
-	DWORD							dwGameID;							//ÓÎÏ· I D
-	TCHAR							szPassword[LEN_MD5];				//µÇÂ¼ÃÜÂë
-	BYTE							cbValidateFlags;			        //Ð£Ñé±êÊ¶
+	//ÏµÍ³ï¿½ï¿½Ï¢
+	DWORD							dwPlazaVersion;						//ï¿½ã³¡ï¿½æ±¾
+	TCHAR							szMachineID[LEN_MACHINE_ID];		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	TCHAR							szPassPortID[LEN_PASS_PORT_ID];		 //ï¿½ï¿½ï¿½Ö¤ï¿½Å£ï¿½ï¿½ï¿½ï¿½Ö¤ï¿½ï¿½Ê¹ï¿½Ã£ï¿½
+	TCHAR							szPhoneVerifyID[LEN_PHONE_VERIFY_ID];//ï¿½Ö»ï¿½ï¿½ï¿½Ö¤ï¿½Å£ï¿½ï¿½Ö»ï¿½ï¿½Ê¹ï¿½Ã£ï¿½
+	//ï¿½ï¿½Â¼ï¿½ï¿½Ï¢
+	DWORD							dwGameID;							//ï¿½ï¿½Ï· I D
+	TCHAR							szPassword[LEN_MD5];				//ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½
+	BYTE							cbValidateFlags;			        //Ð£ï¿½ï¿½ï¿½Ê¶
 };
 
-//ÕÊºÅµÇÂ¼
+//ï¿½ÊºÅµï¿½Â¼
 struct CMD_GP_LogonAccounts
 {
-	//ÏµÍ³ÐÅÏ¢
-	DWORD							dwPlazaVersion;						//¹ã³¡°æ±¾
-	TCHAR							szMachineID[LEN_MACHINE_ID];		//»úÆ÷ÐòÁÐ
-	TCHAR							szPassPortID[LEN_PASS_PORT_ID];		 //Éí·ÝÖ¤ºÅ£¨Éí·ÝÖ¤°ó¶¨Ê¹ÓÃ£©
-	TCHAR							szPhoneVerifyID[LEN_PHONE_VERIFY_ID];//ÊÖ»úÑéÖ¤ºÅ£¨ÊÖ»ú°ó¶¨Ê¹ÓÃ£©
-	//µÇÂ¼ÐÅÏ¢
-	TCHAR							szPassword[LEN_MD5];				//µÇÂ¼ÃÜÂë
-	TCHAR							szAccounts[LEN_ACCOUNTS];			//µÇÂ¼ÕÊºÅ
-	BYTE							cbValidateFlags;			        //Ð£Ñé±êÊ¶
+	//ÏµÍ³ï¿½ï¿½Ï¢
+	DWORD							dwPlazaVersion;						//ï¿½ã³¡ï¿½æ±¾
+	TCHAR							szMachineID[LEN_MACHINE_ID];		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	TCHAR							szPassPortID[LEN_PASS_PORT_ID];		 //ï¿½ï¿½ï¿½Ö¤ï¿½Å£ï¿½ï¿½ï¿½ï¿½Ö¤ï¿½ï¿½Ê¹ï¿½Ã£ï¿½
+	TCHAR							szPhoneVerifyID[LEN_PHONE_VERIFY_ID];//ï¿½Ö»ï¿½ï¿½ï¿½Ö¤ï¿½Å£ï¿½ï¿½Ö»ï¿½ï¿½Ê¹ï¿½Ã£ï¿½
+	//ï¿½ï¿½Â¼ï¿½ï¿½Ï¢
+	TCHAR							szPassword[LEN_MD5];				//ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½
+	TCHAR							szAccounts[LEN_ACCOUNTS];			//ï¿½ï¿½Â¼ï¿½Êºï¿½
+	BYTE							cbValidateFlags;			        //Ð£ï¿½ï¿½ï¿½Ê¶
 };
 
-//µÚÈý·½µÇÂ¼
+//ï¿½ï¿½ï¿½ï¿½ï¿½Â¼
 struct CMD_MB_AccessToken
 {
-	DWORD							dwSessionID;						//ÍÆ¹ãID
-	TCHAR							szUMId[LEN_ACCOUNTS * 2];				//ÓÃ»§Î¨Ò»±êÊ¾
-	DWORD							dwSex;								//ÐÔ±ð
-	TCHAR							szNickName[LEN_NICKNAME];			//ÓÃ»§êÇ³Æ
-	TCHAR							szMachineID[LEN_MACHINE_ID];		//»úÆ÷±êÊ¶
+	DWORD							dwSessionID;						//ï¿½Æ¹ï¿½ID
+	TCHAR							szUMId[LEN_ACCOUNTS * 2];				//ï¿½Ã»ï¿½Î¨Ò»ï¿½ï¿½Ê¾
+	DWORD							dwSex;								//ï¿½Ô±ï¿½
+	TCHAR							szNickName[LEN_NICKNAME];			//ï¿½Ã»ï¿½ï¿½Ç³ï¿½
+	TCHAR							szMachineID[LEN_MACHINE_ID];		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¶
 	TCHAR							szAccessToken[256];					//Token
+	DWORD							dwSubSessionID;						//æŽ¨å¹¿ID ä¸åŒçš„ç™»å½•æ–¹å¼
 };
 
-//×¢²áÕÊºÅ
+//×¢ï¿½ï¿½ï¿½Êºï¿½
 struct CMD_GP_RegisterAccounts
 {
-	//ÏµÍ³ÐÅÏ¢
-	DWORD							dwPlazaVersion;						//¹ã³¡°æ±¾
-	TCHAR							szMachineID[LEN_MACHINE_ID];		//»úÆ÷ÐòÁÐ
+	//ÏµÍ³ï¿½ï¿½Ï¢
+	DWORD							dwPlazaVersion;						//ï¿½ã³¡ï¿½æ±¾
+	TCHAR							szMachineID[LEN_MACHINE_ID];		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
-	//ÃÜÂë±äÁ¿
-	TCHAR							szLogonPass[LEN_MD5];				//µÇÂ¼ÃÜÂë
-	TCHAR							szInsurePass[LEN_MD5];				//ÒøÐÐÃÜÂë
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	TCHAR							szLogonPass[LEN_MD5];				//ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½
+	TCHAR							szInsurePass[LEN_MD5];				//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
-	//×¢²áÐÅÏ¢
-	WORD							wFaceID;							//Í·Ïñ±êÊ¶
-	BYTE							cbGender;							//ÓÃ»§ÐÔ±ð
-	TCHAR							szAccounts[LEN_ACCOUNTS];			//µÇÂ¼ÕÊºÅ
-	TCHAR							szNickName[LEN_NICKNAME];			//ÓÃ»§êÇ³Æ
-	TCHAR							szSpreader[LEN_ACCOUNTS];			//ÍÆ¼öÕÊºÅ
-	TCHAR							szPassPortID[LEN_PASS_PORT_ID];		//Ö¤¼þºÅÂë
-	TCHAR							szCompellation[LEN_COMPELLATION];	//ÕæÊµÃû×Ö
-	BYTE							cbValidateFlags;			        //Ð£Ñé±êÊ¶
+	//×¢ï¿½ï¿½ï¿½ï¿½Ï¢
+	WORD							wFaceID;							//Í·ï¿½ï¿½ï¿½Ê¶
+	BYTE							cbGender;							//ï¿½Ã»ï¿½ï¿½Ô±ï¿½
+	TCHAR							szAccounts[LEN_ACCOUNTS];			//ï¿½ï¿½Â¼ï¿½Êºï¿½
+	TCHAR							szNickName[LEN_NICKNAME];			//ï¿½Ã»ï¿½ï¿½Ç³ï¿½
+	TCHAR							szSpreader[LEN_ACCOUNTS];			//ï¿½Æ¼ï¿½ï¿½Êºï¿½
+	TCHAR							szPassPortID[LEN_PASS_PORT_ID];		//Ö¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	TCHAR							szCompellation[LEN_COMPELLATION];	//ï¿½ï¿½Êµï¿½ï¿½ï¿½ï¿½
+	BYTE							cbValidateFlags;			        //Ð£ï¿½ï¿½ï¿½Ê¶
 };
 
-//µÇÂ¼³É¹¦
+//ï¿½ï¿½Â¼ï¿½É¹ï¿½
 struct CMD_GP_LogonSuccess
 {
-	//ÊôÐÔ×ÊÁÏ
-	WORD							wFaceID;							//Í·Ïñ±êÊ¶
-	DWORD							dwUserID;							//ÓÃ»§ I D
-	DWORD							dwGameID;							//ÓÎÏ· I D
-	DWORD							dwGroupID;							//ÉçÍÅ±êÊ¶
-	DWORD							dwCustomID;							//×Ô¶¨±êÊ¶
-	DWORD							dwUserMedal;						//ÓÃ»§½±ÅÆ
-	DWORD							dwExperience;						//¾­ÑéÊýÖµ
-	DWORD							dwLoveLiness;						//ÓÃ»§÷ÈÁ¦
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	WORD							wFaceID;							//Í·ï¿½ï¿½ï¿½Ê¶
+	DWORD							dwUserID;							//ï¿½Ã»ï¿½ I D
+	DWORD							dwGameID;							//ï¿½ï¿½Ï· I D
+	DWORD							dwGroupID;							//ï¿½ï¿½ï¿½Å±ï¿½Ê¶
+	DWORD							dwCustomID;							//ï¿½Ô¶ï¿½ï¿½ï¿½Ê¶
+	DWORD							dwUserMedal;						//ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½
+	DWORD							dwExperience;						//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµ
+	DWORD							dwLoveLiness;						//ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½
 
-	//ÓÃ»§³É¼¨
-	SCORE                           lIngot;								//Ôª±¦
-	SCORE							lUserScore;							//ÓÃ»§½ð±Ò
-	SCORE							lUserInsure;						//ÓÃ»§ÒøÐÐ
+	//ï¿½Ã»ï¿½ï¿½É¼ï¿½
+	SCORE                           lIngot;								//Ôªï¿½ï¿½
+	SCORE							lUserScore;							//ï¿½Ã»ï¿½ï¿½ï¿½ï¿½
+	SCORE							lUserInsure;						//ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½
 
-	//ÓÃ»§ÐÅÏ¢
-	BYTE							cbGender;							//ÓÃ»§ÐÔ±ð
-	BYTE							cbMoorMachine;						//Ëø¶¨»úÆ÷
+	//ï¿½Ã»ï¿½ï¿½ï¿½Ï¢
+	BYTE							cbGender;							//ï¿½Ã»ï¿½ï¿½Ô±ï¿½
+	BYTE							cbMoorMachine;						//ï¿½ï¿½ï¿½ï¿½ï¿½
 
-	BYTE							cbMoorPassPortID;					//Ëø¶¨Éí·ÝÖ¤
-	BYTE							cbMoorPhone;						//Ëø¶¨ÊÖ»ú
-	TCHAR							szPassPortID[LEN_PASS_PORT_ID];		//Éí·ÝÖ¤ºÅ£¨Éí·ÝÖ¤°ó¶¨Ê¹ÓÃ£©
-	TCHAR							szPhone[LEN_MOBILE_PHONE];			//ÒÆ¶¯µç»°
+	BYTE							cbMoorPassPortID;					//ï¿½ï¿½ï¿½ï¿½ï¿½Ö¤
+	BYTE							cbMoorPhone;						//ï¿½ï¿½ï¿½Ö»ï¿½
+	TCHAR							szPassPortID[LEN_PASS_PORT_ID];		//ï¿½ï¿½ï¿½Ö¤ï¿½Å£ï¿½ï¿½ï¿½ï¿½Ö¤ï¿½ï¿½Ê¹ï¿½Ã£ï¿½
+	TCHAR							szPhone[LEN_MOBILE_PHONE];			//ï¿½Æ¶ï¿½ï¿½ç»°
 
-	TCHAR							szAccounts[LEN_ACCOUNTS];			//µÇÂ¼ÕÊºÅ
-	TCHAR							szNickName[LEN_ACCOUNTS];			//ÓÃ»§êÇ³Æ
-	TCHAR							szGroupName[LEN_GROUP_NAME];		//ÉçÍÅÃû×Ö
+	TCHAR							szAccounts[LEN_ACCOUNTS];			//ï¿½ï¿½Â¼ï¿½Êºï¿½
+	TCHAR							szNickName[LEN_ACCOUNTS];			//ï¿½Ã»ï¿½ï¿½Ç³ï¿½
+	TCHAR							szGroupName[LEN_GROUP_NAME];		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
-	//ÅäÖÃÐÅÏ¢
-	BYTE                            cbShowServerStatus;                 //ÏÔÊ¾·þÎñÆ÷×´Ì¬
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
+	BYTE                            cbShowServerStatus;                 //ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×´Ì¬
 };
 
-//µÇÂ¼Ê§°Ü
+//ï¿½ï¿½Â¼Ê§ï¿½ï¿½
 struct CMD_GP_LogonFailure
 {
-	LONG							lResultCode;						//´íÎó´úÂë
-	TCHAR							szDescribeString[128];				//ÃèÊöÏûÏ¢
+	LONG							lResultCode;						//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	TCHAR							szDescribeString[128];				//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
 };
 
-//µÇÂ½Íê³É
+//ï¿½ï¿½Â½ï¿½ï¿½ï¿½
 struct CMD_GP_LogonFinish
 {
-	WORD							wIntermitTime;						//ÖÐ¶ÏÊ±¼ä
-	WORD							wOnLineCountTime;					//¸üÐÂÊ±¼ä
+	WORD							wIntermitTime;						//ï¿½Ð¶ï¿½Ê±ï¿½ï¿½
+	WORD							wOnLineCountTime;					//ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½
 };
 
-//µÇÂ¼Ê§°Ü
+//ï¿½ï¿½Â¼Ê§ï¿½ï¿½
 struct CMD_GP_ValidateMBCard
 {
-	unsigned int								uMBCardID;						//»úÆ÷ÐòÁÐ
+	unsigned int								uMBCardID;						//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 };
 
-//Éý¼¶ÌáÊ¾
+//ï¿½ï¿½ï¿½ï¿½Ê¾
 struct CMD_GP_UpdateNotify
 {
-	BYTE							cbMustUpdate;						//Ç¿ÐÐÉý¼¶
-	BYTE							cbAdviceUpdate;						//½¨ÒéÉý¼¶
-	DWORD							dwCurrentVersion;					//µ±Ç°°æ±¾
+	BYTE							cbMustUpdate;						//Ç¿ï¿½ï¿½ï¿½ï¿½
+	BYTE							cbAdviceUpdate;						//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	DWORD							dwCurrentVersion;					//ï¿½ï¿½Ç°ï¿½æ±¾
 };
 
 //////////////////////////////////////////////////////////////////////////////////
-//Ð¯´øÐÅÏ¢ CMD_GP_LogonSuccess
+//Ð¯ï¿½ï¿½ï¿½ï¿½Ï¢ CMD_GP_LogonSuccess
 
-#define DTP_GP_GROUP_INFO			1									//ÉçÍÅÐÅÏ¢
-#define DTP_GP_MEMBER_INFO			2									//»áÔ±ÐÅÏ¢
-#define	DTP_GP_UNDER_WRITE			3									//¸öÐÔÇ©Ãû
-#define DTP_GP_STATION_URL			4									//Ö÷Ò³ÐÅÏ¢
+#define DTP_GP_GROUP_INFO			1									//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
+#define DTP_GP_MEMBER_INFO			2									//ï¿½ï¿½Ô±ï¿½ï¿½Ï¢
+#define	DTP_GP_UNDER_WRITE			3									//ï¿½ï¿½ï¿½ï¿½Ç©ï¿½ï¿½
+#define DTP_GP_STATION_URL			4									//ï¿½ï¿½Ò³ï¿½ï¿½Ï¢
 
-//ÉçÍÅÐÅÏ¢
+//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
 struct DTP_GP_GroupInfo
 {
-	DWORD							dwGroupID;							//ÉçÍÅË÷Òý
-	TCHAR							szGroupName[LEN_GROUP_NAME];		//ÉçÍÅÃû×Ö
+	DWORD							dwGroupID;							//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	TCHAR							szGroupName[LEN_GROUP_NAME];		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 };
 
-//»áÔ±ÐÅÏ¢
+//ï¿½ï¿½Ô±ï¿½ï¿½Ï¢
 struct DTP_GP_MemberInfo
 {
-	BYTE							cbMemberOrder;						//»áÔ±µÈ¼¶
-	//SYSTEMTIME						MemberOverDate;						//µ½ÆÚÊ±¼ä
+	BYTE							cbMemberOrder;						//ï¿½ï¿½Ô±ï¿½È¼ï¿½
+	//SYSTEMTIME						MemberOverDate;						//ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½
 };
 
 //////////////////////////////////////////////////////////////////////////////////
-//ÁÐ±íÃüÁî
+//ï¿½Ð±ï¿½ï¿½ï¿½ï¿½ï¿½
 
-#define MDM_GP_SERVER_LIST			2									//ÁÐ±íÐÅÏ¢
+#define MDM_GP_SERVER_LIST			2									//ï¿½Ð±ï¿½ï¿½ï¿½Ï¢
 
-//»ñÈ¡ÃüÁî
-#define SUB_GP_GET_LIST				1									//»ñÈ¡ÁÐ±í
-#define SUB_GP_GET_SERVER			2									//»ñÈ¡·¿¼ä
-#define SUB_GP_GET_ONLINE			3									//»ñÈ¡ÔÚÏß
-#define SUB_GP_GET_COLLECTION		4									//»ñÈ¡ÊÕ²Ø
+//ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½
+#define SUB_GP_GET_LIST				1									//ï¿½ï¿½È¡ï¿½Ð±ï¿½
+#define SUB_GP_GET_SERVER			2									//ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½
+#define SUB_GP_GET_ONLINE			3									//ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½
+#define SUB_GP_GET_COLLECTION		4									//ï¿½ï¿½È¡ï¿½Õ²ï¿½
 
-//ÁÐ±íÐÅÏ¢
-#define SUB_GP_LIST_TYPE			100									//ÀàÐÍÁÐ±í
-#define SUB_GP_LIST_KIND			101									//ÖÖÀàÁÐ±í
-#define SUB_GP_LIST_NODE			102									//½ÚµãÁÐ±í
-#define SUB_GP_LIST_PAGE			103									//¶¨ÖÆÁÐ±í
-#define SUB_GP_LIST_SERVER			104									//·¿¼äÁÐ±í
-#define SUB_GP_VIDEO_OPTION			105									//ÊÓÆµÅäÖÃ
+//ï¿½Ð±ï¿½ï¿½ï¿½Ï¢
+#define SUB_GP_LIST_TYPE			100									//ï¿½ï¿½ï¿½ï¿½ï¿½Ð±ï¿½
+#define SUB_GP_LIST_KIND			101									//ï¿½ï¿½ï¿½ï¿½ï¿½Ð±ï¿½
+#define SUB_GP_LIST_NODE			102									//ï¿½Úµï¿½ï¿½Ð±ï¿½
+#define SUB_GP_LIST_PAGE			103									//ï¿½ï¿½ï¿½ï¿½ï¿½Ð±ï¿½
+#define SUB_GP_LIST_SERVER			104									//ï¿½ï¿½ï¿½ï¿½ï¿½Ð±ï¿½
+#define SUB_GP_VIDEO_OPTION			105									//ï¿½ï¿½Æµï¿½ï¿½ï¿½ï¿½
 
-//Íê³ÉÐÅÏ¢
-#define SUB_GP_LIST_FINISH			200									//·¢ËÍÍê³É
-#define SUB_GP_SERVER_FINISH		201									//·¿¼äÍê³É
+//ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
+#define SUB_GP_LIST_FINISH			200									//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+#define SUB_GP_SERVER_FINISH		201									//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
-//ÔÚÏßÐÅÏ¢
-#define SUB_GR_KINE_ONLINE			300									//ÀàÐÍÔÚÏß
-#define SUB_GR_SERVER_ONLINE		301									//·¿¼äÔÚÏß
+//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
+#define SUB_GR_KINE_ONLINE			300									//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+#define SUB_GR_SERVER_ONLINE		301									//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 //////////////////////////////////////////////////////////////////////////////////
 
-//»ñÈ¡ÔÚÏß
+//ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½
 struct CMD_GP_GetOnline
 {
-	WORD							wServerCount;						//·¿¼äÊýÄ¿
-	WORD							wOnLineServerID[MAX_SERVER];		//·¿¼ä±êÊ¶
+	WORD							wServerCount;						//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¿
+	WORD							wOnLineServerID[MAX_SERVER];		//ï¿½ï¿½ï¿½ï¿½ï¿½Ê¶
 };
 
-//ÀàÐÍÔÚÏß
+//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 struct CMD_GP_KindOnline
 {
-	WORD							wKindCount;							//ÀàÐÍÊýÄ¿
-//	tagOnLineInfoKind				OnLineInfoKind[MAX_KIND];			//ÀàÐÍÔÚÏß
+	WORD							wKindCount;							//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¿
+//	tagOnLineInfoKind				OnLineInfoKind[MAX_KIND];			//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 };
 
-//·¿¼äÔÚÏß
+//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 struct CMD_GP_ServerOnline
 {
-	WORD							wServerCount;						//·¿¼äÊýÄ¿
-//	tagOnLineInfoServer				OnLineInfoServer[MAX_SERVER];		//·¿¼äÔÚÏß
+	WORD							wServerCount;						//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¿
+//	tagOnLineInfoServer				OnLineInfoServer[MAX_SERVER];		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 };
 
 //////////////////////////////////////////////////////////////////////////////////
-//·þÎñÃüÁî
+//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
-#define MDM_GP_USER_SERVICE			3									//ÓÃ»§·þÎñ
+#define MDM_GP_USER_SERVICE			3									//ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½
 
-//ÕËºÅ·þÎñ
-#define SUB_GP_MODIFY_MACHINE		100									//ÐÞ¸Ä»úÆ÷
-#define SUB_GP_MODIFY_LOGON_PASS	101									//ÐÞ¸ÄÃÜÂë
-#define SUB_GP_MODIFY_INSURE_PASS	102									//ÐÞ¸ÄÃÜÂë
-#define SUB_GP_MODIFY_UNDER_WRITE	103									//ÐÞ¸ÄÇ©Ãû
-#define SUB_GP_MODIFY_PASSPORT_ID	104									//°ó¶¨Éí·ÝÖ¤
-#define SUB_GP_VERIFY_INSURE_PASS	105	                                //ÑéÖ¤±£ÏÕ¹ñÃÜÂë
+//ï¿½ËºÅ·ï¿½ï¿½ï¿½
+#define SUB_GP_MODIFY_MACHINE		100									//ï¿½Þ¸Ä»ï¿½ï¿½ï¿½
+#define SUB_GP_MODIFY_LOGON_PASS	101									//ï¿½Þ¸ï¿½ï¿½ï¿½ï¿½ï¿½
+#define SUB_GP_MODIFY_INSURE_PASS	102									//ï¿½Þ¸ï¿½ï¿½ï¿½ï¿½ï¿½
+#define SUB_GP_MODIFY_UNDER_WRITE	103									//ï¿½Þ¸ï¿½Ç©ï¿½ï¿½
+#define SUB_GP_MODIFY_PASSPORT_ID	104									//ï¿½ï¿½ï¿½ï¿½ï¿½Ö¤
+#define SUB_GP_VERIFY_INSURE_PASS	105	                                //ï¿½ï¿½Ö¤ï¿½ï¿½ï¿½Õ¹ï¿½ï¿½ï¿½ï¿½ï¿½
 
 //////////////////////////////////////////////////////////////////////////////////
 
-//ÐÞ¸ÄÃÜÂë
+//ï¿½Þ¸ï¿½ï¿½ï¿½ï¿½ï¿½
 struct CMD_GP_ModifyLogonPass
 {
-	DWORD							dwUserID;							//ÓÃ»§ I D
-	TCHAR							szDesPassword[LEN_PASSWORD];		//ÓÃ»§ÃÜÂë
-	TCHAR							szScrPassword[LEN_PASSWORD];		//ÓÃ»§ÃÜÂë
+	DWORD							dwUserID;							//ï¿½Ã»ï¿½ I D
+	TCHAR							szDesPassword[LEN_PASSWORD];		//ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½
+	TCHAR							szScrPassword[LEN_PASSWORD];		//ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½
 };
 
-//ÐÞ¸ÄÃÜÂë
+//ï¿½Þ¸ï¿½ï¿½ï¿½ï¿½ï¿½
 struct CMD_GP_ModifyInsurePass
 {
-	DWORD							dwUserID;							//ÓÃ»§ I D
-	TCHAR							szDesPassword[LEN_PASSWORD];		//ÓÃ»§ÃÜÂë
-	TCHAR							szScrPassword[LEN_PASSWORD];		//ÓÃ»§ÃÜÂë
+	DWORD							dwUserID;							//ï¿½Ã»ï¿½ I D
+	TCHAR							szDesPassword[LEN_PASSWORD];		//ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½
+	TCHAR							szScrPassword[LEN_PASSWORD];		//ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½
 };
 
-//ÐÞ¸ÄÇ©Ãû
+//ï¿½Þ¸ï¿½Ç©ï¿½ï¿½
 struct CMD_GP_ModifyUnderWrite
 {
-	DWORD							dwUserID;							//ÓÃ»§ I D
-	TCHAR							szPassword[LEN_PASSWORD];			//ÓÃ»§ÃÜÂë
-	TCHAR							szUnderWrite[LEN_UNDER_WRITE];		//¸öÐÔÇ©Ãû
+	DWORD							dwUserID;							//ï¿½Ã»ï¿½ I D
+	TCHAR							szPassword[LEN_PASSWORD];			//ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½
+	TCHAR							szUnderWrite[LEN_UNDER_WRITE];		//ï¿½ï¿½ï¿½ï¿½Ç©ï¿½ï¿½
 };
 
 //////////////////////////////////////////////////////////////////////////////////
 
-//ÓÃ»§Í·Ïñ
+//ï¿½Ã»ï¿½Í·ï¿½ï¿½
 struct CMD_GP_UserFaceInfo
 {
-	WORD							wFaceID;							//Í·Ïñ±êÊ¶
-	DWORD							dwCustomID;							//×Ô¶¨±êÊ¶
+	WORD							wFaceID;							//Í·ï¿½ï¿½ï¿½Ê¶
+	DWORD							dwCustomID;							//ï¿½Ô¶ï¿½ï¿½ï¿½Ê¶
 };
 
-//ÐÞ¸ÄÍ·Ïñ
+//ï¿½Þ¸ï¿½Í·ï¿½ï¿½
 struct CMD_GP_SystemFaceInfo
 {
-	WORD							wFaceID;							//Í·Ïñ±êÊ¶
-	DWORD							dwUserID;							//ÓÃ»§ I D
-	TCHAR							szPassword[LEN_PASSWORD];			//ÓÃ»§ÃÜÂë
-	TCHAR							szMachineID[LEN_MACHINE_ID];		//»úÆ÷ÐòÁÐ
+	WORD							wFaceID;							//Í·ï¿½ï¿½ï¿½Ê¶
+	DWORD							dwUserID;							//ï¿½Ã»ï¿½ I D
+	TCHAR							szPassword[LEN_PASSWORD];			//ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½
+	TCHAR							szMachineID[LEN_MACHINE_ID];		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 };
 
-//ÐÞ¸ÄÍ·Ïñ
+//ï¿½Þ¸ï¿½Í·ï¿½ï¿½
 struct CMD_GP_CustomFaceInfo
 {
-	DWORD							dwUserID;							//ÓÃ»§ I D
-	TCHAR							szPassword[LEN_PASSWORD];			//ÓÃ»§ÃÜÂë
-	TCHAR							szMachineID[LEN_MACHINE_ID];		//»úÆ÷ÐòÁÐ
-	DWORD							dwCustomFace[FACE_CX*FACE_CY];		//Í¼Æ¬ÐÅÏ¢
+	DWORD							dwUserID;							//ï¿½Ã»ï¿½ I D
+	TCHAR							szPassword[LEN_PASSWORD];			//ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½
+	TCHAR							szMachineID[LEN_MACHINE_ID];		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	DWORD							dwCustomFace[FACE_CX*FACE_CY];		//Í¼Æ¬ï¿½ï¿½Ï¢
 };
 
 //////////////////////////////////////////////////////////////////////////////////
 
-//°ó¶¨»úÆ÷
+//ï¿½ó¶¨»ï¿½ï¿½ï¿½
 struct CMD_GP_ModifyMachine
 {
-	BYTE							cbBind;								//°ó¶¨±êÖ¾
-	DWORD							dwUserID;							//ÓÃ»§±êÊ¶
-	TCHAR							szPassword[LEN_PASSWORD];			//ÓÃ»§ÃÜÂë
-	TCHAR							szMachineID[LEN_MACHINE_ID];		//»úÆ÷ÐòÁÐ
+	BYTE							cbBind;								//ï¿½ó¶¨±ï¿½Ö¾
+	DWORD							dwUserID;							//ï¿½Ã»ï¿½ï¿½ï¿½Ê¶
+	TCHAR							szPassword[LEN_PASSWORD];			//ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½
+	TCHAR							szMachineID[LEN_MACHINE_ID];		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 };
 
 
-//°ó¶¨Éí·ÝÖ¤
+//ï¿½ï¿½ï¿½ï¿½ï¿½Ö¤
 struct CMD_GP_ModifyPassPortID
 {
-	BYTE							cbBind;								//°ó¶¨±êÖ¾
-	DWORD							dwUserID;							//ÓÃ»§±êÊ¶
-	TCHAR							szPassword[LEN_PASSWORD];			//ÓÃ»§ÃÜÂë
-	TCHAR							szMachineID[LEN_MACHINE_ID];		//»úÆ÷ÐòÁÐ
-	TCHAR							szName[LEN_COMPELLATION];			//ÕæÊµÐÔÃû		
-	TCHAR							szPassPortID[LEN_PASS_PORT_ID];		//Éí·ÝÖ¤ºÅ£¨Éí·ÝÖ¤°ó¶¨Ê¹ÓÃ£©
+	BYTE							cbBind;								//ï¿½ó¶¨±ï¿½Ö¾
+	DWORD							dwUserID;							//ï¿½Ã»ï¿½ï¿½ï¿½Ê¶
+	TCHAR							szPassword[LEN_PASSWORD];			//ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½
+	TCHAR							szMachineID[LEN_MACHINE_ID];		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	TCHAR							szName[LEN_COMPELLATION];			//ï¿½ï¿½Êµï¿½ï¿½ï¿½ï¿½		
+	TCHAR							szPassPortID[LEN_PASS_PORT_ID];		//ï¿½ï¿½ï¿½Ö¤ï¿½Å£ï¿½ï¿½ï¿½ï¿½Ö¤ï¿½ï¿½Ê¹ï¿½Ã£ï¿½
 };
 
 //////////////////////////////////////////////////////////////////////////////////
 
-//¸öÈË×ÊÁÏ
+//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 struct CMD_GP_UserIndividual
 {
-	DWORD							dwUserID;							//ÓÃ»§ I D
+	DWORD							dwUserID;							//ï¿½Ã»ï¿½ I D
 };
 
-//²éÑ¯ÐÅÏ¢
+//ï¿½ï¿½Ñ¯ï¿½ï¿½Ï¢
 struct CMD_GP_QueryIndividual
 {
-	DWORD							dwUserID;							//ÓÃ»§ I D
-	TCHAR							szPassword[LEN_PASSWORD];			//ÓÃ»§ÃÜÂë
+	DWORD							dwUserID;							//ï¿½Ã»ï¿½ I D
+	TCHAR							szPassword[LEN_PASSWORD];			//ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½
 };
 
-//ÐÞ¸Ä×ÊÁÏ
+//ï¿½Þ¸ï¿½ï¿½ï¿½ï¿½ï¿½
 struct CMD_GP_ModifyIndividual
 {
-	BYTE							cbGender;							//ÓÃ»§ÐÔ±ð
-	DWORD							dwUserID;							//ÓÃ»§ I D
-	TCHAR							szPassword[LEN_PASSWORD];			//ÓÃ»§ÃÜÂë
+	BYTE							cbGender;							//ï¿½Ã»ï¿½ï¿½Ô±ï¿½
+	DWORD							dwUserID;							//ï¿½Ã»ï¿½ I D
+	TCHAR							szPassword[LEN_PASSWORD];			//ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½
 };
 
 //////////////////////////////////////////////////////////////////////////////////
-//Ð¯´øÐÅÏ¢ CMD_GP_UserIndividual
+//Ð¯ï¿½ï¿½ï¿½ï¿½Ï¢ CMD_GP_UserIndividual
 
-#define DTP_GP_UI_NICKNAME			1									//ÓÃ»§êÇ³Æ
-#define DTP_GP_UI_USER_NOTE			2									//ÓÃ»§ËµÃ÷
-#define DTP_GP_UI_UNDER_WRITE		3									//¸öÐÔÇ©Ãû
-#define DTP_GP_UI_QQ				4									//Q Q ºÅÂë
-#define DTP_GP_UI_EMAIL				5									//µç×ÓÓÊ¼þ
-#define DTP_GP_UI_SEAT_PHONE		6									//¹Ì¶¨µç»°
-#define DTP_GP_UI_MOBILE_PHONE		7									//ÒÆ¶¯µç»°
-#define DTP_GP_UI_COMPELLATION		8									//ÕæÊµÃû×Ö
-#define DTP_GP_UI_DWELLING_PLACE	9									//ÁªÏµµØÖ·
+#define DTP_GP_UI_NICKNAME			1									//ï¿½Ã»ï¿½ï¿½Ç³ï¿½
+#define DTP_GP_UI_USER_NOTE			2									//ï¿½Ã»ï¿½Ëµï¿½ï¿½
+#define DTP_GP_UI_UNDER_WRITE		3									//ï¿½ï¿½ï¿½ï¿½Ç©ï¿½ï¿½
+#define DTP_GP_UI_QQ				4									//Q Q ï¿½ï¿½ï¿½ï¿½
+#define DTP_GP_UI_EMAIL				5									//ï¿½ï¿½ï¿½ï¿½ï¿½Ê¼ï¿½
+#define DTP_GP_UI_SEAT_PHONE		6									//ï¿½Ì¶ï¿½ï¿½ç»°
+#define DTP_GP_UI_MOBILE_PHONE		7									//ï¿½Æ¶ï¿½ï¿½ç»°
+#define DTP_GP_UI_COMPELLATION		8									//ï¿½ï¿½Êµï¿½ï¿½ï¿½ï¿½
+#define DTP_GP_UI_DWELLING_PLACE	9									//ï¿½ï¿½Ïµï¿½ï¿½Ö·
 
 //////////////////////////////////////////////////////////////////////////////////
 
-//ÒøÐÐ×ÊÁÏ
+//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 struct CMD_GP_UserInsureInfo
 {
-	WORD							wRevenueTake;						//Ë°ÊÕ±ÈÀý
-	WORD							wRevenueTransfer;					//Ë°ÊÕ±ÈÀý
-	WORD							wServerID;							//·¿¼ä±êÊ¶
-	SCORE							lUserScore;							//ÓÃ»§½ð±Ò
-	SCORE							lUserInsure;						//ÒøÐÐ½ð±Ò
-	SCORE							lTransferPrerequisite;				//×ªÕËÌõ¼þ
+	WORD							wRevenueTake;						//Ë°ï¿½Õ±ï¿½ï¿½ï¿½
+	WORD							wRevenueTransfer;					//Ë°ï¿½Õ±ï¿½ï¿½ï¿½
+	WORD							wServerID;							//ï¿½ï¿½ï¿½ï¿½ï¿½Ê¶
+	SCORE							lUserScore;							//ï¿½Ã»ï¿½ï¿½ï¿½ï¿½
+	SCORE							lUserInsure;						//ï¿½ï¿½ï¿½Ð½ï¿½ï¿½
+	SCORE							lTransferPrerequisite;				//×ªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 };
 
-//´æÈë½ð±Ò
+//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 struct CMD_GP_UserSaveScore
 {
-	DWORD							dwUserID;							//ÓÃ»§ I D
-	SCORE							lSaveScore;							//´æÈë½ð±Ò
-	TCHAR							szMachineID[LEN_MACHINE_ID];		//»úÆ÷ÐòÁÐ
+	DWORD							dwUserID;							//ï¿½Ã»ï¿½ I D
+	SCORE							lSaveScore;							//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	TCHAR							szMachineID[LEN_MACHINE_ID];		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 };
 
-//ÌáÈ¡½ð±Ò
+//ï¿½ï¿½È¡ï¿½ï¿½ï¿½
 struct CMD_GP_UserTakeScore
 {
-	DWORD							dwUserID;							//ÓÃ»§ I D
-	SCORE							lTakeScore;							//ÌáÈ¡½ð±Ò
-	TCHAR							szPassword[LEN_MD5];				//ÒøÐÐÃÜÂë
-	TCHAR							szMachineID[LEN_MACHINE_ID];		//»úÆ÷ÐòÁÐ
+	DWORD							dwUserID;							//ï¿½Ã»ï¿½ I D
+	SCORE							lTakeScore;							//ï¿½ï¿½È¡ï¿½ï¿½ï¿½
+	TCHAR							szPassword[LEN_MD5];				//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	TCHAR							szMachineID[LEN_MACHINE_ID];		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 };
 
-//×ªÕË½ð±Ò
+//×ªï¿½Ë½ï¿½ï¿½
 struct CMD_GP_UserTransferScore
 {
-	DWORD							dwUserID;							//ÓÃ»§ I D
-	BYTE                            cbByNickName;                       //êÇ³ÆÔùËÍ
-	SCORE							lTransferScore;						//×ªÕË½ð±Ò
-	TCHAR							szPassword[LEN_MD5];				//ÒøÐÐÃÜÂë
-	TCHAR							szNickName[LEN_NICKNAME];			//Ä¿±êÓÃ»§
-	TCHAR							szMachineID[LEN_MACHINE_ID];		//»úÆ÷ÐòÁÐ
+	DWORD							dwUserID;							//ï¿½Ã»ï¿½ I D
+	BYTE                            cbByNickName;                       //ï¿½Ç³ï¿½ï¿½ï¿½ï¿½ï¿½
+	SCORE							lTransferScore;						//×ªï¿½Ë½ï¿½ï¿½
+	TCHAR							szPassword[LEN_MD5];				//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	TCHAR							szNickName[LEN_NICKNAME];			//Ä¿ï¿½ï¿½ï¿½Ã»ï¿½
+	TCHAR							szMachineID[LEN_MACHINE_ID];		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 };
 
-//ÒøÐÐ³É¹¦
+//ï¿½ï¿½ï¿½Ð³É¹ï¿½
 struct CMD_GP_UserInsureSuccess
 {
-	DWORD							dwUserID;							//ÓÃ»§ I D
-	SCORE							lUserScore;							//ÓÃ»§½ð±Ò
-	SCORE							lUserInsure;						//ÒøÐÐ½ð±Ò
-	SCORE							lSwapScore;							//±ÒÔùËÍ
+	DWORD							dwUserID;							//ï¿½Ã»ï¿½ I D
+	SCORE							lUserScore;							//ï¿½Ã»ï¿½ï¿½ï¿½ï¿½
+	SCORE							lUserInsure;						//ï¿½ï¿½ï¿½Ð½ï¿½ï¿½
+	SCORE							lSwapScore;							//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	DWORD							dwGameID;
 	TCHAR							szNickName[LEN_NICKNAME];
 	DWORD							dwTargetGameID;
 	TCHAR							szTargetNickName[LEN_NICKNAME];
 	DWORD							dwRecordID;
-	TCHAR							szDate[32];							//ÈÕÆÚ
-	TCHAR							szDescribeString[128];				//ÃèÊöÏûÏ¢
+	TCHAR							szDate[32];							//ï¿½ï¿½ï¿½ï¿½
+	TCHAR							szDescribeString[128];				//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
 };
 
-//ÒøÐÐÊ§°Ü
+//ï¿½ï¿½ï¿½ï¿½Ê§ï¿½ï¿½
 struct CMD_GP_UserInsureFailure
 {
-	LONG							lResultCode;						//´íÎó´úÂë
-	TCHAR							szDescribeString[128];				//ÃèÊöÏûÏ¢
+	LONG							lResultCode;						//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	TCHAR							szDescribeString[128];				//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
 };
 
-//ÌáÈ¡½á¹û
+//ï¿½ï¿½È¡ï¿½ï¿½ï¿½
 struct CMD_GP_UserTakeResult
 {
-	DWORD							dwUserID;							//ÓÃ»§ I D
-	SCORE							lUserScore;							//ÓÃ»§½ð±Ò
-	SCORE							lUserInsure;						//ÒøÐÐ½ð±Ò
+	DWORD							dwUserID;							//ï¿½Ã»ï¿½ I D
+	SCORE							lUserScore;							//ï¿½Ã»ï¿½ï¿½ï¿½ï¿½
+	SCORE							lUserInsure;						//ï¿½ï¿½ï¿½Ð½ï¿½ï¿½
 };
 
-//²éÑ¯ÒøÐÐ
+//ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½ï¿½
 struct CMD_GP_QueryInsureInfo
 {
-	DWORD							dwUserID;							//ÓÃ»§ I D
-	TCHAR							szPassword[LEN_MD5];				//ÒøÐÐÃÜÂë
+	DWORD							dwUserID;							//ï¿½Ã»ï¿½ I D
+	TCHAR							szPassword[LEN_MD5];				//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 };
 
-//²éÑ¯ÓÃ»§
+//ï¿½ï¿½Ñ¯ï¿½Ã»ï¿½
 struct CMD_GP_QueryUserInfoRequest
 {
-	BYTE                            cbByNickName;                       //êÇ³ÆÔùËÍ
-	TCHAR							szNickName[LEN_NICKNAME];			//Ä¿±êÓÃ»§
+	BYTE                            cbByNickName;                       //ï¿½Ç³ï¿½ï¿½ï¿½ï¿½ï¿½
+	TCHAR							szNickName[LEN_NICKNAME];			//Ä¿ï¿½ï¿½ï¿½Ã»ï¿½
 };
 
-//ÓÃ»§ÐÅÏ¢
+//ï¿½Ã»ï¿½ï¿½ï¿½Ï¢
 struct CMD_GP_UserTransferUserInfo
 {
-	DWORD							dwTargetGameID;						//Ä¿±êÓÃ»§
-	TCHAR							szNickName[LEN_NICKNAME];			//Ä¿±êÓÃ»§
+	DWORD							dwTargetGameID;						//Ä¿ï¿½ï¿½ï¿½Ã»ï¿½
+	TCHAR							szNickName[LEN_NICKNAME];			//Ä¿ï¿½ï¿½ï¿½Ã»ï¿½
 };
 
-//²Æ¸»
+//ï¿½Æ¸ï¿½
 struct CMD_GP_UserTreasure
 {
 	CMD_GP_UserTreasure()
@@ -563,73 +564,73 @@ struct CMD_GP_UserTreasure
 	}
 	SCORE		lScore;													
 	SCORE       lInsureScore;											
-	SCORE		lIngotScore;											//Ôª±¦
-	SCORE		lAuctionScore;											//ÅÄÂôËùµÃ
-	SCORE		lLottery;												//½±„»
+	SCORE		lIngotScore;											//Ôªï¿½ï¿½
+	SCORE		lAuctionScore;											//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	SCORE		lLottery;												//ï¿½ï¿½ï¿½ï¿½
 };
-//ÅÄÂôËùµÃ×ª»¯
+//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×ªï¿½ï¿½
 struct CMD_GP_ConversionAuctionScore
 {
 	CMD_GP_ConversionAuctionScore()
 	{
 		//memset(this, 0, sizeof(CMD_GP_ConversionAuctionScore));
 	}
-	long							lResultCode;						//²Ù×÷´úÂë
-	SCORE							lInsureScore;						//ÒøÐÐ½ð±Ò
-	TCHAR							szDescribeString[128];				//ÃèÊöÏûÏ¢
+	long							lResultCode;						//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	SCORE							lInsureScore;						//ï¿½ï¿½ï¿½Ð½ï¿½ï¿½
+	TCHAR							szDescribeString[128];				//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
 };
 
 //////////////////////////////////////////////////////////////////////////////////
 
 
-//ÁìÈ¡¾È¼Ã½ð
+//ï¿½ï¿½È¡ï¿½È¼Ã½ï¿½
 struct CMD_GP_GetAlms
 {
-	DWORD							dwUserID;						    //ÓÃ»§
-	TCHAR							szPassword[LEN_MD5];			    //ÓÃ»§ÃÜÂë
-	TCHAR							szMachineID[LEN_MACHINE_ID];		//»úÆ÷ÐòÁÐ
+	DWORD							dwUserID;						    //ï¿½Ã»ï¿½
+	TCHAR							szPassword[LEN_MD5];			    //ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½
+	TCHAR							szMachineID[LEN_MACHINE_ID];		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 };
 
-//ÁìÈ¡¾È¼Ã½ð
+//ï¿½ï¿½È¡ï¿½È¼Ã½ï¿½
 struct GP_GetAlmsSuccess
 {
-	SCORE	 lUserInsure;												//±£ÏÕ¹ñ½ð±Ò
-	TCHAR	 szDescribeString[128];										//³É¹¦ÏûÏ¢
+	SCORE	 lUserInsure;												//ï¿½ï¿½ï¿½Õ¹ï¿½ï¿½ï¿½
+	TCHAR	 szDescribeString[128];										//ï¿½É¹ï¿½ï¿½ï¿½Ï¢
 };
-//ÁìÈ¡¾È¼Ã½ð
+//ï¿½ï¿½È¡ï¿½È¼Ã½ï¿½
 struct GP_GetAlmsFailure
 {
-	LONG							lResultCode;						//²Ù×÷´úÂë
-	TCHAR							szDescribeString[128];				//ÃèÊöÏûÏ¢
+	LONG							lResultCode;						//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	TCHAR							szDescribeString[128];				//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
 };
 
 //////////////////////////////////////////////////////////////////////////////////
-//Ô¶³Ì·þÎñ
+//Ô¶ï¿½Ì·ï¿½ï¿½ï¿½
 
-#define MDM_GP_REMOTE_SERVICE		4									//Ô¶³Ì·þÎñ
+#define MDM_GP_REMOTE_SERVICE		4									//Ô¶ï¿½Ì·ï¿½ï¿½ï¿½
 
-//²éÕÒ·þÎñ
-#define SUB_GP_C_SEARCH_DATABASE	100									//Êý¾Ý²éÕÒ
-#define SUB_GP_C_SEARCH_CORRESPOND	101									//Ð­µ÷²éÕÒ
+//ï¿½ï¿½ï¿½Ò·ï¿½ï¿½ï¿½
+#define SUB_GP_C_SEARCH_DATABASE	100									//ï¿½ï¿½Ý²ï¿½ï¿½ï¿½
+#define SUB_GP_C_SEARCH_CORRESPOND	101									//Ð­ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
-//²éÕÒ·þÎñ
-#define SUB_GP_S_SEARCH_DATABASE	200									//Êý¾Ý²éÕÒ
-#define SUB_GP_S_SEARCH_CORRESPOND	201									//Ð­µ÷²éÕÒ
+//ï¿½ï¿½ï¿½Ò·ï¿½ï¿½ï¿½
+#define SUB_GP_S_SEARCH_DATABASE	200									//ï¿½ï¿½Ý²ï¿½ï¿½ï¿½
+#define SUB_GP_S_SEARCH_CORRESPOND	201									//Ð­ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 //////////////////////////////////////////////////////////////////////////////////
 
-//Ð­µ÷²éÕÒ
+//Ð­ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 struct CMD_GP_C_SearchCorrespond
 {
-	DWORD							dwGameID;							//ÓÎÏ·±êÊ¶
-	TCHAR							szNickName[LEN_NICKNAME];			//ÓÃ»§êÇ³Æ
+	DWORD							dwGameID;							//ï¿½ï¿½Ï·ï¿½ï¿½Ê¶
+	TCHAR							szNickName[LEN_NICKNAME];			//ï¿½Ã»ï¿½ï¿½Ç³ï¿½
 };
 
-//Ð­µ÷²éÕÒ
+//Ð­ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 struct CMD_GP_S_SearchCorrespond
 {
-	WORD							wUserCount;							//ÓÃ»§ÊýÄ¿
-//	tagUserRemoteInfo				UserRemoteInfo[16];					//ÓÃ»§ÐÅÏ¢
+	WORD							wUserCount;							//ï¿½Ã»ï¿½ï¿½ï¿½Ä¿
+//	tagUserRemoteInfo				UserRemoteInfo[16];					//ï¿½Ã»ï¿½ï¿½ï¿½Ï¢
 };
 
 //////////////////////////////////////////////////////////////////////////////////
@@ -638,170 +639,170 @@ struct CMD_GP_S_SearchCorrespond
 //////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////
 
-//µÇÂ¼ÃüÁî
-#define MDM_MB_LOGON				100									//¹ã³¡µÇÂ¼
+//ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½
+#define MDM_MB_LOGON				100									//ï¿½ã³¡ï¿½ï¿½Â¼
 
-//µÇÂ¼Ä£Ê½
-#define SUB_MB_LOGON_GAMEID			1									//I D µÇÂ¼
-#define SUB_MB_LOGON_ACCOUNTS		2									//ÕÊºÅµÇÂ¼
-#define SUB_MB_REGISTER_ACCOUNTS	3									//×¢²áÕÊºÅ
-#define SUB_MB_QUICK_LOGIN			4									       //¿ìËÙµÇÂ¼(ÓÎ¿ÍÉí·Ý)
-#define SUB_MB_ACCESSTOKEN			5									//µÚÈý·½µÇÂ¼
+//ï¿½ï¿½Â¼Ä£Ê½
+#define SUB_MB_LOGON_GAMEID			1									//I D ï¿½ï¿½Â¼
+#define SUB_MB_LOGON_ACCOUNTS		2									//ï¿½ÊºÅµï¿½Â¼
+#define SUB_MB_REGISTER_ACCOUNTS	3									//×¢ï¿½ï¿½ï¿½Êºï¿½
+#define SUB_MB_QUICK_LOGIN			4									       //ï¿½ï¿½ï¿½Ùµï¿½Â¼(ï¿½Î¿ï¿½ï¿½ï¿½ï¿½)
+#define SUB_MB_ACCESSTOKEN			5									//ï¿½ï¿½ï¿½ï¿½ï¿½Â¼
 
-//µÇÂ¼½á¹û
-#define SUB_MB_LOGON_SUCCESS		100									//µÇÂ¼³É¹¦
-#define SUB_MB_LOGON_FAILURE		101									//µÇÂ¼Ê§°Ü
+//ï¿½ï¿½Â¼ï¿½ï¿½ï¿½
+#define SUB_MB_LOGON_SUCCESS		100									//ï¿½ï¿½Â¼ï¿½É¹ï¿½
+#define SUB_MB_LOGON_FAILURE		101									//ï¿½ï¿½Â¼Ê§ï¿½ï¿½
 
-//Éý¼¶ÌáÊ¾
-#define SUB_MB_UPDATE_NOTIFY		200									//Éý¼¶ÌáÊ¾
+//ï¿½ï¿½ï¿½ï¿½Ê¾
+#define SUB_MB_UPDATE_NOTIFY		200									//ï¿½ï¿½ï¿½ï¿½Ê¾
 
 //////////////////////////////////////////////////////////////////////////////////
 
-//I D µÇÂ¼
+//I D ï¿½ï¿½Â¼
 struct CMD_MB_LogonGameID
 {
-	//ÏµÍ³ÐÅÏ¢
-	WORD							wModuleID;							//Ä£¿é±êÊ¶
-	DWORD							dwPlazaVersion;						//¹ã³¡°æ±¾
-	BYTE                            cbDeviceType;                       //Éè±¸ÀàÐÍ
+	//ÏµÍ³ï¿½ï¿½Ï¢
+	WORD							wModuleID;							//Ä£ï¿½ï¿½ï¿½Ê¶
+	DWORD							dwPlazaVersion;						//ï¿½ã³¡ï¿½æ±¾
+	BYTE                            cbDeviceType;                       //ï¿½è±¸ï¿½ï¿½ï¿½ï¿½
 
-	//µÇÂ¼ÐÅÏ¢
-	DWORD							dwGameID;							//ÓÎÏ· I D
-	TCHAR							szPassword[LEN_MD5];				//µÇÂ¼ÃÜÂë
+	//ï¿½ï¿½Â¼ï¿½ï¿½Ï¢
+	DWORD							dwGameID;							//ï¿½ï¿½Ï· I D
+	TCHAR							szPassword[LEN_MD5];				//ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½
 
-	//Á¬½ÓÐÅÏ¢
-	TCHAR							szMachineID[LEN_MACHINE_ID];		//»úÆ÷±êÊ¶
-	TCHAR							szMobilePhone[LEN_MOBILE_PHONE];	//µç»°ºÅÂë
-	TCHAR							szPassPortID[LEN_PASS_PORT_ID];		 //Éí·ÝÖ¤ºÅ£¨Éí·ÝÖ¤°ó¶¨Ê¹ÓÃ£©
-	TCHAR							szPhoneVerifyID[LEN_PHONE_VERIFY_ID];//ÊÖ»úÑéÖ¤ºÅ£¨ÊÖ»ú°ó¶¨Ê¹ÓÃ£©
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
+	TCHAR							szMachineID[LEN_MACHINE_ID];		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¶
+	TCHAR							szMobilePhone[LEN_MOBILE_PHONE];	//ï¿½ç»°ï¿½ï¿½ï¿½ï¿½
+	TCHAR							szPassPortID[LEN_PASS_PORT_ID];		 //ï¿½ï¿½ï¿½Ö¤ï¿½Å£ï¿½ï¿½ï¿½ï¿½Ö¤ï¿½ï¿½Ê¹ï¿½Ã£ï¿½
+	TCHAR							szPhoneVerifyID[LEN_PHONE_VERIFY_ID];//ï¿½Ö»ï¿½ï¿½ï¿½Ö¤ï¿½Å£ï¿½ï¿½Ö»ï¿½ï¿½Ê¹ï¿½Ã£ï¿½
 };
 
-//ÕÊºÅµÇÂ¼
+//ï¿½ÊºÅµï¿½Â¼
 struct CMD_MB_LogonAccounts
 {
-	//ÏµÍ³ÐÅÏ¢
-	WORD							wModuleID[10];							//Ä£¿é±êÊ¶
-	DWORD							dwPlazaVersion;						//¹ã³¡°æ±¾
-	BYTE                            cbDeviceType;                       //Éè±¸ÀàÐÍ
+	//ÏµÍ³ï¿½ï¿½Ï¢
+	WORD							wModuleID[10];							//Ä£ï¿½ï¿½ï¿½Ê¶
+	DWORD							dwPlazaVersion;						//ï¿½ã³¡ï¿½æ±¾
+	BYTE                            cbDeviceType;                       //ï¿½è±¸ï¿½ï¿½ï¿½ï¿½
 
-	//µÇÂ¼ÐÅÏ¢
-	TCHAR							szPassword[LEN_MD5];				//µÇÂ¼ÃÜÂë
-	TCHAR							szAccounts[LEN_ACCOUNTS];			//µÇÂ¼ÕÊºÅ
+	//ï¿½ï¿½Â¼ï¿½ï¿½Ï¢
+	TCHAR							szPassword[LEN_MD5];				//ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½
+	TCHAR							szAccounts[LEN_ACCOUNTS];			//ï¿½ï¿½Â¼ï¿½Êºï¿½
 
-	//Á¬½ÓÐÅÏ¢
-	TCHAR							szMachineID[LEN_MACHINE_ID];		//»úÆ÷±êÊ¶
-	TCHAR							szMobilePhone[LEN_MOBILE_PHONE];	//µç»°ºÅÂë
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
+	TCHAR							szMachineID[LEN_MACHINE_ID];		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¶
+	TCHAR							szMobilePhone[LEN_MOBILE_PHONE];	//ï¿½ç»°ï¿½ï¿½ï¿½ï¿½
 
-	TCHAR							szPassPortID[LEN_PASS_PORT_ID];		 //Éí·ÝÖ¤ºÅ£¨Éí·ÝÖ¤°ó¶¨Ê¹ÓÃ£©
-	TCHAR							szPhoneVerifyID[LEN_PHONE_VERIFY_ID];//ÊÖ»úÑéÖ¤ºÅ£¨ÊÖ»ú°ó¶¨Ê¹ÓÃ£©
+	TCHAR							szPassPortID[LEN_PASS_PORT_ID];		 //ï¿½ï¿½ï¿½Ö¤ï¿½Å£ï¿½ï¿½ï¿½ï¿½Ö¤ï¿½ï¿½Ê¹ï¿½Ã£ï¿½
+	TCHAR							szPhoneVerifyID[LEN_PHONE_VERIFY_ID];//ï¿½Ö»ï¿½ï¿½ï¿½Ö¤ï¿½Å£ï¿½ï¿½Ö»ï¿½ï¿½Ê¹ï¿½Ã£ï¿½
 };
 
-//×¢²áÕÊºÅ
+//×¢ï¿½ï¿½ï¿½Êºï¿½
 struct CMD_MB_RegisterAccounts
 {
-	//ÏµÍ³ÐÅÏ¢
-	WORD							wModuleID[10];							//Ä£¿é±êÊ¶
-	DWORD							dwPlazaVersion;						//¹ã³¡°æ±¾
-	BYTE                            cbDeviceType;                       //Éè±¸ÀàÐÍ
+	//ÏµÍ³ï¿½ï¿½Ï¢
+	WORD							wModuleID[10];							//Ä£ï¿½ï¿½ï¿½Ê¶
+	DWORD							dwPlazaVersion;						//ï¿½ã³¡ï¿½æ±¾
+	BYTE                            cbDeviceType;                       //ï¿½è±¸ï¿½ï¿½ï¿½ï¿½
 
-	//ÃÜÂë±äÁ¿
-	TCHAR							szLogonPass[LEN_MD5];				//µÇÂ¼ÃÜÂë
-	TCHAR							szInsurePass[LEN_MD5];				//ÒøÐÐÃÜÂë
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	TCHAR							szLogonPass[LEN_MD5];				//ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½
+	TCHAR							szInsurePass[LEN_MD5];				//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
-	//×¢²áÐÅÏ¢
-	WORD							wFaceID;							//Í·Ïñ±êÊ¶
-	BYTE							cbGender;							//ÓÃ»§ÐÔ±ð
-	TCHAR							szAccounts[LEN_ACCOUNTS];			//µÇÂ¼ÕÊºÅ
-	TCHAR							szNickName[LEN_NICKNAME];			//ÓÃ»§êÇ³Æ
+	//×¢ï¿½ï¿½ï¿½ï¿½Ï¢
+	WORD							wFaceID;							//Í·ï¿½ï¿½ï¿½Ê¶
+	BYTE							cbGender;							//ï¿½Ã»ï¿½ï¿½Ô±ï¿½
+	TCHAR							szAccounts[LEN_ACCOUNTS];			//ï¿½ï¿½Â¼ï¿½Êºï¿½
+	TCHAR							szNickName[LEN_NICKNAME];			//ï¿½Ã»ï¿½ï¿½Ç³ï¿½
 
-	//Á¬½ÓÐÅÏ¢
-	TCHAR							szMachineID[LEN_MACHINE_ID];		//»úÆ÷±êÊ¶
-	TCHAR							szMobilePhone[LEN_MOBILE_PHONE];	//µç»°ºÅÂë
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
+	TCHAR							szMachineID[LEN_MACHINE_ID];		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¶
+	TCHAR							szMobilePhone[LEN_MOBILE_PHONE];	//ï¿½ç»°ï¿½ï¿½ï¿½ï¿½
 };
 
-//µÇÂ¼³É¹¦
+//ï¿½ï¿½Â¼ï¿½É¹ï¿½
 struct CMD_MB_LogonSuccess
 {
-	WORD							wFaceID;							//Í·Ïñ±êÊ¶
-	BYTE							cbGender;							//ÓÃ»§ÐÔ±ð
-	BYTE							cbInsurePwd;						//ÖØÉèÃÜÂë
-	DWORD							dwUserID;							//ÓÃ»§ I D
-	DWORD							dwGameID;							//ÓÎÏ· I D
-	DWORD							dwExperience;						//¾­ÑéÊýÖµ
-	SCORE							dwLoveLiness;						//ÓÃ»§÷ÈÁ¦
-	DWORD                           dwVipLevel;							//½ð±ÒµÈ¼¶
-	SCORE                           lIngot;								//Ôª±¦
-	SCORE							lUserScore;							//ÓÃ»§ÓÎÏ·±Ò
-	SCORE							lIngotScore;						//Ôª±¦
-	SCORE							lUserInsure;						//ÓÃ»§ÒøÐÐ
-	TCHAR							szNickName[LEN_NICKNAME];			//ÓÃ»§êÇ³Æ
-	TCHAR							szPhone[LEN_MOBILE_PHONE];			//µç»°ºÅÂë
-	TCHAR							szPassPortID[LEN_PASS_PORT_ID];		 //Éí·ÝÖ¤ºÅ£¨Éí·ÝÖ¤°ó¶¨Ê¹ÓÃ£©
+	WORD							wFaceID;							//Í·ï¿½ï¿½ï¿½Ê¶
+	BYTE							cbGender;							//ï¿½Ã»ï¿½ï¿½Ô±ï¿½
+	BYTE							cbInsurePwd;						//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	DWORD							dwUserID;							//ï¿½Ã»ï¿½ I D
+	DWORD							dwGameID;							//ï¿½ï¿½Ï· I D
+	DWORD							dwExperience;						//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµ
+	SCORE							dwLoveLiness;						//ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½
+	DWORD                           dwVipLevel;							//ï¿½ï¿½ÒµÈ¼ï¿½
+	SCORE                           lIngot;								//Ôªï¿½ï¿½
+	SCORE							lUserScore;							//ï¿½Ã»ï¿½ï¿½ï¿½Ï·ï¿½ï¿½
+	SCORE							lIngotScore;						//Ôªï¿½ï¿½
+	SCORE							lUserInsure;						//ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½
+	TCHAR							szNickName[LEN_NICKNAME];			//ï¿½Ã»ï¿½ï¿½Ç³ï¿½
+	TCHAR							szPhone[LEN_MOBILE_PHONE];			//ï¿½ç»°ï¿½ï¿½ï¿½ï¿½
+	TCHAR							szPassPortID[LEN_PASS_PORT_ID];		 //ï¿½ï¿½ï¿½Ö¤ï¿½Å£ï¿½ï¿½ï¿½ï¿½Ö¤ï¿½ï¿½Ê¹ï¿½Ã£ï¿½
 
-	DWORD							dwTaskCount;						//Íê³ÉÈÎÎñ	
-	DWORD							dwUnReadCount;						//Î´¶ÁÐÅÏ¢	
-	DWORD							dwFirstOnLineOrder;					//Ê×³å
+	DWORD							dwTaskCount;						//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½	
+	DWORD							dwUnReadCount;						//Î´ï¿½ï¿½ï¿½ï¿½Ï¢	
+	DWORD							dwFirstOnLineOrder;					//ï¿½×³ï¿½
 };
 
-//µÇÂ¼Ê§°Ü
+//ï¿½ï¿½Â¼Ê§ï¿½ï¿½
 struct CMD_MB_LogonFailure
 {
-	LONG							lResultCode;						//´íÎó´úÂë
-	TCHAR							szDescribeString[128];				//ÃèÊöÏûÏ¢
+	LONG							lResultCode;						//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	TCHAR							szDescribeString[128];				//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
 };
 
-//¿ìËÙµÇÂ¼
+//ï¿½ï¿½ï¿½Ùµï¿½Â¼
 //struct CMD_MB_Quick_Logon
 //{
-//	DWORD							dwOpTerminal;						//²Ù×÷ÖÕ¶Ë£¨0£º¹«ÓÃ 1£ºpc, 2£ºÊÖ»úÅ£Å£ 3£ºÊÖ»ú²¶Óã£©
-//	TCHAR							    szMachineID[LEN_MACHINE_ID];		//»úÆ÷±êÊ¶
+//	DWORD							dwOpTerminal;						//ï¿½ï¿½ï¿½ï¿½ï¿½Õ¶Ë£ï¿½0ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 1ï¿½ï¿½pc, 2ï¿½ï¿½ï¿½Ö»ï¿½Å£Å£ 3ï¿½ï¿½ï¿½Ö»ï¿½ï¿½ã£©
+//	TCHAR							    szMachineID[LEN_MACHINE_ID];		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¶
 //};
 
-//¿ìËÙµÇÂ¼
+//ï¿½ï¿½ï¿½Ùµï¿½Â¼
 struct CMD_MB_Quick_Logon
 {
-	DWORD							dwOpTerminal;						//²Ù×÷ÖÕ¶Ë£¨0£º¹«ÓÃ 1£ºpc, 2£ºÊÖ»úÅ£Å£ 3£ºÊÖ»ú²¶Óã£©
-	DWORD							dwSessionID;						//ÍÆ¹ã
-	TCHAR							    szStatisCode[LEN_MACHINE_ID];		//ÍÆ¹ã	
-	TCHAR							    szMachineID[LEN_MACHINE_ID];		//»úÆ÷±êÊ¶
+	DWORD							dwOpTerminal;						//ï¿½ï¿½ï¿½ï¿½ï¿½Õ¶Ë£ï¿½0ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 1ï¿½ï¿½pc, 2ï¿½ï¿½ï¿½Ö»ï¿½Å£Å£ 3ï¿½ï¿½ï¿½Ö»ï¿½ï¿½ã£©
+	DWORD							dwSessionID;						//ï¿½Æ¹ï¿½
+	TCHAR							    szStatisCode[LEN_MACHINE_ID];		//ï¿½Æ¹ï¿½	
+	TCHAR							    szMachineID[LEN_MACHINE_ID];		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¶
 };
 
-//¿ìËÙµÇÂ¼·µ»Ø
+//ï¿½ï¿½ï¿½Ùµï¿½Â¼ï¿½ï¿½ï¿½ï¿½
 struct CMD_MB_Quick_Logon_Success
 {
-	TCHAR							szAccounts[LEN_ACCOUNTS];			//µÇÂ¼ÕÊºÅ
-	TCHAR							szLogonPass[LEN_MD5];				   //µÇÂ¼ÃÜÂë
-	LONG							lResultCode;						               //´íÎó´úÂë
-	TCHAR							szDescribeString[128];		               //ÃèÊöÏûÏ¢	
+	TCHAR							szAccounts[LEN_ACCOUNTS];			//ï¿½ï¿½Â¼ï¿½Êºï¿½
+	TCHAR							szLogonPass[LEN_MD5];				   //ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½
+	LONG							lResultCode;						               //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	TCHAR							szDescribeString[128];		               //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢	
 };
 
-//Éý¼¶ÌáÊ¾
+//ï¿½ï¿½ï¿½ï¿½Ê¾
 struct CMD_MB_UpdateNotify
 {
-	BYTE							cbMustUpdate;						//Ç¿ÐÐÉý¼¶
-	BYTE							cbAdviceUpdate;						//½¨ÒéÉý¼¶
-	DWORD							dwCurrentVersion;					//µ±Ç°°æ±¾
+	BYTE							cbMustUpdate;						//Ç¿ï¿½ï¿½ï¿½ï¿½
+	BYTE							cbAdviceUpdate;						//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	DWORD							dwCurrentVersion;					//ï¿½ï¿½Ç°ï¿½æ±¾
 };
-//ÑéÖ¤±£ÏÕ¹ñÃÜÂë
+//ï¿½ï¿½Ö¤ï¿½ï¿½ï¿½Õ¹ï¿½ï¿½ï¿½ï¿½ï¿½
 struct CMD_GP_VerifyInsurePass
 {
 	DWORD	 dwUserID;				
-	TCHAR	 szInsurePass[LEN_MD5];			 //±£ÏÕ¹ñÃÜÂë
-	TCHAR	 szMachineID[LEN_MACHINE_ID];	 //»úÆ÷ÐòÁÐ
+	TCHAR	 szInsurePass[LEN_MD5];			 //ï¿½ï¿½ï¿½Õ¹ï¿½ï¿½ï¿½ï¿½ï¿½
+	TCHAR	 szMachineID[LEN_MACHINE_ID];	 //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 };
 //////////////////////////////////////////////////////////////////////////////////
-//ÁÐ±íÃüÁî
+//ï¿½Ð±ï¿½ï¿½ï¿½ï¿½ï¿½
 
-#define MDM_MB_SERVER_LIST			101									//ÁÐ±íÐÅÏ¢
+#define MDM_MB_SERVER_LIST			101									//ï¿½Ð±ï¿½ï¿½ï¿½Ï¢
 
-//ÁÐ±íÐÅÏ¢
-#define SUB_MB_LIST_KIND			100									//ÖÖÀàÁÐ±í
-#define SUB_MB_LIST_SERVER			101									//·¿¼äÁÐ±í
-#define SUB_MB_LIST_FINISH			200									//ÁÐ±íÍê³É
+//ï¿½Ð±ï¿½ï¿½ï¿½Ï¢
+#define SUB_MB_LIST_KIND			100									//ï¿½ï¿½ï¿½ï¿½ï¿½Ð±ï¿½
+#define SUB_MB_LIST_SERVER			101									//ï¿½ï¿½ï¿½ï¿½ï¿½Ð±ï¿½
+#define SUB_MB_LIST_FINISH			200									//ï¿½Ð±ï¿½ï¿½ï¿½ï¿½
 
 
-//ÉÌµê////////////////////////////////////////ÀñÆ·/////////////////////////////
-//Í¨¹ýÊ²Ã´Í¾¾¶¹ºÂò
+//ï¿½Ìµï¿½////////////////////////////////////////ï¿½ï¿½Æ·/////////////////////////////
+//Í¨ï¿½ï¿½Ê²Ã´Í¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 struct CMD_GP_Buy_Price
 {
 	CMD_GP_Buy_Price()
@@ -811,7 +812,7 @@ struct CMD_GP_Buy_Price
 	DWORD	dwCount;
 	TCHAR   szName[NAME_LEN];
 };
-//ÀñÆ·
+//ï¿½ï¿½Æ·
 
 struct CMD_GP_GetGift
 {
@@ -820,7 +821,7 @@ struct CMD_GP_GetGift
 		memset(this, 0, sizeof(CMD_GP_GetGift));
 	}
 	DWORD	dwUserID;
-	DWORD	dwOpTerminal;												//²Ù×÷ÖÕ¶Ë£¨0£º¹«ÓÃ 1£ºpc, 2£ºÊÖ»úÅ£Å£ 3£ºÊÖ»ú²¶Óã£©
+	DWORD	dwOpTerminal;												//ï¿½ï¿½ï¿½ï¿½ï¿½Õ¶Ë£ï¿½0ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 1ï¿½ï¿½pc, 2ï¿½ï¿½ï¿½Ö»ï¿½Å£Å£ 3ï¿½ï¿½ï¿½Ö»ï¿½ï¿½ã£©
 };
 
 struct CMD_GP_Gift
@@ -834,9 +835,9 @@ struct CMD_GP_Gift
 	TCHAR				szName[GIFT_NAME_LEN];
 	TCHAR				szImgName[GIFT_IMGNAME];
 	CMD_GP_Buy_Price	price[BUY_PRICE_COUNT];
-	DWORD				dwDiscount;								//vipÕÛ¿Û£¨1-9£©
-	TCHAR				szOpenDespict[DESPICT_LEN * 2];			//°üº¬µÄÎïÆ·ÃèÊö
-	TCHAR				szDespict[DESPICT_LEN];					//ÃèÊö 
+	DWORD				dwDiscount;								//vipï¿½Û¿Û£ï¿½1-9ï¿½ï¿½
+	TCHAR				szOpenDespict[DESPICT_LEN * 2];			//ï¿½ï¿½ï¿½ï¿½ï¿½Æ·ï¿½ï¿½ï¿½ï¿½
+	TCHAR				szDespict[DESPICT_LEN];					//ï¿½ï¿½ï¿½ï¿½ 
 
 };
 struct CMD_GP_BuyGift
@@ -846,14 +847,14 @@ struct CMD_GP_BuyGift
 		//memset(this, 0, sizeof(CMD_GP_BuyGift));
 	}
 	DWORD			    dwUserID;								//id
-	DWORD				dwOpTerminal;							//²Ù×÷ÖÕ¶Ë£¨1£ºpc, 2£ºÊÖ»ú£©
-	TCHAR				szLogonPass[LEN_MD5];					//µÇÂ¼ÃÜÂë
-	DWORD				dwType;									//Àà±ð1:Àñ°ü£¬2:µÀ¾ß
-	DWORD				dwID;									//Àñ°ü»òµÀ¾ßid
-	DWORD				dwNum;									//ÊýÁ¿
-	DWORD				dwBuyMethod;							//¹ºÂò·½·¨£º1£º½ð±Ò£¬2£ºÔª±¦£¬3£ººì°ü£¬4£º½±È¯
-	//TCHAR				szNote[NOTE_LEN];						//ÃèÊöÏûÏ¢
-	TCHAR				szMachineID[LEN_MACHINE_ID];			//»úÆ÷ÐòÁÐ
+	DWORD				dwOpTerminal;							//ï¿½ï¿½ï¿½ï¿½ï¿½Õ¶Ë£ï¿½1ï¿½ï¿½pc, 2ï¿½ï¿½ï¿½Ö»ï¿½
+	TCHAR				szLogonPass[LEN_MD5];					//ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½
+	DWORD				dwType;									//ï¿½ï¿½ï¿½1:ï¿½ï¿½ï¿½2:ï¿½ï¿½ï¿½ï¿½
+	DWORD				dwID;									//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½id
+	DWORD				dwNum;									//ï¿½ï¿½ï¿½ï¿½
+	DWORD				dwBuyMethod;							//ï¿½ï¿½ï¿½ò·½·ï¿½ï¿½ï¿½1ï¿½ï¿½ï¿½ï¿½Ò£ï¿½2ï¿½ï¿½Ôªï¿½ï¿½ï¿½ï¿½3ï¿½ï¿½ï¿½ï¿½ï¿½4ï¿½ï¿½ï¿½ï¿½È¯
+	//TCHAR				szNote[NOTE_LEN];						//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
+	TCHAR				szMachineID[LEN_MACHINE_ID];			//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 };
 
 struct CMD_GP_BuyGiftLog
@@ -862,19 +863,19 @@ struct CMD_GP_BuyGiftLog
 	{
 		//memset(this, 0, sizeof(CMD_GP_BuyGiftLog));
 	}
-	DWORD							dwRet;								//0£º³É¹¦£¬1£ºÊ§°Ü
-	TCHAR							szDescribeString[128];				//ÃèÊöÏûÏ¢
+	DWORD							dwRet;								//0ï¿½ï¿½ï¿½É¹ï¿½ï¿½ï¿½1ï¿½ï¿½Ê§ï¿½ï¿½
+	TCHAR							szDescribeString[128];				//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
 };
-///////////////////////////////////////ÀñÆ·///////////////////////////////////////
-//²éÑ¯±³°üÐÅÏ¢
+///////////////////////////////////////ï¿½ï¿½Æ·///////////////////////////////////////
+//ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
 struct CMD_GP_UserID
 {
 	CMD_GP_UserID()
 	{
 		//memset(this, 0, sizeof(CMD_GP_UserID));
 	}
-	DWORD							dwUserID;							//ÓÃ»§ I D
-	TCHAR							szPassword[LEN_PASSWORD];			//ÓÃ»§ÃÜÂë
+	DWORD							dwUserID;							//ï¿½Ã»ï¿½ I D
+	TCHAR							szPassword[LEN_PASSWORD];			//ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½
 };
 struct CMD_GP_Knapsack
 {
@@ -883,15 +884,15 @@ struct CMD_GP_Knapsack
 		//memset(this, 0, sizeof(CMD_GP_Knapsack));
 	}
 	DWORD				dwID;
-	DWORD				dwExchangeType;//¶Ò»»·½Ê½1£º²»ÄÜÊ¹ÓÃ 2£ºÊ¹ÓÃ 3£º¶Ò»»(²é¿´¶Ò»»ÃèÊö)
-	DWORD				dwUseType;								//Ê¹ÓÃÀàÐÍ5£º»°·Ñ  6£ºQ±Ò
-	DWORD				dwPackType;								//Àà±ð1:Àñ°ü£¬2:µÀ¾ß
-	DWORD				dwPropID;								//Àñ°ü»òµÀ¾ßid
-	DWORD				dwNum;									//ÊýÁ¿
-	DWORD				dwSortID;								//Ë³Ðò
-	TCHAR				szName[GIFT_NAME_LEN];					//Ãû³Æ
+	DWORD				dwExchangeType;//ï¿½Ò»ï¿½ï¿½ï¿½Ê½1ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¹ï¿½ï¿½ 2ï¿½ï¿½Ê¹ï¿½ï¿½ 3ï¿½ï¿½ï¿½Ò»ï¿½(ï¿½é¿´ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½)
+	DWORD				dwUseType;								//Ê¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½5ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½  6ï¿½ï¿½Qï¿½ï¿½
+	DWORD				dwPackType;								//ï¿½ï¿½ï¿½1:ï¿½ï¿½ï¿½2:ï¿½ï¿½ï¿½ï¿½
+	DWORD				dwPropID;								//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½id
+	DWORD				dwNum;									//ï¿½ï¿½ï¿½ï¿½
+	DWORD				dwSortID;								//Ë³ï¿½ï¿½
+	TCHAR				szName[GIFT_NAME_LEN];					//ï¿½ï¿½ï¿½
 	TCHAR				szImgName[GIFT_IMGNAME];				//Í¼Æ¬
-	TCHAR				szRemark[GIFT_IMGNAME];					//¶Ò»»ÃèÊö
+	TCHAR				szRemark[GIFT_IMGNAME];					//ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½
 	TCHAR				szOpenDespict[64];
 	TCHAR				szDespict[64];
 };
@@ -903,25 +904,25 @@ struct CMD_GP_KnapsackLog
 	{
 		//memset(this, 0, sizeof(CMD_GP_KnapsackLog));
 	}
-	DWORD							dwRet;								//0£º³É¹¦£¬1£ºÊ§°Ü
-	TCHAR							szDescribeString[128];				//ÃèÊöÏûÏ¢
+	DWORD							dwRet;								//0ï¿½ï¿½ï¿½É¹ï¿½ï¿½ï¿½1ï¿½ï¿½Ê§ï¿½ï¿½
+	TCHAR							szDescribeString[128];				//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
 };
 
 
-//Ê¹ÓÃ±³°ü
+//Ê¹ï¿½Ã±ï¿½ï¿½ï¿½
 struct CMD_GP_UseKnapsack
 {
 	CMD_GP_UseKnapsack()
 	{
 		//memset(this, 0, sizeof(CMD_GP_UseKnapsack));
 	}
-	DWORD							dwUserID;							//ÓÃ»§ I D
-	DWORD							dwOpTerminal;						//²Ù×÷ÖÕ¶Ë£¨1£ºpc, 2£ºÊÖ»ú£©
-	TCHAR							szPassword[LEN_PASSWORD];			//ÓÃ»§ÃÜÂë
-	DWORD							dwID;								//±³°üid
-	DWORD							dwNum;								//ÊýÁ¿
-	TCHAR							szNote[NOTE_LEN];					//ÃèÊöÏûÏ¢
-	TCHAR							szMachineID[LEN_MACHINE_ID];		//»úÆ÷ÐòÁÐ
+	DWORD							dwUserID;							//ï¿½Ã»ï¿½ I D
+	DWORD							dwOpTerminal;						//ï¿½ï¿½ï¿½ï¿½ï¿½Õ¶Ë£ï¿½1ï¿½ï¿½pc, 2ï¿½ï¿½ï¿½Ö»ï¿½
+	TCHAR							szPassword[LEN_PASSWORD];			//ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½
+	DWORD							dwID;								//ï¿½ï¿½ï¿½ï¿½id
+	DWORD							dwNum;								//ï¿½ï¿½ï¿½ï¿½
+	TCHAR							szNote[NOTE_LEN];					//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
+	TCHAR							szMachineID[LEN_MACHINE_ID];		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 };
 struct CMD_GP_UseKnapsackLog
 {
@@ -929,10 +930,10 @@ struct CMD_GP_UseKnapsackLog
 	{
 		//memset(this, 0, sizeof(CMD_GP_UseKnapsackLog));
 	}
-	DWORD							dwRet;								//0£º³É¹¦£¬1£ºÊ§°Ü
-	DWORD							dwID;								//±³°üid
-	DWORD							dwNum;								//Ê¹ÓÃµÄÊýÁ¿
-	TCHAR							szDescribeString[128];				//ÃèÊöÏûÏ¢
+	DWORD							dwRet;								//0ï¿½ï¿½ï¿½É¹ï¿½ï¿½ï¿½1ï¿½ï¿½Ê§ï¿½ï¿½
+	DWORD							dwID;								//ï¿½ï¿½ï¿½ï¿½id
+	DWORD							dwNum;								//Ê¹ï¿½Ãµï¿½ï¿½ï¿½ï¿½ï¿½
+	TCHAR							szDescribeString[128];				//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
 };
 
 //////////////////////////////////////////////////////////////////////////
@@ -943,24 +944,24 @@ struct CMD_GP_Auction
 		//memset(this, 0, sizeof(CMD_GP_Auction));
 	}
 	DWORD				dwID;
-	DWORD				dwPackType;								//Àà±ð1:Àñ°ü£¬2:µÀ¾ß
-	DWORD				dwPropID;								//Àñ°ü»òµÀ¾ßid
-	DWORD				dwNum;									//ÊýÁ¿
-	DWORD				dwSortID;								//Ë³Ðò
-	TCHAR				szName[GIFT_NAME_LEN];					//Ãû³Æ
+	DWORD				dwPackType;								//ï¿½ï¿½ï¿½1:ï¿½ï¿½ï¿½2:ï¿½ï¿½ï¿½ï¿½
+	DWORD				dwPropID;								//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½id
+	DWORD				dwNum;									//ï¿½ï¿½ï¿½ï¿½
+	DWORD				dwSortID;								//Ë³ï¿½ï¿½
+	TCHAR				szName[GIFT_NAME_LEN];					//ï¿½ï¿½ï¿½
 	TCHAR				szImgName[GIFT_IMGNAME];				//Í¼Æ¬
 };
-//»ñÈ¡ÎÒµÄÉÏ¼ÜÎïÆ·
+//ï¿½ï¿½È¡ï¿½Òµï¿½ï¿½Ï¼ï¿½ï¿½ï¿½Æ·
 struct  CMD_GP_AuctionLog
 {
 	CMD_GP_AuctionLog()
 	{
 		//memset(this, 0, sizeof(CMD_GP_AuctionLog));
 	}
-	DWORD							dwRet;								//0£º³É¹¦£¬1£ºÊ§°Ü
-	TCHAR							szDescribeString[128];				//ÃèÊöÏûÏ¢
+	DWORD							dwRet;								//0ï¿½ï¿½ï¿½É¹ï¿½ï¿½ï¿½1ï¿½ï¿½Ê§ï¿½ï¿½
+	TCHAR							szDescribeString[128];				//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
 };
-//ÅÄÂôÆ·ÉÏ¼Ü
+//ï¿½ï¿½ï¿½ï¿½Æ·ï¿½Ï¼ï¿½
 struct CMD_GP_Sell_Auction
 {
 	CMD_GP_Sell_Auction()
@@ -968,14 +969,14 @@ struct CMD_GP_Sell_Auction
 		//memset(this, 0, sizeof(CMD_GP_Sell_Auction));
 	}
 	DWORD			    dwUserID;								//id
-	DWORD				dwOpTerminal;							//²Ù×÷ÖÕ¶Ë£¨1£ºpc, 2£ºÊÖ»ú£©
-	TCHAR				szLogonPass[LEN_MD5];					//µÇÂ¼ÃÜÂë
-	DWORD				dwID;									//Àñ°ü»òµÀ¾ßid
-	SCORE				lGold;									//¼Û¸ñ
-	DWORD				dwNum;									//ÊýÁ¿
-	TCHAR				szMachineID[LEN_MACHINE_ID];			//»úÆ÷ÐòÁÐ
+	DWORD				dwOpTerminal;							//ï¿½ï¿½ï¿½ï¿½ï¿½Õ¶Ë£ï¿½1ï¿½ï¿½pc, 2ï¿½ï¿½ï¿½Ö»ï¿½
+	TCHAR				szLogonPass[LEN_MD5];					//ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½
+	DWORD				dwID;									//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½id
+	SCORE				lGold;									//ï¿½Û¸ï¿½
+	DWORD				dwNum;									//ï¿½ï¿½ï¿½ï¿½
+	TCHAR				szMachineID[LEN_MACHINE_ID];			//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 };
-//¹ºÂòÅÄÂôÆ·
+//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ·
 struct CMD_GP_Buy_Auction
 {
 	CMD_GP_Buy_Auction()
@@ -983,13 +984,13 @@ struct CMD_GP_Buy_Auction
 		//memset(this, 0, sizeof(CMD_GP_Buy_Auction));
 	}
 	DWORD			    dwUserID;								//id
-	DWORD				dwOpTerminal;							//²Ù×÷ÖÕ¶Ë£¨1£ºpc, 2£ºÊÖ»ú£©
-	TCHAR				szLogonPass[LEN_MD5];					//µÇÂ¼ÃÜÂë
-	DWORD				dwID;									//Àñ°ü»òµÀ¾ßid
-	DWORD				dwNum;									//ÊýÁ¿
-	TCHAR				szMachineID[LEN_MACHINE_ID];			//»úÆ÷ÐòÁÐ
+	DWORD				dwOpTerminal;							//ï¿½ï¿½ï¿½ï¿½ï¿½Õ¶Ë£ï¿½1ï¿½ï¿½pc, 2ï¿½ï¿½ï¿½Ö»ï¿½
+	TCHAR				szLogonPass[LEN_MD5];					//ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½
+	DWORD				dwID;									//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½id
+	DWORD				dwNum;									//ï¿½ï¿½ï¿½ï¿½
+	TCHAR				szMachineID[LEN_MACHINE_ID];			//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 };
-//ÅÄÂôÆ·³·Ïû
+//ï¿½ï¿½ï¿½ï¿½Æ·ï¿½ï¿½ï¿½ï¿½
 struct CMD_GP_Cancel_Auction
 {
 	CMD_GP_Cancel_Auction()
@@ -997,72 +998,72 @@ struct CMD_GP_Cancel_Auction
 		//memset(this, 0, sizeof(CMD_GP_Cancel_Auction));
 	}
 	DWORD			    dwUserID;								//id
-	DWORD				dwOpTerminal;							//²Ù×÷ÖÕ¶Ë£¨1£ºpc, 2£ºÊÖ»ú£©
-	TCHAR				szLogonPass[LEN_MD5];					//µÇÂ¼ÃÜÂë
-	DWORD				dwID;									//Àñ°ü»òµÀ¾ßid
-	TCHAR				szMachineID[LEN_MACHINE_ID];			//»úÆ÷ÐòÁÐ
+	DWORD				dwOpTerminal;							//ï¿½ï¿½ï¿½ï¿½ï¿½Õ¶Ë£ï¿½1ï¿½ï¿½pc, 2ï¿½ï¿½ï¿½Ö»ï¿½
+	TCHAR				szLogonPass[LEN_MD5];					//ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½
+	DWORD				dwID;									//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½id
+	TCHAR				szMachineID[LEN_MACHINE_ID];			//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 };
-//²éÕÒÅÄÂô¼ÇÂ¼
+//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¼
 struct CMD_GP_Query_Auction
 {
 	CMD_GP_Query_Auction()
 	{
 		//memset(this, 0, sizeof(CMD_GP_Query_Auction));
 	}
-	TCHAR								szID[LEN_ACCOUNTS];			    //GameID »ò êÇ³Æ
-	DWORD								dwPage;							//²éÑ¯µÚ¼¸Ò³
-	DWORD								dwPageSize;						//Ã¿Ò³´óÐ¡£¬È±Ê¡Îª10
-	DWORD								dwLastDay;						//Ê±¼ä
+	TCHAR								szID[LEN_ACCOUNTS];			    //GameID ï¿½ï¿½ ï¿½Ç³ï¿½
+	DWORD								dwPage;							//ï¿½ï¿½Ñ¯ï¿½Ú¼ï¿½Ò³
+	DWORD								dwPageSize;						//Ã¿Ò³ï¿½ï¿½Ð¡ï¿½ï¿½È±Ê¡Îª10
+	DWORD								dwLastDay;						//Ê±ï¿½ï¿½
 };
-//»ñÈ¡ÅÄÂô¼ÇÂ¼
+//ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¼
 struct CMD_GP_GetAuctionRecord
 {
 	DWORD								dwUserID;
-	DWORD								dwPage;							//²éÑ¯µÚ¼¸Ò³
-	DWORD								dwPageSize;						//Ã¿Ò³´óÐ¡£¬È±Ê¡Îª10
-	DWORD								dwLastDay;						//Ê±¼ä
+	DWORD								dwPage;							//ï¿½ï¿½Ñ¯ï¿½Ú¼ï¿½Ò³
+	DWORD								dwPageSize;						//Ã¿Ò³ï¿½ï¿½Ð¡ï¿½ï¿½È±Ê¡Îª10
+	DWORD								dwLastDay;						//Ê±ï¿½ï¿½
 };
-//ÅÄÂô¼ÇÂ¼
+//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¼
 struct CMD_GP_AuctionRecordItem
 {
-	DWORD								dwIndex;						//µ¥ºÅ
+	DWORD								dwIndex;						//ï¿½ï¿½ï¿½ï¿½
 	DWORD								dwGameID;
 	TCHAR								szImgName[GIFT_IMGNAME];	    //Í¼Æ¬
-	TCHAR								szNickName[LEN_ACCOUNTS];		//êÇ³Æ
-	TCHAR								szAuctionName[NAME_LEN];		//ÅÄÂôÆ·Ãû³Æ
+	TCHAR								szNickName[LEN_ACCOUNTS];		//ï¿½Ç³ï¿½
+	TCHAR								szAuctionName[NAME_LEN];		//ï¿½ï¿½ï¿½ï¿½Æ·ï¿½ï¿½ï¿½
 	DWORD								dwPropNum;
-	SCORE								lGold;							//¼Û¸ñ
+	SCORE								lGold;							//ï¿½Û¸ï¿½
 };
-//ÎÒµÄÅÄÂô
+//ï¿½Òµï¿½ï¿½ï¿½ï¿½ï¿½
 struct CMD_GP_MyAuctionRecordItem
 {
-	DWORD								dwIndex;						//µ¥ºÅ
-	TCHAR								szAuctionName[NAME_LEN];		//ÅÄÂôÆ·Ãû³Æ
+	DWORD								dwIndex;						//ï¿½ï¿½ï¿½ï¿½
+	TCHAR								szAuctionName[NAME_LEN];		//ï¿½ï¿½ï¿½ï¿½Æ·ï¿½ï¿½ï¿½
 	TCHAR								szImgName[GIFT_IMGNAME];		//Í¼Æ¬
 	DWORD								dwPropNum;
-	SCORE								lGold;							//¼Û¸ñ
+	SCORE								lGold;							//ï¿½Û¸ï¿½
 };
-//ÅÄÂô¼ÇÂ¼
+//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¼
 struct CMD_GP_HistoryAuctionRecordItem
 {
-	DWORD								dwIndex;						//µ¥ºÅ
+	DWORD								dwIndex;						//ï¿½ï¿½ï¿½ï¿½
 	DWORD								dwGameID;
-	TCHAR								szNickName[LEN_ACCOUNTS];		//êÇ³Æ
-	TCHAR								szAuctionName[NAME_LEN];		//ÅÄÂôÆ·Ãû³Æ
+	TCHAR								szNickName[LEN_ACCOUNTS];		//ï¿½Ç³ï¿½
+	TCHAR								szAuctionName[NAME_LEN];		//ï¿½ï¿½ï¿½ï¿½Æ·ï¿½ï¿½ï¿½
 	TCHAR								szImgName[GIFT_IMGNAME];		//Í¼Æ¬
-	DWORD								dwType;							//ÀàÐÍ1:Âò£¬2:Âô
+	DWORD								dwType;							//ï¿½ï¿½ï¿½ï¿½1:ï¿½ï¿½2:ï¿½ï¿½
 	DWORD								dwPropNum;
-	SCORE								lGold;							//¼Û¸ñ
+	SCORE								lGold;							//ï¿½Û¸ï¿½
 	SYSTEMTIME							tOpDate;
 };
-//¼ÇÂ¼
+//ï¿½ï¿½Â¼
 template <class T>
 struct CMD_GP_AuctionRecord
 {
-	DWORD								dwPageCount;				//Ò³Âë×ÜÊý
-	DWORD								dwPageIndex;					//²éÑ¯µÚ¼¸Ò³
-	DWORD								dwIndex;							//ÌõÊý
-	DWORD								dwAllIndex;						//×ÜÌõÊý
+	DWORD								dwPageCount;				//Ò³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	DWORD								dwPageIndex;					//ï¿½ï¿½Ñ¯ï¿½Ú¼ï¿½Ò³
+	DWORD								dwIndex;							//ï¿½ï¿½ï¿½ï¿½
+	DWORD								dwAllIndex;						//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	T											RecordItem[20];
 };
 
@@ -1072,11 +1073,11 @@ struct CMD_GP_Sell_AuctionLog
 	{
 		//memset(this, 0, sizeof(CMD_GP_Sell_AuctionLog));
 	}
-	DWORD							dwRet;								//0£º³É¹¦£¬1£ºÊ§°Ü
-	DWORD							dwID;								//Àñ°ü»òµÀ¾ßid
-	SCORE							lGold;								//¼Û¸ñ
-	DWORD							dwNum;								//ÊýÁ¿							
-	TCHAR							szDescribeString[128];				//ÃèÊöÏûÏ¢
+	DWORD							dwRet;								//0ï¿½ï¿½ï¿½É¹ï¿½ï¿½ï¿½1ï¿½ï¿½Ê§ï¿½ï¿½
+	DWORD							dwID;								//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½id
+	SCORE							lGold;								//ï¿½Û¸ï¿½
+	DWORD							dwNum;								//ï¿½ï¿½ï¿½ï¿½							
+	TCHAR							szDescribeString[128];				//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
 };
 struct CMD_GP_Buy_AuctionLog
 {
@@ -1084,10 +1085,10 @@ struct CMD_GP_Buy_AuctionLog
 	{
 		//memset(this, 0, sizeof(CMD_GP_Buy_AuctionLog));
 	}
-	DWORD							dwRet;								//0£º³É¹¦£¬·Ç0£ºÊ§°Ü
-	DWORD							dwID;								//Àñ°ü»òµÀ¾ßid
-	SCORE							lGold;								//¼Û¸ñ					
-	TCHAR							szDescribeString[128];				//ÃèÊöÏûÏ¢
+	DWORD							dwRet;								//0ï¿½ï¿½ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½0ï¿½ï¿½Ê§ï¿½ï¿½
+	DWORD							dwID;								//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½id
+	SCORE							lGold;								//ï¿½Û¸ï¿½					
+	TCHAR							szDescribeString[128];				//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
 };
 struct CMD_GP_Cancel_AuctionLog
 {
@@ -1095,29 +1096,29 @@ struct CMD_GP_Cancel_AuctionLog
 	{
 		//memset(this, 0, sizeof(CMD_GP_Cancel_AuctionLog));
 	}
-	DWORD							dwRet;								//0£º³É¹¦£¬1£ºÊ§°Ü
+	DWORD							dwRet;								//0ï¿½ï¿½ï¿½É¹ï¿½ï¿½ï¿½1ï¿½ï¿½Ê§ï¿½ï¿½
 	DWORD							dwID;
-	DWORD							dwNum;								//ÊýÁ¿
-	DWORD							dwSortID;							//Ë³Ðò
-	TCHAR							szName[GIFT_NAME_LEN];				//Ãû³Æ
+	DWORD							dwNum;								//ï¿½ï¿½ï¿½ï¿½
+	DWORD							dwSortID;							//Ë³ï¿½ï¿½
+	TCHAR							szName[GIFT_NAME_LEN];				//ï¿½ï¿½ï¿½
 	TCHAR							szImgName[GIFT_IMGNAME];			//Í¼Æ¬		
-	TCHAR							szDescribeString[128];				//ÃèÊöÏûÏ¢
+	TCHAR							szDescribeString[128];				//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
 };
 
 
 
 //////////////////////////////////////////////////////////////////////////
-//vipÌØÈ¨
+//vipï¿½ï¿½È¨
 struct CMD_GP_VipUserID
 {
 	CMD_GP_VipUserID()
 	{
 		//memset(this, 0, sizeof(CMD_GP_VipUserID));
 	}
-	DWORD	dwUserID;													//ÓÃ»§ I D
-	DWORD	dwOpTerminal;												//²Ù×÷ÖÕ¶Ë£¨1£ºpc, 2£ºÊÖ»ú£©
+	DWORD	dwUserID;													//ï¿½Ã»ï¿½ I D
+	DWORD	dwOpTerminal;												//ï¿½ï¿½ï¿½ï¿½ï¿½Õ¶Ë£ï¿½1ï¿½ï¿½pc, 2ï¿½ï¿½ï¿½Ö»ï¿½
 };
-//vipÌØÈ¨£¨dwRedPaper£¬ dwRedPieces ·Ç0ÄÇ¸öÓÐÓÃ£©
+//vipï¿½ï¿½È¨ï¿½ï¿½dwRedPaperï¿½ï¿½ dwRedPieces ï¿½ï¿½0ï¿½Ç¸ï¿½ï¿½ï¿½ï¿½Ã£ï¿½
 
 struct CMD_GP_VipPowerInfo
 {
@@ -1126,10 +1127,10 @@ struct CMD_GP_VipPowerInfo
 		memset(this, 0, sizeof(CMD_GP_VipPowerInfo));
 	}
 	DWORD	dwVipID;													//1---7(vip1-vip7)
-	SCORE   lLoginScore;												//Ã¿ÌìµÇÂ¼µÄ½±Àø
-	DWORD	dwShopping;													//´òÕÛ
-	DWORD	dwRedPaper;													//ºì°ü
-	DWORD	dwRedPieces;												//ºì°üËéÆ¬
+	SCORE   lLoginScore;												//Ã¿ï¿½ï¿½ï¿½Â¼ï¿½Ä½ï¿½ï¿½ï¿½
+	DWORD	dwShopping;													//ï¿½ï¿½ï¿½ï¿½
+	DWORD	dwRedPaper;													//ï¿½ï¿½ï¿½
+	DWORD	dwRedPieces;												//ï¿½ï¿½ï¿½ï¿½ï¿½Æ¬
 };
 
 
@@ -1139,20 +1140,20 @@ struct CMD_GP_VipPower
 	{
 		memset(this, 0, sizeof(CMD_GP_VipPower));
 	}
-	CMD_GP_VipPowerInfo				VipPowerInfo[7];					//ËùÓÐvipÐÅÏ¢
+	CMD_GP_VipPowerInfo				VipPowerInfo[7];					//ï¿½ï¿½ï¿½ï¿½vipï¿½ï¿½Ï¢
 	DWORD	dwVipID;													//1---7(vip1-vip7)
-	DWORD	dwIngot;													//²îdwIngotÉý¼¶
-	DWORD	dwAllIngot;													//ÏÂÒ»¼¶µÄÔª±¦
-	SCORE   lLoginScore;												//Ã¿ÌìµÇÂ¼µÄ½±Àø
-	DWORD	dwShopping;													//´òÕÛ
-	DWORD	dwRedPaper;													//ºì°ü
-	DWORD	dwRedPieces;												//ºì°üËéÆ¬
-	DWORD	dwLoginScoreStatus;											//µÇÂ¼½±Àø ÊÇ·ñÁìÈ¡   0:ÎÞÐ§ 1£ºÎ´ÁìÈ¡ 2£ºÒÑÁìÈ¡
-	DWORD	dwRedPaperStatus;											//ºì°ü£¬ºì°üËéÆ¬ ÊÇ·ñÁìÈ¡ 0:ÎÞÐ§ 1£ºÎ´ÁìÈ¡ 2£ºÒÑÁìÈ¡
+	DWORD	dwIngot;													//ï¿½ï¿½dwIngotï¿½ï¿½
+	DWORD	dwAllIngot;													//ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½Ôªï¿½ï¿½
+	SCORE   lLoginScore;												//Ã¿ï¿½ï¿½ï¿½Â¼ï¿½Ä½ï¿½ï¿½ï¿½
+	DWORD	dwShopping;													//ï¿½ï¿½ï¿½ï¿½
+	DWORD	dwRedPaper;													//ï¿½ï¿½ï¿½
+	DWORD	dwRedPieces;												//ï¿½ï¿½ï¿½ï¿½ï¿½Æ¬
+	DWORD	dwLoginScoreStatus;											//ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½ ï¿½Ç·ï¿½ï¿½ï¿½È¡   0:ï¿½ï¿½Ð§ 1ï¿½ï¿½Î´ï¿½ï¿½È¡ 2ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¡
+	DWORD	dwRedPaperStatus;											//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ¬ ï¿½Ç·ï¿½ï¿½ï¿½È¡ 0:ï¿½ï¿½Ð§ 1ï¿½ï¿½Î´ï¿½ï¿½È¡ 2ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¡
 };
 
 
-//vip½±ÀøÁìÈ¡
+//vipï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¡
 struct CMD_GP_VipAward
 {
 	CMD_GP_VipAward()
@@ -1160,70 +1161,70 @@ struct CMD_GP_VipAward
 		//memset(this, 0, sizeof(CMD_GP_VipAward));
 	}
 	DWORD	dwUserID;													//id
-	DWORD	dwOpTerminal;												//²Ù×÷ÖÕ¶Ë£¨1£ºpc, 2£ºÊÖ»ú£©
-	TCHAR	szLogonPass[LEN_MD5];										//µÇÂ¼ÃÜÂë
-	DWORD	dwAwardType;												//½±ÀøÀàÐÍ1£ºµÇÂ¼½±Àø½ð±Ò 2£º ½±Àøºì°ü£¨ËéÆ¬£©
+	DWORD	dwOpTerminal;												//ï¿½ï¿½ï¿½ï¿½ï¿½Õ¶Ë£ï¿½1ï¿½ï¿½pc, 2ï¿½ï¿½ï¿½Ö»ï¿½
+	TCHAR	szLogonPass[LEN_MD5];										//ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½
+	DWORD	dwAwardType;												//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½1ï¿½ï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 2ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ¬ï¿½ï¿½
 };
-//vip½±ÀøÁìÈ¡
+//vipï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¡
 struct CMD_GP_VipAwardLog
 {
 	CMD_GP_VipAwardLog()
 	{
 		//memset(this, 0, sizeof(CMD_GP_VipAwardLog));
 	}
-	DWORD	dwRet;														//0£º³É¹¦£¬1£ºÊ§°Ü
-	TCHAR	szDescribeString[128];										//ÃèÊöÏûÏ¢
+	DWORD	dwRet;														//0ï¿½ï¿½ï¿½É¹ï¿½ï¿½ï¿½1ï¿½ï¿½Ê§ï¿½ï¿½
+	TCHAR	szDescribeString[128];										//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
 };
 //////////////////////////////////////////////////////////////////////////////////
-//²Ù×÷Ê§°Ü
+//ï¿½ï¿½ï¿½ï¿½Ê§ï¿½ï¿½
 struct CMD_GP_OperateFailure
 {
-	long							lResultCode;						//´íÎó´úÂë
-	TCHAR							szDescribeString[128];				//ÃèÊöÏûÏ¢
+	long							lResultCode;						//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	TCHAR							szDescribeString[128];				//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
 };
 
-//²Ù×÷³É¹¦
+//ï¿½ï¿½ï¿½ï¿½ï¿½É¹ï¿½
 struct CMD_GP_OperateSuccess
 {
-	long							lResultCode;						//²Ù×÷´úÂë
-	TCHAR							szDescribeString[128];				//³É¹¦ÏûÏ¢
+	long							lResultCode;						//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	TCHAR							szDescribeString[128];				//ï¿½É¹ï¿½ï¿½ï¿½Ï¢
 };
 
 //////////////////////////////////////////////////////////////////////////
-//ÈÎÎñ
-#define MDM_GL_C_DATA					1								//´óÌü--¿Í»§¶ËÊý¾Ý
-#define SUB_GL_C_LOGON_ACCOUNTS	 		100								//ÕÊºÅµÇÂ¼
-#define SUB_GL_C_MATCH_GAME		 		101								//±ÈÈüµÄÓÎÏ·
-#define SUB_GL_C_MATCH_TYPE		 		102								//±ÈÈüÀàÐÍ£¨1Ã¿ÌìÑ­»·Èü£¬2Ã¿Ìì¶¨Ê±Èü£¬3¶¨Ê±Èü£¬4ÂúÈË¿ªÈü£©
-#define SUB_GL_C_MATCH_INFO		 		103								//±ÈÈüÁÐ±í£¨Ìí¼Ó£¬¸üÐÂ£¬ÊÇ·ñ±¨Ãû£©
-#define SUB_GL_C_MATCH_DELETE	 		104								//±ÈÈüÁÐ±íÉ¾³ý
-#define SUB_GL_C_MATCH_NUM				105								//±ÈÈüÈËÊý
-#define SUB_GL_C_MATCH_SIGNUP			106								//±ÈÈü±¨Ãû
-#define SUB_GL_C_MATCH_START			107								//±ÈÈü¿ªÊ¼£¨À­ÈË£©
-#define SUB_GL_C_MATCH_RANK				108								//¹Ú¾ü
-#define SUB_GL_C_MATCH_WITHDRAWAL		109							//±ÈÈüÍËÈü
-#define SUB_GL_C_MATCH_COUNTDOWN		110								//µ¹¼ÆÊ±
+//ï¿½ï¿½ï¿½ï¿½
+#define MDM_GL_C_DATA					1								//ï¿½ï¿½ï¿½ï¿½--ï¿½Í»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+#define SUB_GL_C_LOGON_ACCOUNTS	 		100								//ï¿½ÊºÅµï¿½Â¼
+#define SUB_GL_C_MATCH_GAME		 		101								//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï·
+#define SUB_GL_C_MATCH_TYPE		 		102								//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í£ï¿½1Ã¿ï¿½ï¿½Ñ­ï¿½ï¿½ï¿½ï¿½2Ã¿ï¿½ì¶¨Ê±ï¿½ï¿½3ï¿½ï¿½Ê±ï¿½ï¿½4ï¿½ï¿½ï¿½Ë¿ï¿½ï¿½ï¿½
+#define SUB_GL_C_MATCH_INFO		 		103								//ï¿½ï¿½ï¿½ï¿½ï¿½Ð±?ï¿½ï¿½Ó£ï¿½ï¿½ï¿½ï¿½Â£ï¿½ï¿½Ç·ï¿½ï¿½ï¿½
+#define SUB_GL_C_MATCH_DELETE	 		104								//ï¿½ï¿½ï¿½ï¿½ï¿½Ð±ï¿½É¾ï¿½ï¿½
+#define SUB_GL_C_MATCH_NUM				105								//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+#define SUB_GL_C_MATCH_SIGNUP			106								//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+#define SUB_GL_C_MATCH_START			107								//ï¿½ï¿½ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½Ë£ï¿½
+#define SUB_GL_C_MATCH_RANK				108								//ï¿½Ú¾ï¿½
+#define SUB_GL_C_MATCH_WITHDRAWAL		109							//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+#define SUB_GL_C_MATCH_COUNTDOWN		110								//ï¿½ï¿½ï¿½ï¿½Ê±
 
-#define  SUB_C_MATCH_START_NEXT     6                 //ÔÙ´ÎÌôÕ½
+#define  SUB_C_MATCH_START_NEXT     6                 //ï¿½Ù´ï¿½ï¿½ï¿½Õ½
 #define  SUB_GL_C_UPDATE_NOTIFY       111
 
-#define SUB_GL_SIGNUP_SUCCESS			155								//±¨Ãû³É¹¦
-#define SUB_GL_SIGNUP_FAILURE			156								//±¨ÃûÊ§°Ü
-//ÍËÈü½á¹û
-#define SUB_GL_WITHDRAW_SUCCESS			157								//ÍËÈü³É¹¦
-#define SUB_GL_WITHDRAW_FAILURE			158								//ÍËÈüÊ§°Ü
+#define SUB_GL_SIGNUP_SUCCESS			155								//ï¿½ï¿½ï¿½ï¿½É¹ï¿½
+#define SUB_GL_SIGNUP_FAILURE			156								//ï¿½ï¿½ï¿½ï¿½Ê§ï¿½ï¿½
+//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+#define SUB_GL_WITHDRAW_SUCCESS			157								//ï¿½ï¿½ï¿½ï¿½É¹ï¿½
+#define SUB_GL_WITHDRAW_FAILURE			158								//ï¿½ï¿½ï¿½ï¿½Ê§ï¿½ï¿½
 
-#define	SUB_GL_C_TASK_LOAD				114								//¼ÓÔØÈÎÎñ
-#define	SUB_GL_C_TASK_REWARD			115								//ÁìÈ¡½±Àø
-#define SUB_GL_C_SYSTEM_MESSAGE		    112								//´óÌüÏûÏ¢
+#define	SUB_GL_C_TASK_LOAD				114								//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+#define	SUB_GL_C_TASK_REWARD			115								//ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½
+#define SUB_GL_C_SYSTEM_MESSAGE		    112								//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
 
-//¿ØÖÆÑÚÂë
-#define SMT_CLOSE_ROOM				0x0100								//¹Ø±Õ·¿¼ä
-#define SMT_CLOSE_GAME				0x0200								//¹Ø±ÕÓÎÏ·
-#define SMT_CLOSE_LINK				0x0400								//ÖÐ¶ÏÁ¬½Ó
+//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+#define SMT_CLOSE_ROOM				0x0100								//ï¿½Ø±Õ·ï¿½ï¿½ï¿½
+#define SMT_CLOSE_GAME				0x0200								//ï¿½Ø±ï¿½ï¿½ï¿½Ï·
+#define SMT_CLOSE_LINK				0x0400								//ï¿½Ð¶ï¿½ï¿½ï¿½ï¿½ï¿½
 #define SMT_CLOSE_HALL				0x0800	
 
-#define SUB_GL_MB_LOGON_ACCOUNTS	 	116								//ÊÖ»úµÇÂ¼
+#define SUB_GL_MB_LOGON_ACCOUNTS	 	116								//ï¿½Ö»ï¿½ï¿½Â¼
 #define SUB_GL_LOGON_SUCCESS            150
 
 #define  TASK_TITLE_LEN			32
@@ -1234,27 +1235,27 @@ struct CMD_GP_OperateSuccess
 #define  LEN_AWARD				32
 
 
-//ÏµÍ³ÏûÏ¢
+//ÏµÍ³ï¿½ï¿½Ï¢
 struct CMD_GL_SystemMessage
 {
-	WORD							wType;								//ÏûÏ¢ÀàÐÍ
-	WORD							wLength;							//ÏûÏ¢³¤¶È
-	TCHAR							szString[1024];						//ÏûÏ¢ÄÚÈÝ
+	WORD							wType;								//ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½
+	WORD							wLength;							//ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½
+	TCHAR							szString[1024];						//ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½
 };
 
 
-//ÈÎÎñµÇÂ¼
+//ï¿½ï¿½ï¿½ï¿½ï¿½Â¼
 struct CMD_GL_LogonAccounts
 {
-	//ÏµÍ³ÐÅÏ¢
-	//DWORD							dwPlazaVersion;						//¹ã³¡°æ±¾
-	TCHAR							szMachineID[LEN_MACHINE_ID];		//»úÆ÷ÐòÁÐ
-	//TCHAR							szPassPortID[LEN_PASS_PORT_ID];		 //Éí·ÝÖ¤ºÅ£¨Éí·ÝÖ¤°ó¶¨Ê¹ÓÃ£©
-	//TCHAR							szPhoneVerifyID[LEN_PHONE_VERIFY_ID];//ÊÖ»úÑéÖ¤ºÅ£¨ÊÖ»ú°ó¶¨Ê¹ÓÃ£©
-	//µÇÂ¼ÐÅÏ¢
-	TCHAR							szPassword[LEN_MD5];				//µÇÂ¼ÃÜÂë
-	TCHAR							szAccounts[LEN_ACCOUNTS];			//µÇÂ¼ÕÊºÅ
-	//BYTE							cbValidateFlags;			        //Ð£Ñé±êÊ¶
+	//ÏµÍ³ï¿½ï¿½Ï¢
+	//DWORD							dwPlazaVersion;						//ï¿½ã³¡ï¿½æ±¾
+	TCHAR							szMachineID[LEN_MACHINE_ID];		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	//TCHAR							szPassPortID[LEN_PASS_PORT_ID];		 //ï¿½ï¿½ï¿½Ö¤ï¿½Å£ï¿½ï¿½ï¿½ï¿½Ö¤ï¿½ï¿½Ê¹ï¿½Ã£ï¿½
+	//TCHAR							szPhoneVerifyID[LEN_PHONE_VERIFY_ID];//ï¿½Ö»ï¿½ï¿½ï¿½Ö¤ï¿½Å£ï¿½ï¿½Ö»ï¿½ï¿½Ê¹ï¿½Ã£ï¿½
+	//ï¿½ï¿½Â¼ï¿½ï¿½Ï¢
+	TCHAR							szPassword[LEN_MD5];				//ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½
+	TCHAR							szAccounts[LEN_ACCOUNTS];			//ï¿½ï¿½Â¼ï¿½Êºï¿½
+	//BYTE							cbValidateFlags;			        //Ð£ï¿½ï¿½ï¿½Ê¶
 };
 
 struct CMD_GL_GetTask
@@ -1263,9 +1264,9 @@ struct CMD_GL_GetTask
 	{
 		//memset(this, 0, sizeof(CMD_GL_GetTask));
 	}
-	DWORD				dwOpTerminal;							//²Ù×÷ÖÕ¶Ë£¨1£ºpc, 2£ºÊÖ»ú£©
+	DWORD				dwOpTerminal;							//ï¿½ï¿½ï¿½ï¿½ï¿½Õ¶Ë£ï¿½1ï¿½ï¿½pc, 2ï¿½ï¿½ï¿½Ö»ï¿½
 };
-//ÈÎÎñ½±Àø£¬×î¶à3¸ö
+//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½3ï¿½ï¿½
 struct CMD_GL_TaskAward
 {
 	CMD_GL_TaskAward()
@@ -1279,7 +1280,7 @@ struct CMD_GL_TaskAward
 	DWORD           dwAward3;
 	TCHAR			szAward3[LEN_AWARD];
 };
-//ÈÎÎñ
+//ï¿½ï¿½ï¿½ï¿½
 struct CMD_GL_TaskInfo
 {
 	CMD_GL_TaskInfo()
@@ -1296,7 +1297,7 @@ struct CMD_GL_TaskInfo
 	DWORD				dwCurProgress;
 };
 
-//½ÓÊÜ, ½±Àø
+//ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½
 struct CMD_GL_TaskID
 {
 	CMD_GL_TaskID()
@@ -1305,51 +1306,51 @@ struct CMD_GL_TaskID
 	}
 	DWORD				dwTaskID;
 	DWORD				dwUserID;
-	TCHAR				szPassword[LEN_MD5];				//µÇÂ¼ÃÜÂë
+	TCHAR				szPassword[LEN_MD5];				//ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½
 };
 
-//½±Àø·µ»Ø
+//ï¿½ï¿½ï¿½ï¿½ï¿½
 struct CMD_GL_TaskIDLog
 {
 	CMD_GL_TaskIDLog()
 	{
 		//memset(this, 0, sizeof(CMD_GL_TaskIDLog));
 	}
-	long							lResultCode;						//²Ù×÷´úÂë
-	TCHAR							szDescribeString[128];				//³É¹¦ÏûÏ¢
+	long							lResultCode;						//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	TCHAR							szDescribeString[128];				//ï¿½É¹ï¿½ï¿½ï¿½Ï¢
 };
 
-//ÈÎÎñ/±ÈÈü·þÎñÆ÷
+//ï¿½ï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 struct CMD_GP_LobbyIp
 {
-	DWORD							dwUserID;							//ÓÃ»§ I D
-	SCORE                           lIngot;							    //Ôª±¦
-	SCORE							lUserScore;							//ÓÃ»§½ð±Ò
+	DWORD							dwUserID;							//ï¿½Ã»ï¿½ I D
+	SCORE                           lIngot;							    //Ôªï¿½ï¿½
+	SCORE							lUserScore;							//ï¿½Ã»ï¿½ï¿½ï¿½ï¿½
 	TCHAR							szServerIP[LEN_ADDR];
 	DWORD							dwServerPort; 
 };
-//////////////////////////////////////////////////////////////////////////ÏûÏ¢
-#define SUB_GL_C_MESSAGE				113								//ÏûÏ¢
+//////////////////////////////////////////////////////////////////////////ï¿½ï¿½Ï¢
+#define SUB_GL_C_MESSAGE				113								//ï¿½ï¿½Ï¢
 #define MSG_MESSAGE_LEN		516
 #define MSG_TITLE			32
 #define DATE_LENGTH			64
 
 enum MsgPositionType
 {
-	Position_Top = 1,		//ÉÏÃæ
-	Position_Under,			//ÏÂÃæ
-	Position_Right,			//ÓÒÉÏ½Ç
+	Position_Top = 1,		//ï¿½ï¿½ï¿½ï¿½
+	Position_Under,			//ï¿½ï¿½ï¿½ï¿½
+	Position_Right,			//ï¿½ï¿½ï¿½Ï½ï¿½
 };
 enum MsgType
 {
-	Msg_Delta = 1,			//³äÖµ			£¨Ö»µ¯Ò»´Î£¬ÔÚÏß£©
-	Msg_Rewards,			//ÈÎÎñ½±Àø		£¨Ö»µ¯Ò»´Î£¬ÔÚÏß£©
-	Msg_Sell,				//ÅÄÂô			£¨Ö»µ¯Ò»´Î£¬ÔÚÏß£©
-	Msg_Rolling,			//¹ö¶¯ÏûÏ¢		 (·¢ËÍÒ»´Î£¬ÊµÊ±ÏÔÊ¾£©
-	Msg_Notice,				//¹«¸æ			£¨µÇÂ¼»òÔÚÏß£¬¶¼·¢ËÍ£©
-	Msg_Building,			//ÇÀÂ¥			 Ö»µ¯Ò»´Î£¬ÔÚÏß£©
-	Msg_Sell_Success,		//ÅÄÂô³É¹¦
-	Msg_Vip,				//vip			£¨Ö»µ¯Ò»´Î£¬ÔÚÏß
+	Msg_Delta = 1,			//ï¿½ï¿½Öµ			ï¿½ï¿½Ö»ï¿½ï¿½Ò»ï¿½Î£ï¿½ï¿½ï¿½ï¿½ß£ï¿½
+	Msg_Rewards,			//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½		ï¿½ï¿½Ö»ï¿½ï¿½Ò»ï¿½Î£ï¿½ï¿½ï¿½ï¿½ß£ï¿½
+	Msg_Sell,				//ï¿½ï¿½ï¿½ï¿½			ï¿½ï¿½Ö»ï¿½ï¿½Ò»ï¿½Î£ï¿½ï¿½ï¿½ï¿½ß£ï¿½
+	Msg_Rolling,			//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢		 (ï¿½ï¿½ï¿½ï¿½Ò»ï¿½Î£ï¿½ÊµÊ±ï¿½ï¿½Ê¾ï¿½ï¿½
+	Msg_Notice,				//ï¿½ï¿½ï¿½ï¿½			ï¿½ï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½ï¿½ß£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í£ï¿½
+	Msg_Building,			//ï¿½ï¿½Â¥			 Ö»ï¿½ï¿½Ò»ï¿½Î£ï¿½ï¿½ï¿½ï¿½ß£ï¿½
+	Msg_Sell_Success,		//ï¿½ï¿½ï¿½ï¿½ï¿½É¹ï¿½
+	Msg_Vip,				//vip			ï¿½ï¿½Ö»ï¿½ï¿½Ò»ï¿½Î£ï¿½ï¿½ï¿½ï¿½ï¿½
 	Msg_9,
 	Msg_10,
 	Msg_11,
@@ -1377,111 +1378,111 @@ struct CMD_GL_MsgNode
 };
 
 //////////////////////////////////////////////////////////////////////////
-//»ñÈ¡Ç©µ½ÁÐ±í
+//ï¿½ï¿½È¡Ç©ï¿½ï¿½ï¿½Ð±ï¿½
 struct CMD_GP_GetSignInTask
 {
 	CMD_GP_GetSignInTask()
 	{
 		memset(this, 0, sizeof(CMD_GP_GetSignInTask));
 	}
-	DWORD	dwUserID;													//ÓÃ»§ I D
-	DWORD	dwOpTerminal;												//²Ù×÷ÖÕ¶Ë£¨1£ºpc, 2£ºÊÖ»úÅ£Å£ 3£ºÊÖ»ú²¶Óã£©
+	DWORD	dwUserID;													//ï¿½Ã»ï¿½ I D
+	DWORD	dwOpTerminal;												//ï¿½ï¿½ï¿½ï¿½ï¿½Õ¶Ë£ï¿½1ï¿½ï¿½pc, 2ï¿½ï¿½ï¿½Ö»ï¿½Å£Å£ 3ï¿½ï¿½ï¿½Ö»ï¿½ï¿½ã£©
 };
 
-//Ã¿ÌìÇ©µ½ÁÐ±í
+//Ã¿ï¿½ï¿½Ç©ï¿½ï¿½ï¿½Ð±ï¿½
 struct CMD_GP_SignInTask
 {
 	CMD_GP_SignInTask()
 	{
 		memset(this, 0, sizeof(CMD_GP_SignInTask));
 	}
-	DWORD	dwDay;														//ÌìÊý    1£ºÃ¿Ìì  >1 ÀÛ¼Æ   >27:ÂúÔÂ
-	SCORE	lScore;														//½±Àø½ð±Ò
+	DWORD	dwDay;														//ï¿½ï¿½ï¿½ï¿½    1ï¿½ï¿½Ã¿ï¿½ï¿½  >1 ï¿½Û¼ï¿½   >27:ï¿½ï¿½ï¿½ï¿½
+	SCORE	lScore;														//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 };
-//»ñÈ¡Ç©µ½ÁÐ±í
+//ï¿½ï¿½È¡Ç©ï¿½ï¿½ï¿½Ð±ï¿½
 struct CMD_GP_GetSignInTaskInfo
 {
 	CMD_GP_GetSignInTaskInfo()
 	{
 		memset(this, 0, sizeof(CMD_GP_GetSignInTaskInfo));
 	}
-	DWORD	dwDay;												//ÀÛ¼Æ¼¸Ìì
-	CMD_GP_SignInTask   SignInTask[7];							//ÀÛ¼Æ½±Àø£¬×î¶à6¸ö,ÆäÖÐÒ»¸öÊÇÃ¿Ìì
+	DWORD	dwDay;												//ï¿½Û¼Æ¼ï¿½ï¿½ï¿½
+	CMD_GP_SignInTask   SignInTask[7];							//ï¿½Û¼Æ½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½6ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½Ã¿ï¿½ï¿½
 };
 
-//Ç©µ½
+//Ç©ï¿½ï¿½
 struct CMD_GP_SignIn
 {
 	CMD_GP_SignIn()
 	{
 		memset(this, 0, sizeof(CMD_GP_SignIn));
 	}
-	DWORD	dwUserID;													//ÓÃ»§ I D
-	DWORD	dwOpTerminal;												//²Ù×÷ÖÕ¶Ë£¨1£ºpc, 2£ºÊÖ»úÅ£Å£ 3£ºÊÖ»ú²¶Óã£©
-	TCHAR	szLogonPass[LEN_MD5];										//µÇÂ¼ÃÜÂë
+	DWORD	dwUserID;													//ï¿½Ã»ï¿½ I D
+	DWORD	dwOpTerminal;												//ï¿½ï¿½ï¿½ï¿½ï¿½Õ¶Ë£ï¿½1ï¿½ï¿½pc, 2ï¿½ï¿½ï¿½Ö»ï¿½Å£Å£ 3ï¿½ï¿½ï¿½Ö»ï¿½ï¿½ã£©
+	TCHAR	szLogonPass[LEN_MD5];										//ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½
 };
 
-//Ã¿ÌìÇ©µ½½±Àø
+//Ã¿ï¿½ï¿½Ç©ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 struct CMD_GP_SignInTaskLog
 {
 	CMD_GP_SignInTaskLog()
 	{
 		memset(this, 0, sizeof(CMD_GP_SignInTaskLog));
 	}
-	DWORD	dwRet;														//0£º³É¹¦£¬1£ºÊ§°Ü
-	SCORE	lScore;														//Ã¿Ìì½±Àø½ð±Ò
-	DWORD	dwDay;														//ÌìÊý    1£ºÃ¿Ìì  >1 ÀÛ¼Æ   >27:ÂúÔÂ
-	SCORE	lAllScore;													//ÀÛ¼Æ½ð±Ò
-	TCHAR	szDescribeString[128];										//ÃèÊöÏûÏ¢
+	DWORD	dwRet;														//0ï¿½ï¿½ï¿½É¹ï¿½ï¿½ï¿½1ï¿½ï¿½Ê§ï¿½ï¿½
+	SCORE	lScore;														//Ã¿ï¿½ì½±ï¿½ï¿½ï¿½ï¿½
+	DWORD	dwDay;														//ï¿½ï¿½ï¿½ï¿½    1ï¿½ï¿½Ã¿ï¿½ï¿½  >1 ï¿½Û¼ï¿½   >27:ï¿½ï¿½ï¿½ï¿½
+	SCORE	lAllScore;													//ï¿½Û¼Æ½ï¿½ï¿½
+	TCHAR	szDescribeString[128];										//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
 };
 
-//°ó¶¨ÊÖ»úÏà¹Ø
+//ï¿½ï¿½ï¿½Ö»ï¿½ï¿½ï¿½ï¿½
 
-//»ñÈ¡ÑéÖ¤Âë
+//ï¿½ï¿½È¡ï¿½ï¿½Ö¤ï¿½ï¿½
 struct CMD_GP_Get_Captcha
 {
 	CMD_GP_Get_Captcha()
 	{
 		memset(this, 0, sizeof(CMD_GP_Get_Captcha));
 	}
-	DWORD							dwUserID;							//ÓÃ»§ I D
-	TCHAR							szLogonPass[LEN_MD5];				//µÇÂ¼ÃÜÂë
-	TCHAR							szPhone[LEN_MOBILE_PHONE];			//ÒÆ¶¯µç»°
-	TCHAR							szMachineID[LEN_MACHINE_ID];		//»úÆ÷ÐòÁÐ
+	DWORD							dwUserID;							//ï¿½Ã»ï¿½ I D
+	TCHAR							szLogonPass[LEN_MD5];				//ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½
+	TCHAR							szPhone[LEN_MOBILE_PHONE];			//ï¿½Æ¶ï¿½ï¿½ç»°
+	TCHAR							szMachineID[LEN_MACHINE_ID];		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 };
 
 
-//·¢ËÍÑéÖ¤Âë
+//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¤ï¿½ï¿½
 struct CMD_GP_Send_Captcha
 {
 	CMD_GP_Send_Captcha()
 	{
 		memset(this, 0, sizeof(CMD_GP_Send_Captcha));
 	}
-	DWORD							dwUserID;							//ÓÃ»§ I D
-	DWORD							dwCaptcha;							//ÑéÖ¤Âë
+	DWORD							dwUserID;							//ï¿½Ã»ï¿½ I D
+	DWORD							dwCaptcha;							//ï¿½ï¿½Ö¤ï¿½ï¿½
 };
 
-//ÑéÖ¤ÂëÊ§°Ü
+//ï¿½ï¿½Ö¤ï¿½ï¿½Ê§ï¿½ï¿½
 struct CMD_GP_CaptchaRet
 {
 	CMD_GP_CaptchaRet()
 	{
 		memset(this, 0, sizeof(CMD_GP_CaptchaRet));
 	}
-	LONG							lResultCode;						//´íÎó´úÂë
-	TCHAR							szDescribeString[128];				//ÃèÊöÏûÏ¢
+	LONG							lResultCode;						//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	TCHAR							szDescribeString[128];				//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
 };
 
 //////////////////////////////////////////////////////////////////////////
-//ÕÒ»ØÃÜÂëÏà¹Ø
+//ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 struct CMD_GP_Accounts
 {
 	CMD_GP_Accounts()
 	{
 		memset(this, 0, sizeof(CMD_GP_Accounts));
 	}
-	TCHAR							szAccounts[LEN_ACCOUNTS];			//ÕÊºÅ
+	TCHAR							szAccounts[LEN_ACCOUNTS];			//ï¿½Êºï¿½
 };
 
 struct CMD_GP_AccountsRet
@@ -1490,10 +1491,10 @@ struct CMD_GP_AccountsRet
 	{
 		memset(this, 0, sizeof(CMD_GP_AccountsRet));
 	}
-	LONG							lResultCode;						//´íÎó´úÂë
+	LONG							lResultCode;						//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	DWORD							dwUserID;
-	TCHAR							szPhone[LEN_MOBILE_PHONE];			//ÒÆ¶¯µç»°
-	TCHAR							szDescribeString[128];				//ÃèÊöÏûÏ¢
+	TCHAR							szPhone[LEN_MOBILE_PHONE];			//ï¿½Æ¶ï¿½ï¿½ç»°
+	TCHAR							szDescribeString[128];				//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
 };
 
 struct CMD_GP_GetCaptchaByUserID
@@ -1512,77 +1513,77 @@ struct CMD_GP_SetPass
 	{
 		memset(this, 0, sizeof(CMD_GP_SetPass));
 	}
-	DWORD							dwUserID;							//ÓÃ»§ I D
-	DWORD							dwCaptcha;							//ÑéÖ¤Âë
-	TCHAR							szLogonPass[LEN_MD5];				//µÇÂ¼ÃÜÂë
+	DWORD							dwUserID;							//ï¿½Ã»ï¿½ I D
+	DWORD							dwCaptcha;							//ï¿½ï¿½Ö¤ï¿½ï¿½
+	TCHAR							szLogonPass[LEN_MD5];				//ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½
 };
-//ÖØÉèÃÜÂë·µ»Ø
+//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ë·µï¿½ï¿½
 struct CMD_GP_SetPassRet
 {
 	CMD_GP_SetPassRet()
 	{
 		memset(this, 0, sizeof(CMD_GP_SetPassRet));
 	}
-	LONG							lResultCode;						//´íÎó´úÂë
-	TCHAR							szDescribeString[128];				//ÃèÊöÏûÏ¢
+	LONG							lResultCode;						//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	TCHAR							szDescribeString[128];				//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
 };
 
 
-//ÖØÖÃÒøÐÐÃÜÂëÏà¹Ø
-//ÖØÉèÒøÐÐÃÜÂë---»ñÈ¡ÑéÖ¤Âë
+//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½---ï¿½ï¿½È¡ï¿½ï¿½Ö¤ï¿½ï¿½
 struct CMD_GP_SetInsurePassGetCaptcha
 {
 	CMD_GP_SetInsurePassGetCaptcha()
 	{
 		memset(this, 0, sizeof(CMD_GP_SetInsurePassGetCaptcha));
 	}
-	DWORD							dwUserID;							//ÓÃ»§ I D
-	TCHAR							szLogonPass[LEN_MD5];				//µÇÂ¼ÃÜÂë
-	TCHAR							szMachineID[LEN_MACHINE_ID];		//»úÆ÷ÐòÁÐ
+	DWORD							dwUserID;							//ï¿½Ã»ï¿½ I D
+	TCHAR							szLogonPass[LEN_MD5];				//ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½
+	TCHAR							szMachineID[LEN_MACHINE_ID];		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 };
 
 
 
-//½â°ðÖ÷»ú
+//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 struct CMD_GP_UnMoorMachine
 {
 	CMD_GP_UnMoorMachine()
 	{
 		memset(this, 0, sizeof(CMD_GP_UnMoorMachine));
 	}
-	DWORD							dwUserID;							//ÓÃ»§ I D
-	DWORD							dwCaptcha;							//ÑéÖ¤Âë
-	TCHAR							szMachineID[LEN_MACHINE_ID];		//»úÆ÷ÐòÁÐ
+	DWORD							dwUserID;							//ï¿½Ã»ï¿½ I D
+	DWORD							dwCaptcha;							//ï¿½ï¿½Ö¤ï¿½ï¿½
+	TCHAR							szMachineID[LEN_MACHINE_ID];		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 };
-//½â°ðÖ÷»ú·µ»Ø
+//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 struct CMD_GP_UnMoorMachineRet
 {
 	CMD_GP_UnMoorMachineRet()
 	{
 		memset(this, 0, sizeof(CMD_GP_UnMoorMachineRet));
 	}
-	LONG							lResultCode;						//´íÎó´úÂë
-	TCHAR							szDescribeString[128];				//ÃèÊöÏûÏ¢
+	LONG							lResultCode;						//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	TCHAR							szDescribeString[128];				//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
 };
 
 
 //////////////////////////////////////////////////////////////////////////
-//Ôª±¦¶Ò»»
+//Ôªï¿½ï¿½ï¿½Ò»ï¿½
 struct CMD_GP_UserExchangeIngot
 {
-	DWORD							dwUserID;							//ÓÃ»§ I D
-	DWORD							dwIngot;							//Ôª±¦
-	TCHAR							szPassword[LEN_MD5];				//±£ÏÕ¹ñÃÜÂë
-	TCHAR							szMachineID[LEN_MACHINE_ID];		//»úÆ÷ÐòÁÐ
+	DWORD							dwUserID;							//ï¿½Ã»ï¿½ I D
+	DWORD							dwIngot;							//Ôªï¿½ï¿½
+	TCHAR							szPassword[LEN_MD5];				//ï¿½ï¿½ï¿½Õ¹ï¿½ï¿½ï¿½ï¿½ï¿½
+	TCHAR							szMachineID[LEN_MACHINE_ID];		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 };
 
-//Ôª±¦¶Ò»»³É¹¦
+//Ôªï¿½ï¿½ï¿½Ò»ï¿½ï¿½É¹ï¿½
 struct CMD_GP_ExchangeIngotSuccess
 {
-	DWORD							dwUserID;							//ÓÃ»§ I D
-	SCORE							lInsure;							//ÒøÐÐ
-	SCORE							lIngot;								//Ôª±¦
-	TCHAR							szDescribeString[128];				//ÃèÊöÏûÏ¢
+	DWORD							dwUserID;							//ï¿½Ã»ï¿½ I D
+	SCORE							lInsure;							//ï¿½ï¿½ï¿½ï¿½
+	SCORE							lIngot;								//Ôªï¿½ï¿½
+	TCHAR							szDescribeString[128];				//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
 };
 
 
@@ -1590,15 +1591,15 @@ struct CMD_GP_ExchangeIngotSuccess
 #define MORENAME_ICO_LEN				32
 #define MORENAME_URL_LEN				128
 
-//»ñÈ¡¸ü¶àÓÎÏ·
+//ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½Ï·
 struct CMD_GP_GetMoreGame
 {
 	CMD_GP_GetMoreGame()
 	{
 		//memset(this, 0, sizeof(CMD_GP_GetMoreGame));
 	}
-	DWORD	dwOpTerminal;												//²Ù×÷ÖÕ¶Ë£¨1£ºpc, 2£ºÊÖ»úÅ£Å£ 3£ºÊÖ»ú²¶Óã£©
-	WORD	wPlatformType;												//Æ½Ì¨ÀàÐÍ£¨1£ºÆß²ÊÅ£Æ½Ì¨£©
+	DWORD	dwOpTerminal;												//ï¿½ï¿½ï¿½ï¿½ï¿½Õ¶Ë£ï¿½1ï¿½ï¿½pc, 2ï¿½ï¿½ï¿½Ö»ï¿½Å£Å£ 3ï¿½ï¿½ï¿½Ö»ï¿½ï¿½ã£©
+	WORD	wPlatformType;												//Æ½Ì¨ï¿½ï¿½ï¿½Í£ï¿½1ï¿½ï¿½ï¿½ß²ï¿½Å£Æ½Ì¨ï¿½ï¿½
 };
 
 struct CMD_GP_MoreGame
@@ -1607,17 +1608,17 @@ struct CMD_GP_MoreGame
 	{
 		//memset(this, 0, sizeof(CMD_GP_MoreGame));
 	}
-	TCHAR	szPackageName[MORENAME_NAME_LEN];							//ÓÎÏ·°üÃû
-	TCHAR	szActivityName[MORENAME_NAME_LEN];							   //½ø³ÌÃû³Æ
-	TCHAR	szICO[MORENAME_ICO_LEN];									           //Í¼Æ¬ÏÂÔØµØÖ·
-	TCHAR	szUrlAndroid[MORENAME_URL_LEN];								       //androidÏÂÔØµØÖ·
-	TCHAR	szUrlIos[MORENAME_URL_LEN];									           //iosÏÂÔØµØÖ·
+	TCHAR	szPackageName[MORENAME_NAME_LEN];							//ï¿½ï¿½Ï·ï¿½ï¿½ï¿½ï¿½
+	TCHAR	szActivityName[MORENAME_NAME_LEN];							   //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	TCHAR	szICO[MORENAME_ICO_LEN];									           //Í¼Æ¬ï¿½ï¿½ï¿½Øµï¿½Ö·
+	TCHAR	szUrlAndroid[MORENAME_URL_LEN];								       //androidï¿½ï¿½ï¿½Øµï¿½Ö·
+	TCHAR	szUrlIos[MORENAME_URL_LEN];									           //iosï¿½ï¿½ï¿½Øµï¿½Ö·
 
-	TCHAR	szGameName[MORENAME_NAME_LEN];								   //Ó¦ÓÃÃû
-	TCHAR	szDescribeString[MORENAME_URL_LEN];							   //ÃèÊöÏûÏ¢
+	TCHAR	szGameName[MORENAME_NAME_LEN];								   //Ó¦ï¿½ï¿½ï¿½ï¿½
+	TCHAR	szDescribeString[MORENAME_URL_LEN];							   //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
 };
 
-//·´À¡
+//ï¿½ï¿½ï¿½ï¿½
 struct CMD_GP_Feedback
 {
 	CMD_GP_Feedback()
@@ -1627,7 +1628,7 @@ struct CMD_GP_Feedback
 	TCHAR	szAccounts[LEN_ACCOUNTS];
 	TCHAR	szTitle[32];
 	TCHAR	szQQ[16];
-	TCHAR	szContent[256];										//ÃèÊöÏûÏ¢
+	TCHAR	szContent[256];										//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
 };
 
 struct CMD_GP_FeedbackLog
@@ -1636,11 +1637,11 @@ struct CMD_GP_FeedbackLog
 	{
 		memset(this, 0, sizeof(CMD_GP_FeedbackLog));
 	}
-	DWORD	dwRet;														//0£º³É¹¦£¬1£ºÊ§°Ü
-	TCHAR	szDescribeString[128];										//ÃèÊöÏûÏ¢
+	DWORD	dwRet;														//0ï¿½ï¿½ï¿½É¹ï¿½ï¿½ï¿½1ï¿½ï¿½Ê§ï¿½ï¿½
+	TCHAR	szDescribeString[128];										//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
 };
 
-//×ÊÔ´ÏÂÔØÏà¹Ø
+//ï¿½ï¿½Ô´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 struct CMD_GP_GetDownloadResUrl
 {
 	CMD_GP_GetDownloadResUrl()
@@ -1665,7 +1666,7 @@ struct CMD_GP_DownloadResUrl
 };
 
 //red notice
-//Î´¶ÁÐÅÏ¢»òÍê³ÉµÄÈÎÎñ
+//Î´ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½Éµï¿½ï¿½ï¿½ï¿½ï¿½
 struct  CMD_GP_UserIDNotify
 {
 	CMD_GP_UserIDNotify()
@@ -1675,20 +1676,20 @@ struct  CMD_GP_UserIDNotify
 	DWORD dwCount;
 };
 
-//³äÖµÏÂ¶©µ¥
+//ï¿½ï¿½Öµï¿½Â¶ï¿½ï¿½ï¿½
 struct CMD_GP_RechargeOrder
 {
 	CMD_GP_RechargeOrder()
 	{
 		memset(this, 0, sizeof(CMD_GP_RechargeOrder));
 	}
-	TCHAR	szAccounts[LEN_ACCOUNTS];									//ÕÊºÅ
-	DWORD	dwOpTerminal;												//²Ù×÷ÖÕ¶Ë£¨1£ºpc, 2£ºÊÖ»úÅ£Å£ 3£ºÊÖ»ú²¶Óã£©
-	DWORD	dwFirst;													//Ê×´Î³åÖµ
-	DWORD	dwOrderAmount;												//½ð¶î
-	DWORD	dwShareID;													//·þÎñÀàÐÍ 2£ºÍøÒø 7£ºÖ§¸¶±¦
-	TCHAR	szLogonPass[LEN_MD5];										//µÇÂ¼ÃÜÂë
-	TCHAR	szRechargeOrder[33];										//¶©µ¥
+	TCHAR	szAccounts[LEN_ACCOUNTS];									//ï¿½Êºï¿½
+	DWORD	dwOpTerminal;												//ï¿½ï¿½ï¿½ï¿½ï¿½Õ¶Ë£ï¿½1ï¿½ï¿½pc, 2ï¿½ï¿½ï¿½Ö»ï¿½Å£Å£ 3ï¿½ï¿½ï¿½Ö»ï¿½ï¿½ã£©
+	DWORD	dwFirst;													//ï¿½×´Î³ï¿½Öµ
+	DWORD	dwOrderAmount;												//ï¿½ï¿½ï¿½
+	DWORD	dwShareID;													//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 2ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 7ï¿½ï¿½Ö§ï¿½ï¿½ï¿½ï¿½
+	TCHAR	szLogonPass[LEN_MD5];										//ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½
+	TCHAR	szRechargeOrder[33];										//ï¿½ï¿½ï¿½ï¿½
 };
 
 struct CMD_GP_RechargeOrderLog
@@ -1697,14 +1698,14 @@ struct CMD_GP_RechargeOrderLog
 	{
 		memset(this, 0, sizeof(CMD_GP_RechargeOrderLog));
 	}
-	DWORD	dwRet;														//0£º³É¹¦£¬1£ºÊ§°Ü
-	TCHAR	szDescribeString[128];										//ÃèÊöÏûÏ¢
+	DWORD	dwRet;														//0ï¿½ï¿½ï¿½É¹ï¿½ï¿½ï¿½1ï¿½ï¿½Ê§ï¿½ï¿½
+	TCHAR	szDescribeString[128];										//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
 };
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
-//²¶Óã±ÈÈüÏà¹Ø
+//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
-//·þÎñ×´Ì¬
+//ï¿½ï¿½ï¿½ï¿½×´Ì¬
 enum MatchStatus
 {
 	Free = 1,				
@@ -1714,7 +1715,7 @@ enum MatchStatus
 };
 
 
-struct tagMatchSerial  //·¿¼äÎ¨Ò»ÐÔ
+struct tagMatchSerial  //ï¿½ï¿½ï¿½ï¿½Î¨Ò»ï¿½ï¿½
 {
 	int operator==(const tagMatchSerial& pOther) const
 	{
@@ -1725,10 +1726,10 @@ struct tagMatchSerial  //·¿¼äÎ¨Ò»ÐÔ
 	{
 		memset(this, 0, sizeof(tagMatchSerial));
 	}
-	SCORE			dwMatchInfoID;   //ÈçÂúÈË¿ªÈü£¬Îª0
+	SCORE			dwMatchInfoID;   //ï¿½ï¿½ï¿½ï¿½ï¿½Ë¿ï¿½ï¿½ï¿½Îª0
 	DWORD			dwKindID;
-	DWORD			dwMatchType;             //4(ÂúÈË¿ªÈü)
-	DWORD			dwFullPlayerNum;		//ÈçÂúÈË¿ªÈü£¬Õâ×ÖÓÐÓÃ£¨6ÈË£¬36ÈË£©
+	DWORD			dwMatchType;             //4(ï¿½ï¿½ï¿½Ë¿ï¿½ï¿½ï¿½)
+	DWORD			dwFullPlayerNum;		//ï¿½ï¿½ï¿½ï¿½ï¿½Ë¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã£ï¿½6ï¿½Ë£ï¿½36ï¿½Ë£ï¿½
 };
 
 struct CMD_GL_MatchGame
@@ -1740,11 +1741,11 @@ struct CMD_GL_MatchGame
 	DWORD			dwKindID;
 	DWORD           dwSortID;
 	DWORD           dwClientVersion;
-	TCHAR			szClientEXEName[LEN_PROCESS];		//½ø³ÌÃû×Ö
+	TCHAR			szClientEXEName[LEN_PROCESS];		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	TCHAR			szGameName[LEN_KIND];
 };
 
-//±¨Ãû³É¹¦
+//ï¿½ï¿½ï¿½ï¿½É¹ï¿½
 struct CMD_GL_SignUpSuccess
 {
 	CMD_GL_SignUpSuccess()
@@ -1752,17 +1753,17 @@ struct CMD_GL_SignUpSuccess
 		memset(this, 0, sizeof(CMD_GL_SignUpSuccess));
 	}
 	tagMatchSerial  MatchSerial;
-	//SCORE			lMatchID;											//ÈçÂúÈË¿ªÈü£¬Îª0
+	//SCORE			lMatchID;											//ï¿½ï¿½ï¿½ï¿½ï¿½Ë¿ï¿½ï¿½ï¿½Îª0
 	//WORD			wKindID;											
-	//WORD			wType;												//±ÈÈüÀàÐÍ
-	//WORD			wNumber;											//ÈçÂúÈË¿ªÈü£¬Õâ×ÖÓÐÓÃ£¨6ÈË£¬36ÈË£©
+	//WORD			wType;												//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	//WORD			wNumber;											//ï¿½ï¿½ï¿½ï¿½ï¿½Ë¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã£ï¿½6ï¿½Ë£ï¿½36ï¿½Ë£ï¿½
 	SCORE           dwSignUpScore;
 	DWORD			dwSignUpTicket;
-	LONG			lResultCode;										//²Ù×÷´úÂë
-	TCHAR			szDescribeString[128];								//³É¹¦ÏûÏ¢
+	LONG			lResultCode;										//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	TCHAR			szDescribeString[128];								//ï¿½É¹ï¿½ï¿½ï¿½Ï¢
 };
 
-//±¨ÃûÊ§°Ü
+//ï¿½ï¿½ï¿½ï¿½Ê§ï¿½ï¿½
 struct CMD_GL_SignUpFailure
 {
 	CMD_GL_SignUpFailure()
@@ -1770,14 +1771,14 @@ struct CMD_GL_SignUpFailure
 		memset(this, 0, sizeof(CMD_GL_SignUpFailure));
 	}
 	tagMatchSerial  MatchSerial;
-	//SCORE			lMatchID;											//ÈçÂúÈË¿ªÈü
+	//SCORE			lMatchID;											//ï¿½ï¿½ï¿½ï¿½ï¿½Ë¿ï¿½ï¿½ï¿½
 	//WORD			wKindID;											
-	//WORD			wType;												//±ÈÈüÀàÐÍ
-	//WORD			wNumber;											//ÈçÂúÈË¿ªÈü£¬Õâ×ÖÓÐÓÃ£¨6ÈË£¬36ÈË£©
-	LONG			lResultCode;										//²Ù×÷´úÂë
-	TCHAR			szDescribeString[128];								//ÃèÊöÏûÏ¢
+	//WORD			wType;												//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	//WORD			wNumber;											//ï¿½ï¿½ï¿½ï¿½ï¿½Ë¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã£ï¿½6ï¿½Ë£ï¿½36ï¿½Ë£ï¿½
+	LONG			lResultCode;										//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	TCHAR			szDescribeString[128];								//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
 };
-//±ÈÈü·¿¼äµØÖ·
+//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö·
 struct CMD_GL_MatchServer
 {
 	CMD_GL_MatchServer()
@@ -1786,13 +1787,13 @@ struct CMD_GL_MatchServer
 	}
 	tagMatchSerial  MatchSerial;
 	DWORD			dwServerID;
-	DWORD			dwUserID;							//ÓÃ»§ I D
-	SCORE           lIngot;								//Ôª±¦
-	SCORE			lUserScore;							//ÓÃ»§½ð±Ò
+	DWORD			dwUserID;							//ï¿½Ã»ï¿½ I D
+	SCORE           lIngot;								//Ôªï¿½ï¿½
+	SCORE			lUserScore;							//ï¿½Ã»ï¿½ï¿½ï¿½ï¿½
 	TCHAR			szServerIP[LEN_ADDR];
 	DWORD			dwServerPort; 
 };
-//±¨ÃûÈËÊý
+//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 struct CMD_GL_MatchNum
 {
 	CMD_GL_MatchNum()
@@ -1800,12 +1801,12 @@ struct CMD_GL_MatchNum
 		memset(this, 0, sizeof(CMD_GL_MatchNum));
 	}
 	tagMatchSerial  MatchSerial;
-	//SCORE			lMatchID;											//ÈçÂúÈË¿ªÈü£¬Îª0
+	//SCORE			lMatchID;											//ï¿½ï¿½ï¿½ï¿½ï¿½Ë¿ï¿½ï¿½ï¿½Îª0
 	//WORD			wKindID;											
-	//WORD			wType;												//±ÈÈüÀàÐÍ
-	//WORD			wNumber;											//ÈçÂúÈË¿ªÈü£¬Õâ×ÖÓÐÓÃ£¨6ÈË£¬36ÈË£©
-	int				nSignUpNum;											//±¨ÃûÈËÊý(-1³ö´í)
-	DWORD			dwCurGroupCount;									//ÂúÈËÊ±£¬¼´½«¿ªÈü×éÈËÊý
+	//WORD			wType;												//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	//WORD			wNumber;											//ï¿½ï¿½ï¿½ï¿½ï¿½Ë¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã£ï¿½6ï¿½Ë£ï¿½36ï¿½Ë£ï¿½
+	int				nSignUpNum;											//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(-1ï¿½ï¿½ï¿½ï¿½)
+	DWORD			dwCurGroupCount;									//ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 };
 ////////////////////////////////////////////////////////////////////////////////////
 struct CMD_GL_MatchType
@@ -1814,7 +1815,7 @@ struct CMD_GL_MatchType
 	{
 		memset(this, 0, sizeof(CMD_GL_MatchType));
 	}
-	DWORD		    dwType; //1Ã¿ÌìÑ­»·Èü£¬2Ã¿Ìì¶¨Ê±Èü£¬3¶¨Ê±Èü£¬4ÂúÈË¿ªÈü,5´ï±êÈü£©
+	DWORD		    dwType; //1Ã¿ï¿½ï¿½Ñ­ï¿½ï¿½ï¿½ï¿½2Ã¿ï¿½ì¶¨Ê±ï¿½ï¿½3ï¿½ï¿½Ê±ï¿½ï¿½4ï¿½ï¿½ï¿½Ë¿ï¿½ï¿½ï¿½,5ï¿½ï¿½ï¿½ï¿½ï¿½
 	DWORD			dwSortID;
 	TCHAR			szMatchType[32];
 };
@@ -1852,10 +1853,10 @@ struct CMD_GL_MatchAward
 
 enum SignUpStatus
 {
-	SignUp = 1,		//ÒÑ±¨Ãû 
-	NoSignUp,		//Ã»ÓÐ±¨Ãû
-	NoMatchID,		//Ã»ÓÐ±ÈÈü³¡´Î
-	NotAllowSignUp  //¶ñÒâ±¨Ãû
+	SignUp = 1,		//ï¿½Ñ±ï¿½ï¿½ï¿½ 
+	NoSignUp,		//Ã»ï¿½Ð±ï¿½ï¿½ï¿½
+	NoMatchID,		//Ã»ï¿½Ð±ï¿½ï¿½ï¿½ï¿½
+	NotAllowSignUp  //ï¿½ï¿½ï¿½â±¨ï¿½ï¿½
 };
 struct CMD_GL_MatchInfo
 {
@@ -1871,10 +1872,10 @@ struct CMD_GL_MatchInfo
 	DWORD			dwSignUpTicket;
 	//DWORD			dwCurPlayerNum;
 	//DWORD			dwAllPlayerNum;	
-	DWORD			dwCurGroupCount;									//ÂúÈËÊ±£¬¼´½«¿ªÈü×éÈËÊý
+	DWORD			dwCurGroupCount;									//ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	DWORD			dwSignUpPlayerNum;
 	CMD_GL_MatchAward  MatchAward[LEN_MATCHITEMAWARD];
-	SignUpStatus    dwSignUp;							//±¨Ãû±ê¼Ç
+	SignUpStatus    dwSignUp;							//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	TCHAR			szRemark[LEN_REMARK];
 };
 
@@ -1914,18 +1915,18 @@ struct CMD_GL_Match
 	SYSTEMTIME			tEndTime;
 };
 
-//ÓÃ»§±¨Ãû
+//ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½
 struct tagMatchID
 {
 	tagMatchID()
 	{
 		memset(this, 0, sizeof(tagMatchID));
 	}
-	DWORD			dwClientVersion;									//ÓÎÏ·°æ±¾
+	DWORD			dwClientVersion;									//ï¿½ï¿½Ï·ï¿½æ±¾
 	tagMatchSerial  MatchSerial;  
 };
 
-//µ¹¼ÆÊ±
+//ï¿½ï¿½ï¿½ï¿½Ê±
 struct CMD_GL_MatchCountDown
 {
 	CMD_GL_MatchCountDown()
@@ -1933,7 +1934,7 @@ struct CMD_GL_MatchCountDown
 		memset(this, 0, sizeof(CMD_GL_MatchCountDown));
 	}
 	tagMatchSerial MatchSerial;
-	DWORD	  dwCountDown;													//ÒÔÃë¼ÆËã
+	DWORD	  dwCountDown;													//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 };
 
 
@@ -1941,58 +1942,58 @@ struct CMD_FishMatch_Screen
 {
 	BYTE                            IsTimeMatch;
 	BYTE                            dwMatchStatus;
-	LONGLONG                   lTimerSpan;              //µ¹¼ÆÊ±¼ä
+	LONGLONG                   lTimerSpan;              //ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½
 };
 
 struct CMD_FishMatch_Info
 {
 
 
-	TCHAR							  szTitle[128];						//ÐÅÏ¢±êÌâ
+	TCHAR							  szTitle[128];						//ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½
 	DWORD                          dwMeRank;
 	DWORD                          dwHaveuser;
-	BYTE                              lPlaycount;  // »ú»á
+	BYTE                              lPlaycount;  // ï¿½ï¿½ï¿½
 	BYTE                              lAllPlayCount;
-	SCORE                           lmeCurScore; // ÎÒµÄµ±Ç°×î¸ß·Ö
-	SCORE                           lmeMaxScore; // ÎÒµÄÀúÊ·×î¸ß·Ö
+	SCORE                           lmeCurScore; // ï¿½ÒµÄµï¿½Ç°ï¿½ï¿½ß·ï¿½
+	SCORE                           lmeMaxScore; // ï¿½Òµï¿½ï¿½ï¿½Ê·ï¿½ï¿½ß·ï¿½
 
 
 
-	SCORE                           lMaxScore;  //È«Ìå×î¸ß·Ö
+	SCORE                           lMaxScore;  //È«ï¿½ï¿½ï¿½ï¿½ß·ï¿½
 	BYTE                             cbMatchStatus;
-	LONGLONG                    lTimerSpan;              //µ¹¼ÆÊ±¼ä
+	LONGLONG                    lTimerSpan;              //ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½
 };
-//ÈüÊÂÐÅÏ¢
+//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
 struct CMD_GR_Match_Info
 {
-	BYTE                              cbMtachType;                         //±ÈÈüÀàÐÍ
-	TCHAR							   szMatchName[128];					//ÐÅÏ¢±êÌâ
-	TCHAR							   szTitle[128];						//ÐÅÏ¢±êÌâ
-	DWORD						   dwAllPlayerCount;					//²ÎÈüÈËÊý
-	WORD							   wJishu;							    //ÓÎÏ·»ùÊý
-	SCORE    						   lOutScore;							//³ö¾Ö·ÖÊý
+	BYTE                              cbMtachType;                         //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	TCHAR							   szMatchName[128];					//ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½
+	TCHAR							   szTitle[128];						//ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½
+	DWORD						   dwAllPlayerCount;					//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	WORD							   wJishu;							    //ï¿½ï¿½Ï·ï¿½ï¿½ï¿½ï¿½
+	SCORE    						   lOutScore;							//ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½
 
-	DWORD                           dwGameRound;                         //±ÈÈü½×¶Î
+	DWORD                           dwGameRound;                         //ï¿½ï¿½ï¿½ï¿½×¶ï¿½
 
-	DWORD                           dwAllGameRoundCount;                 //±ÈÈü¹²¼¸ÂÖ 
-	DWORD                           dwAllGameCount;                      //±ÈÈü¹²¼¸¾Ö  
+	DWORD                           dwAllGameRoundCount;                 //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
+	DWORD                           dwAllGameCount;                      //ï¿½ï¿½ï¿½ï¿½ï¿½  
 
-	DWORD                           dwGameRoundCount;                    //±ÈÈüµÚ¼¸ÂÖ 
-	DWORD                           dwGameCount;                           //±ÈÈüµÚ¼¸¾Ö  
+	DWORD                           dwGameRoundCount;                    //ï¿½ï¿½ï¿½ï¿½Ú¼ï¿½ï¿½ï¿½ 
+	DWORD                           dwGameCount;                           //ï¿½ï¿½ï¿½ï¿½Ú¼ï¿½ï¿½ï¿½  
 
 
-	/////ÒÔÏÂÊÇ´ï±êÈüµÄ
+	/////ï¿½ï¿½ï¿½ï¿½ï¿½Ç´ï¿½ï¿½ï¿½ï¿½ï¿½
 
-	DWORD							dwCurrentCount;					    //µ±Ç°¾ÖÊý
-	DWORD							dwAllCount;							//´ï±ê¾ÖÊý
-	SCORE                             lTopScore;                           //´ï±ê»ý·Ö
+	DWORD							dwCurrentCount;					    //ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½
+	DWORD							dwAllCount;							//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	SCORE                             lTopScore;                           //ï¿½ï¿½ï¿½ï¿½ï¿½
 };
-//ÈüÊÂÐÅÏ¢-»ùÊý
+//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢-ï¿½ï¿½ï¿½ï¿½
 struct CMD_GR_Match_Info_Jishu
 {
-	WORD							wJishu;							    //ÓÎÏ·»ùÊý
+	WORD							wJishu;							    //ï¿½ï¿½Ï·ï¿½ï¿½ï¿½ï¿½
 };
-//±ÈÈüÈËÔ±ÐÅÏ¢
+//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô±ï¿½ï¿½Ï¢
 struct CMD_MatchuserDB
 {
 	DWORD  dwUserID;
@@ -2000,66 +2001,66 @@ struct CMD_MatchuserDB
 	LONGLONG lMatchNO;
 };
 
-//ÌáÊ¾ÐÅÏ¢
+//ï¿½ï¿½Ê¾ï¿½ï¿½Ï¢
 struct CMD_GR_Match_Wait_Tip
 {
 
-	TCHAR							szMatchName[128];			//±ÈÈüÃû³Æ
-	TCHAR							szMatchRoundName[128];			//±ÈÈüÃû³Æ
-	SCORE							lScore;								//µ±Ç°»ý·Ö
+	TCHAR							szMatchName[128];			//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	TCHAR							szMatchRoundName[128];			//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	SCORE							lScore;								//ï¿½ï¿½Ç°ï¿½ï¿½ï¿½
 	DWORD                        dwJinjirenshu;
 	DWORD                        dwBisairenshu;
-	WORD							wPlayingTable;						//ÓÎÏ·×ÀÊý
+	WORD							wPlayingTable;						//ï¿½ï¿½Ï·ï¿½ï¿½ï¿½ï¿½
 
-	TCHAR							szMatchRoundMiaoshu[128];     //±ÈÈüÃû³Æ
-	WORD							wRank;								        //µ±Ç°Ãû´Î
-	WORD							wCurTableRank;						    //±¾×ÀÃû´Î
-	WORD							wUserCount;							    //µ±Ç°ÈËÊý
+	TCHAR							szMatchRoundMiaoshu[128];     //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	WORD							wRank;								        //ï¿½ï¿½Ç°ï¿½ï¿½ï¿½
+	WORD							wCurTableRank;						    //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	WORD							wUserCount;							    //ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½
 };
 
-//±ÈÈü½á¹û
+//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 struct CMD_GR_MatchResult
 {
-	BYTE                            cbResultType;                         //½á¹ûÀàÐÍ 1Îª»ñ½± 0ÎªÎÞ½±
-	TCHAR							szName[64];					        //Ãû×Ö-Ç×°®µÄxxx
-	TCHAR							szDescribe[256];					//µÃ½±ÃèÊö-¹§Ï²Äú»ñµÃXÃû
-	TCHAR							szDescribe2[128];					//µÃ½±ÃèÊö-ÌØ´Ë±íÕÃ
-	TCHAR							szDescribe3[128];					//µÃ½±ÃèÊö-¹ÄÀø´Ê
-	SCORE							dwGold;								//½ð±Ò½±Àø
+	BYTE                            cbResultType;                         //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 1Îªï¿½ï¿½ 0Îªï¿½Þ½ï¿½
+	TCHAR							szName[64];					        //ï¿½ï¿½ï¿½ï¿½-ï¿½×°ï¿½ï¿½ï¿½xxx
+	TCHAR							szDescribe[256];					//ï¿½Ã½ï¿½ï¿½ï¿½ï¿½ï¿½-ï¿½ï¿½Ï²ï¿½ï¿½ï¿½ï¿½Xï¿½ï¿½
+	TCHAR							szDescribe2[128];					//ï¿½Ã½ï¿½ï¿½ï¿½ï¿½ï¿½-ï¿½Ø´Ë±ï¿½ï¿½ï¿½
+	TCHAR							szDescribe3[128];					//ï¿½Ã½ï¿½ï¿½ï¿½ï¿½ï¿½-ï¿½ï¿½ï¿½ï¿½ï¿½
+	SCORE							dwGold;								//ï¿½ï¿½Ò½ï¿½ï¿½ï¿½
 	DWORD                           dwRankLast;
-	DWORD							dwMedal;							//½±ÅÆ½±Àø
-	DWORD							dwCansaijuan;						//²ÎÈü¾í½±Àø
+	DWORD							dwMedal;							//ï¿½ï¿½ï¿½Æ½ï¿½ï¿½ï¿½
+	DWORD							dwCansaijuan;						//ï¿½ï¿½ï¿½ï¿½?ï¿½ï¿½
 	TCHAR			                    szAward1[32];
 	TCHAR			                    szAward2[32];
 	TCHAR			                    szAward3[32];
 };
-#define MAX_MATCH_DESC				4									//×î¶àÃèÊö
-//±ÈÈüÃèÊö
+#define MAX_MATCH_DESC				4									//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 struct CMD_GR_MatchDesc
 {
-	TCHAR							szMatchName[32];		//±ÈÈü±êÌâ
-	WORD                            dwTimes;                  //Æ½¾ùÊ±¼ä
-	SCORE                           No1Score;               //¹Ú¾ü½±Àø
-	SCORE                           No2Score;               //¹Ú¾ü½±Àø
-	SCORE                           No3Score;               //¹Ú¾ü½±Àø
-	TCHAR							szNorDescribe[128];		//ÃèÊöÄÚÈÝ³£¹æ
-	TCHAR							szSysDescribe[128];		//ÃèÊöÄÚÈÝÐ¡ÌùÊ¿
-	DWORD						crTitleColor;			//±êÌâÑÕÉ«
-	DWORD						crNorDescribe;			//ÃèÊöÑÕÉ«
-	DWORD						crSysDescribe;			//ÃèÊöÑÕÉ«
-	LONGLONG                       lTimerSpan;              //¿ªÈüÊ£ÓàÊ±¼ä
-	BYTE                                cbMatchType;               //Èü³¡ÀàÐÍ
+	TCHAR							szMatchName[32];		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	WORD                            dwTimes;                  //Æ½ï¿½ï¿½Ê±ï¿½ï¿½
+	SCORE                           No1Score;               //ï¿½Ú¾ï¿½ï¿½ï¿½
+	SCORE                           No2Score;               //ï¿½Ú¾ï¿½ï¿½ï¿½
+	SCORE                           No3Score;               //ï¿½Ú¾ï¿½ï¿½ï¿½
+	TCHAR							szNorDescribe[128];		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý³ï¿½ï¿½ï¿½
+	TCHAR							szSysDescribe[128];		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¡ï¿½ï¿½Ê¿
+	DWORD						crTitleColor;			//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É«
+	DWORD						crNorDescribe;			//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É«
+	DWORD						crSysDescribe;			//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É«
+	LONGLONG                       lTimerSpan;              //ï¿½ï¿½ï¿½ï¿½Ê£ï¿½ï¿½Ê±ï¿½ï¿½
+	BYTE                                cbMatchType;               //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	TCHAR			                    szAward1[32];
 	TCHAR			                    szAward2[32];
 	TCHAR			                    szAward3[32];
 };
 
-//ÓÎÏ·¿Í»§¶ËÏÔÊ¾µÈ´ý
+//ï¿½ï¿½Ï·ï¿½Í»ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾ï¿½È´ï¿½
 struct CMD_GR_Match_WAITSTART
 {
-	BYTE                               cbMatchStatus;                      //±ÈÈü×´Ì¬
-	DWORD							dwWaitting;							//µÈ´ýÈËÊý
-	DWORD							dwTotal;							//¿ªÈüÈËÊý
+	BYTE                               cbMatchStatus;                      //ï¿½ï¿½ï¿½ï¿½×´Ì¬
+	DWORD							dwWaitting;							//ï¿½È´ï¿½ï¿½ï¿½ï¿½ï¿½
+	DWORD							dwTotal;							//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	DWORD                            dwMeUserID;
 	CMD_GR_MatchDesc      d_MatchDesc;
 	BYTE                               cbNeedSortUserList;
@@ -2068,7 +2069,7 @@ struct CMD_GR_Match_WAITSTART
 };
 struct MatchUserDB
 {
-	BYTE                               cbIndex; //¸ñ×ÓË÷Òý
+	BYTE                               cbIndex; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	DWORD                           dwUserID;
 	DWORD                           dwRank;
 	LONGLONG                      lScore;
@@ -2076,59 +2077,48 @@ struct MatchUserDB
 	TCHAR                            szName[128];
 };
 
-//ÀñÆ·Âë¶Ò»»
+//ï¿½ï¿½Æ·ï¿½ï¿½Ò»ï¿½
 struct CMD_GP_GiftChange
 {
 	CMD_GP_GiftChange()
 	{
 		memset(this, 0, sizeof(CMD_GP_GiftChange));
 	}
-	TCHAR							szAccounts[LEN_ACCOUNTS];			//ÕÊºÅ
-	TCHAR							szGiftChangeOrder[32];				//ÀñÆ·Âë
-	DWORD							dwOpTerminal;						//²Ù×÷ÖÕ¶Ë£¨1£ºpc, 2£ºÊÖ»úÅ£Å£ 3£ºÊÖ»ú²¶Óã£©
+	TCHAR							szAccounts[LEN_ACCOUNTS];			//ï¿½Êºï¿½
+	TCHAR							szGiftChangeOrder[32];				//ï¿½ï¿½Æ·ï¿½ï¿½
+	DWORD							dwOpTerminal;						//ï¿½ï¿½ï¿½ï¿½ï¿½Õ¶Ë£ï¿½1ï¿½ï¿½pc, 2ï¿½ï¿½ï¿½Ö»ï¿½Å£Å£ 3ï¿½ï¿½ï¿½Ö»ï¿½ï¿½ã£©
 };
 
-//ÀñÆ·Âë¶Ò»»·µ»Ø
+//ï¿½ï¿½Æ·ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½
 struct CMD_GP_GiftChangeRet
 {
 	CMD_GP_GiftChangeRet()
 	{
 		memset(this, 0, sizeof(CMD_GP_GiftChangeRet));
 	}
-	DWORD   dwRet;														//0£º³É¹¦£¬1£ºÊ§°Ü
-	TCHAR	szDescribeString[128];										//ÃèÊöÏûÏ¢
+	DWORD   dwRet;														//0ï¿½ï¿½ï¿½É¹ï¿½ï¿½ï¿½1ï¿½ï¿½Ê§ï¿½ï¿½
+	TCHAR	szDescribeString[128];										//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
 };
 
-#define SUB_MB_ACCESSTOKEN			5									//µÚÈý·½µÇÂ¼
+#define SUB_MB_ACCESSTOKEN			5									//ï¿½ï¿½ï¿½ï¿½ï¿½Â¼
 
-//µÚÈý·½µÇÂ¼
-struct CMD_MB_AccessToken
-{
-	DWORD							dwSessionID;						//ÍÆ¹ãID
-	TCHAR							szUMId[LEN_ACCOUNTS * 2];			//ÓÃ»§Î¨Ò»±êÊ¾
-	DWORD							dwSex;								//ÐÔ±ð
-	TCHAR							szNickName[LEN_NICKNAME];			//ÓÃ»§êÇ³Æ
-	TCHAR							szMachineID[LEN_MACHINE_ID];		//»úÆ÷±êÊ¶
-	TCHAR							szAccessToken[256];					//Token
-};
-
-#define DTP_GP_GET_LABA_COUNT		8	                                //À®°È¸öÊý
-#define DTP_GP_GET_DIAL_COUNT		9									//×ªÅÌ¸öÊý
+#define DTP_GP_GET_LABA_COUNT		8	                                //ï¿½ï¿½ï¿½È¸ï¿½ï¿½ï¿½
+#define DTP_GP_GET_DIAL_COUNT		9									//×ªï¿½Ì¸ï¿½ï¿½ï¿½
 
 
-//Êý¾ÝÃèÊö
+//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 struct tagDataDescribe
 {
-	WORD							wDataSize;						//Êý¾Ý´óÐ¡
-	WORD							wDataDescribe;					//Êý¾ÝÃèÊö
+	WORD							wDataSize;						//ï¿½ï¿½Ý´ï¿½Ð¡
+	WORD							wDataDescribe;					//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 };
 
-//À®°ÈÊý
+//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 struct DTP_GP_GetLabaCount
 {
-	DWORD							 dwLabaCount;			//À®°ÈÊý
+	DWORD							 dwLabaCount;			//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 };
-//¼ÓÔØ×ªÅÌ´ÎÊý
+//ï¿½ï¿½ï¿½ï¿½×ªï¿½Ì´ï¿½ï¿½ï¿½
 struct DTP_GP_DialCount
 {
 	DTP_GP_DialCount()

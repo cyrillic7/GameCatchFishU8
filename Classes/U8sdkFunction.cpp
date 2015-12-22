@@ -35,6 +35,7 @@ void CU8sdkFunction::OnLoginSuc(U8LoginResult* result)
 		std::string umid = result->sdkUserId;
 		std::string username = result->sdkUsername;
 		std::string token = result->token;
+		std::string userid = result->userId;
 		channelID = result->channelID.c_str();
 
 		log("channelID = %s", channelID.c_str());
@@ -46,6 +47,7 @@ void CU8sdkFunction::OnLoginSuc(U8LoginResult* result)
 		dic->setObject(__String::create(umid), "umid");
 		dic->setObject(__String::create(username), "username");
 		dic->setObject(__String::create(token), "token");
+		dic->setObject(__String::create(userid), "userid");
 		Director::sharedDirector()->getEventDispatcher()->dispatchCustomEvent(u8LoginMsg, dic);
 	}
 }

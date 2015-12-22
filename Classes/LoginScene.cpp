@@ -265,9 +265,10 @@ void LoginScene::U8Login(EventCustom* evt)
 	std::string umid = ((__String*)info->objectForKey("umid"))->getCString();
 	std::string username = ((__String*)info->objectForKey("username"))->getCString();
 	std::string token = ((__String*)info->objectForKey("token"))->getCString();
+	std::string userid = ((__String*)info->objectForKey("userid"))->getCString();
 
 	GameServiceClient* c = GameServiceClientManager::sharedInstance()->serviceClientForName(m_gameName.c_str());
-	c->onLoginU8(umid.c_str(), username.c_str(), token.c_str());
+	c->onLoginU8(umid.c_str(), username.c_str(), token.c_str(),userid.c_str());
 
 }
 
