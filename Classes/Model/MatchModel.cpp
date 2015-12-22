@@ -48,6 +48,7 @@ MatchInfoModel::MatchInfoModel()
 	m_signUpPlayerNum = 0;
 	m_signUpStatus = 0;
 	m_matchRemark ="";
+	m_matchMemberOrder = 0;
 }
 
 MatchInfoModel::~MatchInfoModel()
@@ -78,4 +79,5 @@ GameMatchModel::~GameMatchModel()
 	m_matchTime = 0;
 	m_matchTitle = "";
 	m_bContinue = 0;
+	
 }

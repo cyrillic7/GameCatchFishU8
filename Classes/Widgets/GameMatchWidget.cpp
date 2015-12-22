@@ -110,12 +110,17 @@ bool GameMatchItem::init(bool isRoot ,MatchInfoModel* info,int matchtype)
 			signStr = __String::createWithFormat("%lld%s",mData->getSignUpScore(),CommonFunction::GBKToUTF8("金币").c_str());
 			signUpScoreText->setText(signStr->getCString());
 		}
+
+		//除VIP 以外
 		bool isFreeCharge = false;//免费
-		if ( nullptr == signStr)
+		
+		if (nullptr == signStr)
 		{
 			isFreeCharge = true;
 			signUpScoreText->setText(CommonFunction::GBKToUTF8("免费报名"));
 		}
+		
+	
 		signUpScoreText->setPosition(Vec2(385,getSize().height/2));
 		signUpScoreText->setAnchorPoint(Vec2(0.5, 0.5));
 		signUpScoreText->setTextColor(ccc4(255,0,0,255));
@@ -160,15 +165,23 @@ bool GameMatchItem::init(bool isRoot ,MatchInfoModel* info,int matchtype)
 		m_btnSignUp = Button::create();
 		if (info->getsignUpStatus() == SignUpStatus::NoSignUp)
 		{
-			if(isFreeCharge)
+			if (mData->getMatchMemberOrder() > 0)
 			{
-				m_btnSignUp->loadTextureNormal("match/btn_free.png",Widget::TextureResType::LOCAL);
-				m_btnSignUp->loadTexturePressed("match/btn_free_on.png",Widget::TextureResType::LOCAL);
+				m_btnSignUp->loadTextureNormal("match/u_btn_vip_normal.png", Widget::TextureResType::LOCAL);
+				m_btnSignUp->loadTexturePressed("match/u_btn_vip_click.png", Widget::TextureResType::LOCAL);
 			}
 			else
 			{
-				m_btnSignUp->loadTextureNormal("match/btn_signUp.png",Widget::TextureResType::LOCAL);
-				m_btnSignUp->loadTexturePressed("match/btn_signUp_on.png",Widget::TextureResType::LOCAL);
+				if (isFreeCharge)
+				{
+					m_btnSignUp->loadTextureNormal("match/btn_free.png", Widget::TextureResType::LOCAL);
+					m_btnSignUp->loadTexturePressed("match/btn_free_on.png", Widget::TextureResType::LOCAL);
+				}
+				else
+				{
+					m_btnSignUp->loadTextureNormal("match/btn_signUp.png", Widget::TextureResType::LOCAL);
+					m_btnSignUp->loadTexturePressed("match/btn_signUp_on.png", Widget::TextureResType::LOCAL);
+				}
 			}
 		}else if (info->getsignUpStatus() == SignUpStatus::SignUp)
 		{
