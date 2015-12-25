@@ -41,8 +41,10 @@ void SplashScene::onEnter()
 {
 	GameBaseScene::onEnter();
 	loadUI();
+	std::string channelid = CU8sdkFunction::GetInstance().OnGetChannelid();
+	log("onEnter%s", channelid.c_str());
 	//std::string url = "http://download.qicainiu.com/download/Mobile/GameCatchFish/updateConfigQCN.txt";
-	std::string url  = __String::createWithFormat("http://download.qicainiu.com/download/Mobile/GameCatchFish/updateConfigQCN_%s.txt",k_session_id)->getCString();
+	std::string url = __String::createWithFormat("http://download.qicainiu.com/download/Mobile/GameCatchFish/updateConfigQCN_%s.txt", channelid.c_str())->getCString();
 	HttpRequest* request = new HttpRequest();
 	request->setUrl(url.c_str());
 	request->setRequestType(HttpRequest::Type::GET);

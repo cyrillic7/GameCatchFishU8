@@ -35,4 +35,8 @@ extern "C"
     void sendMessageWithParams(std::string methodName, cocos2d::Value methodParams);
 }
 
+extern "C"
+{
+	std::string getMessageWithParams(std::string methodName, cocos2d::Value methodParams);
+}
 #endif /* defined(__EasyNDK_for_cocos2dx__NDKHelper__) */

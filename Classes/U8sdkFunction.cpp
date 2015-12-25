@@ -2,6 +2,9 @@
 #include "U8sdkFunction.h"
 #include "cocostudio/CCSGUIReader.h"
 #include "Message.h"
+#include "GameServiceClientManager.h"
+#include "SessionManager.h"
+#include "LoginScene.h"
 
 CU8sdkFunction::CU8sdkFunction()
 {
@@ -54,8 +57,23 @@ void CU8sdkFunction::OnLoginSuc(U8LoginResult* result)
 
 void CU8sdkFunction::OnSwitchLogin()
 {
-	CCLOG("切换帐号成功...");
-	//TODO:退回到登录界面，并弹出SDK登录界面(调用U8SDKInterface::getInstance()->login())
+	std::string name = GameServiceClientManager::sharedInstance()->getCurrentServiceClientName();
+	GameServiceClientManager::sharedInstance()->removeServiceClient(name.c_str());
+	SessionManager::shareInstance()->clearMsgArray();
+	SessionManager::shareInstance()->clearHornMsg();
+	//断开大厅SORKET
+	GameServiceClient* c = GameServiceClientManager::sharedInstance()->serviceClientForName(taskClient);
+	c->closeSoket();
+
+	LoginUserModel *userModel = SessionManager::shareInstance()->getLoginModel();
+	//上次是QQ 登录，切换帐号后清空缓存的帐号的信息
+	if (userModel->getAccountType() == accountType::accountQQ)
+	{
+		userModel->setAccount("");
+		userModel->setPassword("");
+	}
+	Director::sharedDirector()->replaceScene(LoginScene::create());
+
 	U8SDKInterface::getInstance()->login();
 }
 
@@ -64,6 +82,23 @@ void CU8sdkFunction::OnLogout()
 	CCLOG("SDK帐号退出成功...");
 	//this->labelUsername->setString("U8SDK");
 	//TODO:退回到登录界面，并弹出SDK登录界面(调用U8SDKInterface::getInstance()->login())
+	std::string name = GameServiceClientManager::sharedInstance()->getCurrentServiceClientName();
+	GameServiceClientManager::sharedInstance()->removeServiceClient(name.c_str());
+	SessionManager::shareInstance()->clearMsgArray();
+	SessionManager::shareInstance()->clearHornMsg();
+	//断开大厅SORKET
+	GameServiceClient* c = GameServiceClientManager::sharedInstance()->serviceClientForName(taskClient);
+	c->closeSoket();
+
+	LoginUserModel *userModel = SessionManager::shareInstance()->getLoginModel();
+	//上次是QQ 登录，切换帐号后清空缓存的帐号的信息
+	if (userModel->getAccountType() == accountType::accountQQ)
+	{
+		userModel->setAccount("");
+		userModel->setPassword("");
+	}
+	Director::sharedDirector()->replaceScene(LoginScene::create());
+
 	U8SDKInterface::getInstance()->login();
 }
 
@@ -77,6 +112,14 @@ void CU8sdkFunction::OnU8sdkLogin()
 {
 	log("OnU8sdkLogin");
 	U8SDKInterface::getInstance()->login();
+}
+
+std::string CU8sdkFunction::OnGetChannelid()
+{
+	std::string channelid = U8SDKInterface::getInstance()->getchannelId();
+	log("OnU8sdkLogin%s", channelid.c_str());
+
+	return channelid;
 }
 
 void CU8sdkFunction::OnU8sdkPay(std::string strName, std::string strDesc, int price, std::string tradeNo)

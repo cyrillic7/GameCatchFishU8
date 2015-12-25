@@ -30,6 +30,9 @@ public:
 
 	/*登录*/
 	void login();
+
+	/*获取渠道号*/
+	std::string getchannelId();
 	
 	/*登录 应用宝如果游戏层处理，则调用这个接口 QQ或者WX*/
 	void loginCustom(const std::string& customData);

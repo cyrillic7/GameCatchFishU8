@@ -178,6 +178,7 @@ void NDKHelper::handleMessage(json_t *methodName, json_t *methodParams)
 
 #define LOG_TAG    "U8SDK_Cocos2dx"
 #define CLASS_NAME "com/u8/sdk/ndk/AndroidNDKHelper"
+#define CLASS_PAGE "com/u8/sdk/U8CocosActivity"
 #endif
 
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
@@ -281,4 +282,72 @@ extern "C"
         
         json_decref(toBeSentJson);
     }
+
+	// Method for sending message from CPP to the targeted platform(��ȡ������)
+	std::string getMessageWithParams(std::string methodName, Value methodParams) {
+		std::string strInfo = "null";
+
+		/*if (0 == strcmp(methodName.c_str(), "")) {
+			return strInfo;
+		}
+
+		json_t *toBeSentJson = json_object();
+		json_object_set_new(toBeSentJson, __CALLED_METHOD__, json_string(methodName.c_str()));
+
+		if (!methodParams.isNull()) {
+			json_t *paramsJson = NDKHelper::getJsonFromValue(methodParams);
+
+			json_object_set_new(toBeSentJson, __CALLED_METHOD_PARAMS__, paramsJson);
+		}*/
+
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+		JniMethodInfo t;
+
+		bool isHave =JniHelper::getStaticMethodInfo(t,
+			CLASS_PAGE,
+			"getChannel",
+			"()Ljava/lang/String;");
+		if (isHave) {
+			log("jni->%s/getChannel:is exit", CLASS_PAGE);
+			//char *jsonStrLocal = json_dumps(toBeSentJson, JSON_COMPACT | JSON_ENSURE_ASCII);
+			//std::string jsonStr(jsonStrLocal);
+			//free(jsonStrLocal);
+
+			//jstring stringArg1 = t.env->NewStringUTF(jsonStr.c_str());
+			jstring jdata = (jstring)t.env->CallStaticObjectMethod(t.classID, t.methodID);
+
+			strInfo = t.env->GetStringUTFChars(jdata, NULL);
+
+			log("getMessageWithParams  %s",strInfo.c_str());
+
+			//t.env->DeleteLocalRef(stringArg1);
+			t.env->DeleteLocalRef(t.classID);
+			t.env->DeleteLocalRef(jdata);
+		}else
+		{
+			log("jni->%s/getChannel:not exit", CLASS_PAGE);
+		}
+#endif
+
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+		json_t *jsonMessageName = json_string(methodName.c_str());
+
+		if (!methodParams.isNull()) {
+			json_t *jsonParams = NDKHelper::getJsonFromValue(methodParams);
+
+			IOSNDKHelperImpl::receiveCPPMessage(jsonMessageName, jsonParams);
+
+			json_decref(jsonParams);
+		}
+		else {
+			IOSNDKHelperImpl::receiveCPPMessage(jsonMessageName, NULL);
+		}
+
+		json_decref(jsonMessageName);
+#endif
+
+//		json_decref(toBeSentJson);
+
+		return strInfo;
+	}
 }

@@ -35,6 +35,8 @@ public:
 
 	 void OnU8sdkLogin();
 
+	 std::string OnGetChannelid();
+
 	 void OnU8sdkPay(std::string strName, std::string strDesc, int price, std::string tradeNo);
 };
 

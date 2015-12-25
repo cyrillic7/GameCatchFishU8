@@ -34,6 +34,14 @@ void U8SDKInterface::login()
 	sendMessageWithParams("login", v);
 }
 
+std::string U8SDKInterface::getchannelId()
+{
+	Value v;
+	std::string channel;
+	channel = getMessageWithParams("getChannel", v);
+	log("U8SDKInterface::getchannelId()  %s", channel.c_str());
+	return channel;
+}
 void U8SDKInterface::loginCustom(const std::string& customData)
 {
 	ValueMap params;
