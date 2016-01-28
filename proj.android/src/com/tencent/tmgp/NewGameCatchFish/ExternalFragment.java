@@ -1,8 +1,8 @@
-package com.tencent.tmgp;
+package com.tencent.tmgp.NewGameCatchFish;
 
 
 
-import com.tencent.tmgp.R;
+import com.tencent.tmgp.NewGameCatchFish.R;
 
 import android.annotation.TargetApi;
 import android.app.Fragment;

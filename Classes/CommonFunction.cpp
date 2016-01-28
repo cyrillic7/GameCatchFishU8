@@ -4,7 +4,7 @@
 #include "Common/pystring.h"
 #include "Message.h"
 
-#define JNI_PACKAGE "com/tencent/tmgp/GameCatchFish"
+#define JNI_PACKAGE "com/tencent/tmgp/NewGameCatchFish/GameCatchFish"
 
 
 #if  CC_PLATFORM_IOS == CC_TARGET_PLATFORM
@@ -659,7 +659,7 @@ std::string CommonFunction::getCurOrderNo()
 extern "C"
 {
 	//方法名与java类中的包名+方法名，以下划线连接
-	void Java_com_tencent_tmgp_GameCatchFish_JniQQLogin(JNIEnv*  env, jobject obj, jint a,jstring account,jstring pwd)
+	void Java_com_tencent_tmgp_NewGameCatchFish_GameCatchFish_JniQQLogin(JNIEnv*  env, jobject obj, jint a,jstring account,jstring pwd)
 	{
 		//这里java调用nativePaySuccess(1);，这里就会被调用。jint a = 1
 		log("Java_com_tencent_tmgp_GameCatchFish_JniQQLogin account = %s",env->GetStringUTFChars(account, NULL));
@@ -667,12 +667,12 @@ extern "C"
 		CommonFunction::loginQQ(env->GetStringUTFChars(account, NULL),env->GetStringUTFChars(pwd, NULL));
 	}
 
-	void Java_com_tencent_tmgp_GameCatchFish_JniCallPay(JNIEnv*  env, jobject obj)
+	void Java_com_tencent_tmgp_NewGameCatchFish_GameCatchFish_JniCallPay(JNIEnv*  env, jobject obj)
 	{
 		log("Java_com_tencent_tmgp_AppActivity_JniCallPay ");
 	}
 
-	void Java_com_game_GameCatchFish_GameCatchFish_JniWXLogin(JNIEnv*  env, jobject obj,jstring token)
+	void Java_com_tencent_tmgp_NewGameCatchFish_GameCatchFish_JniWXLogin(JNIEnv*  env, jobject obj,jstring token)
 	{
 		log("Java_com_xw_GameCatchFish_AppActivity_JniWXLogin ");
 		CommonFunction::wxLogin(env->GetStringUTFChars(token, NULL));

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-      package="com.tencent.tmgp"
+      package="com.tencent.tmgp.NewGameCatchFish"
       android:versionCode="1"
       android:versionName="1.6.1"
       android:installLocation="auto">
@@ -16,7 +16,7 @@
         <meta-data android:name="android.app.lib_name"
 	              android:value="cocos2dcpp" />
 
-        <activity android:name="com.tencent.tmgp.GameCatchFish"
+        <activity android:name="com.tencent.tmgp.NewGameCatchFish.GameCatchFish"
                   android:label="@string/app_name"
                   android:screenOrientation="landscape"
                   android:theme="@android:style/Theme.NoTitleBar.Fullscreen" android:configChanges="orientation|screenSize">
@@ -36,7 +36,7 @@
                   android:exported="false"
                   android:screenOrientation="landscape">
         </activity>
-        <service android:name="com.tencent.tmgp.UpdateManager"></service>
+        <service android:name="com.tencent.tmgp.NewGameCatchFish.UpdateManager"></service>
 		
         <!-- 微信 -->
         <receiver
@@ -46,7 +46,7 @@
                 <action android:name="com.tencent.mm.plugin.openapi.Intent.ACTION_REFRESH_WXAPP" />
             </intent-filter>
         </receiver>
-        <activity android:name=".wxapi.WXEntryActivity" android:label="@string/app_name" android:exported="true"></activity>
+        <activity android:name="com.tencent.tmgp.wxapi.WXEntryActivity" android:label="@string/app_name" android:exported="true"></activity>
         
     </application>
 

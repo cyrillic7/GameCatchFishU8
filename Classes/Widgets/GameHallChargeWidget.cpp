@@ -424,7 +424,8 @@ void GameHallChargeWidget::receiveRechargeOrderRspMsg(EventCustom* evt)
 		__String *desc = __String::createWithFormat("%d ingot", (int)mCurModel->getPrice());
 		//__String *price = __String::createWithFormat("%d", (int)mCurModel->getPrice());
 		__String *tradeNo = __String::createWithFormat("%s", mCurOrderNumber.c_str());
-		CU8sdkFunction::GetInstance().OnU8sdkPay("ingot", desc->getCString(), (int)mCurModel->getPrice(), mCurOrderNumber.c_str());
+		__String *orderNo = __String::createWithFormat("Ôª±¦");
+		CU8sdkFunction::GetInstance().OnU8sdkPay(orderNo->getCString(), desc->getCString(), (int)mCurModel->getPrice(), mCurOrderNumber.c_str());
 	}
 	else
 	{

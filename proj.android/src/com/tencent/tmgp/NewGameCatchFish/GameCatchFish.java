@@ -24,7 +24,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 ****************************************************************************/
-package com.tencent.tmgp;
+package com.tencent.tmgp.NewGameCatchFish;
 
 
 
@@ -47,7 +47,7 @@ import org.json.JSONTokener;
 
 
 //import com.alipay.sdk.app.PayTask;
-import com.tencent.tmgp.R;
+import com.tencent.tmgp.NewGameCatchFish.R;
 import com.tx.wx.wxapi.SendToWXActivity;
 import com.u8.sdk.U8CocosActivity;
 

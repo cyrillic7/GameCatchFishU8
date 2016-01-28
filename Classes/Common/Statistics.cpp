@@ -38,7 +38,8 @@ void Statistics::sendStatisticsData(int type){
 	setStatisticsType((StatisticsType)type);
 
 	//安装统计
-	std::string sessionid = CU8sdkFunction::GetInstance().channelID;
+	std::string sessionid = CU8sdkFunction::GetInstance().OnGetChannelid();
+	log("anzhuang1  %s", sessionid.c_str());
 	HttpRequest *request = new HttpRequest();
 	std::string url = k_url;
 	request->setRequestType(HttpRequest::Type::POST);
@@ -70,6 +71,8 @@ void Statistics::sendStatisticsData(int type){
 
 		Bit32UUid = "mobile" + pystring::slice(Bit32UUid,0,26);
 		postData.append(Bit32UUid.c_str());
+
+		log("anzhuang %s", postData.c_str());
 	}
 		break;
 	case Statistics::S_REGISTER:
@@ -151,6 +154,10 @@ void Statistics::onHttpRequestCompleted(HttpClient* client , HttpResponse* data)
 		LoginUserModel* pLoginModel = SessionManager::shareInstance()->getLoginModel();
 		pLoginModel->setFirstLogin(true);
 		pLoginModel->flush();
+		std::vector<char> *buffer = data->getResponseData();
+		std::string bufffff(buffer->begin(), buffer->end());
+		log("trade rsp =%s", bufffff.c_str());
+		//log("anzhuangchenggong  %s", response->getResponseData());
 	}
 		break;
 	case Statistics::S_REGISTER:

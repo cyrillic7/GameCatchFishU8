@@ -1,4 +1,4 @@
-package com.tencent.tmgp;
+package com.tencent.tmgp.NewGameCatchFish;
 
 import java.util.HashMap;
 import java.util.Map;

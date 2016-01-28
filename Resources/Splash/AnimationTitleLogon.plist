@@ -7,76 +7,76 @@
             <key>a_tl_light0.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{63,137},{53,91}}</string>
+                <string>{{333,84},{64,81}}</string>
                 <key>offset</key>
-                <string>{-141,8}</string>
+                <string>{-125,19}</string>
                 <key>rotated</key>
                 <false/>
                 <key>sourceColorRect</key>
-                <string>{{0,13},{53,91}}</string>
+                <string>{{0,7},{64,81}}</string>
                 <key>sourceSize</key>
-                <string>{335,133}</string>
+                <string>{314,133}</string>
             </dict>
             <key>a_tl_light1.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{118,137},{85,111}}</string>
+                <string>{{237,137},{94,101}}</string>
                 <key>offset</key>
-                <string>{-98,2}</string>
+                <string>{-82,5}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
-                <string>{{27,9},{85,111}}</string>
+                <string>{{28,11},{94,101}}</string>
                 <key>sourceSize</key>
-                <string>{335,133}</string>
+                <string>{314,133}</string>
             </dict>
             <key>a_tl_light2.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{339,127},{107,117}}</string>
+                <string>{{116,137},{108,119}}</string>
                 <key>offset</key>
-                <string>{-15,3}</string>
+                <string>{-3,3}</string>
                 <key>rotated</key>
-                <false/>
+                <true/>
                 <key>sourceColorRect</key>
-                <string>{{99,5},{107,117}}</string>
+                <string>{{100,4},{108,119}}</string>
                 <key>sourceSize</key>
-                <string>{335,133}</string>
+                <string>{314,133}</string>
             </dict>
             <key>a_tl_light3.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{339,2},{123,121}}</string>
+                <string>{{2,137},{112,109}}</string>
                 <key>offset</key>
-                <string>{70,6}</string>
+                <string>{87,12}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
-                <string>{{176,0},{123,121}}</string>
+                <string>{{188,0},{112,109}}</string>
                 <key>sourceSize</key>
-                <string>{335,133}</string>
+                <string>{314,133}</string>
             </dict>
             <key>a_tl_light4.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{2,137},{59,109}}</string>
+                <string>{{333,167},{42,81}}</string>
                 <key>offset</key>
-                <string>{138,-12}</string>
+                <string>{136,-26}</string>
                 <key>rotated</key>
                 <false/>
                 <key>sourceColorRect</key>
-                <string>{{276,24},{59,109}}</string>
+                <string>{{272,52},{42,81}}</string>
                 <key>sourceSize</key>
-                <string>{335,133}</string>
+                <string>{314,133}</string>
             </dict>
             <key>a_tl_star.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{231,137},{79,80}}</string>
+                <string>{{318,2},{79,80}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
                 <string>{{0,0},{79,80}}</string>
                 <key>sourceSize</key>
@@ -85,15 +85,15 @@
             <key>a_tl_title.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{2,2},{335,133}}</string>
+                <string>{{2,2},{314,133}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
                 <false/>
                 <key>sourceColorRect</key>
-                <string>{{0,0},{335,133}}</string>
+                <string>{{0,0},{314,133}}</string>
                 <key>sourceSize</key>
-                <string>{335,133}</string>
+                <string>{314,133}</string>
             </dict>
         </dict>
         <key>metadata</key>
@@ -103,9 +103,9 @@
             <key>realTextureFileName</key>
             <string>AnimationTitleLogon.png</string>
             <key>size</key>
-            <string>{462,248}</string>
+            <string>{399,250}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:c430e64a8a04effa3a0d5f70d4c07b47:159063a7a99ba8635fd29df0eda7321f:1591c6ed19f66e719526bc5eaa2b7db2$</string>
+            <string>$TexturePacker:SmartUpdate:bbbe978b6e6836feda6b0498a471f6a3:d63965f76b7f0b750e7979e0161a56fb:1591c6ed19f66e719526bc5eaa2b7db2$</string>
             <key>textureFileName</key>
             <string>AnimationTitleLogon.png</string>
         </dict>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">达人捕鱼</string>
+    <string name="app_name">快玩捕鱼</string>
     <color name="WHITE">#ffffffff</color>
     <string name="errcode_success">发送成功</string>
 	<string name="errcode_cancel">发送取消</string>

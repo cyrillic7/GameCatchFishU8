@@ -1,4 +1,4 @@
-package com.tencent.tmgp;
+package com.tencent.tmgp.NewGameCatchFish;
 
 public final class Base64 {
 

@@ -72,6 +72,7 @@ void CU8sdkFunction::OnSwitchLogin()
 		userModel->setAccount("");
 		userModel->setPassword("");
 	}
+	//removeFromParent();
 	Director::sharedDirector()->replaceScene(LoginScene::create());
 
 	U8SDKInterface::getInstance()->login();
@@ -97,6 +98,7 @@ void CU8sdkFunction::OnLogout()
 		userModel->setAccount("");
 		userModel->setPassword("");
 	}
+	//removeFromParent();
 	Director::sharedDirector()->replaceScene(LoginScene::create());
 
 	U8SDKInterface::getInstance()->login();
@@ -117,6 +119,7 @@ void CU8sdkFunction::OnU8sdkLogin()
 std::string CU8sdkFunction::OnGetChannelid()
 {
 	std::string channelid = U8SDKInterface::getInstance()->getchannelId();
+	channelID = channelid;
 	log("OnU8sdkLogin%s", channelid.c_str());
 
 	return channelid;

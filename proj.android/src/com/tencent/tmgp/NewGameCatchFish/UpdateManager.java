@@ -1,4 +1,4 @@
-package com.tencent.tmgp;
+package com.tencent.tmgp.NewGameCatchFish;
 
 
 
@@ -10,7 +10,7 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.util.HashMap;
 
-import com.tencent.tmgp.R;
+import com.tencent.tmgp.NewGameCatchFish.R;
 
 import android.app.Activity;
 import android.app.AlertDialog;

@@ -101,10 +101,11 @@ bool LoginLayer::init()
 	btn_AccountLogin->setVisible(false);
 	btn_FastLogin->setVisible(false);
 	btn_QQLogin->setVisible(false);
+	btn_wxLogin->setVisible(false);
 
 	btn_wxLogin->addChild(wxLoginText);
 
-	btn_wxLogin->setVisible(false);
+	
 	return true;
 }
 

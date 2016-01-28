@@ -4,9 +4,8 @@ import android.app.Activity;
 import android.content.Intent;
 import android.widget.Toast;
 
-import com.tencent.tmgp.GameCatchFish;
-import com.tencent.tmgp.R;
-
+import com.tencent.tmgp.NewGameCatchFish.R;
+import com.tencent.tmgp.NewGameCatchFish.GameCatchFish;
 import com.tencent.mm.sdk.constants.ConstantsAPI;
 import com.tencent.mm.sdk.modelbase.BaseReq;
 import com.tencent.mm.sdk.modelbase.BaseResp;
