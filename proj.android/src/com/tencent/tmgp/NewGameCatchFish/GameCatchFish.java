@@ -614,7 +614,7 @@ public class GameCatchFish extends U8CocosActivity {
 	 * 
 	 */
 	public String getOutTradeNo() {
-		String key =GetOrderIDByPrefix("MFB");	
+		String key =GetOrderIDByPrefix("MZ");	
 		System.out.println("---TradeResult:"+key);
 		return key;
 	}
